@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(http://2018.igem.org/wiki/images/d/d4/T--Thessaloniki--font--flUhRq6tzZclQEJ-Vdg-IuiaDsNaIhQ8tQ.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Roboto Thin'), local('Roboto-Thin'), url(http://2018.igem.org/wiki/images/d/d1/T--Thessaloniki--font--KFOkCnqEu92Fr1MmgVxIIzQXKMny.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roboto Light'), local('Roboto-Light'), url(http://2018.igem.org/wiki/images/1/12/T--Thessaloniki--font--KFOlCnqEu92Fr1MmSU5fBBc-AMP6lQ.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(http://2018.igem.org/wiki/images/9/94/T--Thessaloniki--font--KFOmCnqEu92Fr1Mu4mxMKTU1Kg.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url(http://2018.igem.org/wiki/images/2/24/T--Thessaloniki--font--KFOlCnqEu92Fr1MmEU9fBBc-AMP6lQ.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--font--KFOlCnqEu92Fr1MmWUlfBBc-AMP6lQ.woff) format('woff');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Roboto Black'), local('Roboto-Black'), url(http://2018.igem.org/wiki/images/5/50/T--Thessaloniki--font--KFOlCnqEu92Fr1MmYUtfBBc-AMP6lQ.woff) format('woff');
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }

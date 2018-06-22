@@ -1,0 +1,208 @@
+#loader {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10000;
+    background-color: white;
+}
+
+#circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding-left: 50px;
+    animation: circle-twist 3s linear infinite;
+    z-index: -10;
+}
+
+#mask {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+
+@keyframes circle-twist {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#curve-one * {
+    border-color: #4A89DC;
+}
+
+#curve-two * {
+    border-color: #A0D468;
+}
+
+#curve-one,
+#curve-two {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+@keyframes left-twist {
+    from {
+        width: 40px;
+        margin-left: 0px;
+    }
+    to {
+        width: 0px;
+        margin-left: 40px;
+    }
+}
+
+@keyframes right-twist {
+    from {
+        width: 40px;
+    }
+    to {
+        width: 0px;
+    }
+}
+
+.left-bottom-curve {
+    height: 50px;
+    width: 50px;
+    border-left: solid 10px white;
+    border-bottom-left-radius: 50px;
+
+    animation: left-twist 1s linear infinite alternate;
+}
+
+.right-top-curve {
+    margin-left: 45px;
+    height: 50px;
+    width: 50px;
+    border-right: solid 10px white;
+    border-top-right-radius: 50px;
+
+    animation: right-twist 1s linear infinite alternate;
+}
+
+.right-bottom-curve {
+    margin-left: 45px;
+    height: 50px;
+    width: 50px;
+    border-right: solid 10px white;
+    border-bottom-right-radius: 50px;
+
+    animation: right-twist 1s linear infinite alternate;
+}
+
+.left-top-curve {
+    height: 50px;
+    width: 50px;
+    border-left: solid 10px white;
+    border-top-left-radius: 50px;
+
+    animation: left-twist 1s linear infinite alternate;
+}
+
+/* strands */
+
+@keyframes strandTop {
+    from {
+        width: 75px;
+        margin-left: 10px;
+        transform: rotate(0deg);
+    }
+    to {
+        width: 5px;
+        margin-left: 45px;
+        transform: rotate(40deg);
+    }
+}
+
+@keyframes strandMiddle {
+    from {
+        width: 95px;
+        margin-left: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        width: 5px;
+        margin-left: 45px;
+        transform: rotate(40deg);
+    }
+}
+
+@keyframes strandBottom {
+    from {
+        width: 75px;
+        margin-left: 10px;
+        border-bottom-right-radius: 10px transform: rotate(0deg);
+    }
+    to {
+        width: 5px;
+        margin-left: 45px;
+        border-bottom-right-radius: 0px;
+        transform: rotate(40deg);
+    }
+}
+
+.strand {
+    position: absolute;
+    height: 10px;
+}
+
+.strandA {
+    top: 20px;
+    animation: strandBottom 1s linear infinite alternate;
+    background: linear-gradient(to left, #967ADC 50%, #3BAFDA 50%);
+}
+
+.strandB {
+    top: 70px;
+    animation: strandTop 1s linear infinite alternate;
+    background: linear-gradient(to left, #8CC152 50%, #FFCE54 50%);
+}
+
+.strandC {
+    top: 95px;
+    animation: strandMiddle 1s linear infinite alternate;
+    background: linear-gradient(to left, #3BAFDA 50%, #ED5565 50%);
+
+}
+
+.strandD {
+    top: 120px;
+    animation: strandBottom 1s linear infinite alternate;
+    background: linear-gradient(to left, #FFCE54 50%, #967ADC 50%);
+}
+
+.strandE {
+    top: 170px;
+    animation: strandTop 1s linear infinite alternate;
+    background: linear-gradient(to left, #ED5565 50%, #8CC152 50%);
+}
+
+.gradient {
+    background: #1FA2FF;
+    background: -webkit-linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
+    background: linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
+}
+
+.card-box-white {
+    background-color: rgba(240, 240, 240, 0.4);
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto;
+}
+
+.round-border-20 {
+    border-radius: 20px
+}
+
+.round-border-10 {
+    border-radius: 10px
+}
