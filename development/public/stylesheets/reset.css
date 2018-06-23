@@ -59,4 +59,6 @@ body {
 
 #globalWrapper {
     font-size: unset;
+    padding-bottom: 0px;
+    height: 100vh;
 }
