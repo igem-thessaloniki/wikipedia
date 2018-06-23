@@ -15,5 +15,6 @@ let iGEM = {
             return true
         }
         return false
-    }
+    },
+    data: {}
 }

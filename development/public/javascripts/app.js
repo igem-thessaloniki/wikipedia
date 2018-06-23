@@ -1,13 +1,14 @@
 (async function (iGEM) {
-    await iGEM.callHook('loadHook')
+    await iGEM.callHook('loadHook', Vue)
 
     new Vue({
         el: '#q-app',
         data: function () {
-            return {
+            let data = Object.assign({
                 loaded: false,
-                drawerState: true
-            }
+                drawerState: true,
+            }, iGEM.data)
+            return data
         },
         mounted() {
             setTimeout(() => {
