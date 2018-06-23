@@ -35,174 +35,174 @@
                 </div>
             </q-page>
             <%- include('templates/layout-footer'); %>
-                <script id="member-card-template" type="text/x-template">
-                    <div>
-                        <q-card @click.native="opened = true" @mouseover.native="hover = true" @mouseout.native="hover = false" class="q-ma-md no-shadow member-card cursor-pointer">
-                            <q-card-media>
-                                <img class="member-card-image" :style="imageStyle" :src="member.photo" :alt="member.fullname + ' personal photo'">
-                            </q-card-media>
-                            <q-card-main>
-                                <div :class="textClass" :style="textStyle">
-                                    <b>
-                                        {{member.fullname}}
-                                    </b>
-                                    <p>
-                                        {{member.role}}
-                                    </p>
-                                </div>
-                            </q-card-main>
-                        </q-card>
+<script id="member-card-template" type="text/x-template">
+    <div>
+        <q-card @click.native="opened = true" @mouseover.native="hover = true" @mouseout.native="hover = false" class="q-ma-md no-shadow member-card cursor-pointer">
+            <q-card-media>
+                <img class="member-card-image" :style="imageStyle" :src="member.photo" :alt="member.fullname + ' personal photo'">
+            </q-card-media>
+            <q-card-main>
+                <div :class="textClass" :style="textStyle">
+                    <b>
+                        {{member.fullname}}
+                    </b>
+                    <p>
+                        {{member.role}}
+                    </p>
+                </div>
+            </q-card-main>
+        </q-card>
 
-                        <q-modal v-model="opened" :content-css="{minWidth: '60vw', minHeight: '80vh'}">
-                            <q-modal-layout>
-                                <q-toolbar slot="header">
-                                    <q-toolbar-title>
-                                        {{member.fullname}}
-                                    </q-toolbar-title>
-                                    <q-btn flat round icon="close" @click="opened = false" />
-                                </q-toolbar>
+        <q-modal v-model="opened" :content-css="{minWidth: '60vw', minHeight: '80vh'}">
+            <q-modal-layout>
+                <q-toolbar slot="header">
+                    <q-toolbar-title>
+                        {{member.fullname}}
+                    </q-toolbar-title>
+                    <q-btn flat round icon="close" @click="opened = false" />
+                </q-toolbar>
 
-                                <!-- <q-toolbar slot="footer">
-                            <q-toolbar-title>
-                            </q-toolbar-title>
-                            <q-btn color="primary" @click="opened = false" label="Close" />
-                        </q-toolbar> -->
+                <!-- <q-toolbar slot="footer">
+            <q-toolbar-title>
+            </q-toolbar-title>
+            <q-btn color="primary" @click="opened = false" label="Close" />
+        </q-toolbar> -->
 
-                                <div class="row gutter-md q-pa-lg">
-                                    <div class="col-md-5">
-                                        <img class="member-card-modal-image round-borders" :src="member.photo" :alt="member.fullname + ' personal photo'">
-                                    </div>
-                                    <div class="col-md-7 q-pl-md q-pr-md">
-                                        <h4 class="q-mt-sm q-mb-md">{{member.fullname}}</h4>
-                                        <!-- TODO <q-scroll-area> -->
-                                        <div v-html="member.body">
-                                        </div>
-                                        <!-- </q-scroll-area> -->
-                                    </div>
-                                </div>
-                            </q-modal-layout>
-                        </q-modal>
+                <div class="row gutter-md q-pa-lg">
+                    <div class="col-md-5">
+                        <img class="member-card-modal-image round-borders" :src="member.photo" :alt="member.fullname + ' personal photo'">
                     </div>
-                </script>
-                <script src="/javascripts/tweenlite.js"></script>
-                <script>
-                    iGEM.data = {
-                        members: [{
-                                fullname: 'Yvonni Giannoula',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/3/30/T--Thessaloniki--member--yvonni-g.png/480px-T--Thessaloniki--member--yvonni-g.png.jpeg',
-                                role: 'Team Leader & Wet Lab',
-                                quote: '',
-                                department: 'Department of Pharmacy - AUTH',
-                                body: '1',
-                            },
-                            {
-                                fullname: 'Yvonni Xesfiggi',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/8/83/T--Thessaloniki--member--yvonni-x.png/480px-T--Thessaloniki--member--yvonni-x.png.jpeg',
-                                role: 'Dry Lab & Human Practices',
-                                quote: '',
-                                department: 'Department of Chemical Engineers - AUTH',
-                                body: '2',
-                            },
-                            {
-                                fullname: 'Pantelis Kuriakidis',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/3/39/T--Thessaloniki--member--pantelis.png/480px-T--Thessaloniki--member--pantelis.png.jpeg',
-                                role: 'Dry Lab & Social Media',
-                                quote: '',
-                                department: 'Department of Computer Science - AUTH',
-                                body: '3',
-                            },
-                            {
-                                fullname: 'Panagiotis Karatakis',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/c/c4/T--Thessaloniki--member--panagiotis.png/480px-T--Thessaloniki--member--panagiotis.png.jpeg',
-                                role: 'Dry Lab & Web Developer',
-                                quote: '',
-                                department: 'Department of Computer Science - AUTH',
-                                body: '4',
-                            },
-                            {
-                                fullname: 'Alexander Dimitriou Giannopoulos',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/7/7d/T--Thessaloniki--member--alexander.png/480px-T--Thessaloniki--member--alexander.png.jpeg',
-                                role: 'Wet Lab',
-                                quote: '',
-                                department: 'Department of Pharmacy - AUTH',
-                                body: '5',
-                            },
-                            {
-                                fullname: 'Gregory Kurpizidis',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/5/5a/T--Thessaloniki--member--gregory.png/480px-T--Thessaloniki--member--gregory.png.jpeg',
-                                role: 'Wet Lab',
-                                quote: '',
-                                department: 'Department of Biology - AUTH',
-                                body: '6',
-                            },
-                            {
-                                fullname: 'John Alexopoulos',
-                                photo: 'http://2018.igem.org/wiki/images/thumb/5/5d/T--Thessaloniki--member--john.png/480px-T--Thessaloniki--member--john.png.jpeg',
-                                role: 'Wet Lab',
-                                quote: '',
-                                department: 'Department of Biology - AUTH',
-                                body: '7',
-                            }
-                        ]
+                    <div class="col-md-7 q-pl-md q-pr-md">
+                        <h4 class="q-mt-sm q-mb-md">{{member.fullname}}</h4>
+                        <!-- TODO <q-scroll-area> -->
+                        <div v-html="member.body">
+                        </div>
+                        <!-- </q-scroll-area> -->
+                    </div>
+                </div>
+            </q-modal-layout>
+        </q-modal>
+    </div>
+</script>
+<script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
+<script>
+    iGEM.data = {
+        members: [{
+                fullname: 'Yvonni Giannoula',
+                photo: 'http://2018.igem.org/wiki/images/thumb/3/30/T--Thessaloniki--member--yvonni-g.png/480px-T--Thessaloniki--member--yvonni-g.png.jpeg',
+                role: 'Team Leader & Wet Lab',
+                quote: '',
+                department: 'Department of Pharmacy - AUTH',
+                body: '1',
+            },
+            {
+                fullname: 'Yvonni Xesfiggi',
+                photo: 'http://2018.igem.org/wiki/images/thumb/8/83/T--Thessaloniki--member--yvonni-x.png/480px-T--Thessaloniki--member--yvonni-x.png.jpeg',
+                role: 'Dry Lab & Human Practices',
+                quote: '',
+                department: 'Department of Chemical Engineers - AUTH',
+                body: '2',
+            },
+            {
+                fullname: 'Pantelis Kuriakidis',
+                photo: 'http://2018.igem.org/wiki/images/thumb/3/39/T--Thessaloniki--member--pantelis.png/480px-T--Thessaloniki--member--pantelis.png.jpeg',
+                role: 'Dry Lab & Social Media',
+                quote: '',
+                department: 'Department of Computer Science - AUTH',
+                body: '3',
+            },
+            {
+                fullname: 'Panagiotis Karatakis',
+                photo: 'http://2018.igem.org/wiki/images/thumb/c/c4/T--Thessaloniki--member--panagiotis.png/480px-T--Thessaloniki--member--panagiotis.png.jpeg',
+                role: 'Dry Lab & Web Developer',
+                quote: '',
+                department: 'Department of Computer Science - AUTH',
+                body: '4',
+            },
+            {
+                fullname: 'Alexander Dimitriou Giannopoulos',
+                photo: 'http://2018.igem.org/wiki/images/thumb/7/7d/T--Thessaloniki--member--alexander.png/480px-T--Thessaloniki--member--alexander.png.jpeg',
+                role: 'Wet Lab',
+                quote: '',
+                department: 'Department of Pharmacy - AUTH',
+                body: '5',
+            },
+            {
+                fullname: 'Gregory Kurpizidis',
+                photo: 'http://2018.igem.org/wiki/images/thumb/5/5a/T--Thessaloniki--member--gregory.png/480px-T--Thessaloniki--member--gregory.png.jpeg',
+                role: 'Wet Lab',
+                quote: '',
+                department: 'Department of Biology - AUTH',
+                body: '6',
+            },
+            {
+                fullname: 'John Alexopoulos',
+                photo: 'http://2018.igem.org/wiki/images/thumb/5/5d/T--Thessaloniki--member--john.png/480px-T--Thessaloniki--member--john.png.jpeg',
+                role: 'Wet Lab',
+                quote: '',
+                department: 'Department of Biology - AUTH',
+                body: '7',
+            }
+        ]
+    }
+    iGEM.registerHook('loadHook', ([Vue]) => {
+        Vue.component('member-card', {
+            template: '#member-card-template',
+            props: {
+                member: {
+                    type: Object,
+                    required: true
+                }
+            },
+            computed: {
+                imageStyle() {
+                    return {
+                        'filter': `grayscale(${this.grey}%)`,
+                        'clip-path': `ellipse(${this.e_x}% ${this.e_y}% at center)`
                     }
-                    iGEM.registerHook('loadHook', ([Vue]) => {
-                        Vue.component('member-card', {
-                            template: '#member-card-template',
-                            props: {
-                                member: {
-                                    type: Object,
-                                    required: true
-                                }
-                            },
-                            computed: {
-                                imageStyle() {
-                                    return {
-                                        'filter': `grayscale(${this.grey}%)`,
-                                        'clip-path': `ellipse(${this.e_x}% ${this.e_y}% at center)`
-                                    }
-                                },
-                                textClass() {
-                                    return [this.top < -45 ? 'text-white' : 'text-dark']
-                                },
-                                textStyle() {
-                                    return {
-                                        'position': 'relative',
-                                        'top': `${this.top}px`
-                                    }
-                                }
-                            },
-                            watch: {
-                                hover(flag) {
-                                    if (flag) {
-                                        TweenLite.to(this.$data, 0.6, {
-                                            top: -75,
-                                            e_x: 100,
-                                            e_y: 100,
-                                            grey: 0
-                                        })
-                                    } else {
-                                        TweenLite.to(this.$data, 0.6, {
-                                            top: -10,
-                                            e_x: 50,
-                                            e_y: 50,
-                                            grey: 100
-                                        })
-                                    }
-                                }
-                            },
-                            data() {
-                                return {
-                                    opened: false,
-                                    hover: true,
-                                    top: -10,
-                                    e_x: 50,
-                                    e_y: 50,
-                                    grey: 100
-                                }
-                            }
+                },
+                textClass() {
+                    return [this.top < -45 ? 'text-white' : 'text-dark']
+                },
+                textStyle() {
+                    return {
+                        'position': 'relative',
+                        'top': `${this.top}px`
+                    }
+                }
+            },
+            watch: {
+                hover(flag) {
+                    if (flag) {
+                        TweenLite.to(this.$data, 0.6, {
+                            top: -75,
+                            e_x: 100,
+                            e_y: 100,
+                            grey: 0
                         })
-                    })
-                </script>
+                    } else {
+                        TweenLite.to(this.$data, 0.6, {
+                            top: -10,
+                            e_x: 50,
+                            e_y: 50,
+                            grey: 100
+                        })
+                    }
+                }
+            },
+            data() {
+                return {
+                    opened: false,
+                    hover: true,
+                    top: -10,
+                    e_x: 50,
+                    e_y: 50,
+                    grey: 100
+                }
+            }
+        })
+    })
+</script>
                 <%- include('templates/footer'); %>
 </body>
 
