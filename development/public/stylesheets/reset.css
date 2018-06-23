@@ -17,20 +17,46 @@
 
 body {
     background-color: white;
+    font: unset;
 }
 
-#bodyContent h1,
-#bodyContent h2,
-#bodyContent h3,
-#bodyContent h4,
-#bodyContent h5 {
+#HQ_page h1,
+#HQ_page h2,
+#HQ_page h3,
+#HQ_page h4,
+#HQ_page h5 {
+    color: unset;
+    font-family: unset;
     margin-bottom: 0px;
     padding-top: 0px;
     margin-top: 0px;
+}
+
+#HQ_page p {
+    color: unset;
+    font-size: unset;
+    font-family: unset;
+}
+
+#HQ_page {
+    color:unset;
+}
+
+#content {
+    color: unset;
+    line-height: unset;
+}
+
+#bodyContent {
+    color: unset;
 }
 
 .judges-will-not-evaluate {
     border: 4px solid #e4dede;
     padding: 2% !important;
     width: 92% !important;
+}
+
+#globalWrapper {
+    font-size: unset;
 }
