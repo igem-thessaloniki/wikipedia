@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+        <%- include('templates/header'); %>
+        <%- include('templates/layout-header'); %>
+        <q-page padding>
+            <div class="row justify-center">
+                <div class="col-md-6 col-lg-4">
+                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                </div>
+            </div>
+            <div class="row justify-center gutter-md">
+                <div class="col-lg-7 col-md-12">
+                    <div class="row">
+                        <div class="col-12 card-box-white round-border-20 q-pa-md">
+                            <h4 class="q-mt-xs">Why our project ?</h4>
+                            <p>Why we choose this project</p>
+                        </div>
+                        <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
+                            <h4 class="q-mt-xs">How ?</h4>
+                            <p>How do we achieve that</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="card-box-white round-border-20 q-pa-md">
+                        <h4 class="q-mt-xs">What ?</h4>
+                        <p>What does our project do ?</p>
+                    </div>
+                </div>
+            </div>
+        </q-page>
+        <%- include('templates/layout-footer'); %>
+        <script>
+            iGEM.registerHook('loadHook', function () {
+                console.log('loaded')
+            })
+        </script>
+        <%- include('templates/footer'); %>
+  </body>
+</html>

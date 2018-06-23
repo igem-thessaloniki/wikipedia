@@ -10,4 +10,8 @@ router.get('/team', function(req, res, next) {
   res.render('team');
 });
 
+router.get('/description', function(req, res, next) {
+  res.render('description');
+});
+
 module.exports = router;
