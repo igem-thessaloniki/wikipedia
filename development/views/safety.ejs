@@ -4,10 +4,13 @@
 <body>
     <%- include('templates/header'); %>
         <%- include('templates/layout-header'); %>
-            <q-page padding class="text-justify">
-                <div class="flex flex-center q-mb-md">
-                    <div class="col-md-6 card-box-white round-border-10 q-pa-md">
-                        <h4 class="q-mt-xs">Safety</h4>
+            <q-page class="text-justify">
+                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                    <h1 slot="loading">Safety</h1>
+                    <h1>Safety</h1>
+                </q-parallax>
+                <div class="flex flex-center q-mb-md q-mt-md">
+                    <div class="col-md-6 round-border-10 q-pa-md">
                         <p>
                             <strong>
                                 Our number one priority is to ensure the sefety of our personel, and the enviroment around us.
@@ -24,14 +27,11 @@
                             <q-carousel-slide>
                                 <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png" alt="lab photo 2">
                             </q-carousel-slide>
-                            <q-carousel-slide>
-                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg" alt="lab photo 3">
-                            </q-carousel-slide>
                         </q-carousel>
                     </div>
                 </div>
                 <div class="flex flex-center q-mb-md">
-                    <div class="col-md-6 card-box-white round-border-10 q-pa-md">
+                    <div class="col-md-6 round-border-10 q-pa-md">
                         <p>
                             Before doing any expirements in the lab, our team have been <strong>adequately trained</strong> from the lab personnel to
                             perform experiments with <strong>minimal risks</strong> and <strong>manage problems</strong> that might arise. Moreover
@@ -55,8 +55,8 @@
                     </div>
                 </div>
                 <div class="flex flex-center q-mb-md">
-                    <div class="col-md-6 card-box-white round-border-10 q-pa-md">
-                        <h5 class=" q-mt-xs q-mb-md">About the organisms we are using</h5>
+                    <div class="col-md-6 round-border-10 q-pa-md">
+                        <h4 class=" q-mt-xs q-mb-md">About the organisms we are using</h4>
                         <p>In our project we will use E. coli K-12 derived strains</p>
                         <p>
                             E. coli K-12 derived strains pose little to no threat on healthy adults but may be harmful to
