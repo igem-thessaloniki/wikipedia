@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+        <%- include('templates/layout-header'); %>
+            <q-page padding class="text-justify">
+                <h1>Safety</h1>
+            </q-page>
+        <%- include('templates/layout-footer'); %>
+        <script>
+            iGEM.registerHook('loadHook', function () {
+                console.log('loaded')
+            })
+        </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
