@@ -1,56 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <body>
-        <%- include('templates/header'); %>
+
+<body>
+    <%- include('templates/header'); %>
         <%- include('templates/layout-header'); %>
-        <q-page padding>
-            <div class="row justify-center">
-                <div class="col-md-6 col-lg-4">
-                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+            <q-page padding class="text-justify">
+                <div class="row justify-center">
+                    <div class="col-md-6 col-lg-4">
+                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-center gutter-md">
-                <div class="col-lg-7 col-md-12">
-                    <div class="row">
-                        <div class="col-12 card-box-white round-border-20 q-pa-md">
-                            <h4 class="q-mt-xs">Why our project ?</h4>
-                            <p>Why we choose this project</p>
+                <div class="row justify-center gutter-md">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row">
+                            <div class="col-12 card-box-white round-border-20 q-pa-md">
+                                <h4 class="q-mt-xs">What is the problem ?</h4>
+                                <p>Biological systems are unpredictable, noisy and difficult to maintain stable, even under
+                                    standardized conditions, thus making the controlled production of a substance a difficult
+                                    task. Combined with the fickleness and stochasticity associated with gene expression
+                                    even at the single cell level, fluctuations of the production rate of a desired protein
+                                    are usually inevitable. </p>
+                            </div>
+                            <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
+                                <h4 class="q-mt-xs">How are we going to solve it ?</h4>
+                                <p>Our aim is to design a synthetic biology circuit which guarantees a constant protein expression
+                                    pattern and can also be tuned to meet the desired expression levels. We apply control
+                                    theory to design promoters which maintain constant levels of expression at any copy number.
+                                    Furthermore, to make our system a dynamic and versatile tool with broader manufacturing
+                                    and therapeutic application capabilities for future research projects, we introduce an
+                                    element that makes our system tunable. We hope to provide a foundational advance tool
+                                    that enables fine tuning of complex metabolic pathways, limits the fluctuation of protein
+                                    expression and decouples it from the plasmid/gene copy number. Specifically, as shown
+                                    in Figure 1, the expression of the Gene of Interest (GOI) is under the negative control
+                                    of a repressor. If the repression is perfectly non-cooperative, GOI expression is decoupled
+                                    from the plasmid copy number.
+                                </p>
+                            </div>
+                            <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
+                                <div class="flex flex-center">
+                                    <img class="responsive-image" style="width: 50%" src="http://2018.igem.org/wiki/images/6/6c/T--Thessaloniki--description--figure-1.png"
+                                        alt="model image">
+                                </div>
+                                <p>
+                                    <b>Fig. 1</b> Representation of the incoherent feed-forward loop where both the repressor
+                                    and the GOI (GFP in this case) expression rates are dependent on the copy number of their
+                                    plasmid backbone. The repressor negatively regulates the expression of the GOI, resulting
+                                    in its stable concentration independent of copy number.
+                                </p>
+                            </div>
                         </div>
-                        <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
-                            <h4 class="q-mt-xs">How ?</h4>
-                            <p>How do we achieve that</p>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="card-box-white round-border-20 q-pa-md">
+                            <h4 class="q-mt-xs">What is the significance of this synthetic biology circuit?</h4>
+                            <p>
+                                DNA copy number is a great source of uncertainty in genetic systems. By decoupling gene expression from plasmid copy number,
+                                a system more robust and stable can be created. We are planning on creating a library of
+                                well characterized promoters, available for every scientist to use in order to achieve stable
+                                and tunable protein expression and diminish interlaboratory variations so as that the experimental
+                                results from different laboratories can be easily comparable. The system will also have an
+                                impact on metabolic engineering, because the use of stabilized promoters enables a metabolic
+                                pathway to be integrated into the genome with no need for re-tuning. On an industrial level,
+                                this synthetic biology circuit will present a new way to increase quality and efficiency
+                                in protein production. Another element that makes our system unique is the fact that fine
+                                tuning can be achieved so us we can externally determine the rate of gene expression. This
+                                gives us the opportunity to not only stabilize the production of the protein of interest,
+                                but also to choose the specific amount of expression that is required. Last but not least,
+                                the system can find a very useful application in lowering the burden that is generated in
+                                bacteria because of the biotechnologically produced proteins. Μaintenance and expression
+                                of synthetic constructs add an unnatural load to host cells, typically known as burden. Although
+                                some burden stems from the specific roles of the proteins encoded by the constructs, most
+                                burden placed on cells arises simply from the consumption of finite cellular resources during
+                                the expression of construct genes. With our system we could lower the amount of burden for
+                                the bacteria with precision genetic engineering. For example, by minimizing the antibiotic
+                                resistance cassette expression we can significantly bypass some of the resource sharing required.
+                                As it confers robustness, even in changed environmental conditions, it offers an interesting
+                                way to maintain growth and expression in the dynamic and heterogeneous conditions typically
+                                seen in scaled-up bioproduction.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-12">
-                    <div class="card-box-white round-border-20 q-pa-md">
-                        <h4 class="q-mt-xs">What ?</h4>
-                        <p>What does our project do ?</p>
-                        <ul>
-                            <li>One</li>
-                            <li>Two</li>
-                            <li>Three</li>
-                        </ul>
+                <div class="row justify-center q-mt-lg">
+                    <div class="col-lg-5 col-xs-12">
+                        <div class="card-box-white round-border-20 q-pa-md">
+                            <h4 class="q-mt-xs">Summary</h4>
+                            <p>
+                                We aim to create a robust, dynamic, controllable system that will be used as a synthetic biology tool for a significant amount
+                                of applications and projects to come.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-center">
-                <div class="col-md-9">
-                    <h5 class="q-mb-xs">References</h5>
-                    <ul>
-                        <li>One</li>
-                        <li>Two</li>
-                        <li>Three</li>
-                    </ul>
+                <div class="row justify-center">
+                    <div class="col-md-9">
+                        <h5 class="q-mb-xs">References</h5>
+                        <ol>
+                            <li>Ceroni, F. et al. Burden-driven feedback control of gene expression. Nat. Methods 15, 387–393
+                                (2018)
+                            </li>
+                            <li>Zucca, S., Pasotti, L., Mazzini, G., Cusella De Angelis, M. G. & Magni, P. Characterization of
+                                an inducible promoter in different DNA copy number conditions. BMC Bioinformatics 13, (2012)</li>
+                        </ol>
+                    </div>
                 </div>
-            </div>
-        </q-page>
-        <%- include('templates/layout-footer'); %>
-        <script>
-            iGEM.registerHook('loadHook', function () {
-                console.log('loaded')
-            })
-        </script>
-        <%- include('templates/footer'); %>
-  </body>
+            </q-page>
+            <%- include('templates/layout-footer'); %>
+                <script>
+                    iGEM.registerHook('loadHook', function () {
+                        console.log('loaded')
+                    })
+                </script>
+                <%- include('templates/footer'); %>
+</body>
+
 </html>
