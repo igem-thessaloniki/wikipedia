@@ -1,4 +1,4 @@
-<div id="q-app">
+<div id="q-app" style="margin-top: 16px">
     <transition leave-active-class="animated fadeOut">
         <div id="loader" v-if="!loaded">
             <div id="circle">
@@ -27,17 +27,19 @@
         </div>
     </transition>
     <q-layout view="lHh Lpr fff" v-show="loaded">
-        <q-layout-header style="margin-top: 16px">
-            <q-toolbar>
-                <q-btn flat round dense @click="drawerState = !drawerState" icon="menu"></q-btn>
+        <div class="fixed-top-left" style="margin-top: 16px; z-index: 10;">
+            <q-btn flat dense size="lg" style="background-color: #ff8a22" @click="drawerState = !drawerState" icon="menu" aria-label="Menu"></q-btn>
+        </div>
+        <!-- <q-layout-header style="margin-top: 16px" class="no-shadow"> -->
+            <!-- <q-toolbar shrink> -->
 
-                <q-toolbar-title>
+                <!-- TODO -->
+                <!-- <q-toolbar-title>
                     iGEM Thessaloniki
-                    <!-- TODO -->
                     <div slot="subtitle">Hello Sun :D</div>
-                </q-toolbar-title>
-            </q-toolbar>
-        </q-layout-header>
+                </q-toolbar-title> -->
+            <!-- </q-toolbar> -->
+        <!-- </q-layout-header> -->
 
         <q-layout-drawer v-model="drawerState" behavior="mobile">
             <q-list no-border link inset-delimiter>
