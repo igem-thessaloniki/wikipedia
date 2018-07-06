@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+        <%- include('templates/layout-header'); %>
+            <q-page class="text-justify">
+                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                    <h1 slot="loading">Public Engament</h1>
+                    <h1>Public Engament</h1>
+                </q-parallax>
+                <div class="flex flex-center q-mb-md q-mt-md">
+                    <div class="col-md-6 round-border-10 q-pa-md">
+                        <p>
+                            <!-- TODO -->
+                            <strong>
+                                Text About Public Engament and Education
+                            </strong>
+                        </p>
+                        <!-- TODO -->
+                        <!-- <q-carousel class="text-white" color="white" autoplay quick-nav infinite>
+                            <q-carousel-slide>
+                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png" alt="lab photo 1">
+                            </q-carousel-slide>
+                            <q-carousel-slide>
+                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png" alt="lab photo 2">
+                            </q-carousel-slide>
+                        </q-carousel> -->
+                    </div>
+                </div>
+                <div class="flex flex-center q-mb-md">
+                    <div class="col-xl-6 col-lg-8 col-md-10 q-pa-md">
+                        <div class="row gutter-md">
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6"></event-card>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-center q-mb-md">
+                    <div class="col-md-6 q-pa-md">
+
+                    </div>
+                </div>
+            </q-page>
+        <%- include('templates/layout-footer'); %>
+        <script id="event-card-template" type="text/x-template">
+            <div>
+                <q-card inline @mouseover.native="hover = true" @mouseout.native="hover = false" :class="computedClasses" class="cursor-pointer" :style="computedStyles">
+                    <q-card-media>
+                        <img class="responsive-image" src="https://quasar-framework.org/quasar-play/android/statics/mountains.jpg" alt="mountains">
+                    </q-card-media>
+                    <q-card-title>
+                        Card Title
+                    </q-card-title>
+                    <q-card-main>
+                        Card Content
+                        {{hover ? '1': '0'}}
+                    </q-card-main>
+                </q-card>
+            </div>
+        </script>
+        <script>
+            iGEM.registerHook('loadHook', function ([Vue]) {
+                Vue.component('event-card', {
+                    template: '#event-card-template',
+                    computed: {
+                        computedClasses () {
+                            let classes = []
+                            if (this.hover) {
+                                classes.push('shadow-24')
+                            }
+                            return classes
+                        },
+                        computedStyles () {
+                            let styles = {}
+                            if (this.hover && Quasar.plugins.Platform.is.desktop) {
+                                styles.transform = 'scale(1.1)'
+                            }
+                            return styles
+                        }
+                    },
+                    data () {
+                        return {
+                            hover: false
+                        }
+                    }
+                })
+            })
+        </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>

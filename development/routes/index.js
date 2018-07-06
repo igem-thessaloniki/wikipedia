@@ -18,4 +18,8 @@ router.get('/safety', function(req, res, next) {
   res.render('safety');
 });
 
+router.get('/public_engagement', function(req, res, next) {
+  res.render('public-engagement');
+})
+
 module.exports = router;
