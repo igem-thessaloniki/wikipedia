@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="row justify-center">
-                    <h4>Meet The Team</h4>
+                    <h4 :class="rM('text-dark', 'text-light')">Meet The Team</h4>
                 </div>
                 <div class="row justify-center">
                     <q-carousel class="col-md-6" arrows infinite quick-nav color="white">
@@ -42,11 +42,11 @@
                     </q-carousel>
                 </div>
                 <div class="row justify-center">
-                    <p class="col-md-6 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, facilis. Aut vitae minus, nisi ipsum non
+                    <p class="col-md-6 text-center" :class="rM('text-dark', 'text-white')">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, facilis. Aut vitae minus, nisi ipsum non
                         libero, eveniet quaerat delectus tempore magni sapiente ex obcaecati tenetur eligendi et beatae odit.</p>
                 </div>
                 <div class="row justify-center">
-                    <h4>Team Members</h4>
+                    <h4 :class="rM('text-dark', 'text-light')">Team Members</h4>
                 </div>
                 <div class="row justify-center">
                     <div class="col-xl-7 col-md-9">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="row justify-center">
-                    <h4>Instructors & Advisors</h4>
+                    <h4 :class="rM('text-dark', 'text-light')">Instructors & Advisors</h4>
                 </div>
             </q-page>
             <%- include('templates/layout-footer'); %>
