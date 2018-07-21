@@ -185,13 +185,11 @@
 }
 
 .gradient {
-    background: #1FA2FF;
-    background: -webkit-linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
-    background: linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
+    background-color: #280027;
 }
 
 .card-box-white {
-    background-color: rgba(240, 240, 240, 0.4);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .responsive-image {

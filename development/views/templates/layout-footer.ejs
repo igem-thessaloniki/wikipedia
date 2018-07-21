@@ -1,3 +1,8 @@
-</q-page-container>
-</q-layout>
+        </q-page-container>
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn style="background-color: #ff8a22" fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop" >
+            <q-icon name="keyboard_arrow_up" />
+            </q-btn>
+        </q-page-sticky>
+    </q-layout>
 </div>

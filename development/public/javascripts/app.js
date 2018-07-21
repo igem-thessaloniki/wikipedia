@@ -7,6 +7,7 @@
             let data = Object.assign({
                 loaded: false,
                 drawerState: true,
+                nightMode: false,
             }, iGEM.data)
             return data
         },
@@ -18,6 +19,15 @@
         methods: {
             launch: function (url) {
                 window.open(url, '_self')
+            },
+            resolveMode (dayClass, nightClass) {
+                if (this.nightMode) {
+                    return nightClass
+                }
+                return dayClass
+            },
+            rM (dC, nC) {
+                return this.resolveMode(dC, nC)
             }
         }
     })
