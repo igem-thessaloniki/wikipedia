@@ -18,4 +18,13 @@ router.get('/safety', function(req, res, next) {
   res.render('safety');
 });
 
+router.get('/public_engagement', function(req, res, next) {
+  res.render('public-engagement');
+})
+
+router.get('/interlab', function(req, res, next) {
+  res.render('interlab');
+})
+
+
 module.exports = router;

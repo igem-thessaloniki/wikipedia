@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+        <%- include('templates/layout-header'); %>
+            <q-page class="text-justify" :class="rM('text-dark', 'text-light')">
+                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                    <h1 slot="loading">Interlab</h1>
+                    <h1>Interlab</h1>
+                </q-parallax>
+                <div class="flex flex-center q-mb-md">
+                    <div class="col-md-6 round-border-10 q-pa-md">
+                        <h3>What is Interlab ?</h3>
+                        <p>
+                            Interlaboratory comparisons help teams and organizations to calibrate their equipment and deliver accurate results.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-center q-mb-md">
+                    <div class="col-md-6 round-border-10 q-pa-md">
+                        <h4 class=" q-mt-xs q-mb-md">About the organisms we are using</h4>
+                        <p>In our project we will use E. coli K-12 derived strains</p>
+                        <p>
+                            E. coli K-12 derived strains pose little to no threat on healthy adults but may be harmful to
+                            immunocompromised or otherwise susceptible individuals.
+                        </p>
+                    </div>
+                </div>
+            </q-page>
+        <%- include('templates/layout-footer'); %>
+        <script>
+            iGEM.registerHook('loadHook', function () {
+                console.log('loaded')
+            })
+        </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
