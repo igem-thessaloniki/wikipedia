@@ -176,7 +176,11 @@
                     <q-item-side icon="call_made"></q-item-side>
                     <q-item-main label="Judging Form"></q-item-main>
                 </q-item>
+
+                <q-item>
+                    <q-toggle v-model="nightMode" :label="rM('Day Mode', 'Night Mode')" />
+                </q-item>
             </q-list>
         </q-layout-drawer>
 
-        <q-page-container class="gradient">
+        <q-page-container :class="[rM('bg-indigo-1', 'gradient')]">

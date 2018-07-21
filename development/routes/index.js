@@ -26,5 +26,4 @@ router.get('/interlab', function(req, res, next) {
   res.render('interlab');
 })
 
-
 module.exports = router;
