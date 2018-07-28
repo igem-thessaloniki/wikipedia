@@ -11,10 +11,17 @@
             }, iGEM.data)
             return data
         },
+        watch: {
+            nightMode(mode) {
+                iGEM.callHook('nightModeHook', mode)
+            }
+        },
         mounted() {
             setTimeout(() => {
                 this.loaded = true
+                iGEM.callHook('loadedHook', this)
             }, 100)
+            iGEM.callHook('mountHook', this)
         },
         methods: {
             launch: function (url) {

@@ -5,33 +5,539 @@
     <%- include('templates/header'); %>
         <%- include('templates/layout-header'); %>
             <q-page class="text-justify" :class="rM('text-dark', 'text-light')">
-                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <q-parallax class="text-dark" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
                     <h1 slot="loading">Interlab</h1>
                     <h1>Interlab</h1>
                 </q-parallax>
-                <div class="flex flex-center q-mb-md">
-                    <div class="col-md-6 round-border-10 q-pa-md">
-                        <h3>What is Interlab ?</h3>
+                <div class="row justify-center q-mb-md">
+                    <div class="col-md-10 col-lg-8 round-border-10 q-pa-md">
+                        <h3>Interlab Study: CFU (Colony Forming Units)</h3>
                         <p>
-                            Interlaboratory comparisons help teams and organizations to calibrate their equipment and deliver accurate results.
+                            This year, for the interlaboratory study, teams measure CFU/ml/0.1OD600 in addition to the standard Plate Reader
+                            fluorescence measurements as was the case in previous years. Here, we document the results of our CFU measurements.
+                            The protocol proposed at pages 13-14 of the interlab .pdf file provided in the interlab page at igem.org, “Protocol:
+                            Colony Forming Units per 0.1 OD600 E. coli cultures” was faithfully followed.
+                        </p>
+                        <p>
+                            DH5α E. Coli cells that contained either the Positive Control (BBa_I20270) or the Negative Control (BBa_R0040)
+                            were diluted to OD600 = 0.1 and were, after a series of dilutions, plated at Chloramphenicol 25μg/ml LB agar plates
+                            for 3 dilutions (D3-D5). This was repeated 3 times from the same colony scale-up (triplicates), for 2 colony picks,
+                            for each of the Positive and Negative Control. In total, 36 plates were prepared and counted for number of colonies,
+                            each formed from a single cell, thus measuring a fraction of the number of cells on the starting dilute (CFU/ml).
+                            Knowing the Dilution Factor for each of the Dilute series we can calculate the number of cells the initial OD600=0.1
+                            solution contained, and thus the number of cells per OD600 (CFU/ml/OD600).
+                        </p>
+                        <p>
+                            The Transformations were performed on Frozen Competent DH5α cells (7/12). The CFU process (dilutions and plating)
+                            took place on 14th of July. The next day colonies were counted. All protocols followed were provided by iGEM.
                         </p>
                     </div>
                 </div>
-                <div class="flex flex-center q-mb-md">
-                    <div class="col-md-6 round-border-10 q-pa-md">
-                        <h4 class=" q-mt-xs q-mb-md">About the organisms we are using</h4>
-                        <p>In our project we will use E. coli K-12 derived strains</p>
-                        <p>
-                            E. coli K-12 derived strains pose little to no threat on healthy adults but may be harmful to
-                            immunocompromised or otherwise susceptible individuals.
-                        </p>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <h1>Results</h1>
+                        <div id="chart-1" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-2" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-3" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-4" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-5" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-6" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-7" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="q-pa-md col-md-10 col-lg-8">
+                        <div id="chart-8" style="width: 100%; height: 400px"></div>
+                    </div>
+                </div>
+                <div class="row justify-center q-mb-md">
+                    <div class="col-md-10 col-lg-8 round-border-10 q-pa-md">
+                            <h4>
+                                Possible causes of inaccuracies of the results observed might be:
+                            </h4>
+                        <ol>
+                            <li>
+                                Insufficient vortexing of the dilutes before the plating process
+                                or during the dilutions. The dilutes may have been left enough time
+                                after the vortex process to become inhomogeneous, thus resulting in
+                                unrepresentative dilutions.
+                            </li>
+                            <li>
+                                Inaccuracies of the pipettes and/or the pipetting process might have led to wrong diluting and plating.
+                            </li>
+                            <li>
+                                Varying time intervals between the first dilution and the plating
+                                process might have allowed the bacterial to grow over the desired
+                                0.1 OD600 value, resulting in a number of colonies unrepresentative
+                                of the initial OD600=0.1 starting sample.
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </q-page>
         <%- include('templates/layout-footer'); %>
+        <script src="/javascripts/lodash.js"></script>
+        <script src="/javascripts/echarts.js"></script>
+        <script src="/javascripts/echarts-theme.js"></script>
+        <script src="/javascripts/echarts-datatool.js"></script>
+        <!-- <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/lodash.js&action=raw&ctype=text/javascript"></script>
+        <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/echarts.js&action=raw&ctype=text/javascript"></script>
+        <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/echarts-theme.js&action=raw&ctype=text/javascript"></script>
+        <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/echarts-datatool.js&action=raw&ctype=text/javascript"></script> -->
+
+
         <script>
-            iGEM.registerHook('loadHook', function () {
-                console.log('loaded')
+            iGEM.registerHook('loadedHook', ([app]) => {
+                let theme = 'default'
+                let charts = []
+                let chartConfigs = [
+                    {
+                        dom: 'chart-1',
+                        option: {
+                            title: {
+                                text: 'Fluorescein Standard Curve'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Fluorescein Concentration (uM)' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {},
+                            yAxis: {
+                                name: 'Fluorescence',
+                            },
+                            series: [{
+                                name: 'Fluorescein Concentration (uM)',
+                                type: 'line',
+                                smooth: true,
+                                data: [
+                                    [0.0, 3.870E+02],
+                                    [0.0098, 1.574E+04],
+                                    [0.0195, 3.041E+04],
+                                    [0.039, 5.571E+04],
+                                    [0.078, 1.100E+05],
+                                    [0.156, 1.626E+05],
+                                    [0.313, 2.886E+05],
+                                    [0.625, 4.323E+05],
+                                    [1.25, 4.458E+05],
+                                    [2.5, 4.456E+05],
+                                    [5, 4.456E+05],
+                                    [10, 4.462E+05],
+                                ]
+                            }]
+                        }
+                    },
+                    {
+                        dom: 'chart-2',
+                        option: {
+                            title: {
+                                text: 'Fluorescein Standard Curve (log scale)'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Fluorescein Concentration (uM)' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'log'
+                            },
+                            yAxis: {
+                                name: 'Fluorescence',
+                                type: 'log'
+                            },
+                            series: [{
+                                name: 'Fluorescein Concentration (uM)',
+                                type: 'line',
+                                smooth: true,
+                                data: [
+                                    // [0.0, 3.870E+02],
+                                    [0.0098, 1.574E+04],
+                                    [0.0195, 3.041E+04],
+                                    [0.039, 5.571E+04],
+                                    [0.078, 1.100E+05],
+                                    [0.156, 1.626E+05],
+                                    [0.313, 2.886E+05],
+                                    [0.625, 4.323E+05],
+                                    [1.25, 4.458E+05],
+                                    [2.5, 4.456E+05],
+                                    [5, 4.456E+05],
+                                    [10, 4.462E+05],
+                                ]
+                            }]
+                        }
+                    },
+                    {
+                        dom: 'chart-3',
+                        option: {
+                            title: {
+                                text: 'Particle Standard Curve'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Particle Count / 100 uL' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                            },
+                            yAxis: {
+                                name: 'Abs 600'
+                            },
+                            series: [{
+                                name: 'Particle Count / 100 uL',
+                                type: 'line',
+                                smooth: true,
+                                data: [
+                                    [0, 0.027],
+                                    [2.30E+05, 0.027],
+                                    [4.60E+05, 0.028],
+                                    [9.19E+05, 0.028],
+                                    [1.84E+06, 0.030],
+                                    [3.68E+06, 0.034],
+                                    [7.35E+06, 0.042],
+                                    [1.47E+07, 0.059],
+                                    [2.94E+07, 0.099],
+                                    [5.88E+07, 0.159],
+                                    [1.18E+08, 0.297],
+                                    [2.35E+08, 0.542],
+                                ]
+                            }]
+                        }
+                    },
+                    {
+                        dom: 'chart-4',
+                        option: {
+                            title: {
+                                text: 'Particle Standard Curve (log scale)'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Particle Count / 100 uL' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'log'
+                            },
+                            yAxis: {
+                                name: 'Abs 600',
+                                type: 'log'
+                            },
+                            series: [{
+                                name: 'Particle Count / 100 uL',
+                                type: 'line',
+                                smooth: true,
+                                data: [
+                                    [2.30E+05, 0.027],
+                                    [4.60E+05, 0.028],
+                                    [9.19E+05, 0.028],
+                                    [1.84E+06, 0.030],
+                                    [3.68E+06, 0.034],
+                                    [7.35E+06, 0.042],
+                                    [1.47E+07, 0.059],
+                                    [2.94E+07, 0.099],
+                                    [5.88E+07, 0.159],
+                                    [1.18E+08, 0.297],
+                                    [2.35E+08, 0.542],
+                                ]
+                            }]
+                        }
+                    },
+                    {
+                        dom: 'chart-5',
+                        option: {
+                            title: {
+                                text: 'Fluorescence T = 0'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Colony 1', 'Colony 2' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'category',
+                                axisLabel: {
+                                    rotate: 20
+                                },
+                                data: ['Device 1', 'Device 2', 'Device 3', 'Device 4', 'Device 5', 'Device 6', 'Neg. Control', 'Pos. Control', 'LB + Chlor (blank)']
+                            },
+                            yAxis: {},
+                            series: [
+                                {
+                                    name: 'Colony 1',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [52571, 49242, 58728, 60945, ],
+                                        [59951, 48151, 56736, 60757, ],
+                                        [56183, 46015, 52417, 52787, ],
+                                        [66984, 48627, 59087, 62548, ],
+                                        [62046, 54804, 59763, 67147, ],
+                                        [59216, 55185, 51677, 54482, ],
+                                        [44557, 44094, 41966, 48830, ],
+                                        [48389, 44966, 37393, 46357, ],
+                                        [50644, 49379, 49691, 48756, ],
+                                    ]).boxData
+                                },
+                                {
+                                    name: 'Colony 2',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [55200, 60264, 57557, 57491, ],
+                                        [56246, 55461, 50761, 54233, ],
+                                        [59438, 45414, 54199, 51738, ],
+                                        [64633, 68580, 60937, 67063, ],
+                                        [73915, 67105, 63872, 65449, ],
+                                        [56201, 53374, 44588, 42382, ],
+                                        [40834, 41547, 29739, 38321, ],
+                                        [45408, 43798, 48522, 46420, ],
+                                        [49022, 48344, 38050, 42382, ],
+                                    ]).boxData
+                                },
+                            ]
+                        }
+                    },
+                    {
+                        dom: 'chart-6',
+                        option: {
+                            title: {
+                                text: 'Fluorescence T = 6'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Colony 1', 'Colony 2' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'category',
+                                axisLabel: {
+                                    rotate: 20
+                                },
+                                data: ['Device 1', 'Device 2', 'Device 3', 'Device 4', 'Device 5', 'Device 6', 'Neg. Control', 'Pos. Control', 'LB + Chlor (blank)']
+                            },
+                            yAxis: {},
+                            series: [
+                                {
+                                    name: 'Colony 1',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [65226, 66585, 64610, 65305, ],
+                                        [97126, 98098, 91545, 98139, ],
+                                        [57290, 47581, 42107, 52695, ],
+                                        [88446, 96225, 96465, 92678, ],
+                                        [59205, 57364, 57180, 58386, ],
+                                        [70671, 79026, 73784, 74330, ],
+                                        [48113, 50826, 50029, 52215, ],
+                                        [84826, 77768, 78020, 77345, ],
+                                        [44252, 42884, 44180, 47211, ],
+                                    ]).boxData
+                                },
+                                {
+                                    name: 'Colony 2',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [54914, 53044, 53216, 54939, ],
+                                        [52447, 46734, 48611, 48943, ],
+                                        [49169, 50711, 50028, 51341, ],
+                                        [101129, 112835, 110044, 112890, ],
+                                        [64933, 64492, 63229, 71513, ],
+                                        [68186, 77599, 75624, 75339, ],
+                                        [50040, 53727, 55870, 52338, ],
+                                        [72575, 75597, 75673, 78890, ],
+                                        [47645, 41589, 46230, 37653, ],
+                                    ]).boxData
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        dom: 'chart-7',
+                        option: {
+                            title: {
+                                text: 'Abs600 T = 0'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Colony 1', 'Colony 2' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'category',
+                                axisLabel: {
+                                    rotate: 20
+                                },
+                                data: ['Device 1', 'Device 2', 'Device 3', 'Device 4', 'Device 5', 'Device 6', 'Neg. Control', 'Pos. Control', 'LB + Chlor (blank)']
+                            },
+                            yAxis: {},
+                            series: [
+                                {
+                                    name: 'Colony 1',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [0.044, 0.038, 0.047, 0.041, ],
+                                        [0.068, 0.044, 0.044, 0.043, ],
+                                        [0.043, 0.042, 0.042, 0.041, ],
+                                        [0.047, 0.038, 0.042, 0.046, ],
+                                        [0.039, 0.039, 0.047, 0.042, ],
+                                        [0.043, 0.042, 0.041, 0.04, ],
+                                        [0.043, 0.039, 0.038, 0.045, ],
+                                        [0.067, 0.039, 0.034, 0.039, ],
+                                        [0.038, 0.036, 0.04, 0.037, ],
+                                    ]).boxData
+                                },
+                                {
+                                    name: 'Colony 2',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [0.042, 0.042, 0.041, 0.043, ],
+                                        [0.039, 0.039, 0.038, 0.039, ],
+                                        [0.045, 0.041, 0.042, 0.045, ],
+                                        [0.042, 0.042, 0.041, 0.042, ],
+                                        [0.042, 0.041, 0.04, 0.041, ],
+                                        [0.042, 0.041, 0.042, 0.042, ],
+                                        [0.039, 0.042, 0.035, 0.039, ],
+                                        [0.037, 0.038, 0.044, 0.04, ],
+                                        [0.041, 0.036, 0.037, 0.037, ],
+                                    ]).boxData
+                                },
+                            ]
+                        }
+                    },
+                    {
+                        dom: 'chart-8',
+                        option: {
+                            title: {
+                                text: 'Abs600 T = 6'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:[ 'Colony 1', 'Colony 2' ],
+                                bottom: 0,
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            xAxis: {
+                                type: 'category',
+                                axisLabel: {
+                                    rotate: 20
+                                },
+                                data: ['Device 1', 'Device 2', 'Device 3', 'Device 4', 'Device 5', 'Device 6', 'Neg. Control', 'Pos. Control', 'LB + Chlor (blank)']
+                            },
+                            yAxis: {},
+                            series: [
+                                {
+                                    name: 'Colony 1',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [0.041, 0.042, 0.045, 0.043, ],
+                                        [0.137, 0.103, 0.109, 0.106, ],
+                                        [0.115, 0.097, 0.099, 0.108, ],
+                                        [0.05, 0.046, 0.046, 0.046, ],
+                                        [0.043, 0.042, 0.042, 0.041, ],
+                                        [0.095, 0.108, 0.103, 0.103, ],
+                                        [0.105, 0.109, 0.105, 0.111, ],
+                                        [0.131, 0.097, 0.097, 0.098, ],
+                                        [0.036, 0.035, 0.036, 0.037, ],
+                                    ]).boxData
+                                },
+                                {
+                                    name: 'Colony 2',
+                                    type: 'boxplot',
+                                    data: echarts.dataTool.prepareBoxplotData([
+                                        [0.041, 0.04, 0.041, 0.041, ],
+                                        [0.039, 0.037, 0.037, 0.037, ],
+                                        [0.111, 0.111, 0.116, 0.112, ],
+                                        [0.057, 0.063, 0.058, 0.058, ],
+                                        [0.049, 0.048, 0.049, 0.052, ],
+                                        [0.1, 0.108, 0.107, 0.108, ],
+                                        [0.117, 0.117, 0.12, 0.116, ],
+                                        [0.096, 0.098, 0.1, 0.098, ],
+                                        [0.038, 0.035, 0.048, 0.035, ],
+                                    ]).boxData
+                                }
+                            ]
+                        }
+                    }
+                ]
+
+                if (app.nightMode) {
+                    theme = 'darker'
+                }
+
+                function initCharts() {
+                    charts = []
+                    _.forEach(chartConfigs, (config) => {
+                        let chart = echarts.init(document.getElementById(config.dom), theme)
+                        chart.setOption(config.option)
+                        charts.push(chart)
+                    })
+                }
+
+                window.addEventListener('resize', _.debounce(() => {
+                    _.forEach(charts, (chart) => {
+                        chart.resize()
+                    })
+                }, 200))
+
+                setTimeout(() => {
+                    initCharts()
+                }, 100)
+
+                iGEM.registerHook('nightModeHook', ([mode]) => {
+                    if (mode) {
+                        theme = 'darker'
+                    } else {
+                        theme = 'default'
+                    }
+
+                    _.forEach(charts, (chart) => {
+                        chart.dispose()
+                    })
+                    initCharts()
+                })
             })
         </script>
     <%- include('templates/footer'); %>
