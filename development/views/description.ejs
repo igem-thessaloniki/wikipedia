@@ -10,10 +10,10 @@
                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
                     </div>
                 </div>
-                <div class="row justify-center gutter-md text-dark">
-                    <div class="col-lg-4 col-md-12">
+                <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-9">
                         <div class="row">
-                            <div class="col-12 card-box-white round-border-20 q-pa-md">
+                            <div class="col-12 q-pa-md">
                                 <h4 class="q-mt-xs">What is the problem ?</h4>
                                 <p>Biological systems are unpredictable, noisy and difficult to maintain stable, even under
                                     standardized conditions, thus making the controlled production of a substance a difficult
@@ -21,7 +21,7 @@
                                     even at the single cell level, fluctuations of the production rate of a desired protein
                                     are usually inevitable. </p>
                             </div>
-                            <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
+                            <div class="col-12 q-pa-md q-mt-md">
                                 <h4 class="q-mt-xs">How are we going to solve it ?</h4>
                                 <p>Our aim is to design a synthetic biology circuit which guarantees a constant protein expression
                                     pattern and can also be tuned to meet the desired expression levels. We apply control
@@ -36,12 +36,12 @@
                                     from the plasmid copy number.
                                 </p>
                             </div>
-                            <div class="col-12 card-box-white round-border-20 q-pa-md q-mt-md">
+                            <div class="col-12 q-pa-md q-mt-md">
                                 <div class="flex flex-center">
                                     <img class="responsive-image" style="width: 50%" src="http://2018.igem.org/wiki/images/6/6c/T--Thessaloniki--description--figure-1.png"
                                         alt="model image">
                                 </div>
-                                <p>
+                                <p class="q-mt-sm">
                                     <b>Fig. 1</b> Representation of the incoherent feed-forward loop where both the repressor
                                     and the GOI (GFP in this case) expression rates are dependent on the copy number of their
                                     plasmid backbone. The repressor negatively regulates the expression of the GOI, resulting
@@ -50,8 +50,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12">
-                        <div class="card-box-white round-border-20 q-pa-md">
+                </div>
+                <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-9">
+                        <div class="q-pa-md">
                             <h4 class="q-mt-xs">What is the significance of this synthetic biology circuit?</h4>
                             <p>
                                 DNA copy number is a great source of uncertainty in genetic systems. By decoupling gene expression from plasmid copy number,
@@ -81,9 +83,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-center q-mt-lg text-dark">
-                    <div class="col-lg-5 col-xs-12">
-                        <div class="card-box-white round-border-20 q-pa-md">
+                <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-9">
+                        <div class="q-pa-md">
                             <h4 class="q-mt-xs">Summary</h4>
                             <p>
                                 We aim to create a robust, dynamic, controllable system that will be used as a synthetic biology tool for a significant amount
