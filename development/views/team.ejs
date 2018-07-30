@@ -51,7 +51,8 @@
                 <div class="row justify-center">
                     <div class="col-xl-7 col-md-9">
                         <div class="row justify-center">
-                            <member-card v-for="member in members" :key="member.fullname" :member="member" />
+                            <member-card v-for="member in members" :key="member.fullname" :member="member">
+                            </member-card>
                         </div>
                     </div>
                 </div>
@@ -84,14 +85,16 @@
                                     <q-toolbar-title>
                                         {{member.fullname}}
                                     </q-toolbar-title>
-                                    <q-btn flat round icon="close" @click="opened = false" />
+                                    <q-btn flat round icon="close" @click="opened = false">
+                                    </q-btn>
                                 </q-toolbar>
 
                                 <!-- <q-toolbar slot="footer">
-            <q-toolbar-title>
-            </q-toolbar-title>
-            <q-btn color="primary" @click="opened = false" label="Close" />
-        </q-toolbar> -->
+                                    <q-toolbar-title>
+                                    </q-toolbar-title>
+                                    <q-btn color="primary" @click="opened = false" label="Close">
+                                    </q-btn>
+                                </q-toolbar> -->
 
                                 <div class="row gutter-md q-pa-lg">
                                     <div class="col-md-5">
