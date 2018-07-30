@@ -8,12 +8,30 @@
                 loaded: false,
                 drawerState: true,
                 nightMode: this.getNightMode(),
+                colorMode: this.getColorMode(),
+                colorModes: [
+                    {
+                        value: 'auto',
+                        label: 'Auto'
+                    },
+                    {
+                        value: 'night',
+                        label: 'Night'
+                    },
+                    {
+                        value: 'day',
+                        label: 'Day'
+                    },
+                ]
             }, iGEM.data)
             return data
         },
         watch: {
             nightMode(mode) {
                 iGEM.callHook('nightModeHook', mode)
+            },
+            colorMode(mode) {
+                iGEM.callHook('colorModeHook', mode)
             }
         },
         mounted() {
@@ -22,7 +40,7 @@
                 iGEM.callHook('loadedHook', this)
             }, 100)
             iGEM.callHook('mountHook', this)
-            this.registerNighModeHook()
+            this.registerColorModeHook()
         },
         methods: {
             launch: function (url) {
@@ -37,32 +55,59 @@
             rM (dC, nC) {
                 return this.resolveMode(dC, nC)
             },
-            getNightMode() {
-                let value = false
-
-                let date = new Date()
-                let hour = date.getHours()
-                if (hour >= 20) {
-                    value = true
-                }
+            getColorMode() {
+                let mode = 'auto'
 
                 if (window.localStorage) {
-                    let mode = localStorage.getItem('igem-nightMode')
-                    if (mode !== null) {
-                        mode = mode === 'true'
-                        console.log('mode', mode)
-                        value = mode
+                    let storageMode = localStorage.getItem('igem-colorMode')
+                    if (storageMode !== null) {
+                        mode = storageMode
                     }
+                }
+
+                return mode
+            },
+            getNightMode() {
+                let mode = this.getColorMode()
+                let value = false
+
+                switch (mode) {
+                    case 'auto':
+                        let date = new Date()
+                        let hour = date.getHours()
+                        if ((hour >= 20 && hour <= 23) || (hour >= 0 && hour <= 6)) {
+                            value = true
+                        }
+                        break
+                        value
+                    case 'night':
+                        value = true
+                        break
+                    case 'day':
+                    default:
+                        value = false
                 }
 
                 return value
             },
-            async registerNighModeHook() {
+            async registerColorModeHook() {
                 setTimeout(() => {
-                    iGEM.registerHook('nightModeHook', ([mode]) => {
-                        console.log('hook', mode)
+                    iGEM.registerHook('colorModeHook', ([mode]) => {
                         if (window.localStorage) {
-                            window.localStorage.setItem('igem-nightMode', mode)
+                            window.localStorage.setItem('igem-colorMode', mode)
+                        }
+
+                        switch (mode) {
+                            case 'auto':
+                                this.nightMode = this.getNightMode()
+                                break
+                            case 'night':
+                                this.nightMode = true
+                                break
+                            case 'day':
+                            default:
+                                this.nightMode = false
+                                break
                         }
                     })
                 })

@@ -178,7 +178,8 @@
                 </q-item>
 
                 <q-item>
-                    <q-toggle v-model="nightMode" :label="rM('Day Mode', 'Night Mode')" />
+                    <q-select style="width: 100%" v-model="colorMode" float-label="Color Mode" radio :options="colorModes">
+                    </q-select>
                 </q-item>
             </q-list>
         </q-layout-drawer>
