@@ -7,7 +7,7 @@
             let data = Object.assign({
                 loaded: false,
                 drawerState: true,
-                nightMode: false,
+                nightMode: this.getNightMode(),
             }, iGEM.data)
             return data
         },
@@ -22,6 +22,7 @@
                 iGEM.callHook('loadedHook', this)
             }, 100)
             iGEM.callHook('mountHook', this)
+            this.registerNighModeHook()
         },
         methods: {
             launch: function (url) {
@@ -35,6 +36,36 @@
             },
             rM (dC, nC) {
                 return this.resolveMode(dC, nC)
+            },
+            getNightMode() {
+                let value = false
+
+                let date = new Date()
+                let hour = date.getHours()
+                if (hour >= 20) {
+                    value = true
+                }
+
+                if (window.localStorage) {
+                    let mode = localStorage.getItem('igem-nightMode')
+                    if (mode !== null) {
+                        mode = mode === 'true'
+                        console.log('mode', mode)
+                        value = mode
+                    }
+                }
+
+                return value
+            },
+            async registerNighModeHook() {
+                setTimeout(() => {
+                    iGEM.registerHook('nightModeHook', ([mode]) => {
+                        console.log('hook', mode)
+                        if (window.localStorage) {
+                            window.localStorage.setItem('igem-nightMode', mode)
+                        }
+                    })
+                })
             }
         }
     })
