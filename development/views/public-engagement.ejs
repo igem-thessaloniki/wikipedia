@@ -31,12 +31,88 @@
                 <div class="flex flex-center q-mb-md">
                     <div class="col-xl-6 col-lg-8 col-md-10 q-pa-md">
                         <div class="row gutter-md">
-                            <event-card class="col-lg-4 col-md-6"></event-card>
-                            <event-card class="col-lg-4 col-md-6"></event-card>
-                            <event-card class="col-lg-4 col-md-6"></event-card>
-                            <event-card class="col-lg-4 col-md-6"></event-card>
-                            <event-card class="col-lg-4 col-md-6"></event-card>
-                            <event-card class="col-lg-4 col-md-6"></event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Symbio Workshop">
+                                <template slot="media">
+                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/c/cb/T--Thessaloniki--synbio-workshop-1.jpg/800px-T--Thessaloniki--synbio-workshop-1.jpg" alt="synbio workshop image">
+                                </template>
+                                <template slot="content">
+                                    Athens - 4/6/2018
+                                </template>
+                                <template slot="modal-content">
+                                    <div class="row justify-center">
+                                        <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                            <q-carousel-slide>
+                                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/cb/T--Thessaloniki--synbio-workshop-1.jpg" alt="synbio workshop event image 1">
+                                            </q-carousel-slide>
+                                            <q-carousel-slide>
+                                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/b/b5/T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop event image 2">
+                                            </q-carousel-slide>
+                                            <q-carousel-slide>
+                                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--synbio-workshop-4.jpg" alt="synbio workshop event image 4">
+                                            </q-carousel-slide>
+                                            <q-carousel-slide>
+                                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/3/31/T--Thessaloniki--synbio-workshop-5.jpg" alt="synbio workshop event image 5">
+                                            </q-carousel-slide>
+                                        </q-carousel>
+                                        <div class="col-md-6 col-sm-12 q-pa-md">
+                                            <p>
+                                                The Symbio Workshop took place at the event hall of National
+                                                Technical University of Athens. The event was organised by
+                                                iGEM Athens 2018 and 𝗂GEM Thessaloniki teams, with the purpose
+                                                of introducing university students to the new and promising
+                                                field of Synthetic Biology. After presentations and brainstorming
+                                                sessions, with the help of iGEM team members, the participants
+                                                came up with creative solutions to problems from fields such
+                                                as industry environment and health, leaving with an educational
+                                                and motivating experience to remember.
+                                            </p>
+                                            <p>
+                                                Many thanks to the participants, professors and everyone involved in the event.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Title #">
+
+                                <template slot="content">
+                                    <p>
+                                        Content area
+                                    </p>
+                                </template>
+                            </event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Title #">
+
+                                <template slot="content">
+                                    <p>
+                                        Content area
+                                    </p>
+                                </template>
+                            </event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Title #">
+
+                                <template slot="content">
+                                    <p>
+                                        Content area
+                                    </p>
+                                </template>
+                            </event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Title #">
+
+                                <template slot="content">
+                                    <p>
+                                        Content area
+                                    </p>
+                                </template>
+                            </event-card>
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Title #">
+
+                                <template slot="content">
+                                    <p>
+                                        Content area
+                                    </p>
+                                </template>
+                            </event-card>
                         </div>
                     </div>
                 </div>
@@ -49,43 +125,112 @@
         <%- include('templates/layout-footer'); %>
         <script id="event-card-template" type="text/x-template">
             <div>
-                <q-card inline @mouseover.native="hover = true" @mouseout.native="hover = false" :class="computedClasses" class="cursor-pointer" :style="computedStyles">
+                <q-card
+                    inline
+                    @click.native="opened=true"
+                    @mouseover.native="hover = true"
+                    @mouseout.native="hover = false"
+                    class="cursor-pointer"
+                    :class="computedClasses"
+                    :style="computedStyles"
+                >
                     <q-card-media>
-                        <img class="responsive-image" src="https://quasar-framework.org/quasar-play/android/statics/mountains.jpg" alt="mountains">
+                        <slot name="media">
+                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg" alt="default event image">
+                        </slot>
                     </q-card-media>
                     <q-card-title>
-                        Card Title
+                        <b>{{title}}</b>
                     </q-card-title>
                     <q-card-main>
-                        Card Content
-                        {{hover ? '1': '0'}}
+                        <slot name="content">
+                            Default Card Content
+                        </slot>
                     </q-card-main>
                 </q-card>
+
+                <q-modal v-model="opened" :content-css="{minWidth: '90vw', minHeight: '80vh'}" minimized>
+                    <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
+                        <q-toolbar slot="header">
+                            <q-toolbar-title>
+                                {{title}}
+                            </q-toolbar-title>
+                            <q-btn flat round icon="close" @click="opened = false">
+                            </q-btn>
+                        </q-toolbar>
+
+                        <!-- <q-toolbar slot="footer">
+                            <q-toolbar-title>
+                            </q-toolbar-title>
+                            <q-btn color="primary" @click="opened = false" label="Close">
+                            </q-btn>
+                        </q-toolbar> -->
+
+                        <div :class="[nightMode ? 'text-white' : 'text-dark']">
+                            <slot name="modal-content">
+                            </slot>
+                        </div>
+                    </q-modal-layout>
+                </q-modal>
             </div>
         </script>
+        <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
         <script>
             iGEM.registerHook('loadHook', function ([Vue]) {
                 Vue.component('event-card', {
                     template: '#event-card-template',
+                    props: {
+                        nightMode: {
+                            required: true,
+                            type: Boolean
+                        },
+                        title: {
+                            required: true,
+                            type: String
+                        }
+                    },
                     computed: {
                         computedClasses () {
                             let classes = []
-                            if (this.hover) {
-                                classes.push('shadow-24')
+                            if (this.shadow > 1 && Quasar.plugins.Platform.is.desktop) {
+                                classes.push(`shadow-${Math.floor(this.shadow)}`)
+                            }
+                            if (this.nightMode) {
+                                classes.push('bg-purple-10 text-light')
+                            } else {
+                                classes.push('text-dark')
                             }
                             return classes
                         },
                         computedStyles () {
                             let styles = {}
-                            if (this.hover && Quasar.plugins.Platform.is.desktop) {
-                                styles.transform = 'scale(1.1)'
+                            if (Quasar.plugins.Platform.is.desktop) {
+                                styles.transform = `scale(${this.scale})`
                             }
                             return styles
                         }
                     },
+                    watch: {
+                        hover(hoverState) {
+                            if (hoverState) {
+                                TweenLite.to(this.$data, 0.6, {
+                                    shadow: 24,
+                                    scale: 1.1
+                                })
+                            } else {
+                                TweenLite.to(this.$data, 0.6, {
+                                    shadow: 0,
+                                    scale: 1
+                                })
+                            }
+                        }
+                    },
                     data () {
                         return {
-                            hover: false
+                            opened: false,
+                            hover: false,
+                            shadow: 0,
+                            scale: 1
                         }
                     }
                 })
