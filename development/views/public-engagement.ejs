@@ -167,6 +167,35 @@
                                     </div>
                                 </template>
                             </event-card>
+
+                            <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visits @ Larisa Private Schools">
+                                <template slot="media">
+                                    <img class="responsive-image"
+                                        src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
+                                        alt="visit at Larisa image"
+                                    >
+                                </template>
+                                <template slot="content">
+                                    Larisa - 3/3/2018
+                                </template>
+                                <template slot="modal-content">
+                                    <div class="row justify-center">
+                                        <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                            <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']">
+                                                <img class="responsive-image" :src="image" alt="visit at Larisa image">
+                                            </q-carousel-slide>
+                                        </q-carousel>
+                                        <div class="col-md-6 col-sm-12 q-pa-md">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
+                                                voluptatibus nobis ipsam cumque sunt reprehenderit, delectus nemo, ut
+                                                debitis fugit sequi accusamus est repudiandae ab saepe earum architecto
+                                                dicta molestias.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </event-card>
                         </div>
                     </div>
                 </div>
