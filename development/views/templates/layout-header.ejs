@@ -47,101 +47,101 @@
                     <img class=" responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
                 </q-list-header>
 
-                <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki')">
+                <q-item link :class="{'bg-light': page === 'index'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki')">
                     <q-item-side icon="home"></q-item-side>
                     <q-item-main label="Home" sublabel="Our Project homepage"></q-item-main>
                 </q-item>
 
-                <q-collapsible icon="people_outline" label="Team">
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Team')">
+                <q-collapsible icon="people_outline" label="Team" :opened="['team', 'collaborations'].includes(page)">
+                    <q-item :class="{'bg-light': page === 'team'}"link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Team')">
                         <q-item-side icon="people"></q-item-side>
                         <q-item-main label="Team Members"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Collaborations')">
+                    <q-item :class="{'bg-light': page === 'collaborations'}" link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Collaborations')">
                         <q-item-side icon="account_balance"></q-item-side>
                         <q-item-main label="Collaborations"></q-item-main>
                     </q-item>
                 </q-collapsible>
 
-                <q-collapsible icon="build" label="Project">
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Description')">
+                <q-collapsible icon="build" label="Project" :opened="['description', 'design', 'experiments', 'notebook', 'interlab', 'model', 'results', 'demonstrate', 'improve', 'attributions',].includes(page)">
+                    <q-item link :class="{'bg-light': page === 'description'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Description')">
                         <q-item-side icon="info"></q-item-side>
                         <q-item-main label="Description"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Design')">
+                    <q-item link :class="{'bg-light': page === 'design'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Design')">
                         <q-item-side icon="create"></q-item-side>
                         <q-item-main label="Design"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Experiments')">
+                    <q-item link :class="{'bg-light': page === 'experiments'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Experiments')">
                         <q-item-side icon="colorize"></q-item-side>
                         <q-item-main label="Experiments"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Notebook')">
+                    <q-item link :class="{'bg-light': page === 'notebook'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Notebook')">
                         <q-item-side icon="notes"></q-item-side>
                         <q-item-main label="Notebook"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/InterLab')">
+                    <q-item link :class="{'bg-light': page === 'interlab'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/InterLab')">
                         <q-item-side icon="sync"></q-item-side>
                         <q-item-main label="InterLab"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Model')">
+                    <q-item link :class="{'bg-light': page === 'model'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Model')">
                         <q-item-side icon="poll"></q-item-side>
                         <q-item-main label="Model"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Results')">
+                    <q-item link :class="{'bg-light': page === 'results'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Results')">
                         <q-item-side icon="show_charts"></q-item-side>
                         <q-item-main label="Results"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Demonstrate')">
+                    <q-item link :class="{'bg-light': page === 'demonstrate'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Demonstrate')">
                         <q-item-side icon="looks"></q-item-side>
                         <q-item-main label="Demonstrate"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Improve')">
+                    <q-item link :class="{'bg-light': page === 'improve'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Improve')">
                         <q-item-side icon="plus_one"></q-item-side>
                         <q-item-main label="Improve"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Attributions')">
+                    <q-item link :class="{'bg-light': page === 'attributions'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Attributions')">
                         <q-item-side icon="people"></q-item-side>
                         <q-item-main label="Attributions"></q-item-main>
                     </q-item>
                 </q-collapsible>
 
-                <q-collapsible icon="extensions" label="Parts">
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Parts')">
+                <q-collapsible icon="extensions" label="Parts" :opened="['overview', 'basic', 'composite', 'collection'].includes(page)">
+                    <q-item link :class="{'bg-light': page === 'overview'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Parts')">
                         <q-item-side icon="info"></q-item-side>
                         <q-item-main label="Parts Overview"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Basic_Part')">
+                    <q-item link :class="{'bg-light': page === 'basic'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Basic_Part')">
                         <q-item-side icon="apps"></q-item-side>
                         <q-item-main label="Basic Parts"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Composite_Part')">
+                    <q-item link :class="{'bg-light': page === 'composite'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Composite_Part')">
                         <q-item-side icon="grid_on"></q-item-side>
                         <q-item-main label="Composite Parts"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Part_Collection')">
+                    <q-item link :class="{'bg-light': page === 'collection'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Part_Collection')">
                         <q-item-side icon="collections"></q-item-side>
                         <q-item-main label="Part Collection"></q-item-main>
                     </q-item>
                 </q-collapsible>
 
-                <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Safety')">
+                <q-item link :class="{'bg-light': page === 'safety'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Safety')">
                     <q-item-side icon="verified_user"></q-item-side>
                     <q-item-main label="Safety"></q-item-main>
                 </q-item>
 
-                <q-collapsible icon="people" label="Human Practices">
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Human_Practices')">
+                <q-collapsible icon="people" label="Human Practices" :opened="['human-practices', 'public-engagement'].includes(page)">
+                    <q-item link :class="{'bg-light': page === 'human-practices'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Human_Practices')">
                         <q-item-side icon="people_outline"></q-item-side>
                         <q-item-main label="Human Practices"></q-item-main>
                     </q-item>
-                    <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Public_Engagement')">
+                    <q-item link :class="{'bg-light': page === 'public-engagement'}" @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Public_Engagement')">
                         <q-item-side icon="nature_people"></q-item-side>
                         <q-item-main label="Public Engagement"></q-item-main>
                     </q-item>
                 </q-collapsible>
 
-                <q-collapsible icon="star" label="Awards">
+                <q-collapsible icon="star" label="Awards" :opened="['applied', 'hardware', 'entrepreneurship', 'measurement', 'model', 'plant', 'software'].includes(page)">
                     <q-item link @click.native="launch('http://2018.igem.org/Team:Thessaloniki/Applied_Design')">
                         <q-item-side icon="settings_applications"></q-item-side>
                         <q-item-main label="Applied Design"></q-item-main>

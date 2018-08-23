@@ -206,7 +206,7 @@
                                         <template slot="modal-content">
                                             <div class="row justify-center">
                                                 <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']">
+                                                    <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']" :key="image">
                                                         <img class="responsive-image" :src="image" alt="visit at Larisa image">
                                                     </q-carousel-slide>
                                                 </q-carousel>
@@ -281,6 +281,9 @@
         </script>
         <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
         <script>
+            iGEM.data = {
+                page: 'public-engagement'
+            }
             iGEM.registerHook('loadHook', function ([Vue]) {
                 Vue.component('event-card', {
                     template: '#event-card-template',

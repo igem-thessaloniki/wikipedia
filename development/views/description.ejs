@@ -109,6 +109,9 @@
             </q-page>
         <%- include('templates/layout-footer'); %>
         <script>
+            iGEM.data = {
+                page: 'description'
+            }
             iGEM.registerHook('loadHook', function () {
                 console.log('loaded')
             })

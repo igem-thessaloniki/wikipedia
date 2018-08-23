@@ -9,6 +9,7 @@
                 drawerState: true,
                 nightMode: this.getNightMode(),
                 colorMode: this.getColorMode(),
+                page: 'index',
                 colorModes: [
                     {
                         value: 'auto',
