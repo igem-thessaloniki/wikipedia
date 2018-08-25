@@ -89,7 +89,7 @@
         },
         store: store,
         computed: {
-            ...Vuex.mapState(['loaded', 'nightMode']),
+            ...Vuex.mapState(['loaded', 'nightMode', 'colorMode', 'page']),
         },
         watch: {
             nightMode(mode) {
