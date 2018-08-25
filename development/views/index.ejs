@@ -3,23 +3,25 @@
   <body>
         <%- include('templates/header'); %>
         <%- include('templates/layout-header'); %>
-        <q-page padding>
-            <div class="row justify-center">
-                <div class="col-md-6 col-lg-4">
-                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
-                </div>
-            </div>
-            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
-                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                    <div class="q-pa-md">
-                        <h4 class="q-mt-xs">About Our Project</h4>
-                        <p>
-                            We engineer E. coli bacteria to produce a Gene of Interest whose rate of transcription is independent of the copy number of the plasmid on which the gene resides via repression from TAL Effectors and dCas9-sgRNA. We also plan on making this system tunable via an external factor that regulates the inhibition of a promoter.
-                        </p>
+        <igem-layout>
+            <q-page padding>
+                <div class="row justify-center">
+                    <div class="col-md-6 col-lg-4">
+                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
                     </div>
                 </div>
-            </div>
-        </q-page>
+                <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                        <div class="q-pa-md">
+                            <h4 class="q-mt-xs">About Our Project</h4>
+                            <p>
+                                We engineer E. coli bacteria to produce a Gene of Interest whose rate of transcription is independent of the copy number of the plasmid on which the gene resides via repression from TAL Effectors and dCas9-sgRNA. We also plan on making this system tunable via an external factor that regulates the inhibition of a promoter.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </q-page>
+        </igem-layout>
         <%- include('templates/layout-footer'); %>
         <script>
             iGEM.registerHook('loadHook', function () {

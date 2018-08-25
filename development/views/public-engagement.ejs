@@ -3,347 +3,349 @@
 
 <body>
     <%- include('templates/header'); %>
-        <%- include('templates/layout-header'); %>
-            <q-page class="text-justify">
-                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
-                    <h1 slot="loading">Public Engament</h1>
-                    <h1>Public Engament</h1>
-                </q-parallax>
-                <div class="flex flex-center q-mb-md q-mt-md">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 round-border-10 q-pa-md">
-                        <div class="row">
-                            <p class="q-title" :class="rM('text-dark', 'text-light')">Our best Public Engament and Educational Projects</p>
-                        </div>
-                        <q-carousel class="text-teal-9" color="white" autoplay quick-nav infinite height="400px">
-                            <q-carousel-slide img-src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png">
-                                <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                    <div class="q-display-1">Synapsis</div>
-                                    <div class="q-headline">Our inovative communication protocol for ...</div>
-                                </div>
-                            </q-carousel-slide>
-                            <q-carousel-slide img-src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png">
-                                <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                    <div class="q-display-1">Synbalcans</div>
-                                    <div class="q-headline">Our awesome action to build iGEM teams at the area of Balcans</div>
-                                </div>
-                            </q-carousel-slide>
-                            <q-carousel-slide img-src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
-                                <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                    <div class="q-display-1">Other Actions</div>
-                                    <div class="q-headline">The rest of our actions</div>
-                                </div>
-                            </q-carousel-slide>
-                        </q-carousel>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Public Engament</h1>
+                <h1>Public Engament</h1>
+            </q-parallax>
+            <div class="flex flex-center q-mb-md q-mt-md">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 round-border-10 q-pa-md">
+                    <div class="row">
+                        <p class="q-title" :class="rM('text-dark', 'text-light')">Our best Public Engament and Educational Projects</p>
                     </div>
+                    <q-carousel class="text-teal-9" color="white" autoplay quick-nav infinite height="400px">
+                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png">
+                            <div class="absolute-bottom q-pl-lg q-pb-xl">
+                                <div class="q-display-1">Synapsis</div>
+                                <div class="q-headline">Our inovative communication protocol for ...</div>
+                            </div>
+                        </q-carousel-slide>
+                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png">
+                            <div class="absolute-bottom q-pl-lg q-pb-xl">
+                                <div class="q-display-1">Synbalcans</div>
+                                <div class="q-headline">Our awesome action to build iGEM teams at the area of Balcans</div>
+                            </div>
+                        </q-carousel-slide>
+                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                            <div class="absolute-bottom q-pl-lg q-pb-xl">
+                                <div class="q-display-1">Other Actions</div>
+                                <div class="q-headline">The rest of our actions</div>
+                            </div>
+                        </q-carousel-slide>
+                    </q-carousel>
                 </div>
-                <div class="flex flex-center q-mb-md">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                        <q-list separator no-border :dark="nightMode">
-                            <q-collapsible icon="power" label="Synapsis">
-                                <div :class="rM('text-dark', 'text-light')">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
-                                </div>
-                            </q-collapsible>
-
-                            <q-collapsible icon="airport_shuttle" label="Synbalcans">
-                                <div :class="rM('text-dark', 'text-light')">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
-                                </div>
-                            </q-collapsible>
-
-                            <q-collapsible icon="cake" label="Other">
-                                <div class="row q-caption justify-center q-mb-md" :class="rM('text-dark', 'text-light')">
-                                    (Click cards to read more)
-                                </div>
-                                <div class="row gutter-md">
-                                    <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Symbio Workshop">
-                                        <template slot="media">
-                                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/b5/T--Thessaloniki--synbio-workshop-2.jpg/800px-T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop image">
-                                        </template>
-                                        <template slot="content">
-                                            Athens - 4/6/2018
-                                        </template>
-                                        <template slot="modal-content">
-                                            <div class="row justify-center">
-                                                <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/cb/T--Thessaloniki--synbio-workshop-1.jpg" alt="synbio workshop event image 1">
-                                                    </q-carousel-slide>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/b/b5/T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop event image 2">
-                                                    </q-carousel-slide>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--synbio-workshop-4.jpg" alt="synbio workshop event image 4">
-                                                    </q-carousel-slide>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/3/31/T--Thessaloniki--synbio-workshop-5.jpg" alt="synbio workshop event image 5">
-                                                    </q-carousel-slide>
-                                                </q-carousel>
-                                                <div class="col-md-6 col-sm-12 q-pa-md">
-                                                    <p>
-                                                        The Symbio Workshop took place at the event hall of National
-                                                        Technical University of Athens. The event was organised by
-                                                        iGEM Athens 2018 and 𝗂GEM Thessaloniki teams, with the purpose
-                                                        of introducing university students to the new and promising
-                                                        field of Synthetic Biology. After presentations and brainstorming
-                                                        sessions, with the help of iGEM team members, the participants
-                                                        came up with creative solutions to problems from fields such
-                                                        as industry environment and health, leaving with an educational
-                                                        and motivating experience to remember.
-                                                    </p>
-                                                    <p>
-                                                        Many thanks to the participants, professors and everyone involved in the event.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </event-card>
-
-                                    <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visit @ Hellenic National Bioethics Commission">
-                                        <template slot="media">
-                                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/f/ff/T--Thessaloniki--bioethics-1.jpg/800px-T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image">
-                                        </template>
-                                        <template slot="content">
-                                            Athens - 3/6/2018
-                                        </template>
-                                        <template slot="modal-content">
-                                            <div class="row justify-center">
-                                                <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/f/ff/T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image 1">
-                                                    </q-carousel-slide>
-                                                </q-carousel>
-                                                <div class="col-md-6 col-sm-12 q-pa-md">
-                                                    <p>
-                                                        Our team visited the <a href="http://www.bioethics.gr/index.php/en">Hellenic National Bioethics Commission</a>
-                                                        and discussed with Dr Vidalis about the emerging field of Synthetic
-                                                        Biology and the ethical issues that may arise during the process of
-                                                        integrating this new scientific field in statutory legislation. Our
-                                                        discussion about the european legislation regarding the subject and
-                                                        bioethics in general, gave us valuable feedback. We firmly believe that
-                                                        many aspects of synthetic biology still need regulation, as products of
-                                                        biological and technological advancements must be utilised in a safe and
-                                                        risk avoiding way.
-                                                    </p>
-                                                    <p>
-                                                        Finally, we agreed that the existence of a universal, well-established
-                                                        legislation, is necessary for an emerging field like synthetic biology.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </event-card>
-
-                                    <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Speak to the Pharmacology Club of our university">
-                                        <template slot="media">
-                                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/41/T--Thessaloniki--pharmacology-club-1.jpg/800px-T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
-                                        </template>
-                                        <template slot="content">
-                                            Thessaloniki - 26/5/2018
-                                        </template>
-                                        <template slot="modal-content">
-                                            <div class="row justify-center">
-                                                <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/41/T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
-                                                    </q-carousel-slide>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a9/T--Thessaloniki--pharmacology-club-2.jpg" alt="pharmacology club visit image">
-                                                    </q-carousel-slide>
-                                                </q-carousel>
-                                                <div class="col-md-6 col-sm-12 q-pa-md">
-                                                    <p>
-                                                        Last month, we were invited to speak to the <a href="http://pharmclub.pharm.auth.gr">Pharmacology Club</a> of
-                                                        <a href="http://auth.gr/">Aristotle University of Thessaloniki</a>, a club organised by pharmacy
-                                                        students who are eager to expand their scientific knowledge beyond the
-                                                        classroom. In order to introduce them to the world of synthetic biology,
-                                                        we gave them some examples about how synthetic biology circuits could
-                                                        benefit the field of pharmacology.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </event-card>
-
-                                    <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Talk @ Student Run Biology Workshop">
-                                        <template slot="media">
-                                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/2/2c/T--Thessaloniki--srbw-1.jpg/800px-T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
-                                        </template>
-                                        <template slot="content">
-                                            Alexandroupoli - 3/3/2018
-                                        </template>
-                                        <template slot="modal-content">
-                                            <div class="row justify-center">
-                                                <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide>
-                                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/2/2c/T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
-                                                    </q-carousel-slide>
-                                                </q-carousel>
-                                                <div class="col-md-6 col-sm-12 q-pa-md">
-                                                    <p>
-                                                        <a href="https://www.facebook.com/biologicalworkshop/">Student-Run Biology Workshop</a>
-                                                        offers one of the most unique experiences for all students in the field of biology.
-                                                    </p>
-                                                    <p>
-                                                        Thank you for giving us a chance to introduce Synthetic Biology to a
-                                                        crowd full of young and future scientists.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </event-card>
-
-                                    <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visits @ Larisa Private Schools">
-                                        <template slot="media">
-                                            <img class="responsive-image"
-                                                src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
-                                                alt="visit at Larisa image"
-                                            >
-                                        </template>
-                                        <template slot="content">
-                                            Larisa - 3/3/2018
-                                        </template>
-                                        <template slot="modal-content">
-                                            <div class="row justify-center">
-                                                <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                    <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']" :key="image">
-                                                        <img class="responsive-image" :src="image" alt="visit at Larisa image">
-                                                    </q-carousel-slide>
-                                                </q-carousel>
-                                                <div class="col-md-6 col-sm-12 q-pa-md">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-                                                        voluptatibus nobis ipsam cumque sunt reprehenderit, delectus nemo, ut
-                                                        debitis fugit sequi accusamus est repudiandae ab saepe earum architecto
-                                                        dicta molestias.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </event-card>
-                                </div>
-                            </q-collapsible>
-                        </q-list>
-                    </div>
-                </div>
-            </q-page>
-        <%- include('templates/layout-footer'); %>
-        <script id="event-card-template" type="text/x-template">
-            <div>
-                <q-card
-                    inline
-                    @click.native="opened=true"
-                    @mouseover.native="hover = true"
-                    @mouseout.native="hover = false"
-                    class="cursor-pointer"
-                    :class="computedClasses"
-                    :style="computedStyles"
-                >
-                    <q-card-media>
-                        <slot name="media">
-                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg" alt="default event image">
-                        </slot>
-                    </q-card-media>
-                    <q-card-title>
-                        <b>{{title}}</b>
-                    </q-card-title>
-                    <q-card-main>
-                        <slot name="content">
-                            Default Card Content
-                        </slot>
-                    </q-card-main>
-                </q-card>
-
-                <q-modal v-model="opened" :content-css="{minWidth: '90vw', minHeight: '80vh'}" minimized>
-                    <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
-                        <q-toolbar slot="header">
-                            <q-toolbar-title>
-                                {{title}}
-                            </q-toolbar-title>
-                            <q-btn flat round icon="close" @click="opened = false">
-                            </q-btn>
-                        </q-toolbar>
-
-                        <!-- <q-toolbar slot="footer">
-                            <q-toolbar-title>
-                            </q-toolbar-title>
-                            <q-btn color="primary" @click="opened = false" label="Close">
-                            </q-btn>
-                        </q-toolbar> -->
-
-                        <div :class="[nightMode ? 'text-white' : 'text-dark']">
-                            <slot name="modal-content">
-                            </slot>
-                        </div>
-                    </q-modal-layout>
-                </q-modal>
             </div>
-        </script>
-        <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
-        <script>
-            iGEM.data = {
-                page: 'public-engagement'
-            }
-            iGEM.registerHook('loadHook', function ([Vue]) {
-                Vue.component('event-card', {
-                    template: '#event-card-template',
-                    props: {
-                        nightMode: {
-                            required: true,
-                            type: Boolean
-                        },
-                        title: {
-                            required: true,
-                            type: String
-                        }
+            <div class="flex flex-center q-mb-md">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <q-list separator no-border :dark="nightMode">
+                        <q-collapsible icon="power" label="Synapsis">
+                            <div :class="rM('text-dark', 'text-light')">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible icon="airport_shuttle" label="Synbalcans">
+                            <div :class="rM('text-dark', 'text-light')">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible icon="cake" label="Other">
+                            <div class="row q-caption justify-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                                (Click cards to read more)
+                            </div>
+                            <div class="row gutter-md">
+                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Symbio Workshop">
+                                    <template slot="media">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/b5/T--Thessaloniki--synbio-workshop-2.jpg/800px-T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop image">
+                                    </template>
+                                    <template slot="content">
+                                        Athens - 4/6/2018
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/cb/T--Thessaloniki--synbio-workshop-1.jpg" alt="synbio workshop event image 1">
+                                                </q-carousel-slide>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/b/b5/T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop event image 2">
+                                                </q-carousel-slide>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--synbio-workshop-4.jpg" alt="synbio workshop event image 4">
+                                                </q-carousel-slide>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/3/31/T--Thessaloniki--synbio-workshop-5.jpg" alt="synbio workshop event image 5">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    The Symbio Workshop took place at the event hall of National
+                                                    Technical University of Athens. The event was organised by
+                                                    iGEM Athens 2018 and 𝗂GEM Thessaloniki teams, with the purpose
+                                                    of introducing university students to the new and promising
+                                                    field of Synthetic Biology. After presentations and brainstorming
+                                                    sessions, with the help of iGEM team members, the participants
+                                                    came up with creative solutions to problems from fields such
+                                                    as industry environment and health, leaving with an educational
+                                                    and motivating experience to remember.
+                                                </p>
+                                                <p>
+                                                    Many thanks to the participants, professors and everyone involved in the event.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+
+                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visit @ Hellenic National Bioethics Commission">
+                                    <template slot="media">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/f/ff/T--Thessaloniki--bioethics-1.jpg/800px-T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image">
+                                    </template>
+                                    <template slot="content">
+                                        Athens - 3/6/2018
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/f/ff/T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image 1">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    Our team visited the <a href="http://www.bioethics.gr/index.php/en">Hellenic National Bioethics Commission</a>
+                                                    and discussed with Dr Vidalis about the emerging field of Synthetic
+                                                    Biology and the ethical issues that may arise during the process of
+                                                    integrating this new scientific field in statutory legislation. Our
+                                                    discussion about the european legislation regarding the subject and
+                                                    bioethics in general, gave us valuable feedback. We firmly believe that
+                                                    many aspects of synthetic biology still need regulation, as products of
+                                                    biological and technological advancements must be utilised in a safe and
+                                                    risk avoiding way.
+                                                </p>
+                                                <p>
+                                                    Finally, we agreed that the existence of a universal, well-established
+                                                    legislation, is necessary for an emerging field like synthetic biology.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+
+                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Speak to the Pharmacology Club of our university">
+                                    <template slot="media">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/41/T--Thessaloniki--pharmacology-club-1.jpg/800px-T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
+                                    </template>
+                                    <template slot="content">
+                                        Thessaloniki - 26/5/2018
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/41/T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
+                                                </q-carousel-slide>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a9/T--Thessaloniki--pharmacology-club-2.jpg" alt="pharmacology club visit image">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    Last month, we were invited to speak to the <a href="http://pharmclub.pharm.auth.gr">Pharmacology Club</a> of
+                                                    <a href="http://auth.gr/">Aristotle University of Thessaloniki</a>, a club organised by pharmacy
+                                                    students who are eager to expand their scientific knowledge beyond the
+                                                    classroom. In order to introduce them to the world of synthetic biology,
+                                                    we gave them some examples about how synthetic biology circuits could
+                                                    benefit the field of pharmacology.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+
+                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Talk @ Student Run Biology Workshop">
+                                    <template slot="media">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/2/2c/T--Thessaloniki--srbw-1.jpg/800px-T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
+                                    </template>
+                                    <template slot="content">
+                                        Alexandroupoli - 3/3/2018
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/2/2c/T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    <a href="https://www.facebook.com/biologicalworkshop/">Student-Run Biology Workshop</a>
+                                                    offers one of the most unique experiences for all students in the field of biology.
+                                                </p>
+                                                <p>
+                                                    Thank you for giving us a chance to introduce Synthetic Biology to a
+                                                    crowd full of young and future scientists.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+
+                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visits @ Larisa Private Schools">
+                                    <template slot="media">
+                                        <img class="responsive-image"
+                                            src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
+                                            alt="visit at Larisa image"
+                                        >
+                                    </template>
+                                    <template slot="content">
+                                        Larisa - 3/3/2018
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                                <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']" :key="image">
+                                                    <img class="responsive-image" :src="image" alt="visit at Larisa image">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
+                                                    voluptatibus nobis ipsam cumque sunt reprehenderit, delectus nemo, ut
+                                                    debitis fugit sequi accusamus est repudiandae ab saepe earum architecto
+                                                    dicta molestias.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+                            </div>
+                        </q-collapsible>
+                    </q-list>
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script id="event-card-template" type="text/x-template">
+        <div>
+            <q-card
+                inline
+                @click.native="opened=true"
+                @mouseover.native="hover = true"
+                @mouseout.native="hover = false"
+                class="cursor-pointer"
+                :class="computedClasses"
+                :style="computedStyles"
+            >
+                <q-card-media>
+                    <slot name="media">
+                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg" alt="default event image">
+                    </slot>
+                </q-card-media>
+                <q-card-title>
+                    <b>{{title}}</b>
+                </q-card-title>
+                <q-card-main>
+                    <slot name="content">
+                        Default Card Content
+                    </slot>
+                </q-card-main>
+            </q-card>
+
+            <q-modal v-model="opened" :content-css="{minWidth: '90vw', minHeight: '80vh'}" minimized>
+                <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
+                    <q-toolbar slot="header">
+                        <q-toolbar-title>
+                            {{title}}
+                        </q-toolbar-title>
+                        <q-btn flat round icon="close" @click="opened = false">
+                        </q-btn>
+                    </q-toolbar>
+
+                    <!-- <q-toolbar slot="footer">
+                        <q-toolbar-title>
+                        </q-toolbar-title>
+                        <q-btn color="primary" @click="opened = false" label="Close">
+                        </q-btn>
+                    </q-toolbar> -->
+
+                    <div :class="[nightMode ? 'text-white' : 'text-dark']">
+                        <slot name="modal-content">
+                        </slot>
+                    </div>
+                </q-modal-layout>
+            </q-modal>
+        </div>
+    </script>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'public-engagement')
+        })
+        iGEM.registerHook('loadHook', function ([Vue]) {
+            Vue.component('event-card', {
+                template: '#event-card-template',
+                props: {
+                    nightMode: {
+                        required: true,
+                        type: Boolean
                     },
-                    computed: {
-                        computedClasses () {
-                            let classes = []
-                            if (this.shadow > 1 && Quasar.plugins.Platform.is.desktop) {
-                                classes.push(`shadow-${Math.floor(this.shadow)}`)
-                            }
-                            if (this.nightMode) {
-                                classes.push('bg-purple-10 text-light')
-                            } else {
-                                classes.push('text-dark')
-                            }
-                            return classes
-                        },
-                        computedStyles () {
-                            let styles = {}
-                            if (Quasar.plugins.Platform.is.desktop) {
-                                styles.transform = `scale(${this.scale})`
-                            }
-                            return styles
+                    title: {
+                        required: true,
+                        type: String
+                    }
+                },
+                computed: {
+                    computedClasses () {
+                        let classes = []
+                        if (this.shadow > 1 && Quasar.plugins.Platform.is.desktop) {
+                            classes.push(`shadow-${Math.floor(this.shadow)}`)
                         }
-                    },
-                    watch: {
-                        hover(hoverState) {
-                            if (hoverState) {
-                                TweenLite.to(this.$data, 0.6, {
-                                    shadow: 24,
-                                    scale: 1.1
-                                })
-                            } else {
-                                TweenLite.to(this.$data, 0.6, {
-                                    shadow: 0,
-                                    scale: 1
-                                })
-                            }
+                        if (this.nightMode) {
+                            classes.push('bg-purple-10 text-light')
+                        } else {
+                            classes.push('text-dark')
                         }
+                        return classes
                     },
-                    data () {
-                        return {
-                            opened: false,
-                            hover: false,
-                            shadow: 0,
-                            scale: 1
+                    computedStyles () {
+                        let styles = {}
+                        if (Quasar.plugins.Platform.is.desktop) {
+                            styles.transform = `scale(${this.scale})`
+                        }
+                        return styles
+                    }
+                },
+                watch: {
+                    hover(hoverState) {
+                        if (hoverState) {
+                            TweenLite.to(this.$data, 0.6, {
+                                shadow: 24,
+                                scale: 1.1
+                            })
+                        } else {
+                            TweenLite.to(this.$data, 0.6, {
+                                shadow: 0,
+                                scale: 1
+                            })
                         }
                     }
-                })
+                },
+                data () {
+                    return {
+                        opened: false,
+                        hover: false,
+                        shadow: 0,
+                        scale: 1
+                    }
+                }
             })
-        </script>
+        })
+    </script>
     <%- include('templates/footer'); %>
 </body>
 

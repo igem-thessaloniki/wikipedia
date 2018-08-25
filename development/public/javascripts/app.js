@@ -38,6 +38,17 @@
         return value
     }
 
+    function resolveMode (dayClass, nightClass) {
+        if (store.state.nightMode) {
+            return nightClass
+        }
+        return dayClass
+    }
+
+    window.resolveMode = resolveMode
+
+    // TODO route-item use <a> tags
+
     const store = new Vuex.Store({
         state: {
             loaded: false,
@@ -66,48 +77,19 @@
     })
 
     await iGEM.loadComponent('/components/route-item.vue')
+    await iGEM.loadComponent('/components/igem-layout.vue')
+
     await iGEM.callHook('loadHook', Vue, store)
 
     new Vue({
         el: '#q-app',
         data: function () {
-            let data = Object.assign({
-                colorModes: [
-                    {
-                        value: 'auto',
-                        label: 'Auto'
-                    },
-                    {
-                        value: 'night',
-                        label: 'Night'
-                    },
-                    {
-                        value: 'day',
-                        label: 'Day'
-                    },
-                ]
-            }, iGEM.data)
+            let data = Object.assign({}, iGEM.data)
             return data
         },
         store: store,
         computed: {
-            ...Vuex.mapState(['loaded', 'nightMode', 'page']),
-            drawerState: {
-                get() {
-                    return this.$store.state.drawerState
-                },
-                set(state) {
-                    this.$store.commit('setDrawerState', state)
-                }
-            },
-            colorMode: {
-                get() {
-                    return this.$store.state.colorMode
-                },
-                set(mode) {
-                    this.$store.commit('setColorMode', mode)
-                }
-            }
+            ...Vuex.mapState(['loaded', 'nightMode']),
         },
         watch: {
             nightMode(mode) {
@@ -129,15 +111,7 @@
             launch: function (url) {
                 window.open(url, '_self')
             },
-            resolveMode (dayClass, nightClass) {
-                if (this.nightMode) {
-                    return nightClass
-                }
-                return dayClass
-            },
-            rM (dC, nC) {
-                return this.resolveMode(dC, nC)
-            },
+            rM: resolveMode,
             async registerColorModeHook() {
                 setTimeout(() => {
                     iGEM.registerHook('colorModeHook', ([mode]) => {

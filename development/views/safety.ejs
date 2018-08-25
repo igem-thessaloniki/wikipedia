@@ -3,77 +3,76 @@
 
 <body>
     <%- include('templates/header'); %>
-        <%- include('templates/layout-header'); %>
-            <q-page class="text-justify">
-                <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
-                    <h1 slot="loading">Safety</h1>
-                    <h1>Safety</h1>
-                </q-parallax>
-                <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                        <p>
-                            <strong>
-                                Our number one priority is to ensure the sefety of our personel, and the enviroment around us.
-                            </strong>
-                            <br>
-                            In order to achieve that we studied very carefully all safety regulations and they are a requirement
-                            <br>
-                            in our day to day lab work.
-                        </p>
-                        <q-carousel class="text-white" color="white" autoplay quick-nav infinite>
-                            <q-carousel-slide>
-                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png" alt="lab photo 1">
-                            </q-carousel-slide>
-                            <q-carousel-slide>
-                                <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png" alt="lab photo 2">
-                            </q-carousel-slide>
-                        </q-carousel>
-                    </div>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Safety</h1>
+                <h1>Safety</h1>
+            </q-parallax>
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <p>
+                        <strong>
+                            Our number one priority is to ensure the sefety of our personel, and the enviroment around us.
+                        </strong>
+                        <br>
+                        In order to achieve that we studied very carefully all safety regulations and they are a requirement
+                        <br>
+                        in our day to day lab work.
+                    </p>
+                    <q-carousel class="text-white" color="white" autoplay quick-nav infinite>
+                        <q-carousel-slide>
+                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png" alt="lab photo 1">
+                        </q-carousel-slide>
+                        <q-carousel-slide>
+                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png" alt="lab photo 2">
+                        </q-carousel-slide>
+                    </q-carousel>
                 </div>
-                <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                        <p>
-                            Before doing any expirements in the lab, our team have been <strong>adequately trained</strong> from the lab personnel to
-                            perform experiments with <strong>minimal risks</strong> and <strong>manage problems</strong> that might arise. Moreover
-                            the lab personnel is familiar with handling the organisms that we will be using and have extensive knowledge of the
-                            procedures and protocols that we will be preforming.
-                        </p>
-                        <p>
-                            Our lab <strong>biosafety</strong> is Level 1
-                            <br>
-                            The following safety protocols we apply
-                            <ul>
-                                <li>physical biosecurity</li>
-                                <li>biosafety equipment</li>
-                                <li>workplace sterilization</li>
-                                <li>waste treatment</li>
-                                <li>microbial handling technique</li>
-                            </ul>
-                            will prevent any organisms that we work with to escape the lab and threaten the enviroment.
-                        </p>
-                        <p>Last but not least, we do not do expirements on animals or insects.</p>
-                    </div>
+            </div>
+            <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <p>
+                        Before doing any expirements in the lab, our team have been <strong>adequately trained</strong> from the lab personnel to
+                        perform experiments with <strong>minimal risks</strong> and <strong>manage problems</strong> that might arise. Moreover
+                        the lab personnel is familiar with handling the organisms that we will be using and have extensive knowledge of the
+                        procedures and protocols that we will be preforming.
+                    </p>
+                    <p>
+                        Our lab <strong>biosafety</strong> is Level 1
+                        <br>
+                        The following safety protocols we apply
+                        <ul>
+                            <li>physical biosecurity</li>
+                            <li>biosafety equipment</li>
+                            <li>workplace sterilization</li>
+                            <li>waste treatment</li>
+                            <li>microbial handling technique</li>
+                        </ul>
+                        will prevent any organisms that we work with to escape the lab and threaten the enviroment.
+                    </p>
+                    <p>Last but not least, we do not do expirements on animals or insects.</p>
                 </div>
-                <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                        <h4 class=" q-mt-xs q-mb-md">About the organisms we are using</h4>
-                        <p>In our project we will use E. coli K-12 derived strains</p>
-                        <p>
-                            E. coli K-12 derived strains pose little to no threat on healthy adults but may be harmful to
-                            immunocompromised or otherwise susceptible individuals.
-                        </p>
-                    </div>
+            </div>
+            <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h4 class=" q-mt-xs q-mb-md">About the organisms we are using</h4>
+                    <p>In our project we will use E. coli K-12 derived strains</p>
+                    <p>
+                        E. coli K-12 derived strains pose little to no threat on healthy adults but may be harmful to
+                        immunocompromised or otherwise susceptible individuals.
+                    </p>
                 </div>
-            </q-page>
-        <%- include('templates/layout-footer'); %>
-        <script>
-            iGEM.data = {
-                page: 'safety'
-            }
-            iGEM.registerHook('loadHook', function () {
-                console.log('loaded')
-            })
-        </script>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'safety')
+        })
+    </script>
     <%- include('templates/footer'); %>
 </body>
 
