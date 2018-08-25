@@ -1,15 +1,76 @@
-(async function (iGEM) {
-    await iGEM.callHook('loadHook', Vue)
+(async function (Vue, Vuex, iGEM) {
+    Vue.use(Vuex)
+
+    function getColorMode() {
+        let mode = 'auto'
+
+        if (window.localStorage) {
+            let storageMode = localStorage.getItem('igem-colorMode')
+            if (storageMode !== null) {
+                mode = storageMode
+            }
+        }
+
+        return mode
+    }
+
+    function getNightMode() {
+        let mode = getColorMode()
+        let value = false
+
+        switch (mode) {
+            case 'auto':
+                let date = new Date()
+                let hour = date.getHours()
+                if ((hour >= 20 && hour <= 23) || (hour >= 0 && hour <= 6)) {
+                    value = true
+                }
+                break
+                value
+            case 'night':
+                value = true
+                break
+            case 'day':
+            default:
+                value = false
+        }
+
+        return value
+    }
+
+    const store = new Vuex.Store({
+        state: {
+            loaded: false,
+            drawerState: true,
+            nightMode: getNightMode(),
+            colorMode: getColorMode(),
+            page: 'index'
+        },
+        mutations: {
+            loaded(state) {
+                state.loaded = true
+            },
+            setDrawerState(state, payload) {
+                state.drawerState = payload
+            },
+            setNightMode(state, payload) {
+                state.nightMode = payload
+            },
+            setColorMode(state, payload) {
+                state.colorMode = payload
+            },
+            setPage(state, payload) {
+                state.page = payload
+            },
+        }
+    })
+
+    await iGEM.callHook('loadHook', Vue, store)
 
     new Vue({
         el: '#q-app',
         data: function () {
             let data = Object.assign({
-                loaded: false,
-                drawerState: true,
-                nightMode: this.getNightMode(),
-                colorMode: this.getColorMode(),
-                page: 'index',
                 colorModes: [
                     {
                         value: 'auto',
@@ -27,6 +88,26 @@
             }, iGEM.data)
             return data
         },
+        store: store,
+        computed: {
+            ...Vuex.mapState(['loaded', 'nightMode', 'page']),
+            drawerState: {
+                get() {
+                    return this.$store.state.drawerState
+                },
+                set(state) {
+                    this.$store.commit('setDrawerState', state)
+                }
+            },
+            colorMode: {
+                get() {
+                    return this.$store.state.colorMode
+                },
+                set(mode) {
+                    this.$store.commit('setColorMode', mode)
+                }
+            }
+        },
         watch: {
             nightMode(mode) {
                 iGEM.callHook('nightModeHook', mode)
@@ -37,7 +118,7 @@
         },
         mounted() {
             setTimeout(() => {
-                this.loaded = true
+                this.$store.commit('loaded')
                 iGEM.callHook('loadedHook', this)
             }, 100)
             iGEM.callHook('mountHook', this)
@@ -56,41 +137,6 @@
             rM (dC, nC) {
                 return this.resolveMode(dC, nC)
             },
-            getColorMode() {
-                let mode = 'auto'
-
-                if (window.localStorage) {
-                    let storageMode = localStorage.getItem('igem-colorMode')
-                    if (storageMode !== null) {
-                        mode = storageMode
-                    }
-                }
-
-                return mode
-            },
-            getNightMode() {
-                let mode = this.getColorMode()
-                let value = false
-
-                switch (mode) {
-                    case 'auto':
-                        let date = new Date()
-                        let hour = date.getHours()
-                        if ((hour >= 20 && hour <= 23) || (hour >= 0 && hour <= 6)) {
-                            value = true
-                        }
-                        break
-                        value
-                    case 'night':
-                        value = true
-                        break
-                    case 'day':
-                    default:
-                        value = false
-                }
-
-                return value
-            },
             async registerColorModeHook() {
                 setTimeout(() => {
                     iGEM.registerHook('colorModeHook', ([mode]) => {
@@ -98,21 +144,25 @@
                             window.localStorage.setItem('igem-colorMode', mode)
                         }
 
+                        let temp_mode = false
+
                         switch (mode) {
                             case 'auto':
-                                this.nightMode = this.getNightMode()
+                                temp_mode = getNightMode()
                                 break
                             case 'night':
-                                this.nightMode = true
+                                temp_mode = true
                                 break
                             case 'day':
                             default:
-                                this.nightMode = false
+                                temp_mode = false
                                 break
                         }
+
+                        this.$store.commit('setNightMode', temp_mode)
                     })
                 })
             }
         }
     })
-})(iGEM)
+})(Vue, Vuex, iGEM)
