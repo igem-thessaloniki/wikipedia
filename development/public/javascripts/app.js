@@ -65,6 +65,7 @@
         }
     })
 
+    await iGEM.loadComponent('/components/route-item.vue')
     await iGEM.callHook('loadHook', Vue, store)
 
     new Vue({

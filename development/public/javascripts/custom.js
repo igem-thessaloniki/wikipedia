@@ -16,5 +16,21 @@ let iGEM = {
         }
         return false
     },
+    async loadComponent(url) {
+        try {
+            const response = await fetch(url)
+            const html = await response.text()
+            const parser = new DOMParser()
+            const document = parser.parseFromString( html, 'text/html' )
+            const head = document.head
+            const template = head.querySelector( 'template' )
+            const style = head.querySelector( 'style' )
+            const script = head.querySelector( 'script' )
+
+            eval(script.text)
+        } catch (error) {
+            console.log(error)
+        }
+    },
     data: {}
 }

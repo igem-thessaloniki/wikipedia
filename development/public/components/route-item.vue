@@ -1,6 +1,14 @@
-iGEM.registerHook('loadHook', ([Vue]) => {
+<template>
+    <q-item link :class="{'bg-light': currentPage === page}" @click.native="launch(link)">
+        <q-item-side :icon="icon"></q-item-side>
+        <q-item-main :label="label" :sublabel="sublabel"></q-item-main>
+    </q-item>
+</template>
+
+<script>
+(function (Vue, template) {
     Vue.component('route-item', {
-        template: '#route-item-template',
+        template,
         props: {
             page: {
                 type: String,
@@ -33,4 +41,8 @@ iGEM.registerHook('loadHook', ([Vue]) => {
             }
         }
     })
-})
+})(Vue, template)
+</script>
+
+<style>
+</style>
