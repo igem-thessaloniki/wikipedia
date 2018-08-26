@@ -57,7 +57,7 @@
                                 (Click cards to read more)
                             </div>
                             <div class="row gutter-md">
-                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Symbio Workshop">
+                                <event-card class="col-lg-4 col-md-6" title="Symbio Workshop">
                                     <template slot="media">
                                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/b5/T--Thessaloniki--synbio-workshop-2.jpg/800px-T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop image">
                                     </template>
@@ -100,7 +100,7 @@
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visit @ Hellenic National Bioethics Commission">
+                                <event-card class="col-lg-4 col-md-6" title="Visit @ Hellenic National Bioethics Commission">
                                     <template slot="media">
                                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/f/ff/T--Thessaloniki--bioethics-1.jpg/800px-T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image">
                                     </template>
@@ -135,7 +135,7 @@
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Speak to the Pharmacology Club of our university">
+                                <event-card class="col-lg-4 col-md-6" title="Speak to the Pharmacology Club of our university">
                                     <template slot="media">
                                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/41/T--Thessaloniki--pharmacology-club-1.jpg/800px-T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
                                     </template>
@@ -166,7 +166,7 @@
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Talk @ Student Run Biology Workshop">
+                                <event-card class="col-lg-4 col-md-6" title="Talk @ Student Run Biology Workshop">
                                     <template slot="media">
                                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/2/2c/T--Thessaloniki--srbw-1.jpg/800px-T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
                                     </template>
@@ -194,7 +194,7 @@
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" :night-mode="nightMode" title="Visits @ Larisa Private Schools">
+                                <event-card class="col-lg-4 col-md-6" title="Visits @ Larisa Private Schools">
                                     <template slot="media">
                                         <img class="responsive-image"
                                             src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
@@ -230,120 +230,11 @@
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
-    <script id="event-card-template" type="text/x-template">
-        <div>
-            <q-card
-                inline
-                @click.native="opened=true"
-                @mouseover.native="hover = true"
-                @mouseout.native="hover = false"
-                class="cursor-pointer"
-                :class="computedClasses"
-                :style="computedStyles"
-            >
-                <q-card-media>
-                    <slot name="media">
-                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg" alt="default event image">
-                    </slot>
-                </q-card-media>
-                <q-card-title>
-                    <b>{{title}}</b>
-                </q-card-title>
-                <q-card-main>
-                    <slot name="content">
-                        Default Card Content
-                    </slot>
-                </q-card-main>
-            </q-card>
-
-            <q-modal v-model="opened" :content-css="{minWidth: '90vw', minHeight: '80vh'}" minimized>
-                <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
-                    <q-toolbar slot="header">
-                        <q-toolbar-title>
-                            {{title}}
-                        </q-toolbar-title>
-                        <q-btn flat round icon="close" @click="opened = false">
-                        </q-btn>
-                    </q-toolbar>
-
-                    <!-- <q-toolbar slot="footer">
-                        <q-toolbar-title>
-                        </q-toolbar-title>
-                        <q-btn color="primary" @click="opened = false" label="Close">
-                        </q-btn>
-                    </q-toolbar> -->
-
-                    <div :class="[nightMode ? 'text-white' : 'text-dark']">
-                        <slot name="modal-content">
-                        </slot>
-                    </div>
-                </q-modal-layout>
-            </q-modal>
-        </div>
-    </script>
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
     <script>
-        iGEM.registerHook('loadHook', function ([Vue, store]) {
+        iGEM.registerHook('loadHook', async function ([Vue, store]) {
             store.commit('setPage', 'public-engagement')
-        })
-        iGEM.registerHook('loadHook', function ([Vue]) {
-            Vue.component('event-card', {
-                template: '#event-card-template',
-                props: {
-                    nightMode: {
-                        required: true,
-                        type: Boolean
-                    },
-                    title: {
-                        required: true,
-                        type: String
-                    }
-                },
-                computed: {
-                    computedClasses () {
-                        let classes = []
-                        if (this.shadow > 1 && Quasar.plugins.Platform.is.desktop) {
-                            classes.push(`shadow-${Math.floor(this.shadow)}`)
-                        }
-                        if (this.nightMode) {
-                            classes.push('bg-purple-10 text-light')
-                        } else {
-                            classes.push('text-dark')
-                        }
-                        return classes
-                    },
-                    computedStyles () {
-                        let styles = {}
-                        if (Quasar.plugins.Platform.is.desktop) {
-                            styles.transform = `scale(${this.scale})`
-                        }
-                        return styles
-                    }
-                },
-                watch: {
-                    hover(hoverState) {
-                        if (hoverState) {
-                            TweenLite.to(this.$data, 0.6, {
-                                shadow: 24,
-                                scale: 1.1
-                            })
-                        } else {
-                            TweenLite.to(this.$data, 0.6, {
-                                shadow: 0,
-                                scale: 1
-                            })
-                        }
-                    }
-                },
-                data () {
-                    return {
-                        opened: false,
-                        hover: false,
-                        shadow: 0,
-                        scale: 1
-                    }
-                }
-            })
+            await iGEM.loadComponent('components/event-card.vue')
         })
     </script>
     <%- include('templates/footer'); %>
