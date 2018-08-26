@@ -106,6 +106,7 @@
     <script src="/javascripts/echarts.js"></script>
     <script src="/javascripts/echarts-theme.js"></script>
     <script src="/javascripts/echarts-datatool.js"></script>
+    <script src="/javascripts/igem-echarts.js"></script>
     <!-- <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/lodash.js&action=raw&ctype=text/javascript"></script>
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/echarts.js&action=raw&ctype=text/javascript"></script>
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/echarts-theme.js&action=raw&ctype=text/javascript"></script>
@@ -117,9 +118,6 @@
             store.commit('setPage', 'interlab')
         })
         iGEM.registerHook('loadedHook', ([app]) => {
-            let theme = 'default'
-            let charts = []
-            // todo e-charts library
             let chartConfigs = [
                 {
                     dom: 'chart-1',
@@ -509,41 +507,7 @@
                 }
             ]
 
-            if (app.nightMode) {
-                theme = 'darker'
-            }
-
-            function initCharts() {
-                charts = []
-                _.forEach(chartConfigs, (config) => {
-                    let chart = echarts.init(document.getElementById(config.dom), theme)
-                    chart.setOption(config.option)
-                    charts.push(chart)
-                })
-            }
-
-            window.addEventListener('resize', _.debounce(() => {
-                _.forEach(charts, (chart) => {
-                    chart.resize()
-                })
-            }, 200))
-
-            setTimeout(() => {
-                initCharts()
-            }, 100)
-
-            iGEM.registerHook('nightModeHook', ([mode]) => {
-                if (mode) {
-                    theme = 'darker'
-                } else {
-                    theme = 'default'
-                }
-
-                _.forEach(charts, (chart) => {
-                    chart.dispose()
-                })
-                initCharts()
-            })
+            iGEM.registerCharts(app.nightMode, chartConfigs)
         })
     </script>
     <%- include('templates/footer'); %>
