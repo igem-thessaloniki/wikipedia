@@ -26,4 +26,9 @@ router.get('/interlab', function(req, res, next) {
   res.render('interlab');
 })
 
+router.get('/notebook', function(req, res, next) {
+  res.render('notebook');
+})
+
+
 module.exports = router;
