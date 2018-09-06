@@ -67,7 +67,7 @@
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
             store.commit('setPage', 'team')
-            await iGEM.loadComponent('components/member-card.vue')
+            await iGEM.loadComponent(iGEM.links.MemberCard)
         })
     </script>
     <script>

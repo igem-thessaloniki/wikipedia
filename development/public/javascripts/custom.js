@@ -34,3 +34,17 @@ let iGEM = {
     },
     data: {}
 }
+
+iGEM.links = {
+    MemberCard: '/components/member-card.vue',
+    EventCard: '/components/event-card.vue',
+    RouteItem: '/components/route-item.vue',
+    Layout: '/components/igem-layout.vue'
+}
+
+// iGEM.links = {
+//     MemberCard: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/member-card.vue&action=raw&ctype=text/javascript',
+//     EventCard: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/event-card.vue&action=raw&ctype=text/javascript',
+//     RouteItem: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/route-item.vue&action=raw&ctype=text/javascript',
+//     Layout: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/igem-layout.vue&action=raw&ctype=text/javascript',
+// }

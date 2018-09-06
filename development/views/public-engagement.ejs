@@ -234,7 +234,7 @@
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
             store.commit('setPage', 'public-engagement')
-            await iGEM.loadComponent('components/event-card.vue')
+            await iGEM.loadComponent(iGEM.links.EventCard)
         })
     </script>
     <%- include('templates/footer'); %>

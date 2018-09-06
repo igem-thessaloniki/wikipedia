@@ -76,8 +76,8 @@
         }
     })
 
-    await iGEM.loadComponent('/components/route-item.vue')
-    await iGEM.loadComponent('/components/igem-layout.vue')
+    await iGEM.loadComponent(iGEM.links.RouteItem)
+    await iGEM.loadComponent(iGEM.links.Layout)
 
     await iGEM.callHook('loadHook', Vue, store)
 
