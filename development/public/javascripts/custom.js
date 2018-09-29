@@ -32,6 +32,20 @@ let iGEM = {
             console.log(error)
         }
     },
+    scrollToElement(el) {
+        let scroll = Quasar.utils.scroll
+        let target = scroll.getScrollTarget(el)
+        let offset = el.offsetTop - el.scrollHeight
+        let duration = 500
+        scroll.setScrollPosition(target, offset, duration)
+    },
+    scrollToTop (el) {
+        let scroll = Quasar.utils.scroll
+        let target = scroll.getScrollTarget(el)
+        let offset = 0
+        let duration = 500
+        scroll.setScrollPosition(target, offset, duration)
+    },
     data: {}
 }
 
@@ -39,7 +53,10 @@ iGEM.links = {
     MemberCard: '/components/member-card.vue',
     EventCard: '/components/event-card.vue',
     RouteItem: '/components/route-item.vue',
-    Layout: '/components/igem-layout.vue'
+    Layout: '/components/igem-layout.vue',
+    TimelineEntry: '/components/timeline-entry.vue',
+    MonthTable: '/components/month-table.vue',
+    NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue'
 }
 
 // iGEM.links = {
