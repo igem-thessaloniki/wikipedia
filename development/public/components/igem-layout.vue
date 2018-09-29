@@ -127,7 +127,7 @@
             <slot></slot>
         </q-page-container>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn class="bg-indigo-12 text-white" fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop">
+            <q-btn fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop bg-indigo-12 text-white">
                 <q-icon name="keyboard_arrow_up"></q-icon>
             </q-btn>
         </q-page-sticky>
