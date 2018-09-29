@@ -1,7 +1,7 @@
 <template>
     <q-layout view="lHh Lpr fff" v-show="loaded">
         <div class="fixed-top-left" style="margin-top: 16px; z-index: 10;">
-            <q-btn flat dense size="lg" style="background-color: #ff8a22" @click="drawerState = !drawerState" icon="menu"
+            <q-btn flat dense size="lg" class="bg-indigo-12 text-white" @click="drawerState = !drawerState" icon="menu"
                 aria-label="Menu"></q-btn>
         </div>
         <!-- <q-layout-header style="margin-top: 16px" class="no-shadow"> -->
@@ -123,11 +123,11 @@
             </q-list>
         </q-layout-drawer>
 
-        <q-page-container :class="[rM('bg-indigo-1', 'gradient')]">
+        <q-page-container :class="[rM('day-bg', 'night-bg')]">
             <slot></slot>
         </q-page-container>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn style="background-color: #ff8a22" fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop">
+            <q-btn class="bg-indigo-12 text-white" fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop">
                 <q-icon name="keyboard_arrow_up"></q-icon>
             </q-btn>
         </q-page-sticky>
