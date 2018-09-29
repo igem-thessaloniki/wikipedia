@@ -1,33 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <body>
-        <%- include('templates/header'); %>
-        <%- include('templates/layout-header'); %>
-        <igem-layout>
-            <q-page padding>
-                <div class="row justify-center">
-                    <div class="col-md-6 col-lg-4">
-                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
-                    </div>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page padding>
+            <div class="row justify-center">
+                <div class="col-md-6 col-lg-4">
+                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/b/b8/T--Thessaloniki--team-logo-night.png">
                 </div>
-                <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                        <div class="q-pa-md">
-                            <h4 class="q-mt-xs">About Our Project</h4>
-                            <p>
-                                We engineer E. coli bacteria to produce a Gene of Interest whose rate of transcription is independent of the copy number of the plasmid on which the gene resides via repression from TAL Effectors and dCas9-sgRNA. We also plan on making this system tunable via an external factor that regulates the inhibition of a promoter.
-                            </p>
-                        </div>
-                    </div>
+            </div>
+            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                    <q-timeline color="secondary" style="padding: 0 24px;" responsive>
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                Hello World
+                            </div>
+                            <template slot="side">
+                                Hello Side my man
+                            </template>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                Hello World
+                            </div>
+                            <template slot="side">
+                                Hello Side my man
+                            </template>
+                        </igem-timeline-entry>
+
+                        <q-timeline-entry side="left" icon="colorize" color="red">
+                            <div>
+                                Gene expression is the term that describes the flow of information
+                                in biological systems. Due to the complexity of the phenomena that
+                                underlie this process, gene expression is unpredictable, volatile
+                                and prone to perturbations, thus posing a challenge towards
+                                designing reliable and functional systems.
+                            </div>
+
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="right" icon="colorize" color="red">
+                            <div>
+                                One of the most decisive factors affecting the functionality of
+                                biological systems is gene copy number variation, that gives rise
+                                to variability in gene expression.
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="left" icon="colorize" color="red">
+                            <div>
+                                We provide Galene, a genetic toolbox that enhances the stability of
+                                biological systems by disassociating transcription from gene copy
+                                number and provides translational control of protein production.
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="right" icon="colorize" color="red">
+                            <div>
+                                The former is achieved by implementing a type I incoherent
+                                feed-forward loop network motif that consists of a regulatory
+                                element which compensates for changes in copy number, thus
+                                stabilizing the promoter. Through model-driven feedback, we
+                                accomplish promoter stabilization using 3 distinct systems, each
+                                with its own advantages. CRISPR interference, TAL Effectors,
+                                transcriptional attenuator-interacting sRNAs.
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry heading>
+                            Hello World
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="left" icon="colorize" color="red">
+                            <div>
+                                A riboswitch aptamer provides translational initiation regulation,
+                                allowing for controlled rate of protein production that depends on
+                                the applied concentration of the inducer.
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="right" icon="colorize" color="red">
+                            <div>
+                                As a proof of concept, we demonstrated the stablilization of a
+                                previously disfunctional, across different copy numbers, AND-gate
+                                system (reference).
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="left" icon="colorize" color="red">
+                            <div class="text-justify">
+                                In order to understand current problems in synthetic biology
+                                systems and enhance our project design we went beyond the lab and
+                                contacted researchers and experts from different fields. We also
+                                created Synapsis, a guideline on how to communicate science to
+                                people of different culture and scientific backgrounds.
+                            </div>
+                        </q-timeline-entry>
+
+                        <q-timeline-entry side="right" icon="colorize" color="red">
+                            <div class="text-justify">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+                                mollitia dolorum temporibus officiis assumenda architecto, atque
+                                fuga autem neque iusto ex earum. A accusamus voluptatum iure.
+                                Voluptatum doloribus dolores debitis.
+                            </div>
+                        </q-timeline-entry>
+                    </q-timeline>
                 </div>
-            </q-page>
-        </igem-layout>
-        <%- include('templates/layout-footer'); %>
-        <script>
-            iGEM.registerHook('loadHook', function () {
-                console.log('loaded')
-            })
-        </script>
-        <%- include('templates/footer'); %>
-  </body>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', async function () {
+            await iGEM.loadComponent(iGEM.links.TimelineEntry)
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
 </html>
