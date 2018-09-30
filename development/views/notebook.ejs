@@ -6,7 +6,128 @@
     <%- include('templates/layout-header'); %>
     <igem-layout>
         <q-page padding :class="rM('text-dark', 'text-light')">
-            <q-timeline color="secondary" style="padding: 0 24px;" responsive>
+            <div class="row justify-center">
+                <h3>Notebook</h3>
+            </div>
+            <div class="row justify-center">
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <q-field class="full-width">
+                        <q-select
+                            float-label="Filter Tags"
+                            multiple
+                            chips
+                            v-model="selectedTags"
+                            :options="tags"
+                            :dark="nightMode"
+                        >
+                        </q-select>
+                    </q-field>
+                </div>
+            </div>
+            <div class="row justify-center items-center">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <month-table
+                            title="May"
+                            :start="1"
+                            :length="31"
+                            :events="events.may"
+                            :filter="selectedTags"
+                            @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data"
+                            :selected="selected"
+                        >
+                        </month-table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <month-table
+                            title="June"
+                            :start="4"
+                            :length="30"
+                            :events="[]"
+                            :filter="selectedTags"
+                            @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data"
+                            :selected="selected"
+                        >
+                        </month-table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                            <month-table
+                                title="July"
+                                :start="6"
+                                :length="31"
+                                :events="[]"
+                                :filter="selectedTags"
+                                @set-events="evts => eventsToDisplay = evts"
+                                @select="data => selected = data"
+                                :selected="selected"
+                            >
+                            </month-table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <month-table
+                            title="August"
+                            :start="2"
+                            :length="31"
+                            :events="[]"
+                            :filter="selectedTags"
+                            @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data"
+                            :selected="selected"
+                        >
+                        </month-table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <month-table
+                            title="September"
+                            :start="5"
+                            :length="30"
+                            :events="[]"
+                            :filter="selectedTags"
+                            @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data"
+                            :selected="selected"
+                        >
+                        </month-table>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <month-table
+                            title="Octomber"
+                            :start="0"
+                            :length="31"
+                            :events="[]"
+                            :filter="selectedTags"
+                            @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data"
+                            :selected="selected"
+                        >
+                        </month-table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row reverse">
+                <q-btn
+                    ref="clearBtn"
+                    v-show="eventsToDisplay.length > 0"
+                    class="bg-indigo-12 text-white"
+                    label="clear"
+                    icon="clear"
+                    @click="eventsToDisplay = []; selected = {}"
+                >
+                </q-btn>
+            </div>
+            <notebook-dynamic-timeline
+                v-show="eventsToDisplay.length != 0"
+                :events="eventsToDisplay"
+                :clear-btn="$refs.clearBtn"
+                >
+            </notebook-dynamic-timeline>
+
+            <div ref="timeline"></div>
+
+            <q-timeline v-show="eventsToDisplay.length == 0" color="secondary" style="padding: 0 24px;" responsive>
                 <q-timeline-entry heading>Notebook</q-timeline-entry>
                 <q-timeline-entry heading>March 2018</q-timeline-entry>
 
@@ -61,9 +182,90 @@
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
+    <script src="/javascripts/lodash.js"></script>
     <script>
-        iGEM.registerHook('loadHook', function ([Vue, store]) {
+        iGEM.data = {
+            selectedTags: [],
+            tags: _.map(['dry', 'wet', 'milestone'], (value) => {
+                return {
+                    label: value,
+                    value
+                }
+            }),
+            selected: {},
+            eventsToDisplay: [],
+            events: {
+                may: [
+                    {
+                        month: 5,
+                        day: 1,
+                        title: 'Test #1',
+                        content: `<p>Test #1</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 5,
+                        day: 1,
+                        title: 'Test #2',
+                        content: `<p>Test #2</p>`,
+                        tags: ['dry']
+                    },
+                    {
+                        month: 5,
+                        day: 1,
+                        title: 'Test #22',
+                        content: `<p>Test #22</p>`,
+                        tags: ['milestone']
+                    },
+                    {
+                        month: 5,
+                        day: 2,
+                        title: 'Test #3',
+                        content: `<p>Test #3</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 5,
+                        day: 2,
+                        title: 'Test #4',
+                        content: `<p>Test #4</p>`,
+                        tags: ['dry']
+                    },
+                    {
+                        month: 5,
+                        day: 6,
+                        title: 'Test #5',
+                        content: `<p>Test #5</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 5,
+                        day: 6,
+                        title: 'Test #6',
+                        content: `<p>Test #6</p>`,
+                        tags: ['dry']
+                    },
+                    {
+                        month: 5,
+                        day: 10,
+                        title: 'Test #7',
+                        content: `<p>Test #7</p>`,
+                        tags: ['wet']
+                    },
+                ]
+            }
+        }
+    </script>
+    <script>
+        iGEM.registerHook('loadHook', async function ([Vue, store]) {
+            await iGEM.loadComponent(iGEM.links.MonthTable)
+            await iGEM.loadComponent(iGEM.links.NotebookDynamicTimeline)
             store.commit('setPage', 'notebook')
+        })
+        iGEM.registerHook('loadedHook', async function ([self]) {
+            setTimeout(() => {
+                iGEM.scrollToElement(self.$refs.timeline)
+            }, 1000);
         })
     </script>
     <%- include('templates/footer'); %>

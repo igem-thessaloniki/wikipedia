@@ -3,7 +3,7 @@
         <div class="row justify-center">
             <h5 class="q-ma-xs">{{title}}</h5>
         </div>
-        <div class="row justify-center">
+        <div class="row justify-center text-white">
             <table>
                 <tr v-for="row in 6" :key="row">
                     <td v-for="col in 7" :key="row + '-' + col" :class="calculateClasses(row, col)" @click="clickEvent(row, col)">
@@ -50,13 +50,29 @@
         computed: {
             eventsPrepared () {
                 let data = {}
-                _.forEach(this.events, (event) => {
+
+                let events = this.events
+
+                if (this.filter.length > 0) {
+                    events = _.filter(events, (event) => {
+                        return this.filter.some(f => event.tags.includes(f))
+                    })
+                }
+
+                _.forEach(events, (event) => {
                     if (! data[event.day]) {
                         data[event.day] = []
                     }
                     data[event.day].push(event)
                 })
                 return data
+            }
+        },
+        watch: {
+            filter() {
+                if (this.selected.month == this.title) {
+                    this.$emit('set-events', this.eventsPrepared[this.selected.pos + 1])
+                }
             }
         },
         methods: {
