@@ -46,6 +46,25 @@ let iGEM = {
         let duration = 500
         scroll.setScrollPosition(target, offset, duration)
     },
+    buildTable(payload, symbol = ',') {
+        let header = payload.header.split(symbol)
+        let data = payload.data
+        let headerHTML = "<tr>"
+        header.forEach((item) => {
+            headerHTML += '<td><b>' + item + '</b></td>'
+        })
+        headerHTML += '</tr>'
+        let bodyHTML = ''
+        data.forEach((item) => {
+            bodyHTML += "<tr>"
+            let items = item.split(symbol)
+            items.forEach((i) => {
+                bodyHTML += '<td>' + i + '</td>'
+            })
+            bodyHTML += '</tr>'
+        })
+        return `<table class="simple-table text-center">${headerHTML}${bodyHTML}</table>`
+    },
     data: {}
 }
 

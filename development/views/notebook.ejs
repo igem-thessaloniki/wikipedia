@@ -12,111 +12,36 @@
             <div class="row justify-center">
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <q-field class="full-width">
-                        <q-select
-                            float-label="Filter Tags"
-                            multiple
-                            chips
-                            clearable
-                            v-model="selectedTags"
-                            :options="tags"
-                            :dark="nightMode"
-                        >
+                        <q-select float-label="Filter Tags" multiple chips clearable v-model="selectedTags"
+                            :options="tags" :dark="nightMode">
                         </q-select>
                     </q-field>
                 </div>
             </div>
-            <div class="row justify-center items-center">
+            <div v-if="$q.platform.is.desktop" class="row justify-center items-center">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <month-table
-                            title="May"
-                            :start="1"
-                            :length="31"
-                            :events="events.may"
-                            :filter="selectedTags"
-                            @set-events="evts => eventsToDisplay = evts"
-                            @select="data => selected = data"
-                            :selected="selected"
-                        >
-                        </month-table>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <month-table
-                            title="June"
-                            :start="4"
-                            :length="30"
-                            :events="[]"
-                            :filter="selectedTags"
-                            @set-events="evts => eventsToDisplay = evts"
-                            @select="data => selected = data"
-                            :selected="selected"
-                        >
-                        </month-table>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                            <month-table
-                                title="July"
-                                :start="6"
-                                :length="31"
-                                :events="[]"
-                                :filter="selectedTags"
-                                @set-events="evts => eventsToDisplay = evts"
-                                @select="data => selected = data"
-                                :selected="selected"
-                            >
-                            </month-table>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <month-table
-                            title="August"
-                            :start="2"
-                            :length="31"
-                            :events="[]"
-                            :filter="selectedTags"
-                            @set-events="evts => eventsToDisplay = evts"
-                            @select="data => selected = data"
-                            :selected="selected"
-                        >
-                        </month-table>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <month-table
-                            title="September"
-                            :start="5"
-                            :length="30"
-                            :events="[]"
-                            :filter="selectedTags"
-                            @set-events="evts => eventsToDisplay = evts"
-                            @select="data => selected = data"
-                            :selected="selected"
-                        >
-                        </month-table>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <month-table
-                            title="October"
-                            :start="0"
-                            :length="31"
-                            :events="[]"
-                            :filter="selectedTags"
-                            @set-events="evts => eventsToDisplay = evts"
-                            @select="data => selected = data"
-                            :selected="selected"
-                        >
+                    <div class="col-xs-12 col-sm-6 col-md-4" v-for="month in months" :key="month.title">
+                        <month-table :title="month.title" :start="month.start" :length="month.length"
+                            :events="events[month.key]" :filter="selectedTags" @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data" :selected="selected">
                         </month-table>
                     </div>
                 </div>
             </div>
+            <div v-if="$q.platform.is.mobile" class="row justify-center">
+                <q-carousel arrows quick-nav>
+                    <q-carousel-slide v-for="month in months" :key="month.title" style="height: 330px">
+                        <month-table :title="month.title" :start="month.start" :length="month.length"
+                            :events="events[month.key]" :filter="selectedTags" @set-events="evts => eventsToDisplay = evts"
+                            @select="data => selected = data" :selected="selected">
+                        </month-table>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
 
             <div class="row reverse">
-                <q-btn
-                    ref="clearBtn"
-                    v-show="eventsToDisplay.length > 0"
-                    class="bg-indigo-12 text-white"
-                    label="Clear Selected Date"
-                    icon="clear"
-                    @click="eventsToDisplay = []; selected = {}"
-                >
+                <q-btn ref="clearBtn" v-show="eventsToDisplay.length > 0" class="bg-indigo-12 text-white"
+                    label="Clear Selected Date" icon="clear" @click="eventsToDisplay = []; selected = {}">
                 </q-btn>
             </div>
             <div ref="timeline" class="row justify-center">
@@ -124,63 +49,86 @@
                     {{iGEMParseDate(selected.pos + 1) + ' of ' + selected.month }}
                 </h4>
             </div>
-            <notebook-dynamic-timeline
-                v-show="eventsToDisplay.length != 0"
-                :events="eventsToDisplay"
-                :clear-btn="$refs.clearBtn"
-                >
+            <notebook-dynamic-timeline v-show="eventsToDisplay.length != 0" :events="eventsToDisplay"
+                :clear-btn="$refs.clearBtn">
             </notebook-dynamic-timeline>
 
 
-            <q-timeline v-show="eventsToDisplay.length == 0" color="secondary" style="padding: 0 24px;" responsive>
+            <q-timeline v-show="eventsToDisplay.length == 0" color="secondary" style="padding: 0 24px;"
+                responsive>
                 <q-timeline-entry heading>Notebook</q-timeline-entry>
                 <q-timeline-entry heading>March 2018</q-timeline-entry>
 
-                <q-timeline-entry title="Wet - Safety training" subtitle="March 11 2018" side="left" icon="colorize" color="red">
+                <q-timeline-entry title="Wet - Safety training" subtitle="March 11 2018" side="left"
+                    icon="colorize" color="red">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est
+                        laborum.
                     </div>
                 </q-timeline-entry>
 
-                <q-timeline-entry title="Dry - Start Basic Model" subtitle="April 16 2018" side="right" icon="memory" color="blue">
+                <q-timeline-entry title="Dry - Start Basic Model" subtitle="April 16 2018" side="right"
+                    icon="memory" color="blue">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est
+                        laborum.
                     </div>
                 </q-timeline-entry>
 
                 <q-timeline-entry heading>July 2018</q-timeline-entry>
 
-                <q-timeline-entry title="Milestone - First Part" subtitle="July 8 2018" side="left" icon="start" color="orange">
+                <q-timeline-entry title="Milestone - First Part" subtitle="July 8 2018" side="left"
+                    icon="start" color="orange">
                     <div>
                         Created our first part
                     </div>
                 </q-timeline-entry>
 
-                <q-timeline-entry title="Wet - First Results" subtitle="March 11 2018" side="left" icon="colorize" color="red">
+                <q-timeline-entry title="Wet - First Results" subtitle="March 11 2018" side="left"
+                    icon="colorize" color="red">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est
+                        laborum.
                     </div>
                 </q-timeline-entry>
 
-                <q-timeline-entry title="Dry - Start Model Enhancements" subtitle="April 16 2018" side="right" icon="memory" color="blue">
+                <q-timeline-entry title="Dry - Start Model Enhancements" subtitle="April 16 2018"
+                    side="right" icon="memory" color="blue">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est
+                        laborum.
                     </div>
                 </q-timeline-entry>
             </q-timeline>
@@ -210,66 +158,1706 @@
                     value
                 }
             }),
+            months: [{
+                    title: 'May',
+                    start: 1,
+                    length: 31,
+                    key: 'may'
+                },
+                {
+                    title: 'June',
+                    start: 4,
+                    length: 30,
+                    key: 'june'
+                },
+                {
+                    title: 'July',
+                    start: 6,
+                    length: 31,
+                    key: 'july'
+                },
+                {
+                    title: 'August',
+                    start: 2,
+                    length: 31,
+                    key: 'august'
+                },
+                {
+                    title: 'September',
+                    start: 5,
+                    length: 30,
+                    key: 'september'
+                },
+                {
+                    title: 'October',
+                    start: 0,
+                    length: 31,
+                    key: 'october'
+                }
+            ],
             selected: {},
             eventsToDisplay: [],
             events: {
                 may: [
                     {
                         month: 5,
-                        day: 1,
-                        title: 'Test #1',
-                        content: `<p>Test #1</p>`,
-                        tags: ['wet']
-                    },
-                    {
-                        month: 5,
-                        day: 1,
-                        title: 'Test #2',
-                        content: `<p>Test #2</p>`,
-                        tags: ['dry']
-                    },
-                    {
-                        month: 5,
-                        day: 1,
-                        title: 'Test #22',
-                        content: `<p>Test #22</p>`,
-                        tags: ['milestone']
-                    },
-                    {
-                        month: 5,
-                        day: 2,
-                        title: 'Test #3',
-                        content: `<p>Test #3</p>`,
-                        tags: ['wet']
-                    },
-                    {
-                        month: 5,
-                        day: 2,
-                        title: 'Test #4',
-                        content: `<p>Test #4</p>`,
-                        tags: ['dry']
-                    },
-                    {
-                        month: 5,
-                        day: 6,
-                        title: 'Test #5',
-                        content: `<p>Test #5</p>`,
-                        tags: ['wet']
-                    },
-                    {
-                        month: 5,
-                        day: 6,
-                        title: 'Test #6',
-                        content: `<p>Test #6</p>`,
-                        tags: ['dry']
+                        day: 5,
+                        title: 'Team Meeting and Brainstorming Session',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
                     },
                     {
                         month: 5,
                         day: 10,
-                        title: 'Test #7',
-                        content: `<p>Test #7</p>`,
+                        title: 'Team Meeting and Brainstorming Session',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 5,
+                        day: 13,
+                        title: 'Team Meeting and Brainstorming Session',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 5,
+                        day: 14,
+                        title: 'The iGEM 2018 Distribution Kit arrived',
+                        content: `<p><img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/d/db/T--Thessaloniki--distribution-kit.jpg/800px-T--Thessaloniki--distribution-kit.jpg" alt="distribution kit"></img></p>`,
                         tags: ['wet']
                     },
+                    {
+                        month: 5,
+                        day: 15,
+                        title: 'We settled down to the final project idea.',
+                        content: `<p>Team</p>`,
+                        tags: ['milestone']
+                    },
+                    {
+                        month: 5,
+                        day: 18,
+                        title: 'Wet Lab-Dry Lab Meetings',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 5,
+                        day: 21,
+                        title: 'Project Presentation at PIs',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 5,
+                        day: 24,
+                        title: 'Project Presentation at Faculty Members',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 5,
+                        day: 28,
+                        title: 'Project Presentation at Sponsors',
+                        content: `<p>Team</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                ],
+                june: [
+                    {
+                        month: 6,
+                        day: 11,
+                        title: 'Biosafety Training of the Wet Lab Members on the Laboratory Equipment use',
+                        content: '<p>(Wet Lab Members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 12,
+                        title: 'Biosafety Training of the Wet Lab Members on the handling of hazardous reagents and the disposal of Buffers and Chemicals',
+                        content: '<p>(Wet Lab Members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 14,
+                        title: 'Testing of iGEM Protocols',
+                        content: '<p>(Wet Lab Members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 15,
+                        title: 'Meeting',
+                        content: '<p>Wet Lab and Dry Lab Meeting</p>',
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 6,
+                        day: 16,
+                        title: 'Biosafety Training of the Wet Lab Members on general laboratory and emergency response procedures',
+                        content: '<p>(Wet Lab Members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 18,
+                        title: 'Settin up the Lab',
+                        content: '<p>(Wet Lab Members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 25,
+                        title: 'Preparation of Solutions',
+                        content: '<p>Yvoni G. and Alex</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 25,
+                        title: 'Preparing Antibiotics',
+                        content: `<p>
+                                Creating a stock solution for each antibiotic. (John, Grigorios)</p>
+                                <table class="simple-table text-center">
+                                    <tr>
+                                        <td>
+                                            <b>Antibiotic</b>
+                                        </td>
+                                        <td>
+                                            <b>Stock Concertration (mg/ml)</b>
+                                        </td>
+                                        <td>
+                                            <b>Working Concertration (μg/ml)</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Chloramphenicol (dissolved in EtOH)
+                                        </td>
+                                        <td>
+                                            35
+                                        </td>
+                                        <td>
+                                            35
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Chloramphenicol (dissolved in EtOH)
+                                        </td>
+                                        <td>
+                                            25
+                                        </td>
+                                        <td>
+                                            25
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Ampicillin
+                                        </td>
+                                        <td>
+                                            100
+                                        </td>
+                                        <td>
+                                            100
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Kanamycin
+                                        </td>
+                                        <td>
+                                            35
+                                        </td>
+                                        <td>
+                                            35
+                                        </td>
+                                    </tr>
+                                </table>
+                            `,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 25,
+                        title: 'Resuspension from the distribution Kit',
+                        content: `<p>
+                            Resuspension of the RFP coding device in the psb6A1 vector (<a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>, Well 2L, Kit Plate 4) from the distribution Kit . (Yvoni G. and Alex)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 25,
+                        title: 'Preparation of agar plates',
+                        content: '<p><img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/4e/T--Thessaloniki--agar-plates-1.jpg/800px-T--Thessaloniki--agar-plates-1.jpg" alt="agar plates"></img>(John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 25,
+                        title: 'Transformation into DH5a E. coli competent cells',
+                        content: '<p><img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/d/d0/T--Thessaloniki--our-first-transformation-1.jpg/450px-T--Thessaloniki--our-first-transformation-1.jpg" alt="Our first Transformation"></img>(Yvoni G. and Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 26,
+                        title: 'Colony picking and scale up of psb6A1 vector transformation into 5ml LB+AmR',
+                        content: '<p>(John, Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 27,
+                        title: 'Miniprep',
+                        content: '<p>Miniprep of <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>  transformed into DH5a E. Coli <br> (John, Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 27,
+                        title: 'Preparation of chemically competent DH5a E.coli cells',
+                        content: '<p>Day one (John, Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 28,
+                        title: 'Preparation of chemically competent DH5a E.coli cells',
+                        content: '<p>Day two (John, Grigorios, Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 28,
+                        title: 'Competent cell test',
+                        content: '<p>Evaluation of competency using the competent cell test kit and protocol provided with the iGEM 2018 distribution kit (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 29,
+                        title: 'Resuspension from Kit',
+                        content: `<p>
+                            Resuspension of the RFP Coding Device in a psb3K3 vector (
+                            <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>
+                            , Well 6F, Kit Plate 4)  and in a psb4K5 vector (
+                            <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>
+                            , Well 6H, Kit Plate 4) from iGEM distribution kit (Yvoni)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 29,
+                        title: 'Transformation',
+                        content: '<p>Transformation of the resuspended constructs (psb3K3 vector and psb4K5 vector with the RFP coding device) into DH5a E.coli competent cells. (Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 6,
+                        day: 30,
+                        title: 'Scale up',
+                        content: '<p>Colony picking and scale up of psb3K3 and psb4K5 vector transformations into 5ml LB+ KanR (John)</p>',
+                        tags: ['wet']
+                    },
+                ],
+                july: [{
+                        month: 7,
+                        day: 1,
+                        title: 'Miniprep',
+                        content: '<p>Miniprep of psb3K3 and psb4K5 vectors transformed into DH5a competent cells. (Jonh and Grigoios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 2,
+                        title: 'Preparation of chemically competent DH5a E.coli cells',
+                        content: '<p>Preparation of chemically competent DH5a E.coli cells: day one (Jonh and Grigoios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 3,
+                        title: 'Preparation of chemically competent DH5a E.coli cells',
+                        content: '<p>Preparation of chemically competent DH5a E.coli cells: day two. (Jonh and Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 4,
+                        title: 'Preparation of LB medium and LB agar plates',
+                        content: '<p>(Jonh and Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 5,
+                        title: 'Laboratory Training on Flow Cytometry',
+                        content: '<p>(All Wet Lab members)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 12,
+                        title: 'Interlab study',
+                        content: '<p>Preparation for the interlab study. Transformation of interlab devices from the iGEM kit. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 12,
+                        title: 'Resuspension from Kit',
+                        content: '<p>Resuspension of dcas9-ω device in psb1c3 vector. <a href="http://parts.igem.org/Part:BBa_K1723000">BBa_K1723000</a> (well 7P, kit plate 4) (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 12,
+                        title: 'Transformation',
+                        content: '<p>Transformation of dcas9-ω device into DH5a E. coli competent cells (Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 13,
+                        title: 'Preparation of LB medium',
+                        content: '<p>Preparation of LB medium for the Interlab study. (John, Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 13,
+                        title: 'Scale Up',
+                        content: `<p>Colony picking and scale up of the Interlab Transformations into
+                            5ml LB+ CmR.Preparation of bacterial glycerol stocks with interlab transformations.(Jonh and Grigorios)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 13,
+                        title: 'Transformation',
+                        content: '<p>Transformation of dcas9-ω <a href="http://parts.igem.org/Part:BBa_K1723000">BBa_K1723000</a> (Well 7P, Kit Plate 7) was unsuccessful: no colonies formed. (Jonh and Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 14,
+                        title: 'Interlab Plate Reader Measurement',
+                        content: '<p>Calibrations and Cell Measurements. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 14,
+                        title: 'Colony Forming Units Experiment',
+                        content: '<p>Colony Forming Units (CFu) per 0.1 OD600 E. coli cultures experiment conducted for the Interlab Study. (Jonh, Grigorios, Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 17,
+                        title: 'Resuspension from Kit',
+                        content: '<p>Resuspension of dCas9-F3 (<a href="http://parts.igem.org/Part:BBa_K1689018">BBa_K1689018</a>, Well 24G, Kit Plate 7) from iGEM 2018 Distribution Kit (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 17,
+                        title: 'Transformation',
+                        content: '<p>Transformation of dCas9-F3 into DH5a E. coli competent cells was unsuccesfull: No colonies formed. (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 19,
+                        title: 'Arrival of pTn7-M and transposase plasmids',
+                        content: '<p>Arrival of pTn7-M and transposase plasmids (pTn7-M,pTns2,pRK600)  in DH5a agar stabs, sent from PhD student Esteban Martínez</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 19,
+                        title: 'Scale up',
+                        content: '<p>Colony picking and scale up of Dh5a E.coli cells containing pTn7-M and transposase plasmids into 10 ml LB+ appropriate antibiotic. (Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 20,
+                        title: 'Miniprep',
+                        content: '<p>Miniprep of liquid cultures inoculated with DH5a E.coli cells (with  pTn7-M and transposase plasmids) (Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 20,
+                        title: 'Preparation of bacterial glycerol stocks',
+                        content: '<p>(Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 24,
+                        title: 'Resuspension from Kit',
+                        content: `<p>
+                            Resuspension of psb2k3 inducible vector <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>(Well 6D, Kit Plate 4), <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> (Well 16F, Kit Plate 3), <a href="http://parts.igem.org/Part:BBa_E0240">BBa_E0240</a> (Well 18C, Kit Plate 4), <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> (Well 23O, Kit Plate 7) (Alex)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 24,
+                        title: 'Double Transformation',
+                        content: '<p>Double Transformation of <a href="http://parts.igem.org/Part:BBa_E0240">BBa_E0240</a> and <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> into chemically competent DH5a E. Coli cells was unsuccesfull: no colonies formed (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 24,
+                        title: 'Transformation',
+                        content: '<p>Transformation of <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a>, <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> into into chemically competent DH5a E. Coli cells (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 25,
+                        title: 'Scale up',
+                        content: '<p>Colony Picking of <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> Transformation and Scale Up into 5ml LB+KanR (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 26,
+                        title: 'Miniprep',
+                        content: '<p>Miniprep of  of liquid cultures containing DH5a E.coli cells previously transformed with <a href="http://parts.igem.org/Part:BBa_J04450">BBa_J04450</a> using the NucleoSpin® Plasmid Macheray nagel Kit. (Yvoni, John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'Arrival of pthsse_59,pthsse_60 plasmids',
+                        content: '<p>Arrival of pthsse_59, pthsse_60 plasmids (talesp1, talesp2 devices) in agar stabs from Addgene <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/1/11/T--Thessaloniki--agar-plates-2.jpg/450px-T--Thessaloniki--agar-plates-2.jpg" alt="agar plates"></img></p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'Scale up',
+                        content: '<p>Colony picking and scale up of Dh5a E.coli cells previously transformed with pthsse_59,pthsse_60 plasmids  into 10ml LB+CmR. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'Arrival of gBlocks from IDT',
+                        content: '<p></p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'Resuspension of gBlocks',
+                        content: '<p>(Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'PCR amplification of gBlocks',
+                        content: `<p>
+                            PCR amplification of gBlocks with VR, VF2 Primers using the New England Biolabs <a src="https://www.neb.com/protocols/2012/12/07/protocol-for-q5-high-fidelity-2x-master-mix-m0492">Protocol</a> for Q5® High-Fidelity 2X Master Mix (Yvoni)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'Preparation of Agarose Gel',
+                        content: '<p>Preparation of Agarose Gel (1% agarose) and Gel electrophoresis of Amplified gBlocks (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 27,
+                        title: 'PCR clean up',
+                        content: '<p>PCR clean up of the amplified gBlocks using the Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 28,
+                        title: 'Miniprep',
+                        content: '<p>Miniprep of liquid cultures inoculated with DH5a E.coli cells (with pthsse_59,pthsse_60 plasmids) (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 28,
+                        title: 'Nanodrop',
+                        content: '<p>Nanodrop of minipreps. (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 28,
+                        title: 'Enzymatic Digestion',
+                        content: '<p>Digestion of  pthsse_59, pthsse_60 plasmids sent from Addgene and psb3K3 (provided from the iGEM 2018 distribution Kit) with XbaI and SpeI restriction digestion enzymes(supplied from New England Biolabs). (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 28,
+                        title: 'Agarose gel electrophoresis',
+                        content: '<p>Agarose gel electrophoresis( 0,8% agarose) of previously digested devices: The size of each band for the Talesp1 and Talesp2 stabilized cassettes  was correct so we proceeded with the Gel cleanup using the Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. The digested psb1C3 and psb3K3 samples were not correct. (Alex, Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 29,
+                        title: 'Sample Preparation for Flow Cytometry',
+                        content: '<p>Preparation of pthsse_59, pthsse_60 plasmids for Flow cytometry (Day 1) (John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 29,
+                        title: 'Enzymatic Digestion',
+                        content: '<p>Digestion of psb1c3 vector, psb3k3 vector, pthsse_59, pthsse_60 plasmids, with SpeI restriction digestion enzyme(supplied from New England Biolabs) to verify their length (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 29,
+                        title: 'Agarose gel electrophoresis',
+                        content: '<p>Agarose gel electrophoresis( 1% agarose)  of previously digested parts(psb1c3 vector, psb3k3 vector, pthsse_59, pthsse_60 plasmids). The bands were correct so we proceeded with the Gel Extraction and Clean up. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 30,
+                        title: 'Enzymatic Digestion',
+                        content: '<p>Digestion of  pthsse_59, pthsse_60 plasmids sent from Addgene and psb3K3 (provided from the iGEM 2018 distribution Kit) with XbaI and SpeI restriction digestion enzymes.(Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 30,
+                        title: 'Agarose gel electrophoresis',
+                        content: '<p>Agarose gel electrophoresis( 0,8% agarose) of previously digested devices followed by gel extraction of digested Talesp1 and Talesp2 stabilized cassettes  as well as psb3k3 digested vector with  the Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. (Alex)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 30,
+                        title: 'Ligation',
+                        content: '<p>Ligation of digested Talesp1 stabilized cassette into the psb3K3 digested vector using T4 ligase supplied from New England Biolabs. The same procedure was followed for the Talesp2 stabilized cassette too. (Alex and John)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 30,
+                        title: 'Transformation',
+                        content: '<p>Transformation of ligated products(talesp1 stabilized cassette ligated with psb3k3, talesp2 stabilized cassette ligated with psb3k3) into DH5a chemically competent cells. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 30,
+                        title: 'Sample Preparation for Flow Cytometry',
+                        content: '<p>Flow Cytometry pthsse_59, pthsse_60 plasmids preparation and fixation (Day 2) (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Colony PCR',
+                        content: '<p>Colony PCR of the Transformants using VR, VF2 Primers. (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Agarose gel electrophoresis',
+                        content: '<p>Agarose gel electrophoresis(1% agarose) of the Amplified Parts from colony PCR. The bands were correct. (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Scale up',
+                        content: '<p>Colony picking and Scale up of the Transformants in 5ml LB+KanR (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Ip PCR Amplification',
+                        content: '<p>Ip PCR of Talesp1 and Talesp2 cassettes with E and P primers. (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'PCR Amplification',
+                        content: '<p>PCR of Talesp1 and Talesp2 cassettes for point mutation, in order to change the 2PstI illegal sites. (Grigorios)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Agarose gel electrophoresis',
+                        content: '<p>Agarose gel electrophoresis(1% agarose) of the Amplified Parts. The Talesp1 and Talesp2 bands from the Ip PCR were not correct due to small extension time. (Yvoni)<br>The amplified TALE cassettes for the mutation were not correct, so the procedure was performed again the next day. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'Primers from ThermoFisher Scientific arrived',
+                        content: '<p>They were resuspended and working stocks of 10mM were made. (Yvoni)</p>',
+                        tags: ['wet']
+                    },
+                    {
+                        month: 7,
+                        day: 31,
+                        title: 'SOC medium Preparation',
+                        content: '<p>SOC medium was made. (Alex)</p>',
+                        tags: ['wet']
+                    }
+                ],
+                august: [
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of the Transformants. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'PCR Amplification',
+                        content: `<p>Repeat of 31.07 PCR reactions changing the Concentration of the DNA template and the extension Time. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of the Amplified Parts. The desired Bands were shown. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'PCR Amplification',
+                        content: `<p>PCR Amplification of psb1c3, psb3k3, pTTHSSe_59 with E Vector -D  and P vector -D primer.(Evd,Pvd primers) (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of the Amplified Vectors.The size of each band for the amplified vectors  was correct so we proceeded with the Gel cleanup using the Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. (John)
+                            <br>These amplified vectors have sticky ends with every amplified part with E,P primers.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 1,
+                        title: 'Golden gate assembly',
+                        content: `<p>
+                            Golden gate assembly of amplified  vectors with parts received from IDT or with amplified  parts(E-P) using  NEB® Golden Gate Assembly Mix. (Yvoni)
+                            <table class="simple-table text-center">
+                                <tr>
+                                    <td>
+                                        <b>Vector/insert</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 1</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 2</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb1C3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        TALEsp1 (E-P)
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb1C3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        TALEsp2 (E-P)
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb1C3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        Insulated constitutive promoter
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified pTThSSe_59(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        Insulated constitutive promoter
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified pTThSSe_59(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        sgRNA cassette
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb1C3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        sgRNA cassette
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        TALEsp1mutationpart1
+                                    </td>
+                                    <td>
+                                        TALEsp1mutationpart2
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        TALEsp2mutationpart1
+                                    </td>
+                                    <td>
+                                        TALEsp2mutationpart2
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 2,
+                        title: 'Flow Cytometry Sample Preparation Day 2',
+                        content: `<p>Dilutions and Incubation in 37 degrees of Celsius till the cells reach OD600=0,2. (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 3,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR of  Golden Gate Assemblies with VR, VF2 primers (Yvoni, ALex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 4,
+                        title: 'Agarose Gel (1% agarose) electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) electrophoresis of Colony PCR products. (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 4,
+                        title: 'Scale up',
+                        content: `<p>Scale up of the correct colonies in 5ml LB+CmR (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 4,
+                        title: 'Colony PCR',
+                        content: `<p>Repeat of Colony PCR for the Colonies that were not correct. (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 5,
+                        title: 'Agarose Gel (1% agarose) electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) electrophoresis of Colony PCR products. (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 5,
+                        title: 'Scale up',
+                        content: `<p>Scale up of the correct colonies in 5ml LB+CmR (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 7,
+                        title: 'Ip PCR Amplification',
+                        content: `<p>Ip PCR Amplification of Talesp1 and Talesp2 Cassettes with E and P primers  (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 7,
+                        title: 'Flow Cytometry Samples Preparation Day 1',
+                        content: `<p>
+                            Flow Cytometry Samples Preparation Day 1 (John):
+                            <ul>
+                                <li>
+                                    Talesp1 in the psb1c3 vector
+                                </li>
+                                <li>
+                                    Talesp2 in the psb1c3 vector
+                                </li>
+                                <li>
+                                    Talesp1 in the psb3k3 vector
+                                </li>
+                                <li>
+                                    Talesp2 in tge psb3k3 vector
+                                </li>
+                                <li>
+                                    Insulated Constitutive Promoter in the psb1c3 vector
+                                </li>
+                                <li>
+                                    Insulated Constitutive Promoter in the pthsse_59 vector
+                                </li>
+                            </ul>
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Agarose Gel (1% agarose) electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) electrophoresis of Colony PCR products. (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Golden gate assembly',
+                        content: `<p>
+                            Golden gate assembly of amplified  vectors with parts received from IDT using  NEB® Golden Gate Assembly Mix. (Yvoni)
+                            <table class="simple-table text-center">
+                                <tr>
+                                    <td>
+                                        <b>Vector/insert</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 1</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 2</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb3k3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        Insulated constitutive promoter cassette
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                            </table
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Flow Cytometry Sample Preparation Day 2',
+                        content: `<p>(John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of liquid cultures inoculated with DH5a E.coli cells(with psb1c3 vector containing dcas9 cassette) (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Ip PCR',
+                        content: `<p>Ip PCR of dcas9 cassette with E and S primers(E-S) using different concentration of DMSO at the reaction(no DMSO,¼ of DMSO mix).The amplified dcas9 cassette(E-S) have sticky end with amplified vectors(Evd-Pvd) and every amplified part with X and P primers.(X-P) (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 8,
+                        title: 'Transformation',
+                        content: `<p>Transformation of ligated products from previous Golden gate Assembly into  DH5a chemically competent cells. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of the Amplified dcas9 cassette(E-S).
+                            Apart from the expected band, there were  different  bands at the gel.For this reason we made the decision to repeat the Ip PCR altering the conditions. (Alex)
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Ip PCR',
+                        content: `<p>Ip PCR of dcas9 cassette with E and S primers(E-S) with increased extension time(4 min)  and increased concentration of PCR template.(1 ng/μl,5 ng/μl)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Golden gate assembly',
+                        content: `<p>
+                            Golden gate assembly of amplified  vectors with parts received from IDT or with amplified  parts(E-P) using  NEB® Golden Gate Assembly Mix. (Alex)
+                            <table class="simple-table text-center">
+                                <tr>
+                                    <td>
+                                        <b>Vector/insert</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 1</b>
+                                    </td>
+                                    <td>
+                                        <b>Insert 2</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb3k3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        Insulated constitutive promoter cassette
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Amplified psb3k3(Evd-Pvd)
+                                    </td>
+                                    <td>
+                                        sgrna cassette
+                                    </td>
+                                    <td>
+                                        sfGFP
+                                    </td>
+                                </tr>
+                            </table
+                            </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Transformation',
+                        content: `<p>Transformation of ligated products from previous Golden gate Assembly into  DH5a chemically competent cells.  (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR of talesp1-mutation construct,talesp2-mutation construct,dcas9 cassette in pTThSSe_59 vector.  (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 9,
+                        title: 'Flow Cytometry Sample Preparation Day 1',
+                        content: `<p>
+                            Flow Cytometry Sample Preparation Day 1 (Grigorios):
+                            <ul>
+                                <li>Insulated constitutive promoter in psb3k3</li>
+                                <li>Negative Control (Interlab Negative Control from the distribution kit, Well 2D, Kit Plate 7)</li>
+                            </ul>
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 10,
+                        title: 'Flow Cytometry Sample Preparation Day 2',
+                        content: `<p>(Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 10,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of colony PCR reactions conducted yesterday( talesp1-mutation construct,talesp2-mutation construct)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 10,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>
+                            Agarose gel electrophoresis( 1% agarose) of amplified dcas9 cassette in pTThSSe_59 vector(E-S)  from Ip PCR (Grigorios)
+                            <br>
+                            The following amplified constructs had different size than the expected at the agarose gel.
+                            <br>
+                            A) talesp1-mutation construct B)talesp2-mutation construct.
+                            The amplified dcas9 cassette(E-S) from Ip PCR showed apart from the desire band,unexpected bands at the agarose gel.For this reason,we decided to isolate the desired band with gel extraction using  Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. Nanodrop of gel extracted products.
+
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 10,
+                        title: 'Ip PCR',
+                        content: `<p>
+                                Ip PCR of pthsse_59,pthsse_60 plasmids with two PCR reactions at each plasmid.Details are shown at the following chart (Grigorios)
+
+                                <table class="simple-table text-center">
+                                    <tr>
+                                        <td>
+                                            <b>PCR template(5ng)</b>
+                                        </td>
+                                        <td>
+                                            <b>Primers</b>
+                                        </td>
+                                        <td>
+                                            <b>Extension time</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            pthsse_59
+                                        </td>
+                                        <td>
+                                            P.Rem 1, P. Rem 4
+                                        </td>
+                                        <td>
+                                            2 minutes
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            pthsse_59
+                                        </td>
+                                        <td>
+                                            P.Rem 2, P. Rem 3
+                                        </td>
+                                        <td>
+                                            4.15 minutes
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            pthsse_60
+                                        </td>
+                                        <td>
+                                            P.Rem 1, P. Rem 4
+                                        </td>
+                                        <td>
+                                            2 minutes
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            pthsse_60
+                                        </td>
+                                        <td>
+                                            P.Rem 2, P. Rem 3
+                                        </td>
+                                        <td>
+                                            4.15 minutes
+                                        </td>
+                                    </tr>
+                                </table
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 10,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of amplified pthsse_59, pthsse_60 (mut2-mut3) from Ip PCR. (Grigorios)
+                            <br>No bands can be detected at the gel.Possible cause:short extension time.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR of the following transformations. (Yvoni)
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Cloned construct,Day of transformation',
+                                    data: ['Insulated constitutive promoter cassette -sfGFP cassette  into psb3k3 vector.,09.08.2018','Sgrna cassette-sfGFP cassette into psb3k3 vector.,09.08.2018']
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>Agarose gel electrophoresis( 1% agarose) of amplified constructs from previous colony PCR.The bands from agarose gel were at the expected position so we proceeded scaling  up the colonies into 5 ml LB+Kan.(Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'PCR Amplification',
+                        content: `<p>
+                                PCR Amplification of  pthsse_59,pthsse_60 with two PCR reactions at each plasmid.
+                                <br>Details are shown at the following chart (Yvoni)
+                                ${
+                                    iGEM.buildTable({
+                                        header: 'PCR template(1.5ng),Primers,Extension time',
+                                        data: [
+                                            'pthsse_59,P.Rem 1 + P. Rem 4,2 minutes',
+                                            'pthsse_59,P.Rem 2 + P. Rem 3,4.15 minutes',
+                                            'pthsse_60,P.Rem 1 + P. Rem 4,2 minutes',
+                                            'pthsse_60,P.Rem 2 + P. Rem 3,4.15 minutes',
+                                        ]
+                                    })
+                                }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'Agarose gel electrophoresis',
+                        content: `<p>
+                            Agarose gel electrophoresis( 1% agarose) of amplified constructs from previous PCR (Yvoni).
+                            <br>Pthsse_59,pthsse_60 plasmids amplified with mut1 and mut4 primers (mut1-mut4) showed clear bands at the expected position,so we proceeded with PCR clean up using  Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit.
+                            <br><br>
+                            Pthsse_59,pthsse_60 plasmids amplified with mut2 and mut3 primers (mut2-mut3) showed apart from the desire band,unexpected bands at the agarose gel. We repeated the process the next day.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'Golden gate assembly',
+                        content: `<p>Golden gate assembly of amplified  psb1c3(Evd-Pvd) with amplified pthsse_59,pthsse_60 (E-P) using  NEB® Golden Gate Assembly Mix, (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 11,
+                        title: 'Transformation',
+                        content: `<p>Transformation of ligated products from previous Golden gate Assembly reaction into  DH5a chemically competent cells. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 12,
+                        title: 'PCR clean up',
+                        content: `<p>
+                            PCR clean up  using the Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit for the following samples (John):
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Sample,Primers used,Concertration (ng/μl)',
+                                    data: [
+                                        'Pthsse_59 mut1-4,P.Rem 1 + P. Rem 4,74.9',
+                                        'Pthsse_60 mut1-4,P.Rem 1 + P. Rem 4,74.8',
+                                    ]
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 12,
+                        title: 'PCR Amplification',
+                        content: `<p>
+                            PCR Amplification of  pthsse_59, pthsse_60 with two PCR reactions for each plasmid. Details are shown at the following chart.
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Sample,Primers,Extension time',
+                                    data: [
+                                        'pthsse_59,P.Rem 2 + P. Rem 3,4.15 minutes',
+                                        'pthsse_60,P.Rem 2 + P. Rem 3,4.15 minutes',
+                                    ]
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 12,
+                        title: 'Agarose Gel electrophoresis',
+                        content: `<p>Agarose Gel electrophoresis (1% agarose)  of the PCR Amplified samples from the previous PCR reaction. This time the bands were at the expected position,so we proceeded with PCR clean up using  Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 12,
+                        title: 'Golden gate assembly',
+                        content: `<p>Golden gate assembly of amplified pthsse_59 (mut1, mut4) with amplified pthsse_59 (mut2, mut3) using the NEB® Golden Gate Assembly Mix. The same procedure was followed for the amplified  pthsse_60 (mut1, mut4) with the amplified pthsse_60 (mut2, mut3). (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 12,
+                        title: 'Transformation',
+                        content: `<p>Transformation into DH5a chemically competent cells of the Golden Gate products. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 13,
+                        title: 'Colony PCR',
+                        content: `<p>
+                            Colony PCR using VR VF2 Primers and Agarose Gel electrophoresis (1% agarose) of the following (Grigorios):
+                            <ul>
+                                <li>
+                                    Golden Gate pthsse_59 (P. Rem 1, P. Rem 4) with amplified pthsse_59 (P. Rem 2, P. Rem 3)Transformant
+                                </li>
+                                <li>
+                                    Golden Gate pthsse_60 (P. Rem 1, P. Rem 4) with amplified pthsse_60 (P. Rem 2, P. Rem 3)Transformant
+                                </li>
+                            </ul>
+                            The pthsse_59MUT and pthsse_60 MUT Transformants did not show the correct bands at the expected position.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 14,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR using VR VF2 Primers (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 14,
+                        title: 'Agarose Gel electrophoresis',
+                        content: `<p>
+                            Agarose Gel electrophoresis (1% agarose) of the following (Alex):
+                            <ul>
+                                <li>
+                                    Golden Gate pthsse_59 (P. Rem 1, P. Rem 4) with amplified pthsse_59 (P.Rem 2, P. Rem 3)Transformant
+                                </li>
+                            </ul>
+                            The pthsse_59 MUT and pthsse_60 MUT Transformants showed the correct bands at the expected position.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 14,
+                        title: 'Scale up',
+                        content: `<p>Colony picking of the Golden Gate pthsse_59 MUT and pthsse_60 MUT transformants and scale up into 5ml LB containing Chloramphenicol</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 14,
+                        title: 'Transformation',
+                        content: `<p>Transformation of Interlab devices into DH5a competent cells</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 16,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of the pthsse_59 MUT and pthsse_60 MUT plasmids (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 16,
+                        title: 'Presentation in a Lab Meeting',
+                        content: `<p>(Team)</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 8,
+                        day: 16,
+                        title: 'Plate Reader Interlab Measurement',
+                        content: `<p>Plate Reader Interlab Measurement Conducted (Yvoni and John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 19,
+                        title: 'PCR amplification',
+                        content: `<p>
+                            PCR amplification of the following samples using the  Q5® High-Fidelity 2X Master Mix (Grigorios).
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Sample,Primers,Extension time',
+                                    data: [
+                                        'pthsse_59MUT (1ng),E + P,4.15 minutes',
+                                        'pthsse_60MUT (1ng),E + P,4.15 minutes',
+                                        'psb2K3 (0.5ng),Evector + Pvector,3.15 minutes',
+                                    ]
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 20,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>
+                            Agarose Gel (1% agarose) Electrophoresis of the PCR amplicons. The pthsse_59MUT (E, P) showed the correct bands but the bands for the pthsse_60MUT showed lower than expected. The psb2K3 (Evector, Pvector) amplicon showed the correct band too.
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 20,
+                        title: 'PCR cleanup',
+                        content: `<p>PCR cleanup of pthsse_59MUT (E, P) and psb2K3 (Evector, Pvector)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 22,
+                        title: 'Resuspension',
+                        content: `<p>Resuspension of gBlocks arrived from IDT (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 22,
+                        title: 'PCR Amplification',
+                        content: `<p>PCR Amplification of gBlocks for our Riboswitch Constructs  with VR, VF2 primers and PCR clean up using  Macheray Nagel NucleoSpin® Gel and PCR Clean-up Kit. (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 23,
+                        title: 'PCR Cleanup',
+                        content: `<p>PCR Cleanup of the Amplified gBlocks for our Riboswitch Constructs (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 23,
+                        title: 'Golden Gate Assembly',
+                        content: `<p>
+                            Golden Gate Assembly of the Following using the NEB GG Assembly MasterMix (John):
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector,Insert 1,Insert 2',
+                                    data: [
+                                        'psb1C3 (E vector-P vector Amplified),TheophyllineRiboswitch27,sfGFP (no ATG)',
+                                        'psb1C3 (E vector-P vector Amplified),12.1 Riboswitch,sfGFP (no ATG)',
+                                        'psb1C3 (E vector-P vector Amplified),12.1 Riboswitch enhanced,sfGFP (no ATG)',
+                                    ]
+                                })
+                            }
+                            Reaction Details: Total Volume: 8 μl
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 23,
+                        title: 'PCR Amplification',
+                        content: `<p>PCR Amplification of pTHSSe_59 and pTHSSe_60 with primers In1 and In2 (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 23,
+                        title: 'PCR Amplification',
+                        content: `<p>PCR Amplification of pTHSSe_59, Tale pupsp1 stabilized cassette in psb1c3 and Tale pupsp1 stabilized cassette in psb3k3 using the Primers: Ri1 and Ri2 for the Riboswitch Insertion (Grigorios).</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 23,
+                        title: 'Transformation',
+                        content: `<p>Transformation of this day’s Golden Gates (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 24,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) Electrophoresis of the PCR amplicons. The Ri1 and Ri2 amplicons did not show the correct bands, so the PCR reactions were repeated with a bigger extension time (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 24,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR from yesterday’s Golden Gate Reactions and Agarose Gel (1% agarose) Electrophoresis. This time, all the 3 riboswitches where correct (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 25,
+                        title: 'PCR Amplification',
+                        content: `<p>PCR Amplification of pTHSSe_59, Tale pupsp1 stabilized cassette in psb1c3 and Tale pupsp1 stabilized cassette in psb3k3 using the Primers: Ri1 and Ri2 for the Riboswitch Insertion (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 25,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) Electrophoresis of the PCR amplicons</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 25,
+                        title: 'Scale up',
+                        content: `<p>Scale up of the Riboswitch constructs in psb1c3</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 25,
+                        title: 'Golden Gate Assembly',
+                        content: `<p>
+                            Golden Gate Assembly of the Following using the NEB GG Assembly MasterMix (John):
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector,Insert 1',
+                                    data: [
+                                        'psb1C3 (Ri1 Ri2 amplified),TheophyllineRiboswitch27-sfGFP',
+                                        'psb1C3 (Ri1 Ri2 amplified),12.1 Riboswitch-sfGFP',
+                                        'psb1C3 (Ri1 Ri2 amplified),12.1 Riboswitch enhanced-sfGFP',
+                                        'pTHSSe_59 (E vector-P vector Amplified),pupsp1-sfGFP In1 In2 amp',
+                                        'pTHSSe_59 (E vector-P vector Amplified),pupsp2-sfGFP In1 In2 amp',
+                                    ]
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 25,
+                        title: 'Transformation',
+                        content: `<p>Transformation of the Golden Gate Assembies (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 26,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of the Riboswitch Constructs in psb1C3 (Grigorios)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 26,
+                        title: 'Flow Cytometry Sample Preparation Day 1',
+                        content: `<p>
+                            Flow Cytometry Sample Preparation Day (Grigorios):
+                            <ul>
+                                <li>TheophyllineRiboswitch27-sfGFP in psb1C3</li>
+                                <li>2.1 Theophylline Riboswitch-sfGFP in psb1C3</li>
+                                <li>Enhanced 2.1 Theophylline Riboswitch-sfGFP in psb1C3</li>
+                            </ul>
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 26,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR of yesterday's Golden Gate Reactions (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 26,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) Electrophoresis of the PCR amplicons from the colony PCR (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 26,
+                        title: 'Scale up',
+                        content: `<p>Scale up of the correct colonies from the Riboswitches,  pupsp1+sfGFP in pTHSSe_59 (E vector-P vector Amplified) and pupsp2+sfGFP in pTHSSe_59 (E vector-P vector Amplified) transformations (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 27,
+                        title: 'Flow Cytometry Day 2',
+                        content: `<p>Flow Cytometry Day 2 using different concentrations of Theophylline (0 0,3 0,5 0,8 1,2 1,6 2 and 4 mM of Theophylline) (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 27,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of scale ups (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 28,
+                        title: 'Dry Lab-Wet Lab Meeting',
+                        content: `<p>(Team)</p>`,
+                        tags: ['wet', 'dry']
+                    },
+                    {
+                        month: 8,
+                        day: 29,
+                        title: 'PCR amplification',
+                        content: `<p>
+                            PCR amplification of the following samples using the  Q5® High-Fidelity 2X Master Mix (Grigorios)
+                            ${
+                                iGEM.buildTable({
+                                    header: 'PCR template,Primers,Extension time',
+                                    data: [
+                                        'pthsse_60MUT (1ng),E + P,4.15 minutes'
+                                    ]
+                                })
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 29,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) Electrophoresis of the PCR amplicon(Alex). This time the band was correct (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 29,
+                        title: 'PCR Clean',
+                        content: `<p>PCR Clean up of pthsse_60MUT (John)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 29,
+                        title: 'Golden Gate Assembly',
+                        content: `<p>
+                            Golden Gate Assembly of the following (Yvoni):
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector|Insert 1|Insert 2',
+                                    data: [
+                                        'psb2K3 (E vector, P vector Amplified)|Talesp1 stabilised pupsp1 cassette (E, P primer)|',
+                                        'psb2K3 (E vector, P vector Amplified)|Talesp2 stabilised pupsp2 cassette (E, P primer)|',
+                                        'psb2K3 (E vector, P vector Amplified)|Insulated constitutive promoter|sfGFP',
+                                        'psb1C3 (E vector, P vector Amplified)|T1MUT (E, P primer)|',
+                                        'psb1C3 (E vector, P vector Amplified)|T2MUT (E, P primer)|',
+                                    ]
+                                }, '|')
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 30,
+                        title: 'Colony PCR',
+                        content: `<p>Colony PCR of yesterday's transformations (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 30,
+                        title: 'Scale up',
+                        content: `<p>Scale up of the correct colonies</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 30,
+                        title: 'Agarose Gel (1% agarose) Electrophoresis',
+                        content: `<p>Agarose Gel (1% agarose) Electrophoresis of the PCR amplicon(Alex). Scale up of the Colonies with the correct insert (Alex)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 31,
+                        title: 'Miniprep',
+                        content: `<p>Miniprep of the Scale ups and Glycerol Stocks (Yvoni)</p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 31,
+                        title: 'Golden Gate Assembly',
+                        content: `<p>
+                            Golden Gate Assembly of the following (Yvoni):
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector|Insert 1|Insert 2',
+                                    data: [
+                                        'psb1C3 (E vector, P vector Amplified)|J23114sfGFP (no ATG)',
+                                        'sfGFP (no ATG)|Psp1w1 B0030|sfGFP (no ATG)',
+                                        'psb1C3 (E vector, P vector Amplified)|Psp1w1 B0032|sfGFP (no ATG)',
+                                        'psb1c3 (E vector, P vector Amplified)|pRha|sfGFP (no ATG)',
+                                    ]
+                                }, '|')
+                            }
+                        </p>`,
+                        tags: ['wet']
+                    },
+                    {
+                        month: 8,
+                        day: 31,
+                        title: 'Transformation',
+                        content: `<p>Transformation of the Golden Gates (Grigorios)</p>`,
+                        tags: ['wet']
+                    }
+                ],
+                september: [
+
+                ],
+                october: [
+
                 ]
             }
         }
