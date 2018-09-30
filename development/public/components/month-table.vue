@@ -70,8 +70,12 @@
         },
         watch: {
             filter() {
-                if (this.selected.month == this.title) {
-                    this.$emit('set-events', this.eventsPrepared[this.selected.pos + 1])
+                let array = this.eventsPrepared[this.selected.pos + 1]
+                if (array && this.selected.month == this.title && this.selected.count != array.length ) {
+                    let select = Object.assign({}, this.selected)
+                    select.count = array.length
+                    this.$emit('select', select)
+                    this.$emit('set-events', array)
                 }
             }
         },
@@ -132,6 +136,7 @@
                     if (array) {
                         this.$emit('set-events', array)
                         this.$emit('select', {
+                            count: array.length,
                             month: this.title,
                             pos
                         })

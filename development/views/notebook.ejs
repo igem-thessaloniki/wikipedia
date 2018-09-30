@@ -16,6 +16,7 @@
                             float-label="Filter Tags"
                             multiple
                             chips
+                            clearable
                             v-model="selectedTags"
                             :options="tags"
                             :dark="nightMode"
@@ -112,11 +113,16 @@
                     ref="clearBtn"
                     v-show="eventsToDisplay.length > 0"
                     class="bg-indigo-12 text-white"
-                    label="clear"
+                    label="Clear Selected Date"
                     icon="clear"
                     @click="eventsToDisplay = []; selected = {}"
                 >
                 </q-btn>
+            </div>
+            <div ref="timeline" class="row justify-center">
+                <h4 v-show="Object.keys(selected).length > 0">
+                    {{iGEMParseDate(selected.pos + 1) + ' of ' + selected.month }}
+                </h4>
             </div>
             <notebook-dynamic-timeline
                 v-show="eventsToDisplay.length != 0"
@@ -125,7 +131,6 @@
                 >
             </notebook-dynamic-timeline>
 
-            <div ref="timeline"></div>
 
             <q-timeline v-show="eventsToDisplay.length == 0" color="secondary" style="padding: 0 24px;" responsive>
                 <q-timeline-entry heading>Notebook</q-timeline-entry>
@@ -184,7 +189,20 @@
     <%- include('templates/layout-footer'); %>
     <script src="/javascripts/lodash.js"></script>
     <script>
+        iGEM.parseDate = function (day) {
+            if (day == 1) {
+                return '1st'
+            }
+            if (day == 2) {
+                return '2nd'
+            }
+            if (day == 3) {
+                return '3rd'
+            }
+            return day + 'th'
+        }
         iGEM.data = {
+            iGEMParseDate: iGEM.parseDate,
             selectedTags: [],
             tags: _.map(['dry', 'wet', 'milestone'], (value) => {
                 return {
