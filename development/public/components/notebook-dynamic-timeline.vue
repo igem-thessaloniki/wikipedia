@@ -69,11 +69,14 @@
                     return event.icon
                 }
 
+                if (event.tags.includes('team')) {
+                    return 'people'
+                }
                 if (event.tags.includes('dry')) {
                     return 'memory'
                 }
                 if (event.tags.includes('wet')) {
-                    return 'colorize'
+                    return 'waves'
                 }
                 if (event.tags.includes('milestone')) {
                     return 'start'
@@ -85,11 +88,14 @@
                     return event.color
                 }
 
+                if (event.tags.includes('team')) {
+                    return 'green'
+                }
                 if (event.tags.includes('dry')) {
-                    return 'blue'
+                    return 'red'
                 }
                 if (event.tags.includes('wet')) {
-                    return 'red'
+                    return 'blue'
                 }
                 if (event.tags.includes('milestone')) {
                     return 'orange'
