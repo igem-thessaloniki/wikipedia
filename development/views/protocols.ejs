@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        .member-card {
+            width: 200px;
+            height: 300px;
+        }
+
+        .member-card-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .member-card-modal-image {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page>
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Protocols</h1>
+                <h1>Protocols</h1>
+            </q-parallax>
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <q-list separator class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md" striped highlight no-border>
+                    <q-collapsible label="Frozen Competent Cells" :dark="nightMode" group="protocols" color="red">
+                        <div>
+                            <h3>Frozen Competent Cells</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>Plate of cells to be made competent</li>
+                                <li>LB Broth</li>
+                                <li>CaCl2 solution 0,1M</li>
+                                <li>100% glycerol</li>
+                                <li>Ice</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <ol>
+                                <li>Inoculate 1 colony from a freshly grown plate into 50ml broth</li>
+                                <li>Incubate cells <u>overnight</u> at 37°C in a shaking incubator (200-250 rpm)</li>
+                                <li>Transfer cells into 500 ml LB Broth in a 500ml E. flask</li>
+                                <li>Incubate at 250-300 rpm and 37°C for approx. <u>2,5 hours</u> (or OD = 0.5). Centrifuge at 5000 rpm and 4°C for <u>15 min</u></li>
+                                <li>Remove supernatant and resuspend pelleted cells in 250 ml 0,1 M CaCl2 solution</li>
+                                <li>Incubate on ice for <u>20 min</u></li>
+                                <li>Centrifuge at 5000 rpm for <u>15 min</u></li>
+                                <li>Remove supernatant and resuspend pelleted cells in 43 ml 0,1 M CaCl2 solution</li>
+                                <li>
+                                    Incubate on ice for <u>2-12 hours</u><br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Maximum Incubation at 24 hours. Efficiency of Transformation is gradually reduced afterwards
+                                    </span>
+                                </li>
+                                <li>Add 7ml 100% glycerol, mix well</li>
+                                <li>Aliquot cells into prechilled 15ml tubes</li>
+                                <li>Quick freeze in liquid nitrogen</li>
+                                <li>Store (-80°C)</li>
+                            </ol>
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Fresh Competent Cells" :dark="nightMode" group="protocols">
+                        <div>
+                            <h3>Fresh Competent Cells</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>Plate of cells to be made competent</li>
+                                <li>LB Broth</li>
+                                <li>CaCl2 solution 0,1M</li>
+                                <li>Ice</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <ol>
+                                <li>Inoculate 1 colony from a freshly grown plate into 50ml LB Broth in a 500ml E. Flask</li>
+                                <li>
+                                    Incubate at 250-300 rpm and 37°C for approx. <u>3 hours</u> (or until OD600 is about 0,375)
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Transformation Effeciency will decrease if cells are allowed to grow to a density greater than 0,4 OD
+                                    </span>
+                                </li>
+                                <li>Centrifuge 3000 rpm and 4°C for <u>7 minutes</u>. No brake.</li>
+                                <li>Remove supernatant and drain the tubes by keeping them inverted on an absorbent paper for <u>1 minute</u></li>
+                                <li>Resuspend pelleted cells in 10ml ice-cold CaCl2 solution by pipetting gently up and down. Make sure that cells are fully resuspended. Keep on ice for <u>5 min</u></li>
+                                <li>Centrifuge 3000 rpm and 4°C for <u>7 minutes</u>. No brake.</li>
+                                <li>Remove supernatant and drain the tubes by keeping them inverted on an absorbent paper for <u>1 minute</u></li>
+                                <li>
+                                    Resuspend pelleted cells in 2ml ice-cold CaCl2 solution by pipetting gently up and down. Make sure that cells are fully resuspended. Keep on ice.
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Increased transformation efficiency next 24h, decrease after the 24 hour mark.
+                                    </span>
+                                </li>
+                            </ol>
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Chemical Transformation" :dark="nightMode" group="protocols">
+                        <div>
+                            <h3>Chemical Transformation</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>Chemically competent cells</li>
+                                <li>DNA to be transformed</li>
+                                <li>LB agar with antibiotics</li>
+                                <li>Ice</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <ol>
+                                <li>
+                                    Thaw 100 μl of competent cells on ice.
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Thawing at room temp decreases efficiency
+                                    </span>
+                                </li>
+                                <li>
+                                    Add DNA:
+                                    <ol>
+                                        <li>For transformation of ligated products add 8μl of the ligation reaction mix</li>
+                                        <li>For transformation of known plasmids add approx. 10-100 μg DNA</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Incubate cells on ice for <u>30min</u>.
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Cutting this incub time short slightly decreases transformation efficiency.
+                                    </span>
+                                </li>
+                                <li>
+                                    Heat shock cells at 42°C for <u>90 sec</u>.
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Optimal heat shock duration depends on the strain and the method used to make it competent.
+                                    </span>
+                                </li>
+                                <li>Incubate on ice for <u>5 minutes</u></li>
+                                <li>Heat shock cells at 42°C for <u>90 sec</u></li>
+                                <li>Incubate on ice for <u>5 minutes</u></li>
+                                <li>
+                                    Add 1ml of SOC or LB Broth.
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Using SOC increases transformation efficiency.
+                                    </span>
+                                </li>
+                                <li>
+                                    Incubate cells for <u>1 hour</u> at 37°C in a shaking incubator (200-250rpm).
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> Incubation without shaking will decrease transformation efficiency
+                                    </span>
+                                    <br>
+                                    <span class="text-light-blue">
+                                        <b>Note:</b> If using LB Broth, longer incubation up to 2 hours can increase transformation Efficiency
+                                    </span>
+                                </li>
+                                <li>Centrifuge at 8000rpm for <u>3 minutes</u></li>
+                                <li>Remove 920μl of supernatant</li>
+                                <li>Resuspend pelleted cells in the remaining LB broth or SOC.</li>
+                                <li>Plate resuspended cells onto LB agar plates containing the appropriate antibiotic.</li>
+                                <li>Let the plates dry in the incubator for approx. <u>30min</u>.</li>
+                                <li>Flip upside down and incubate for <u>16-18 hours</u>.</li>
+                            </ol>
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Growing Overnight Cultures" :dark="nightMode" group="protocols">
+                        <div>
+                            <h3>Growing Overnight Cultures</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>5-10 ml LB broth</li>
+                                <li>5-10 μl antibiotic</li>
+                                <li>culture tubes</li>
+                            </ul>
+                            <h4>Methods</h4>
+                            <p>Overnight cultures are prepared under sterile conditions using a Bunsen burner</p>
+                            <ol>
+                                <li>Add 5-10 ml ofLB media into a culture tubes.</li>
+                                <li>Add 5-10 μl of appropriate antibiotic into the broth.</li>
+                                <li>Using a loop, pick a single colony and inoculate the culture by dipping the loop into the LB broth.</li>
+                                <li>Incubate overnight at 37°C shaking at 200-250 rpm.</li>
+                            </ol>
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Preparation of LB Broth, Agar, SOC and Glycerol Stocks" :dark="nightMode" group="protocols">
+                        <div>
+                            <h3>LB Broth</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>20 g LB broth (powder)</li>
+                                <li>1 Litre Purified Water</li>
+                            </ul>
+                            <h4>Methods</h4>
+                            <ol>
+                                <li>Add 20g LB broth to 1 litre purified water</li>
+                                <li>Autoclave</li>
+                            </ol>
+
+                            <h3>LB Agar</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>35 g LB Agar (powder)</li>
+                                <li>1 Litre Purified Water</li>
+                            </ul>
+                            <h4>Methods</h4>
+                            <ol>
+                                <li>Add 37g LB Agar to 1 litre purified water</li>
+                                <li>Autoclave</li>
+                            </ol>
+
+                            <h3>SOC Medium</h3>
+                            <p>We followed the <a href="https://www.qiagen.com/se/resources/faq?id=d3be05d0-ec02-4ced-aabe-dcd2a1061920&lang=en&Print=1">Quiagen protocol</a></p>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>0.5% Yeast Extract</li>
+                                <li>2% Tryptone</li>
+                                <li>10 mM NaCl</li>
+                                <li>2.5 mM KCl</li>
+                                <li>10 mM MgCl2</li>
+                                <li>10 mM MgSO4</li>
+                                <li>20 mM Glucose*</li>
+                            </ul>
+                            <h4 class="text-light-blue">Notes</h4>
+                            <ul class="text-light-blue">
+                                <li>Add Glucose after autoclaving the solution with the remaining ingredients, and letting it cool down. Sterilize the final solution by passing it through a 0.2 µm filter.</li>
+                                <li>SOC medium can be stored at room temperature and is stable for several years.</li>
+                            </ul>
+
+                            <h3>Glycerol Stocks</h3>
+                            <h4>Materials</h4>
+                            <ul>
+                                <li>500µl glycerol (50%)</li>
+                                <li>500µl overnight culture in LB</li>
+                            </ul>
+                            <h4>Methods</h4>
+                            <ol>
+                                <li>Add 500µl glycerol (80%) to 1.5ml eppendorf tube</li>
+                                <li>Add 500µl overnight culture in LB</li>
+                                <li>Store at -80°C</li>
+                            </ol>
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="PCR From Plasmid DNA Template" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Colony PCR" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Agarose Gel Electrophoresis" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Restriction DIgestion" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Ligation" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Golden Gate Assembly" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Ligation" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Minipreps, PCR Purification, Gel Extraction" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="dCas9 Toxicity Measurements" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Flow Cytometry Sample Preparation" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                    <q-collapsible label="Plate Reader Sample Preparation for our Interlaboratory Collaboration" :dark="nightMode" group="protocols">
+                        <div>
+                            Content
+                        </div>
+                    </q-collapsible>
+                </q-list>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', async function ([Vue, store]) {
+            store.commit('setPage', 'protocols')
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
