@@ -35,20 +35,16 @@
                     </route-item>
                     <route-item page="safety" link="http://2018.igem.org/Team:Thessaloniki/Safety" icon="verified_user" label="Safety">
                     </route-item>
-                    
+
                     <route-item page="notebook" link="http://2018.igem.org/Team:Thessaloniki/Notebook" icon="notes" label="Notebook">
                     </route-item>
-                    
+
                     <route-item page="improve" link="http://2018.igem.org/Team:Thessaloniki/Improve" icon="plus_one" label="Improve">
                     </route-item>
                 </q-collapsible>
 
-                <q-collapsible icon="waves" label="Wet Lab" :opened="['experiments', 'protocols', 'cloning-strategy', 'interlab'].includes(page)">
+                <q-collapsible icon="waves" label="Wet Lab" :opened="['experiments', 'interlab'].includes(page)">
                     <route-item page="experiments" link="http://2018.igem.org/Team:Thessaloniki/Experiments" icon="colorize" label="Experiments">
-                    </route-item>
-                    <route-item page="protocols" link="http://2018.igem.org/Team:Thessaloniki/Protocols" icon="assignment" label="Protocols">
-                    </route-item>
-                    <route-item page="cloning-strategy" link="http://2018.igem.org/Team:Thessaloniki/Cloning_Strategy" icon="flip_to_front" label="Cloning Strategy">
                     </route-item>
                     <route-item page="interlab" link="http://2018.igem.org/Team:Thessaloniki/InterLab" icon="sync" label="InterLab">
                     </route-item>

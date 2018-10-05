@@ -687,12 +687,16 @@
                     </q-collapsible>
                 </q-list>
             </div>
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Clonning Strategy</h1>
+                <h1>Cloning Strategy</h1>
+            </q-parallax>
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
-            store.commit('setPage', 'protocols')
+            store.commit('setPage', 'experiments')
         })
     </script>
     <%- include('templates/footer'); %>

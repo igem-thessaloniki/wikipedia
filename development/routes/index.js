@@ -30,6 +30,10 @@ router.get('/notebook', function(req, res, next) {
   res.render('notebook');
 })
 
+router.get('/experiments', function(req, res, next) {
+  res.render('experiments');
+})
+
 router.get('/protocols', function(req, res, next) {
   res.render('protocols');
 })
