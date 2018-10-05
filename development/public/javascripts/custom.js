@@ -75,7 +75,8 @@ iGEM.links = {
     Layout: '/components/igem-layout.vue',
     TimelineEntry: '/components/timeline-entry.vue',
     MonthTable: '/components/month-table.vue',
-    NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue'
+    NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue',
+    BalcansMap: '/components/balcans-map.vue'
 }
 
 // iGEM.links = {

@@ -7,7 +7,7 @@
             <q-icon class="row items-center justify-center" :name="icon">
             </q-icon>
         </div>
-        <div class="q-timeline-subtitle" style="text-transform: none">
+        <div class="q-timeline-subtitle" style="text-transform: none; opacity: 1;">
             <slot name="side">
             </slot>
         </div>

@@ -15,110 +15,91 @@
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
                     <q-timeline color="secondary" style="padding: 0 24px;" responsive>
-                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
                             <div>
-                                Hello World
+                                Gene expression is unpredictable, noisy and prone to perturbations,
+                                thus posing a challenge towards designing reliable and functional
+                                systems. One of the most decisive factors affecting the
+                                functionality of synthetic biological systems is gene copy number
+                                variation, that gives rise to variability in gene expression.
                             </div>
                             <template slot="side">
-                                Hello Side my man
+                                Image of Graph
                             </template>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                We provide <b>Galene</b>, a genetic toolbox that enhances system
+                                stability by disassociating gene expression from copy number and
+                                provides translational control of protein production.
+                            </div>
                         </igem-timeline-entry>
 
                         <igem-timeline-entry icon="colorize" color="blue" side="left">
                             <div>
-                                Hello World
-                            </div>
-                            <template slot="side">
-                                Hello Side my man
-                            </template>
-                        </igem-timeline-entry>
-
-                        <q-timeline-entry side="left" icon="colorize" color="red">
-                            <div>
-                                Gene expression is the term that describes the flow of information
-                                in biological systems. Due to the complexity of the phenomena that
-                                underlie this process, gene expression is unpredictable, volatile
-                                and prone to perturbations, thus posing a challenge towards
-                                designing reliable and functional systems.
-                            </div>
-
-                        </q-timeline-entry>
-
-                        <q-timeline-entry side="right" icon="colorize" color="red">
-                            <div>
-                                One of the most decisive factors affecting the functionality of
-                                biological systems is gene copy number variation, that gives rise
-                                to variability in gene expression.
-                            </div>
-                        </q-timeline-entry>
-
-                        <q-timeline-entry side="left" icon="colorize" color="red">
-                            <div>
-                                We provide Galene, a genetic toolbox that enhances the stability of
-                                biological systems by disassociating transcription from gene copy
-                                number and provides translational control of protein production.
-                            </div>
-                        </q-timeline-entry>
-
-                        <q-timeline-entry side="right" icon="colorize" color="red">
-                            <div>
                                 The former is achieved by implementing a type I incoherent
                                 feed-forward loop network motif that consists of a regulatory
                                 element which compensates for changes in copy number, thus
-                                stabilizing the promoter. Through model-driven feedback, we
-                                accomplish promoter stabilization using 3 distinct systems, each
-                                with its own advantages. CRISPR interference, TAL Effectors,
-                                transcriptional attenuator-interacting sRNAs.
+                                stabilizing the promoter. Through <a href="http://2018.igem.org/Team:Thessaloniki/Design">model-driven
+                                    feedback</a>,
+                                we accomplish promoter stabilization by utilizing 3 distinct
+                                systems, each with its own advantages and appropriate uses.
                             </div>
-                        </q-timeline-entry>
+                            <template slot="side">
+                                Shape triforce
+                            </template>
+                        </igem-timeline-entry>
+
 
                         <q-timeline-entry heading>
-                            Hello World
+                            CRISPR interference, TAL Effectors, transcriptional attenuator-interacting sRNAs
                         </q-timeline-entry>
 
-                        <q-timeline-entry side="left" icon="colorize" color="red">
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
                             <div>
-                                A riboswitch aptamer provides translational initiation regulation,
-                                allowing for controlled rate of protein production that depends on
-                                the applied concentration of the inducer.
+                                Going one step further, we implemented a theophylline aptamer that regulates translation and allows for the induction at the desired expression level.
                             </div>
-                        </q-timeline-entry>
+                            <template slot="side">
+                                (animation ?)
+                            </template>
+                        </igem-timeline-entry>
 
-                        <q-timeline-entry side="right" icon="colorize" color="red">
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
                             <div>
-                                As a proof of concept, we demonstrated the stablilization of a
-                                previously disfunctional, across different copy numbers, AND-gate
-                                system (reference).
+                                As a proof of concept, we demonstrated the stabilization of a, previously inconsistent across different copy numbers, heterologous AND-gate system.
                             </div>
-                        </q-timeline-entry>
+                        </igem-timeline-entry>
 
-                        <q-timeline-entry side="left" icon="colorize" color="red">
-                            <div class="text-justify">
-                                In order to understand current problems in synthetic biology
-                                systems and enhance our project design we went beyond the lab and
-                                contacted researchers and experts from different fields. We also
-                                created Synapsis, a guideline on how to communicate science to
-                                people of different culture and scientific backgrounds.
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                In order to understand current problems in synthetic biology and enhance our project design we went beyond the lab and contacted researchers and experts from numerous fields. We also created Synapsis, a guideline on how to communicate science to people of different cultural and scientific backgrounds.
                             </div>
-                        </q-timeline-entry>
+                            <template slot="side">
+                                Synapsis image
+                            </template>
+                        </igem-timeline-entry>
 
-                        <q-timeline-entry side="right" icon="colorize" color="red">
-                            <div class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                                mollitia dolorum temporibus officiis assumenda architecto, atque
-                                fuga autem neque iusto ex earum. A accusamus voluptatum iure.
-                                Voluptatum doloribus dolores debitis.
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                Following this guideline, we organized a Synthetic Biology tour in the Balkan Peninsula, where we visited 4 institutions in 3 countries, promoting Synthetic Biology and gaining valuable feedback.
                             </div>
-                        </q-timeline-entry>
+                            <template slot="side">
+                                <balcans-map></balcans-map>
+                            </template>
+                        </igem-timeline-entry>
                     </q-timeline>
                 </div>
             </div>
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
     <script>
         iGEM.registerHook('loadHook', async function () {
             await iGEM.loadComponent(iGEM.links.TimelineEntry)
+            await iGEM.loadComponent(iGEM.links.BalcansMap)
         })
     </script>
     <%- include('templates/footer'); %>
