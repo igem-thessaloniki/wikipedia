@@ -7,9 +7,10 @@
     <igem-layout>
         <q-page padding class="text-justify">
             <div class="row justify-center">
-                <div class="col-md-6 col-lg-4">
-                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
-                </div>
+                    <div class="col-md-6 col-lg-4">
+                        <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                        <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/b/b8/T--Thessaloniki--team-logo-night.png">
+                    </div>
             </div>
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">

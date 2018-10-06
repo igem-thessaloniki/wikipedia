@@ -138,7 +138,8 @@
     from {
         width: 75px;
         margin-left: 10px;
-        border-bottom-right-radius: 10px transform: rotate(0deg);
+        border-bottom-right-radius: 10px ;
+        transform: rotate(0deg);
     }
     to {
         width: 5px;
@@ -184,11 +185,12 @@
     background: linear-gradient(to left, #ED5565 50%, #8CC152 50%);
 }
 
-.gradient {
-    background: #2f0028;
-    background: -webkit-linear-gradient(left, #090025 0%, #2f0028 100%);
-    background: -o-linear-gradient(left, #090025 0%, #2f0028 100%);
-    background: linear-gradient(to right, #090025 0%, #2f0028 100%);
+.day-bg {
+    background: #f7fcff;
+}
+
+.night-bg {
+    background: #262427;
 }
 
 .card-box-white {
@@ -209,5 +211,17 @@
 }
 
 a {
-    color: orange;
+    color: #536dfe;
+}
+
+a:visited {
+    color: #8c9eff;
+}
+
+.simple-table {
+    border-collapse: collapse;
+}
+
+.simple-table td{
+    border: 1px solid grey;
 }

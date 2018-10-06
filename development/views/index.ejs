@@ -1,33 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <body>
-        <%- include('templates/header'); %>
-        <%- include('templates/layout-header'); %>
-        <igem-layout>
-            <q-page padding>
-                <div class="row justify-center">
-                    <div class="col-md-6 col-lg-4">
-                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
-                    </div>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page padding>
+            <div class="row justify-center">
+                <div class="col-md-6 col-lg-4">
+                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/b/b8/T--Thessaloniki--team-logo-night.png">
                 </div>
-                <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
-                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                        <div class="q-pa-md">
-                            <h4 class="q-mt-xs">About Our Project</h4>
-                            <p>
-                                We engineer E. coli bacteria to produce a Gene of Interest whose rate of transcription is independent of the copy number of the plasmid on which the gene resides via repression from TAL Effectors and dCas9-sgRNA. We also plan on making this system tunable via an external factor that regulates the inhibition of a promoter.
-                            </p>
-                        </div>
-                    </div>
+            </div>
+            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                    <q-timeline color="secondary" style="padding: 0 24px;" responsive>
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                Gene expression is unpredictable, noisy and prone to perturbations,
+                                thus posing a challenge towards designing reliable and functional
+                                systems. One of the most decisive factors affecting the
+                                functionality of synthetic biological systems is gene copy number
+                                variation, that gives rise to variability in gene expression.
+                            </div>
+                            <template slot="side">
+                                Image of Graph
+                            </template>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                We provide <b>Galene</b>, a genetic toolbox that enhances system
+                                stability by disassociating gene expression from copy number and
+                                provides translational control of protein production.
+                            </div>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                The former is achieved by implementing a type I incoherent
+                                feed-forward loop network motif that consists of a regulatory
+                                element which compensates for changes in copy number, thus
+                                stabilizing the promoter. Through <a href="http://2018.igem.org/Team:Thessaloniki/Design">model-driven
+                                    feedback</a>,
+                                we accomplish promoter stabilization by utilizing 3 distinct
+                                systems, each with its own advantages and appropriate uses.
+                            </div>
+                            <template slot="side">
+                                Shape triforce
+                            </template>
+                        </igem-timeline-entry>
+
+
+                        <q-timeline-entry heading>
+                            CRISPR interference, TAL Effectors, transcriptional attenuator-interacting sRNAs
+                        </q-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                Going one step further, we implemented a theophylline aptamer that regulates translation and allows for the induction at the desired expression level.
+                            </div>
+                            <template slot="side">
+                                (animation ?)
+                            </template>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                As a proof of concept, we demonstrated the stabilization of a, previously inconsistent across different copy numbers, heterologous AND-gate system.
+                            </div>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                            <div>
+                                In order to understand current problems in synthetic biology and enhance our project design we went beyond the lab and contacted researchers and experts from numerous fields. We also created Synapsis, a guideline on how to communicate science to people of different cultural and scientific backgrounds.
+                            </div>
+                            <template slot="side">
+                                Synapsis image
+                            </template>
+                        </igem-timeline-entry>
+
+                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                            <div>
+                                Following this guideline, we organized a Synthetic Biology tour in the Balkan Peninsula, where we visited 4 institutions in 3 countries, promoting Synthetic Biology and gaining valuable feedback.
+                            </div>
+                            <template slot="side">
+                                <balcans-map></balcans-map>
+                            </template>
+                        </igem-timeline-entry>
+                    </q-timeline>
                 </div>
-            </q-page>
-        </igem-layout>
-        <%- include('templates/layout-footer'); %>
-        <script>
-            iGEM.registerHook('loadHook', function () {
-                console.log('loaded')
-            })
-        </script>
-        <%- include('templates/footer'); %>
-  </body>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <!-- <link rel="stylesheet" href="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/leaflet.css&action=raw&ctype=text/css">
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/leaflet.js&action=raw&ctype=text/javascript"></script> -->
+    <link rel="stylesheet" href="stylesheets/leaflet.css">
+    <script src="javascripts/leaflet.js"></script>
+    <script>
+        iGEM.registerHook('loadHook', async function () {
+            await iGEM.loadComponent(iGEM.links.TimelineEntry)
+            await iGEM.loadComponent(iGEM.links.BalcansMap)
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
 </html>

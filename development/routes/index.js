@@ -30,5 +30,12 @@ router.get('/notebook', function(req, res, next) {
   res.render('notebook');
 })
 
+router.get('/experiments', function(req, res, next) {
+  res.render('experiments');
+})
+
+router.get('/attributions', function(req, res, next) {
+  res.render('attributions');
+})
 
 module.exports = router;

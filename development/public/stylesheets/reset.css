@@ -24,7 +24,8 @@ body {
 #HQ_page h2,
 #HQ_page h3,
 #HQ_page h4,
-#HQ_page h5 {
+#HQ_page h5,
+#HQ_page h6 {
     color: unset;
     font-family: unset;
     margin-bottom: 0px;
@@ -65,4 +66,16 @@ body {
 
 #top_menu_under {
     height: 1px;
+}
+
+#HQ_page table {
+    background: none;
+    border: none;
+    border-collapse: unset;
+    color: unset;
+}
+
+#HQ_page td {
+    padding: 0 !important;
+    border: none;
 }
