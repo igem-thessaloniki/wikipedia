@@ -40,7 +40,7 @@
             </div>
 
             <div class="row reverse">
-                <q-btn ref="clearBtn" v-show="eventsToDisplay.length > 0" class="bg-indigo-12 text-white"
+                <q-btn ref="clearBtn" v-show="eventsToDisplay.length > 0" class="bg-indigo-12 text-white q-ma-sm"
                     label="Clear Selected Date" icon="clear" @click="eventsToDisplay = []; selected = {}">
                 </q-btn>
             </div>
@@ -54,7 +54,7 @@
             </notebook-dynamic-timeline>
 
 
-            <q-timeline v-show="eventsToDisplay.length == 0" color="secondary" style="padding: 0 24px;"
+            <q-timeline v-show="Object.keys(selected).length == 0" color="secondary" style="width: 95%; padding-right: 20px"
                 responsive>
                 <q-timeline-entry heading>March 2018</q-timeline-entry>
 
@@ -319,63 +319,17 @@
                         title: 'Preparing Antibiotics',
                         content: `<p>
                                 Creating a stock solution for each antibiotic. (John, Grigorios)</p>
-                                <table class="simple-table text-center">
-                                    <tr>
-                                        <td>
-                                            <b>Antibiotic</b>
-                                        </td>
-                                        <td>
-                                            <b>Stock Concertration (mg/ml)</b>
-                                        </td>
-                                        <td>
-                                            <b>Working Concertration (μg/ml)</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Chloramphenicol (dissolved in EtOH)
-                                        </td>
-                                        <td>
-                                            35
-                                        </td>
-                                        <td>
-                                            35
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Chloramphenicol (dissolved in EtOH)
-                                        </td>
-                                        <td>
-                                            25
-                                        </td>
-                                        <td>
-                                            25
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Ampicillin
-                                        </td>
-                                        <td>
-                                            100
-                                        </td>
-                                        <td>
-                                            100
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Kanamycin
-                                        </td>
-                                        <td>
-                                            35
-                                        </td>
-                                        <td>
-                                            35
-                                        </td>
-                                    </tr>
-                                </table>
+                                ${
+                                    iGEM.buildTable({
+                                        header: 'Antibiotic|Stock Concertration (mg/ml)|Working Concertration (μg/ml)',
+                                        data: [
+                                            'Chloramphenicol (dissolved in EtOH)|35|35',
+                                            'Chloramphenicol (dissolved in EtOH)|25|25',
+                                            'Ampicillin|100|100',
+                                            'Kanamycin|35|35',
+                                        ]
+                                    }, '|')
+                                }
                             `,
                         tags: ['wet']
                     },
@@ -873,107 +827,21 @@
                         title: 'Golden gate assembly',
                         content: `<p>
                             Golden gate assembly of amplified  vectors with parts received from IDT or with amplified  parts(E-P) using  NEB® Golden Gate Assembly Mix. (Yvoni)
-                            <table class="simple-table text-center">
-                                <tr>
-                                    <td>
-                                        <b>Vector/insert</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 1</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 2</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb1C3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        TALEsp1 (E-P)
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb1C3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        TALEsp2 (E-P)
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb1C3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        Insulated constitutive promoter
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified pTThSSe_59(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        Insulated constitutive promoter
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified pTThSSe_59(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        sgRNA cassette
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb1C3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        sgRNA cassette
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        TALEsp1mutationpart1
-                                    </td>
-                                    <td>
-                                        TALEsp1mutationpart2
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        TALEsp2mutationpart1
-                                    </td>
-                                    <td>
-                                        TALEsp2mutationpart2
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                            </table>
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector/Insert|Insert 1|Insert 2',
+                                    data: [
+                                        'Amplified psb1C3(Evd-Pvd)|TALEsp1 (E-P)|',
+                                        'Amplified psb1C3(Evd-Pvd)|TALEsp2 (E-P)|',
+                                        'Amplified psb1C3(Evd-Pvd)|Insulated constitutive promoter|sfGFP',
+                                        'Amplified pTThSSe_59(Evd-Pvd)|Insulated constitutive promoter|sfGFP',
+                                        'Amplified pTThSSe_59(Evd-Pvd)|sgRNA cassette|sfGFP',
+                                        'Amplified psb1C3(Evd-Pvd)|sgRNA cassette|sfGFP',
+                                        'TALEsp1mutationpart1|TALEsp1mutationpart2|',
+                                        'TALEsp2mutationpart1|TALEsp2mutationpart2|',
+                                    ]
+                                }, '|')
+                            }
                         </p>`,
                         tags: ['wet']
                     },
@@ -1075,30 +943,14 @@
                         title: 'Golden gate assembly',
                         content: `<p>
                             Golden gate assembly of amplified  vectors with parts received from IDT using  NEB® Golden Gate Assembly Mix. (Yvoni)
-                            <table class="simple-table text-center">
-                                <tr>
-                                    <td>
-                                        <b>Vector/insert</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 1</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 2</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb3k3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        Insulated constitutive promoter cassette
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                            </table
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector|Insert 1|Insert 2',
+                                    data: [
+                                        'Amplified psb3k3(Evd-Pvd)|Insulated constitutive promoter cassette|sfGFP',
+                                    ]
+                                }, '|')
+                            }
                         </p>`,
                         tags: ['wet']
                     },
@@ -1152,41 +1004,15 @@
                         title: 'Golden gate assembly',
                         content: `<p>
                             Golden gate assembly of amplified  vectors with parts received from IDT or with amplified  parts(E-P) using  NEB® Golden Gate Assembly Mix. (Alex)
-                            <table class="simple-table text-center">
-                                <tr>
-                                    <td>
-                                        <b>Vector/insert</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 1</b>
-                                    </td>
-                                    <td>
-                                        <b>Insert 2</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb3k3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        Insulated constitutive promoter cassette
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Amplified psb3k3(Evd-Pvd)
-                                    </td>
-                                    <td>
-                                        sgrna cassette
-                                    </td>
-                                    <td>
-                                        sfGFP
-                                    </td>
-                                </tr>
-                            </table
+                            ${
+                                iGEM.buildTable({
+                                    header: 'Vector|Insert 1|Insert 2',
+                                    data: [
+                                        'Amplified psb3k3(Evd-Pvd)|Insulated constitutive promoter cassette|sfGFP',
+                                        'Amplified psb3k3(Evd-Pvd)|sgrna cassette|sfGFP',
+                                    ]
+                                }, '|')
+                            }
                             </p>`,
                         tags: ['wet']
                     },
@@ -1251,65 +1077,18 @@
                         day: 10,
                         title: 'Ip PCR',
                         content: `<p>
-                                Ip PCR of pthsse_59,pthsse_60 plasmids with two PCR reactions at each plasmid.Details are shown at the following chart (Grigorios)
-
-                                <table class="simple-table text-center">
-                                    <tr>
-                                        <td>
-                                            <b>PCR template(5ng)</b>
-                                        </td>
-                                        <td>
-                                            <b>Primers</b>
-                                        </td>
-                                        <td>
-                                            <b>Extension time</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            pthsse_59
-                                        </td>
-                                        <td>
-                                            P.Rem 1, P. Rem 4
-                                        </td>
-                                        <td>
-                                            2 minutes
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            pthsse_59
-                                        </td>
-                                        <td>
-                                            P.Rem 2, P. Rem 3
-                                        </td>
-                                        <td>
-                                            4.15 minutes
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            pthsse_60
-                                        </td>
-                                        <td>
-                                            P.Rem 1, P. Rem 4
-                                        </td>
-                                        <td>
-                                            2 minutes
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            pthsse_60
-                                        </td>
-                                        <td>
-                                            P.Rem 2, P. Rem 3
-                                        </td>
-                                        <td>
-                                            4.15 minutes
-                                        </td>
-                                    </tr>
-                                </table
+                            Ip PCR of pthsse_59,pthsse_60 plasmids with two PCR reactions at each plasmid.Details are shown at the following chart (Grigorios)
+                            ${
+                                iGEM.buildTable({
+                                    header: 'PCR template(5ng)|Primers|Extension time',
+                                    data: [
+                                        'pthsse_59|P.Rem 1, P. Rem 4|2 minutes',
+                                        'pthsse_59|P.Rem 2, P. Rem 3|4.15 minutes',
+                                        'pthsse_60|P.Rem 1, P. Rem 4|2 minutes',
+                                        'pthsse_60|P.Rem 2, P. Rem 3|4.15 minutes',
+                                    ]
+                                }, '|')
+                            }
                         </p>`,
                         tags: ['wet']
                     },
@@ -1835,7 +1614,7 @@
                                 iGEM.buildTable({
                                     header: 'Vector|Insert 1|Insert 2',
                                     data: [
-                                        'psb1C3 (E vector, P vector Amplified)|J23114sfGFP (no ATG)',
+                                        'psb1C3 (E vector, P vector Amplified)|J23114sfGFP (no ATG)|',
                                         'sfGFP (no ATG)|Psp1w1 B0030|sfGFP (no ATG)',
                                         'psb1C3 (E vector, P vector Amplified)|Psp1w1 B0032|sfGFP (no ATG)',
                                         'psb1c3 (E vector, P vector Amplified)|pRha|sfGFP (no ATG)',
