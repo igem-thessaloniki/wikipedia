@@ -1,5 +1,5 @@
 <template>
-    <q-timeline color="secondary" style="padding: 0 24px;" responsive>
+    <q-timeline color="secondary" style="width: 95%; padding-right: 20px" responsive>
         <q-timeline-entry
             v-for="(event, index) in events"
             :key="event.title + '-' + index"

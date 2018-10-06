@@ -63,7 +63,7 @@ let iGEM = {
             })
             bodyHTML += '</tr>'
         })
-        return `<table class="simple-table text-center">${headerHTML}${bodyHTML}</table>`
+        return `<div style="overflow-x:auto;"><table class="simple-table text-center">${headerHTML}${bodyHTML}</table></div>`
     },
     data: {}
 }
