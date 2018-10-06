@@ -77,6 +77,7 @@ iGEM.links = {
     MonthTable: '/components/month-table.vue',
     NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue',
     BalcansMap: '/components/balcans-map.vue',
+    GaleneLogo: '/components/galene-logo.vue',
 }
 
 // iGEM.links = {
@@ -88,4 +89,5 @@ iGEM.links = {
 //     MonthTable: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/month-table.vue&action=raw&ctype=text/javascript',
 //     NotebookDynamicTimeline: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/notebook-dynamic-timeline.vue&action=raw&ctype=text/javascript',
 //     BalcansMap: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/balcans-map.vue&action=raw&ctype=text/javascript',
+//     GaleneLogo: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/galene-logo.vue&action=raw&ctype=text/javascript',
 // }
