@@ -13,8 +13,7 @@
             <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
                 <q-list separator class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md" striped
                     highlight no-border>
-                    <q-collapsible label="Frozen Competent Cells" :dark="nightMode" group="protocols"
-                        color="red">
+                    <q-collapsible label="Frozen Competent Cells" :dark="nightMode" color="red">
                         <div>
                             <h3>Frozen Competent Cells</h3>
                             <h4>Materials</h4>
@@ -53,7 +52,7 @@
                             </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Fresh Competent Cells" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Fresh Competent Cells" :dark="nightMode">
                         <div>
                             <h3>Fresh Competent Cells</h3>
                             <h4>Materials</h4>
@@ -98,7 +97,7 @@
                             </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Chemical Transformation" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Chemical Transformation" :dark="nightMode">
                         <div>
                             <h3>Chemical Transformation</h3>
                             <h4>Materials</h4>
@@ -176,7 +175,7 @@
                             </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Growing Overnight Cultures" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Growing Overnight Cultures" :dark="nightMode">
                         <div>
                             <h3>Growing Overnight Cultures</h3>
                             <h4>Materials</h4>
@@ -198,7 +197,7 @@
                         </div>
                     </q-collapsible>
                     <q-collapsible label="Preparation of LB Broth, Agar, SOC and Glycerol Stocks"
-                        :dark="nightMode" group="protocols">
+                        :dark="nightMode">
                         <div>
                             <h3>LB Broth</h3>
                             <h4>Materials</h4>
@@ -260,7 +259,7 @@
                             </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="PCR From Plasmid DNA Template" :dark="nightMode" group="protocols">
+                    <q-collapsible label="PCR From Plasmid DNA Template" :dark="nightMode">
                         <div>
                             <h3>PCR From Plasmid DNA Template</h3>
                             <p>We followed the NEB PCR with hiFi Q5 master mix <a href="https://international.neb.com/protocols/2012/12/07/protocol-for-q5-high-fidelity-2x-master-mix-m0492">Protocol</a>
@@ -336,7 +335,7 @@
                             </span>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Colony PCR" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Colony PCR" :dark="nightMode">
                         <div>
                             <h3>Colony PCR</h3>
                             <p>
@@ -432,7 +431,7 @@
                             </ul>
                         </p>
                     </q-collapsible>
-                    <q-collapsible label="Agarose Gel Electrophoresis" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Agarose Gel Electrophoresis" :dark="nightMode">
                         <div>
                             <h3>Agarose Gel Electrophoresis</h3>
                             <h4>Equipment</h4>
@@ -478,22 +477,27 @@
                                 <li>Using any device that has UV light, visualize your DNA
                                     fragments. The fragments of DNA are usually referred to as
                                     ‘bands’ due to their appearance on the gel</li>
-                                </ol>
+                            </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Restriction Digestion" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Restriction Digestion" :dark="nightMode">
                         <div>
                             <h3>Restriction Digestion</h3>
                             <ul>
-                                <li><b>Restriction Enzyme:</b> <a href="https://enzymefinder.neb.com/#!#nebheader">NEB enzyme finder</a> used to determine the appropriate restriction enzymes</li>
-                                <li><b>Reaction buffer:</b> <a href="https://nebcloner.neb.com/#!/redigest">NEB double digest finder</a> used to determine an appropriate buffer and protocol for the restriction enzymes used</li>
+                                <li><b>Restriction Enzyme:</b> <a href="https://enzymefinder.neb.com/#!#nebheader">NEB
+                                        enzyme finder</a> used to determine the appropriate
+                                    restriction enzymes</li>
+                                <li><b>Reaction buffer:</b> <a href="https://nebcloner.neb.com/#!/redigest">NEB
+                                        double digest finder</a> used to determine an appropriate
+                                    buffer and protocol for the restriction enzymes used</li>
                             </ul>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Ligation" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Ligation" :dark="nightMode">
                         <div>
                             <h3>Ligation</h3>
-                            <p>We followed the NEB Ligation <a href="https://international.neb.com/Protocols/0001/01/01/dna-ligation-with-t4-dna-ligase-m0202">Protocol</a> with T4 DNA Ligase.</p>
+                            <p>We followed the NEB Ligation <a href="https://international.neb.com/Protocols/0001/01/01/dna-ligation-with-t4-dna-ligase-m0202">Protocol</a>
+                                with T4 DNA Ligase.</p>
                             <h4>Materials</h4>
                             <ul>
                                 <li>Microcentrifuge Tubes</li>
@@ -535,25 +539,32 @@
                                         </tr>
                                     </table>
                                 </li>
-                                <li>For cohesive (sticky) ends, incubate at 16°C overnight or room temperature for 10 minutes. For blunt ends or single base overhangs, incubate at 16°C overnight or room temperature for 2 hours</li>
+                                <li>For cohesive (sticky) ends, incubate at 16°C overnight or room
+                                    temperature for 10 minutes. For blunt ends or single base
+                                    overhangs, incubate at 16°C overnight or room temperature for 2
+                                    hours</li>
                                 <li>Heat inactivate at 65°C for 10 minutes</li>
-                                <li>Chill on ice and transform 8μl of the reaction into 100 μl competent cells</li>
+                                <li>Chill on ice and transform 8μl of the reaction into 100 μl
+                                    competent cells</li>
                                 <span class="text-light-blue">
                                     <b>Notes:</b>
                                 </span>
                                 <ul>
                                     <li>T4 DNA Ligase should be added last</li>
-                                    <li>Ligation using a molar ratio of 1:3 vector to insert increases the reaction’s efficiency</li>
-                                    <li>The T4 DNA Ligase Buffer should be thawed and resuspended at room temperature</li>
+                                    <li>Ligation using a molar ratio of 1:3 vector to insert
+                                        increases the reaction’s efficiency</li>
+                                    <li>The T4 DNA Ligase Buffer should be thawed and resuspended
+                                        at room temperature</li>
                                 </ul>
                             </ol>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Golden Gate Assembly" :dark="nightMode" group="protocols">
+                    <q-collapsible label="Golden Gate Assembly" :dark="nightMode">
                         <div>
                             <h3>Golden Gate Assembly</h3>
                             <p>
-                                We followed the Golden Gate Assembly <a href="https://international.neb.com/protocols/2015/03/04/golden-gate-assembly-protocol-for-using-neb-golden-gate-assembly-mix-e1600">Protocol</a> for Using NEB Golden Gate Assembly Mix
+                                We followed the Golden Gate Assembly <a href="https://international.neb.com/protocols/2015/03/04/golden-gate-assembly-protocol-for-using-neb-golden-gate-assembly-mix-e1600">Protocol</a>
+                                for Using NEB Golden Gate Assembly Mix
                             </p>
                             <h4>Materials</h4>
                             <ul>
@@ -624,48 +635,63 @@
                                 </tr>
                                 <tr>
                                     <td>5-10 inserts</td>
-                                    <td>(37°C for 1 minute → 16°C for 1 minute)x30 → 55°C for 5 minutes</td>
+                                    <td>(37°C for 1 minute → 16°C for 1 minute)x30 → 55°C for 5
+                                        minutes</td>
                                 </tr>
                             </table>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Minipreps, PCR Purification, Gel Extraction" :dark="nightMode"
-                        group="protocols">
+                    <q-collapsible label="Minipreps, PCR Purification, Gel Extraction" :dark="nightMode">
                         <div>
-                            <p>For our plasmid isolation we used the Macherey Νagel NucleoSpin® Plasmid isolation Kit, unless otherwise stated.
-                                    For PCR Purification and Gel Extraction we used the Macherey Nagel NucleoSpin® Gel and PCR Clean-up     Kit, unless otherwise stated.</p>
+                            <p>For our plasmid isolation we used the Macherey Νagel NucleoSpin®
+                                Plasmid isolation Kit, unless otherwise stated.
+                                For PCR Purification and Gel Extraction we used the Macherey Nagel
+                                NucleoSpin® Gel and PCR Clean-up Kit, unless otherwise stated.</p>
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="dCas9 Toxicity Measurements" :dark="nightMode" group="protocols">
+                    <q-collapsible label="dCas9 Toxicity Measurements" :dark="nightMode">
                         <div>
                             Content
                         </div>
                     </q-collapsible>
-                    <q-collapsible label="Flow Cytometry Sample Preparation" :dark="nightMode"
-                        group="protocols">
+                    <q-collapsible label="Flow Cytometry Sample Preparation" :dark="nightMode">
                         <div>
                             <h3>Flow Cytometry Sample Preparation</h3>
                             <b>We followed the protocol from Adam Mayer et al [1].</b>
-                            <p>All measurements shown were taken by cytometry of cells in mid-log growth except when noted.</p>
+                            <p>All measurements shown were taken by cytometry of cells in mid-log
+                                growth except when noted.</p>
                             <h5>Day1</h5>
-                            <p>Glycerol stocks of strains containing the plasmids of interest were streaked on LB + 1.5% Agar plates and grown overnight at 37 °C</p>
+                            <p>Glycerol stocks of strains containing the plasmids of interest were
+                                streaked on LB + 1.5% Agar plates and grown overnight at 37 °C</p>
                             <h5>Day2</h5>
-                            <p>Single colonies were inoculated into 1 ml LB + antibiotics in <b>2‐ml eppendorf tubes</b> and grown at 37 °C, <b>250 rpm</b> overnight in a MultitronPro shaker incubator</p>
+                            <p>Single colonies were inoculated into 1 ml LB + antibiotics in <b>2‐ml
+                                    eppendorf tubes</b> and grown at 37 °C, <b>250 rpm</b>
+                                overnight in a MultitronPro shaker incubator</p>
                             <h5>Day3</h5>
                             <p>
-                                The overnight growths were diluted 1:200 into 1 ml LB + antibiotics in <b>2‐ml eppendorf tubes</b> and grown at 37 °C, <b>250 rpm</b>.
+                                The overnight growths were diluted 1:200 into 1 ml LB + antibiotics
+                                in <b>2‐ml eppendorf tubes</b> and grown at 37 °C, <b>250 rpm</b>.
                                 <br>
-                                After 2 hours the growths were diluted 1:500 into prewarmed LB + antibiotics + inducer where necessary in <b>2‐ml eppendorf tubes</b> and grown at 37 °C, <b>250 rpm</b> for 5 hours.
+                                After 2 hours the growths were diluted 1:500 into prewarmed LB +
+                                antibiotics + inducer where necessary in <b>2‐ml eppendorf tubes</b>
+                                and grown at 37 °C, <b>250 rpm</b> for 5 hours.
                                 <br>
-                                After growth, 20 μl of culture sample was diluted into 180 μl PBS + 200 μg/ml kanamycin to inhibit translation. The samples were stored at 4°C for 1 hour and then measurements were performed using the CyFlow Cube8 Sysmex Partec Flow Cytometer.
+                                After growth, 20 μl of culture sample was diluted into 180 μl PBS +
+                                200 μg/ml kanamycin to inhibit translation. The samples were stored
+                                at 4°C for 1 hour and then measurements were performed using the
+                                CyFlow Cube8 Sysmex Partec Flow Cytometer.
                             </p>
-                            <small>[1] Meyer, A. J., Segall-Shapiro, T. H., & Voigt, C. A. (2018). Marionette: E. coli containing 12 highly-optimized small molecule sensors. BioRxiv. Retrieved from http://biorxiv.org/content/early/2018/04/10/285866.abstract</small>
+                            <small>[1] Meyer, A. J., Segall-Shapiro, T. H., & Voigt, C. A. (2018).
+                                Marionette: E. coli containing 12 highly-optimized small molecule
+                                sensors. BioRxiv. Retrieved from
+                                http://biorxiv.org/content/early/2018/04/10/285866.abstract</small>
                         </div>
                     </q-collapsible>
                     <q-collapsible label="Plate Reader Sample Preparation for our Interlaboratory Collaboration"
-                        :dark="nightMode" group="protocols">
+                        :dark="nightMode">
                         <div>
-                            <h3>Plate Reader Sample Preparation for our Interlaboratory Collaboration</h3>
+                            <h3>Plate Reader Sample Preparation for our Interlaboratory
+                                Collaboration</h3>
                             <p>We followed the iGEM 2018 InterLab Study <a href="http://2018.igem.org/wiki/images/0/09/2018_InterLab_Plate_Reader_Protocol.pdf">Protocol</a></p>
                         </div>
                     </q-collapsible>
