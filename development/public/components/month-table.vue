@@ -76,6 +76,11 @@
                     select.count = array.length
                     this.$emit('select', select)
                     this.$emit('set-events', array)
+                } else if (this.selected.month == this.title && this.selected.count > 0) {
+                    let select = Object.assign({}, this.selected)
+                    select.count = 0
+                    this.$emit('select', select)
+                    this.$emit('set-events', [])
                 }
             }
         },
