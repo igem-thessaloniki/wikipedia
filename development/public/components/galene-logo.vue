@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-        <svg v-once version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" viewBox="0 0 1728.4 1585.1" style="enable-background:new 0 0 1728.4 1585.1;"
             xml:space="preserve">
             <g>
@@ -42,7 +42,7 @@
         Vue.component('galene-logo', {
             template,
             computed: {
-                ...Vuex.mapState['nightMode'],
+                ...Vuex.mapState(['nightMode']),
                 line() {
                     return {
                         fill: '#4776B1',
@@ -58,6 +58,7 @@
                     }
                 },
                 letters() {
+                    console.log(this.nightMode)
                     return {fill: this.nightMode ? '#D7D7D7' : '#1E3346'}
                 }
             },
