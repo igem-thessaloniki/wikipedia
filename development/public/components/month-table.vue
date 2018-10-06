@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-color-white">
         <div class="row justify-center">
             <h5 class="q-ma-xs">{{title}}</h5>
         </div>

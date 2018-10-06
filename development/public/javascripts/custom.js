@@ -76,7 +76,7 @@ iGEM.links = {
     TimelineEntry: '/components/timeline-entry.vue',
     MonthTable: '/components/month-table.vue',
     NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue',
-    BalcansMap: '/components/balcans-map.vue'
+    BalcansMap: '/components/balcans-map.vue',
 }
 
 // iGEM.links = {
@@ -84,4 +84,8 @@ iGEM.links = {
 //     EventCard: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/event-card.vue&action=raw&ctype=text/javascript',
 //     RouteItem: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/route-item.vue&action=raw&ctype=text/javascript',
 //     Layout: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/igem-layout.vue&action=raw&ctype=text/javascript',
+//     TimelineEntry: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/timeline-entry.vue&action=raw&ctype=text/javascript',
+//     MonthTable: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/month-table.vue&action=raw&ctype=text/javascript',
+//     NotebookDynamicTimeline: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/notebook-dynamic-timeline.vue&action=raw&ctype=text/javascript',
+//     BalcansMap: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/balcans-map.vue&action=raw&ctype=text/javascript',
 // }

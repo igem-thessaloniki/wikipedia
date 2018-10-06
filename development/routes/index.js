@@ -34,10 +34,6 @@ router.get('/experiments', function(req, res, next) {
   res.render('experiments');
 })
 
-router.get('/protocols', function(req, res, next) {
-  res.render('protocols');
-})
-
 router.get('/attributions', function(req, res, next) {
   res.render('attributions');
 })

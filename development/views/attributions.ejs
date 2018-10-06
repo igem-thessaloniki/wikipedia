@@ -2,22 +2,6 @@
 <html>
 
 <body>
-    <style>
-        .member-card {
-            width: 200px;
-            height: 300px;
-        }
-
-        .member-card-image {
-            width: 200px;
-            height: auto;
-        }
-
-        .member-card-modal-image {
-            width: 100%;
-            height: auto;
-        }
-    </style>
     <%- include('templates/header'); %>
     <%- include('templates/layout-header'); %>
     <igem-layout>
@@ -169,8 +153,7 @@
     <%- include('templates/layout-footer'); %>
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
-            store.commit('setPage', 'team')
-            await iGEM.loadComponent(iGEM.links.MemberCard)
+            store.commit('setPage', 'attributions')
         })
     </script>
     <%- include('templates/footer'); %>
