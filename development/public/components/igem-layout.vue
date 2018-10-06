@@ -18,7 +18,7 @@
         <q-layout-drawer v-model="drawerState" behavior="mobile">
             <q-list no-border link inset-delimiter>
                 <q-list-header>
-                    <img class=" responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
                 </q-list-header>
 
                 <route-item page="index" link="http://2018.igem.org/Team:Thessaloniki" icon="home" label="Home" sublabel="Our Project homepage">
