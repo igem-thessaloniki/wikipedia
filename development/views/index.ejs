@@ -8,8 +8,7 @@
         <q-page padding>
             <div class="row justify-center">
                 <div class="col-md-6 col-lg-4">
-                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
-                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/e5/T--Thessaloniki--logo-light.svg">
+                    <galene-logo ref="logo"></galene-logo>
                 </div>
             </div>
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
@@ -98,10 +97,15 @@
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/leaflet.js&action=raw&ctype=text/javascript"></script> -->
     <link rel="stylesheet" href="stylesheets/leaflet.css">
     <script src="javascripts/leaflet.js"></script>
+    <script src="javascripts/tweenmax.js"></script>
     <script>
         iGEM.registerHook('loadHook', async function () {
             await iGEM.loadComponent(iGEM.links.TimelineEntry)
+            await iGEM.loadComponent(iGEM.links.GaleneLogo)
             await iGEM.loadComponent(iGEM.links.BalcansMap)
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            self.$refs.logo.start()
         })
     </script>
     <%- include('templates/footer'); %>

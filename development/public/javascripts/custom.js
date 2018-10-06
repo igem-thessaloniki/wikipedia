@@ -77,6 +77,7 @@ iGEM.links = {
     MonthTable: '/components/month-table.vue',
     NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue',
     BalcansMap: '/components/balcans-map.vue',
+    GaleneLogo: '/components/galene-logo.vue',
 }
 
 // iGEM.links = {
