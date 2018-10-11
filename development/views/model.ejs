@@ -972,39 +972,57 @@
                 }
             ]
 
-            graphs.forEach((graph) => {
-                let gd = document.getElementById(graph.id)
-                let resizeDebounce = null
+            let instances = []
+            let resizeDebounce = null
 
-                function resizePlot() {
+            function resizePlots() {
+                instances.forEach((gd) => {
                     let bb = gd.getBoundingClientRect()
                     Plotly.relayout(gd, {
                         width: bb.width,
                         height: bb.height
                     })
-                }
-                window.addEventListener('resize', function () {
-                    if (resizeDebounce) {
-                        window.clearTimeout(resizeDebounce)
-                    }
-                    resizeDebounce = window.setTimeout(resizePlot, 100)
                 })
-                let color = "#fff"
-                if (self.nightMode) {
-                    color = '#171617'
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
                 }
-                Plotly.plot(gd, {
-                    data: graph.data.data,
-                    layout: {
-                        ...graph.data.layout,
-                        autosize: true,
-                        paper_bgcolor: color,
-                        plot_bgcolor: color
-                    },
-                    frames: graph.data.frames,
-                    responsive: true
-                });
-                setTimeout(resizePlot, 100)
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                initializeGraphs()
             })
         })
     </script>
