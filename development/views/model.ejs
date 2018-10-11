@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <div class="row justify-center">
+                <div class="col-md-6 col-lg-4">
+                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/0/0e/T--Thessaloniki--model-logo.svg">
+                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/ec/T--Thessaloniki--model-logo-light.svg">
+                </div>
+            </div>
+            <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-10 col-md-9 col-lg-5">
+                    <p>
+                        The goal of the model is to study the Incoherent Feed Forward Loop (IFFL) as a network type in three systems that use different components critical to the proper network operation. This function aims at balancing the final product to a specific steady state, regardless of the input disruption. We then responded to questions raised by the wet lab, thus helping towards the right course of thought during experimental planning, as well as a better understanding of the systems and the different choices that emerged. We applied a sensitivity analysis to classify system parameters according to their significance, and finally, we explored the robustness of our system predictions by indentifying parameter sets and evaluating their cellular behavior.
+                    </p>
+                    <h3>How IFFL works</h3>
+                    <p>
+                        The stability of a system in which IFFL is applied is represented by the staying of its output at a constant level in the equilibrium state for each change of input. In this type of network, the number of plasmids is the input, which is variable and the final protein is the output of the system that must remain constant at each change of input.
+                    </p>
+                    <p>
+                        In the following figure, the input X is shown to be responsible for the continuously increasing production of the gene of interest Z, as well as for the production of the internal variable Y, which suppresses the production of Z. As mentioned in [], the system is represented by a logical AND gate, which expresses the effect of input X and suppressor Y on output Z.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-md-4 col-sm-12">
+                    <circle-content title="Theory">
+                        <template slot="modal-content">
+                            <div class="row q-pa-md">
+                                <div v-once id="7e709f09-87f3-4a59-b4dd-79f5478c840c" style="width: auto; height: 400px;"
+                                    class="plotly-graph-div"></div>
+                            </div>
+                        </template>
+                    </circle-content>
+                </div>
+            </div>
+            <div class="flex flex-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-10 col-md-9 col-lg-5">
+                    <div class="row justify-center">
+                        <div class="col-md-4 col-sm-12">
+                            <circle-content title="TALE">
+                                <template slot="modal-content">
+                                    <div class="row q-pa-md">
+                                        <div v-once id="26861ce0-43f7-454e-9b7d-2baad220a102" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="cbaa3ade-700f-4a36-88c1-a0e22daaa6cd" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="01dd243a-3925-4680-a418-996b564e0e52" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="9a04d7ff-d779-4248-8eab-4477609a6bab" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="7288dd49-d3c3-447e-8ffc-910058a530a5" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="b74b8fdf-959b-4cf9-a9a8-51adb589ef62" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                        <div v-once id="18b86f21-b918-4b2f-b301-fdde84594932" style="width: auto; height: 400px;"
+                                            class="plotly-graph-div"></div>
+                                    </div>
+                                </template>
+                            </circle-content>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <circle-content title="Beta">
+                                <template slot="modal-content">
+                                    <div class="row q-pa-md">
+                                        Beta
+                                    </div>
+                                </template>
+                            </circle-content>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <circle-content title="Gamma">
+                                <template slot="modal-content">
+                                    <div class="row q-pa-md">
+                                        Gamma
+                                    </div>
+                                </template>
+                            </circle-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-center q-mb-md q-mt-md">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 round-border-10 q-pa-md">
+
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
+    <script src="/javascripts/plotly.js"></script>
+    <script src="/javascripts/mathjs.js"></script>
+    <script>
+        iGEM.registerHook('loadHook', async function ([Vue, store]) {
+            store.commit('setPage', 'model')
+            await iGEM.loadComponent(iGEM.links.CircleContent)
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [{
+                    name: 'n= 0.5 robustness',
+                    id: '26861ce0-43f7-454e-9b7d-2baad220a102',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    500,
+                                    13000
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false,
+                                "exponentformat": "power"
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    1.1422708618331052,
+                                    102.43912448700411
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.560541126993805,
+                                "x": 0.8045838005828142,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=0.5",
+                            "ysrc": "YvonniXesfyngi:47:8b8430",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:47:1cc448",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "23.8517353433",
+                                    "41.6898733141",
+                                    "57.6182654973",
+                                    "72.4011001364",
+                                    "86.3786381155",
+                                    "99.7420116834",
+                                    "112.6127972071",
+                                    "125.0746843278",
+                                    "137.1885422587",
+                                    "149.0004808835",
+                                    "160.5465423579",
+                                    "171.85561094",
+                                    "182.95130928",
+                                    "193.8532862694",
+                                    "204.5781199342",
+                                    "215.1399688617",
+                                    "225.5510539516",
+                                    "235.8220211576",
+                                    "245.9622203231",
+                                    "255.9799225324"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:47:f46833",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "1639.6346290625",
+                                "2555.4171338213",
+                                "3300.6379012191",
+                                "3951.8897224367",
+                                "4540.6938483462",
+                                "5083.8532563183",
+                                "5591.6389587138",
+                                "6070.8964971223",
+                                "6526.4708696097",
+                                "6961.9465559675",
+                                "7380.0674768062",
+                                "7782.991792091",
+                                "8172.4547983238",
+                                "8549.8775816438",
+                                "8916.4420345651",
+                                "9273.1442009341",
+                                "9620.8331624673",
+                                "9960.239992952",
+                                "10291.999735815",
+                                "10616.6683541434"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    },
+                }, {
+                    name: 'n= 1 robustness',
+                    id: 'cbaa3ade-700f-4a36-88c1-a0e22daaa6cd',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    50,
+                                    492.13952659137544
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    2.2435361053606835,
+                                    102.72848205996812
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.23844374871665133,
+                                "x": 0.8579353737702287,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=1",
+                            "ysrc": "YvonniXesfyngi:46:03fa25",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:46:e0ae60",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "7.1963719649",
+                                    "10.3922885782",
+                                    "12.9716241091",
+                                    "15.218650667",
+                                    "17.2340937617",
+                                    "19.069697973",
+                                    "20.7576496675",
+                                    "22.3203434338",
+                                    "23.7745024886",
+                                    "25.1332178169",
+                                    "26.4070799237",
+                                    "27.6048637503",
+                                    "28.7339719409",
+                                    "29.8007374817",
+                                    "30.8106391208",
+                                    "31.7684603766",
+                                    "32.678409624",
+                                    "33.5442138152",
+                                    "34.3691920818",
+                                    "7.1963719649"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:46:e68c0b",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "194.7354860614",
+                                "217.1861925218",
+                                "230.7118214681",
+                                "240.6160787447",
+                                "248.5223257969",
+                                "255.1465925541",
+                                "260.8704804854",
+                                "265.9229240252",
+                                "270.4529380186",
+                                "274.5634728253",
+                                "278.3289548718",
+                                "281.8051384582",
+                                "285.035000877",
+                                "288.0524544457",
+                                "290.8847840662",
+                                "293.5543055826",
+                                "296.0795276077",
+                                "298.4759876975",
+                                "300.7568666011",
+                                "302.9334494765"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'n= 2 robustness',
+                    id: '01dd243a-3925-4680-a418-996b564e0e52',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    0,
+                                    13.415383731617649
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    2.6699220146447322,
+                                    102.72848205996812
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.4394746765517029,
+                                "x": 0.8442554832093532,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=2",
+                            "ysrc": "YvonniXesfyngi:48:dafb9a",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:48:f346a3",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "0.1092280592",
+                                    "0.0561643543",
+                                    "0.0376462586",
+                                    "0.0282887892",
+                                    "0.0226511674",
+                                    "0.0188851137",
+                                    "0.0161919739",
+                                    "0.01417067",
+                                    "0.012597795",
+                                    "0.0113390758",
+                                    "0.0103089656",
+                                    "0.0094503849",
+                                    "0.0087237924",
+                                    "0.0081009309",
+                                    "0.0075610704",
+                                    "0.007088659",
+                                    "0.0066718011",
+                                    "0.0063012428",
+                                    "0.0059696772",
+                                    "0.0056712577"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:48:749d18",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "2.3228272919",
+                                "1.9405390527",
+                                "2.1404396459",
+                                "2.4924298339",
+                                "2.9059477737",
+                                "3.350374376",
+                                "3.8125058976",
+                                "4.2857186995",
+                                "4.7663257027",
+                                "5.2521118148",
+                                "5.7416661856",
+                                "6.2340476504",
+                                "6.7286043247",
+                                "7.2248704127",
+                                "7.7225042302",
+                                "8.2212494583",
+                                "8.7209100562",
+                                "9.2213335192",
+                                "9.7223994376",
+                                "10.2240114735"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'Kon-Koff-dT-TALE-5000',
+                    id: '9a04d7ff-d779-4248-8eab-4477609a6bab',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    415.83918069465165,
+                                    974.338214922047
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": false,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    1.9592788325046513,
+                                    105.85531206138448
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": -0.1912307176391685,
+                                "x": -0.06545723908886844,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "",
+                            "ysrc": "YvonniXesfyngi:49:a81a3e",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:49:d704ae",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "17.3762285672",
+                                    "24.7020058995",
+                                    "30.3892883548",
+                                    "35.2701723481",
+                                    "39.6270019309",
+                                    "43.5927173985",
+                                    "47.2433631459",
+                                    "50.6285691969",
+                                    "53.7838609245",
+                                    "56.7363757989",
+                                    "59.5078146382",
+                                    "62.116103766",
+                                    "64.5763998805",
+                                    "66.9017383519",
+                                    "69.1034742662",
+                                    "71.1915964339",
+                                    "73.1749601511",
+                                    "75.0614650792",
+                                    "76.8581947604",
+                                    "78.5715297175"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:49:4ce9dc",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "506.726653115",
+                                "569.6385338352",
+                                "605.5551987009",
+                                "630.9474464859",
+                                "650.7242341916",
+                                "666.9932849365",
+                                "680.8498206729",
+                                "692.9360662636",
+                                "703.6617461685",
+                                "713.3050779704",
+                                "722.0642665769",
+                                "730.0859812198",
+                                "737.4821377025",
+                                "744.3403147076",
+                                "750.730503721",
+                                "756.7096413124",
+                                "762.32474996",
+                                "767.6151718216",
+                                "772.6141961197",
+                                "777.3502704516"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'Second order TALE KY',
+                    id: '7288dd49-d3c3-447e-8ffc-910058a530a5',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Second Order Sensitivity Indices",
+                            "hovermode": "closest",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            }
+                        },
+                        "data": [{
+                            "zmax": 0.1137766687,
+                            "zsrc": "panteliskyriakidis:16:da3f0f,c28b90,611f3a",
+                            "ysrc": "panteliskyriakidis:16:90a2c2",
+                            "zmin": 0,
+                            "xsrc": "panteliskyriakidis:16:d9e4e9",
+                            "mode": "markers",
+                            "y": [
+                                "kon",
+                                "dT",
+                                "koff"
+                            ],
+                            "x": [
+                                "kon",
+                                "dT",
+                                "koff"
+                            ],
+                            "z": [
+                                [
+                                    "0",
+                                    "0.1137766687",
+                                    "0.1011828794"
+                                ],
+                                [
+                                    "0.1137766687",
+                                    "0",
+                                    "0.0083318908"
+                                ],
+                                [
+                                    "0.1011828794",
+                                    "0.1011828794",
+                                    "0"
+                                ]
+                            ],
+                            "type": "heatmap",
+                            "zauto": true
+                        }]
+                    }
+                },
+                {
+                    name: 'Sensitivity TALE 20000 ALL',
+                    id: 'b74b8fdf-959b-4cf9-a9a8-51adb589ef62',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "barmode": "group",
+                            "autosize": true,
+                            "title": "First and Total Order Sensitivity indices",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    9.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.055158727944444444,
+                                    1.0472852369444445
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": ""
+                            }
+                        },
+                        "data": [{
+                                "name": "First-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:11:d69f96",
+                                "xsrc": "YvonniXesfyngi:11:d6f2b2",
+                                "y": [
+                                    "0.0201234058",
+                                    "0.0004667547",
+                                    "0.0012395057",
+                                    "0.0292000578",
+                                    "0.0003465798",
+                                    "0.0001877615",
+                                    "0.0035367506",
+                                    "0.001415027",
+                                    "0.0132355654",
+                                    "0.0008980801"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT",
+                                    "dG",
+                                    "dmT",
+                                    "dmG",
+                                    "aT",
+                                    "aG",
+                                    "bT",
+                                    "bG"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.0060235246",
+                                        "0.0004217872",
+                                        "0.0007928333",
+                                        "0.0081031566",
+                                        "0.000260663",
+                                        "0.0002242912",
+                                        "0.0022031734",
+                                        "0.0007489047",
+                                        "0.0031770275",
+                                        "0.0004422289"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:11:bbbff0",
+                                    "type": "data"
+                                }
+                            },
+                            {
+                                "name": "Total-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:11:402b68",
+                                "xsrc": "YvonniXesfyngi:11:d6f2b2",
+                                "marker": {
+                                    "autocolorscale": false,
+                                    "cmin": 0,
+                                    "colorscale": [
+                                        [
+                                            0,
+                                            "rgb(220,220,220)"
+                                        ],
+                                        [
+                                            0.2,
+                                            "rgb(245,195,157)"
+                                        ],
+                                        [
+                                            0.4,
+                                            "rgb(245,160,105)"
+                                        ],
+                                        [
+                                            1,
+                                            "rgb(178,10,28)"
+                                        ]
+                                    ],
+                                    "reversescale": true,
+                                    "cauto": true,
+                                    "cmax": 7
+                                },
+                                "y": [
+                                    "0.5568935507",
+                                    "0.0875762951",
+                                    "0.1017321717",
+                                    "0.8189670836",
+                                    "0.049236157",
+                                    "0.1288894233",
+                                    "0.4097824784",
+                                    "0.1892168212",
+                                    "0.4141494524",
+                                    "0.2439142337"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT",
+                                    "dG",
+                                    "dmT",
+                                    "dmG",
+                                    "aT",
+                                    "aG",
+                                    "bT",
+                                    "bG"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.2106280427",
+                                        "0.0280136579",
+                                        "0.0326081629",
+                                        "0.1731959551",
+                                        "0.0151247669",
+                                        "0.0427719754",
+                                        "0.1398779194",
+                                        "0.1025634432",
+                                        "0.0936740598",
+                                        "0.1038023912"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:11:8d02c7",
+                                    "type": "data"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    name: 'Sensitivity TALE 20000 ky',
+                    id: '18b86f21-b918-4b2f-b301-fdde84594932',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "barmode": "group",
+                            "autosize": true,
+                            "title": "First and Total Order Sensitivity indices",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.018189215933333322,
+                                    0.9997768247333333
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": ""
+                            }
+                        },
+                        "data": [{
+                                "name": "First-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:12:a83ebe",
+                                "xsrc": "YvonniXesfyngi:12:d7b50a",
+                                "y": [
+                                    "0.7090388127",
+                                    "0.0349781556",
+                                    "0.0397951133"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.023462683",
+                                        "0.0022690695",
+                                        "0.0021249531"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:12:249f00",
+                                    "type": "data"
+                                }
+                            },
+                            {
+                                "name": "Total-order",
+                                "ysrc": "YvonniXesfyngi:12:3d7480",
+                                "xsrc": "YvonniXesfyngi:12:d7b50a",
+                                "marker": {
+                                    "autocolorscale": false,
+                                    "cmin": 0,
+                                    "colorscale": [
+                                        [
+                                            0,
+                                            "rgb(220,220,220)"
+                                        ],
+                                        [
+                                            0.2,
+                                            "rgb(245,195,157)"
+                                        ],
+                                        [
+                                            0.4,
+                                            "rgb(245,160,105)"
+                                        ],
+                                        [
+                                            1,
+                                            "rgb(178,10,28)"
+                                        ]
+                                    ],
+                                    "reversescale": true,
+                                    "cauto": true,
+                                    "cmax": 7
+                                },
+                                "y": [
+                                    "0.9180503404",
+                                    "0.1454239525",
+                                    "0.1642164307"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.0308281823",
+                                        "0.0137151533",
+                                        "0.0132520359"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:12:fd9058",
+                                    "type": "data"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+
+            graphs.forEach((graph) => {
+                let gd = document.getElementById(graph.id)
+                let resizeDebounce = null
+
+                function resizePlot() {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                }
+                window.addEventListener('resize', function () {
+                    if (resizeDebounce) {
+                        window.clearTimeout(resizeDebounce)
+                    }
+                    resizeDebounce = window.setTimeout(resizePlot, 100)
+                })
+                Plotly.plot(gd, {
+                    data: graph.data.data,
+                    layout: graph.data.layout,
+                    frames: graph.data.frames
+                });
+                setTimeout(resizePlot, 100)
+            })
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>

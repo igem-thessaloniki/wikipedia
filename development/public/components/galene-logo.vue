@@ -58,7 +58,6 @@
                     }
                 },
                 letters() {
-                    console.log(this.nightMode)
                     return {fill: this.nightMode ? '#D7D7D7' : '#1E3346'}
                 }
             },
@@ -80,6 +79,7 @@
                         strokeDashoffset: wave.getTotalLength()
                     })
                     timeline.to('.st2', 0, {
+                        scale: 0,
                         fillOpacity: 0
                     })
                     // timeline.to(line, 1, {
@@ -101,6 +101,7 @@
                         fillOpacity: 1
                     })
                     timeline.to('.st2', 3, {
+                        scale: 1,
                         fillOpacity: 1
                     })
                 }

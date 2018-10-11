@@ -38,4 +38,8 @@ router.get('/attributions', function(req, res, next) {
   res.render('attributions');
 })
 
+router.get('/model', function(req, res, next) {
+  res.render('model');
+})
+
 module.exports = router;
