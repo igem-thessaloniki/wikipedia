@@ -225,3 +225,10 @@ a:visited {
 .simple-table td{
     border: 1px solid grey !important;
 }
+
+.plotly-graph-div {
+    margin: 0px;
+    height: 60vh;
+    width: 90vw;
+    min-height: 300px;
+}

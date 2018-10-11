@@ -31,7 +31,7 @@
                     <circle-content title="Theory">
                         <template slot="modal-content">
                             <div class="row q-pa-md">
-                                <div v-once id="7e709f09-87f3-4a59-b4dd-79f5478c840c" style="width: auto; height: 400px;"
+                                <div v-once id="7e709f09-87f3-4a59-b4dd-79f5478c840c"
                                     class="plotly-graph-div"></div>
                             </div>
                         </template>
@@ -44,20 +44,20 @@
                         <div class="col-md-4 col-sm-12">
                             <circle-content title="TALE">
                                 <template slot="modal-content">
-                                    <div class="row q-pa-md">
-                                        <div v-once id="26861ce0-43f7-454e-9b7d-2baad220a102" style="width: auto; height: 400px;"
+                                    <div class="row q-pa-md justify-center">
+                                        <div v-once id="26861ce0-43f7-454e-9b7d-2baad220a102"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="cbaa3ade-700f-4a36-88c1-a0e22daaa6cd" style="width: auto; height: 400px;"
+                                        <div v-once id="cbaa3ade-700f-4a36-88c1-a0e22daaa6cd"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="01dd243a-3925-4680-a418-996b564e0e52" style="width: auto; height: 400px;"
+                                        <div v-once id="01dd243a-3925-4680-a418-996b564e0e52"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="9a04d7ff-d779-4248-8eab-4477609a6bab" style="width: auto; height: 400px;"
+                                        <div v-once id="9a04d7ff-d779-4248-8eab-4477609a6bab"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="7288dd49-d3c3-447e-8ffc-910058a530a5" style="width: auto; height: 400px;"
+                                        <div v-once id="7288dd49-d3c3-447e-8ffc-910058a530a5"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="b74b8fdf-959b-4cf9-a9a8-51adb589ef62" style="width: auto; height: 400px;"
+                                        <div v-once id="b74b8fdf-959b-4cf9-a9a8-51adb589ef62"
                                             class="plotly-graph-div"></div>
-                                        <div v-once id="18b86f21-b918-4b2f-b301-fdde84594932" style="width: auto; height: 400px;"
+                                        <div v-once id="18b86f21-b918-4b2f-b301-fdde84594932"
                                             class="plotly-graph-div"></div>
                                     </div>
                                 </template>
@@ -989,10 +989,20 @@
                     }
                     resizeDebounce = window.setTimeout(resizePlot, 100)
                 })
+                let color = "#fff"
+                if (self.nightMode) {
+                    color = '#171617'
+                }
                 Plotly.plot(gd, {
                     data: graph.data.data,
-                    layout: graph.data.layout,
-                    frames: graph.data.frames
+                    layout: {
+                        ...graph.data.layout,
+                        autosize: true,
+                        paper_bgcolor: color,
+                        plot_bgcolor: color
+                    },
+                    frames: graph.data.frames,
+                    responsive: true
                 });
                 setTimeout(resizePlot, 100)
             })
