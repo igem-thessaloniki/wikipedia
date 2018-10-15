@@ -4,7 +4,7 @@
     >
         <q-card
             class="flex flex-center"
-            style="width: 30vw; height: 30vw; border: 4px solid cornflowerblue; border-radius: 100%"
+            style="width: 150px; height: 150px; border: 4px solid cornflowerblue; border-radius: 100%"
             :class="hover ? 'shadow-10 bg-orange' : ''"
             @click.native="opened = true"
             @mouseover.native="hover = true"
