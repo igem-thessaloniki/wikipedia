@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/katex.css" />
+    <igem-layout>
+        <q-page class="text-justify q-pa-lg">
+            <div class="row justify-center">
+                <div class="col-md-6 col-lg-4">
+                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/0/0e/T--Thessaloniki--model-logo.svg">
+                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/ec/T--Thessaloniki--model-logo-light.svg">
+                </div>
+            </div>
+            <div class="row justify-center q-mb-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-10 col-md-9 col-lg-8">
+                    <div class="flex flex-center">
+                        <h3>TALE</h3>
+                    </div>
+
+                    <div class="flex flex-center">
+                        <div style="overflow-x:auto;">
+                            <p id="tale-kinetics-eq"></p>
+                        </div>
+                    </div>
+
+                    <q-list>
+                        <q-collapsible icon="category" label="Differential Equations">
+                            <div class="flex flex-center">
+                                <div style="overflow-x:auto;">
+                                    <p id="tale-ode-eq"></p>
+                                </div>
+                            </div>
+                        </q-collapsible>
+                    </q-list>
+                    <div style="overflow-x:auto;">
+                        <p id="propto"></p>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <p id="system-eval"></p>
+                    </div>
+                    <p>
+                        <div id="26861ce0-43f7-454e-9b7d-2baad220a102" class="plotly-graph-div"></div>
+                    </p>
+                    <p>
+                        Lorem ipsum
+                    </p>
+                    <div id="cbaa3ade-700f-4a36-88c1-a0e22daaa6cd" class="plotly-graph-div"></div>
+                    <div id="01dd243a-3925-4680-a418-996b564e0e52" class="plotly-graph-div"></div>
+                    <div id="b74b8fdf-959b-4cf9-a9a8-51adb589ef62" class="plotly-graph-div"></div>
+                    <div id="18b86f21-b918-4b2f-b301-fdde84594932" class="plotly-graph-div"></div>
+                    <div id="7288dd49-d3c3-447e-8ffc-910058a530a5" class="plotly-graph-div"></div>
+                    <div id="9a04d7ff-d779-4248-8eab-4477609a6bab" class="plotly-graph-div"></div>
+                    <div id="63c2cafb-01e6-4d3c-8010-f3642d4c415a" class="plotly-graph-div"></div>
+                    <!-- ? -->
+                    <div id="5922f175-3dee-462d-a83f-eeb97abb50a8" class="plotly-graph-div"></div>
+
+                    <div class="flex flex-center">
+                        <h3>IPTG</h3>
+                    </div>
+
+                    <div style="overflow-x:auto;">
+                        <p id="iptg-eq"></p>
+                    </div>
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
+    <script src="/javascripts/plotly.js"></script>
+    <script src="/javascripts/katex.js"></script>
+    <script>
+        iGEM.registerHook('loadHook', async function ([Vue, store]) {
+            store.commit('setPage', 'model-tale')
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [
+                {
+                    name: 'n= 0.5 robustness',
+                    id: '26861ce0-43f7-454e-9b7d-2baad220a102',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    500,
+                                    13000
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false,
+                                "exponentformat": "power"
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    1.1422708618331052,
+                                    102.43912448700411
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.560541126993805,
+                                "x": 0.8045838005828142,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=0.5",
+                            "ysrc": "YvonniXesfyngi:47:8b8430",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:47:1cc448",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "23.8517353433",
+                                    "41.6898733141",
+                                    "57.6182654973",
+                                    "72.4011001364",
+                                    "86.3786381155",
+                                    "99.7420116834",
+                                    "112.6127972071",
+                                    "125.0746843278",
+                                    "137.1885422587",
+                                    "149.0004808835",
+                                    "160.5465423579",
+                                    "171.85561094",
+                                    "182.95130928",
+                                    "193.8532862694",
+                                    "204.5781199342",
+                                    "215.1399688617",
+                                    "225.5510539516",
+                                    "235.8220211576",
+                                    "245.9622203231",
+                                    "255.9799225324"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:47:f46833",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "1639.6346290625",
+                                "2555.4171338213",
+                                "3300.6379012191",
+                                "3951.8897224367",
+                                "4540.6938483462",
+                                "5083.8532563183",
+                                "5591.6389587138",
+                                "6070.8964971223",
+                                "6526.4708696097",
+                                "6961.9465559675",
+                                "7380.0674768062",
+                                "7782.991792091",
+                                "8172.4547983238",
+                                "8549.8775816438",
+                                "8916.4420345651",
+                                "9273.1442009341",
+                                "9620.8331624673",
+                                "9960.239992952",
+                                "10291.999735815",
+                                "10616.6683541434"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    },
+                }, {
+                    name: 'n= 1 robustness',
+                    id: 'cbaa3ade-700f-4a36-88c1-a0e22daaa6cd',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    50,
+                                    492.13952659137544
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    2.2435361053606835,
+                                    102.72848205996812
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.23844374871665133,
+                                "x": 0.8579353737702287,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=1",
+                            "ysrc": "YvonniXesfyngi:46:03fa25",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:46:e0ae60",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "7.1963719649",
+                                    "10.3922885782",
+                                    "12.9716241091",
+                                    "15.218650667",
+                                    "17.2340937617",
+                                    "19.069697973",
+                                    "20.7576496675",
+                                    "22.3203434338",
+                                    "23.7745024886",
+                                    "25.1332178169",
+                                    "26.4070799237",
+                                    "27.6048637503",
+                                    "28.7339719409",
+                                    "29.8007374817",
+                                    "30.8106391208",
+                                    "31.7684603766",
+                                    "32.678409624",
+                                    "33.5442138152",
+                                    "34.3691920818",
+                                    "7.1963719649"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:46:e68c0b",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "194.7354860614",
+                                "217.1861925218",
+                                "230.7118214681",
+                                "240.6160787447",
+                                "248.5223257969",
+                                "255.1465925541",
+                                "260.8704804854",
+                                "265.9229240252",
+                                "270.4529380186",
+                                "274.5634728253",
+                                "278.3289548718",
+                                "281.8051384582",
+                                "285.035000877",
+                                "288.0524544457",
+                                "290.8847840662",
+                                "293.5543055826",
+                                "296.0795276077",
+                                "298.4759876975",
+                                "300.7568666011",
+                                "302.9334494765"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'n= 2 robustness',
+                    id: '01dd243a-3925-4680-a418-996b564e0e52',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    0,
+                                    13.415383731617649
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": true,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    2.6699220146447322,
+                                    102.72848205996812
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": 0.4394746765517029,
+                                "x": 0.8442554832093532,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "n=2",
+                            "ysrc": "YvonniXesfyngi:48:dafb9a",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:48:f346a3",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "0.1092280592",
+                                    "0.0561643543",
+                                    "0.0376462586",
+                                    "0.0282887892",
+                                    "0.0226511674",
+                                    "0.0188851137",
+                                    "0.0161919739",
+                                    "0.01417067",
+                                    "0.012597795",
+                                    "0.0113390758",
+                                    "0.0103089656",
+                                    "0.0094503849",
+                                    "0.0087237924",
+                                    "0.0081009309",
+                                    "0.0075610704",
+                                    "0.007088659",
+                                    "0.0066718011",
+                                    "0.0063012428",
+                                    "0.0059696772",
+                                    "0.0056712577"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:48:749d18",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "2.3228272919",
+                                "1.9405390527",
+                                "2.1404396459",
+                                "2.4924298339",
+                                "2.9059477737",
+                                "3.350374376",
+                                "3.8125058976",
+                                "4.2857186995",
+                                "4.7663257027",
+                                "5.2521118148",
+                                "5.7416661856",
+                                "6.2340476504",
+                                "6.7286043247",
+                                "7.2248704127",
+                                "7.7225042302",
+                                "8.2212494583",
+                                "8.7209100562",
+                                "9.2213335192",
+                                "9.7223994376",
+                                "10.2240114735"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'Kon-Koff-dT-TALE-5000',
+                    id: '9a04d7ff-d779-4248-8eab-4477609a6bab',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Click to enter Plot title",
+                            "yaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "auto",
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "dtick": 0,
+                                "range": [
+                                    415.83918069465165,
+                                    974.338214922047
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "showlegend": false,
+                            "xaxis": {
+                                "tickwidth": 1,
+                                "tickmode": "linear",
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "dtick": 5,
+                                "range": [
+                                    1.9592788325046513,
+                                    105.85531206138448
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "hovermode": "closest",
+                            "legend": {
+                                "y": -0.1912307176391685,
+                                "x": -0.06545723908886844,
+                                "font": {
+                                    "size": 14
+                                }
+                            }
+                        },
+                        "data": [{
+                            "name": "",
+                            "ysrc": "YvonniXesfyngi:49:a81a3e",
+                            "error_y": {
+                                "arraysrc": "YvonniXesfyngi:49:d704ae",
+                                "color": "rgb(95, 177, 244)",
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "17.3762285672",
+                                    "24.7020058995",
+                                    "30.3892883548",
+                                    "35.2701723481",
+                                    "39.6270019309",
+                                    "43.5927173985",
+                                    "47.2433631459",
+                                    "50.6285691969",
+                                    "53.7838609245",
+                                    "56.7363757989",
+                                    "59.5078146382",
+                                    "62.116103766",
+                                    "64.5763998805",
+                                    "66.9017383519",
+                                    "69.1034742662",
+                                    "71.1915964339",
+                                    "73.1749601511",
+                                    "75.0614650792",
+                                    "76.8581947604",
+                                    "78.5715297175"
+                                ],
+                                "type": "data"
+                            },
+                            "xsrc": "YvonniXesfyngi:49:4ce9dc",
+                            "visible": true,
+                            "mode": "lines",
+                            "xaxis": "x",
+                            "y": [
+                                "506.726653115",
+                                "569.6385338352",
+                                "605.5551987009",
+                                "630.9474464859",
+                                "650.7242341916",
+                                "666.9932849365",
+                                "680.8498206729",
+                                "692.9360662636",
+                                "703.6617461685",
+                                "713.3050779704",
+                                "722.0642665769",
+                                "730.0859812198",
+                                "737.4821377025",
+                                "744.3403147076",
+                                "750.730503721",
+                                "756.7096413124",
+                                "762.32474996",
+                                "767.6151718216",
+                                "772.6141961197",
+                                "777.3502704516"
+                            ],
+                            "x": [
+                                "5",
+                                "10",
+                                "15",
+                                "20",
+                                "25",
+                                "30",
+                                "35",
+                                "40",
+                                "45",
+                                "50",
+                                "55",
+                                "60",
+                                "65",
+                                "70",
+                                "75",
+                                "80",
+                                "85",
+                                "90",
+                                "95",
+                                "100"
+                            ],
+                            "line": {
+                                "color": "rgb(10, 83, 129)"
+                            },
+                            "type": "scatter",
+                            "fill": "none"
+                        }]
+                    }
+                },
+                {
+                    name: 'Second order TALE KY',
+                    id: '7288dd49-d3c3-447e-8ffc-910058a530a5',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Second Order Sensitivity Indices",
+                            "hovermode": "closest",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            }
+                        },
+                        "data": [{
+                            "zmax": 0.1137766687,
+                            "zsrc": "panteliskyriakidis:16:da3f0f,c28b90,611f3a",
+                            "ysrc": "panteliskyriakidis:16:90a2c2",
+                            "zmin": 0,
+                            "xsrc": "panteliskyriakidis:16:d9e4e9",
+                            "mode": "markers",
+                            "y": [
+                                "kon",
+                                "dT",
+                                "koff"
+                            ],
+                            "x": [
+                                "kon",
+                                "dT",
+                                "koff"
+                            ],
+                            "z": [
+                                [
+                                    "0",
+                                    "0.1137766687",
+                                    "0.1011828794"
+                                ],
+                                [
+                                    "0.1137766687",
+                                    "0",
+                                    "0.0083318908"
+                                ],
+                                [
+                                    "0.1011828794",
+                                    "0.1011828794",
+                                    "0"
+                                ]
+                            ],
+                            "type": "heatmap",
+                            "zauto": true
+                        }]
+                    }
+                },
+                {
+                    name: 'Sensitivity TALE 20000 ALL',
+                    id: 'b74b8fdf-959b-4cf9-a9a8-51adb589ef62',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "barmode": "group",
+                            "autosize": true,
+                            "title": "First and Total Order Sensitivity indices",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    9.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.055158727944444444,
+                                    1.0472852369444445
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": ""
+                            }
+                        },
+                        "data": [{
+                                "name": "First-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:11:d69f96",
+                                "xsrc": "YvonniXesfyngi:11:d6f2b2",
+                                "y": [
+                                    "0.0201234058",
+                                    "0.0004667547",
+                                    "0.0012395057",
+                                    "0.0292000578",
+                                    "0.0003465798",
+                                    "0.0001877615",
+                                    "0.0035367506",
+                                    "0.001415027",
+                                    "0.0132355654",
+                                    "0.0008980801"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT",
+                                    "dG",
+                                    "dmT",
+                                    "dmG",
+                                    "aT",
+                                    "aG",
+                                    "bT",
+                                    "bG"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.0060235246",
+                                        "0.0004217872",
+                                        "0.0007928333",
+                                        "0.0081031566",
+                                        "0.000260663",
+                                        "0.0002242912",
+                                        "0.0022031734",
+                                        "0.0007489047",
+                                        "0.0031770275",
+                                        "0.0004422289"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:11:bbbff0",
+                                    "type": "data"
+                                }
+                            },
+                            {
+                                "name": "Total-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:11:402b68",
+                                "xsrc": "YvonniXesfyngi:11:d6f2b2",
+                                "marker": {
+                                    "autocolorscale": false,
+                                    "cmin": 0,
+                                    "colorscale": [
+                                        [
+                                            0,
+                                            "rgb(220,220,220)"
+                                        ],
+                                        [
+                                            0.2,
+                                            "rgb(245,195,157)"
+                                        ],
+                                        [
+                                            0.4,
+                                            "rgb(245,160,105)"
+                                        ],
+                                        [
+                                            1,
+                                            "rgb(178,10,28)"
+                                        ]
+                                    ],
+                                    "reversescale": true,
+                                    "cauto": true,
+                                    "cmax": 7
+                                },
+                                "y": [
+                                    "0.5568935507",
+                                    "0.0875762951",
+                                    "0.1017321717",
+                                    "0.8189670836",
+                                    "0.049236157",
+                                    "0.1288894233",
+                                    "0.4097824784",
+                                    "0.1892168212",
+                                    "0.4141494524",
+                                    "0.2439142337"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT",
+                                    "dG",
+                                    "dmT",
+                                    "dmG",
+                                    "aT",
+                                    "aG",
+                                    "bT",
+                                    "bG"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.2106280427",
+                                        "0.0280136579",
+                                        "0.0326081629",
+                                        "0.1731959551",
+                                        "0.0151247669",
+                                        "0.0427719754",
+                                        "0.1398779194",
+                                        "0.1025634432",
+                                        "0.0936740598",
+                                        "0.1038023912"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:11:8d02c7",
+                                    "type": "data"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    name: 'Sensitivity TALE 20000 ky',
+                    id: '18b86f21-b918-4b2f-b301-fdde84594932',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "barmode": "group",
+                            "autosize": true,
+                            "title": "First and Total Order Sensitivity indices",
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    -0.018189215933333322,
+                                    0.9997768247333333
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": ""
+                            }
+                        },
+                        "data": [{
+                                "name": "First-order",
+                                "orientation": "v",
+                                "ysrc": "YvonniXesfyngi:12:a83ebe",
+                                "xsrc": "YvonniXesfyngi:12:d7b50a",
+                                "y": [
+                                    "0.7090388127",
+                                    "0.0349781556",
+                                    "0.0397951133"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.023462683",
+                                        "0.0022690695",
+                                        "0.0021249531"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:12:249f00",
+                                    "type": "data"
+                                }
+                            },
+                            {
+                                "name": "Total-order",
+                                "ysrc": "YvonniXesfyngi:12:3d7480",
+                                "xsrc": "YvonniXesfyngi:12:d7b50a",
+                                "marker": {
+                                    "autocolorscale": false,
+                                    "cmin": 0,
+                                    "colorscale": [
+                                        [
+                                            0,
+                                            "rgb(220,220,220)"
+                                        ],
+                                        [
+                                            0.2,
+                                            "rgb(245,195,157)"
+                                        ],
+                                        [
+                                            0.4,
+                                            "rgb(245,160,105)"
+                                        ],
+                                        [
+                                            1,
+                                            "rgb(178,10,28)"
+                                        ]
+                                    ],
+                                    "reversescale": true,
+                                    "cauto": true,
+                                    "cmax": 7
+                                },
+                                "y": [
+                                    "0.9180503404",
+                                    "0.1454239525",
+                                    "0.1642164307"
+                                ],
+                                "x": [
+                                    "kon",
+                                    "koff",
+                                    "dT"
+                                ],
+                                "type": "bar",
+                                "error_y": {
+                                    "visible": true,
+                                    "array": [
+                                        "0.0308281823",
+                                        "0.0137151533",
+                                        "0.0132520359"
+                                    ],
+                                    "arraysrc": "YvonniXesfyngi:12:fd9058",
+                                    "type": "data"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    name: 'taleLACIcopy number',
+                    id: '63c2cafb-01e6-4d3c-8010-f3642d4c415a',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "hovermode": "closest",
+                            "xaxis": {
+                                "title": "Copy number",
+                                "ticks": "inside",
+                                "range": [
+                                    5,
+                                    100
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "title": "sfGFP concentration",
+                                "ticks": "inside",
+                                "showgrid": true,
+                                "range": [
+                                    2,
+                                    6
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "nticks": 5,
+                                "type": "log",
+                                "autorange": false,
+                                "exponentformat": "power"
+                            }
+                        },
+                        "data": [{
+                                "name": "TALE",
+                                "ysrc": "YvonniXesfyngi:82:767b6a",
+                                "xsrc": "YvonniXesfyngi:82:898376",
+                                "visible": true,
+                                "mode": "lines",
+                                "y": [
+                                    "837.370000000000",
+                                    "993.790000000000",
+                                    "938.830000000000",
+                                    "946.570000000000"
+                                ],
+                                "x": [
+                                    "5",
+                                    "30",
+                                    "50",
+                                    "100"
+                                ],
+                                "line": {
+                                    "color": "rgb(11, 55, 251)"
+                                },
+                                "type": "scatter",
+                                "fill": "none"
+                            },
+                            {
+                                "name": "TALE/LacI",
+                                "ysrc": "YvonniXesfyngi:82:c034d1",
+                                "xsrc": "YvonniXesfyngi:82:898376",
+                                "mode": "lines",
+                                "y": [
+                                    "14300",
+                                    "68700",
+                                    "93300",
+                                    "126000"
+                                ],
+                                "x": [
+                                    "5",
+                                    "30",
+                                    "50",
+                                    "100"
+                                ],
+                                "line": {
+                                    "color": "rgb(255, 0, 3)"
+                                },
+                                "type": "scatter",
+                                "fill": "none"
+                            }
+                        ]
+                    }
+                },
+                {
+                    name: 'laci tale -time',
+                    id: '5922f175-3dee-462d-a83f-eeb97abb50a8',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "hovermode": "closest",
+                            "xaxis": {
+                                "showticklabels": true,
+                                "title": "time (min)",
+                                "ticks": "inside",
+                                "showgrid": true,
+                                "range": [
+                                    3.8804390566306086,
+                                    652.0971898033114
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false
+                            },
+                            "yaxis": {
+                                "title": "sfGFP concentration ",
+                                "ticks": "inside",
+                                "showgrid": true,
+                                "range": [
+                                    90.97982042127273,
+                                    15839.2359644505
+                                ],
+                                "mirror": "ticks",
+                                "showline": true,
+                                "type": "linear",
+                                "autorange": false,
+                                "exponentformat": "power"
+                            }
+                        },
+                        "data": [{
+                                "name": "TALE",
+                                "ysrc": "YvonniXesfyngi:85:1c51d1",
+                                "xsrc": "YvonniXesfyngi:85:25d456",
+                                "mode": "lines",
+                                "y": [
+                                    "0",
+                                    "2.29020140778871e-05",
+                                    "7.22787978625907e-05",
+                                    "0.000148685403128623",
+                                    "0.000548047004834572",
+                                    "0.00120592736975738",
+                                    "0.00212792994840764",
+                                    "0.00302340308996800",
+                                    "0.00407827992690810",
+                                    "0.00529248972898484",
+                                    "0.00666595308146222",
+                                    "0.00880343862832648",
+                                    "0.0112389120575753",
+                                    "0.0139722526775062",
+                                    "0.0170033430243916",
+                                    "0.0203320653696367",
+                                    "0.0281531814214268",
+                                    "0.0372436972508109",
+                                    "0.0476025678074589",
+                                    "0.0592287479534802",
+                                    "0.0721211917199923",
+                                    "0.0862788516812074",
+                                    "0.154625490643477",
+                                    "0.242669149936471",
+                                    "0.350344260817809",
+                                    "0.477584691744660",
+                                    "0.624323677465901",
+                                    "0.790493773567998",
+                                    "1.14912395678353",
+                                    "1.57365937457338",
+                                    "2.06365217967688",
+                                    "2.61864542287181",
+                                    "3.23817308091934",
+                                    "3.92176017645531",
+                                    "5.89736551137019",
+                                    "8.25882666535261",
+                                    "10.9981502714799",
+                                    "14.1070520159582",
+                                    "17.5769808097177",
+                                    "21.3991427399370",
+                                    "32.0305211308589",
+                                    "44.5330927688364",
+                                    "58.7710250273336",
+                                    "74.6059944858059",
+                                    "91.8991347023912",
+                                    "110.512810687374",
+                                    "130.312185948496",
+                                    "179.142134240585",
+                                    "232.018308280960",
+                                    "287.688558449661",
+                                    "345.096185239056",
+                                    "403.369720888253",
+                                    "461.802366234778",
+                                    "519.830192078078",
+                                    "620.975885395394",
+                                    "710.303185738992",
+                                    "795.071682905499",
+                                    "874.785553320705",
+                                    "949.205521709996",
+                                    "1018.28215020072",
+                                    "1095.68850012009",
+                                    "1165.50577152601",
+                                    "1228.14004528723",
+                                    "1284.06064254468",
+                                    "1333.76037109529",
+                                    "1406.55675847505",
+                                    "1464.59740765983",
+                                    "1510.13783980204",
+                                    "1545.17642747930",
+                                    "1571.43644432954",
+                                    "1595.33763036852",
+                                    "1608.99326323123",
+                                    "1614.72720742974",
+                                    "1614.34794899559",
+                                    "1609.26885895454",
+                                    "1593.87732961161",
+                                    "1572.58995435765",
+                                    "1547.73651818051",
+                                    "1520.82432293441",
+                                    "1492.87017051659",
+                                    "1449.77635547335",
+                                    "1407.53393282734",
+                                    "1367.05996306336",
+                                    "1328.78684488950",
+                                    "1292.91097914156",
+                                    "1226.83580034425",
+                                    "1170.84220201838",
+                                    "1123.92550901663",
+                                    "1084.80121249991",
+                                    "1052.26508692452",
+                                    "1006.40748775874",
+                                    "974.120379685854",
+                                    "951.369727378377",
+                                    "935.322133330305",
+                                    "924.017548968185",
+                                    "913.129870734965",
+                                    "906.734488040106",
+                                    "902.906107109170",
+                                    "900.611653627019",
+                                    "899.258466815375",
+                                    "898.190793783031",
+                                    "897.761234808747",
+                                    "897.527474017642",
+                                    "897.406638101934",
+                                    "897.367922713249",
+                                    "897.324865420798",
+                                    "897.371350375312"
+                                ],
+                                "x": [
+                                    "0",
+                                    "0.000630618253182895",
+                                    "0.00126123650636579",
+                                    "0.00189185475954868",
+                                    "0.00386912488024040",
+                                    "0.00584639500093212",
+                                    "0.00782366512162384",
+                                    "0.00935291483478927",
+                                    "0.0108821645479547",
+                                    "0.0124114142611201",
+                                    "0.0139406639742856",
+                                    "0.0160333569231402",
+                                    "0.0181260498719949",
+                                    "0.0202187428208496",
+                                    "0.0223114357697043",
+                                    "0.0244041287185590",
+                                    "0.0287285682531690",
+                                    "0.0330530077877790",
+                                    "0.0373774473223890",
+                                    "0.0417018868569990",
+                                    "0.0460263263916089",
+                                    "0.0503507659262189",
+                                    "0.0674487395005339",
+                                    "0.0845467130748489",
+                                    "0.101644686649164",
+                                    "0.118742660223479",
+                                    "0.135840633797794",
+                                    "0.152938607372109",
+                                    "0.184587748198484",
+                                    "0.216236889024859",
+                                    "0.247886029851234",
+                                    "0.279535170677609",
+                                    "0.311184311503984",
+                                    "0.342833452330359",
+                                    "0.421578060389330",
+                                    "0.500322668448301",
+                                    "0.579067276507272",
+                                    "0.657811884566243",
+                                    "0.736556492625213",
+                                    "0.815301100684184",
+                                    "1.00552663527003",
+                                    "1.19575216985588",
+                                    "1.38597770444173",
+                                    "1.57620323902757",
+                                    "1.76642877361342",
+                                    "1.95665430819927",
+                                    "2.14687984278512",
+                                    "2.58011193608331",
+                                    "3.01334402938149",
+                                    "3.44657612267968",
+                                    "3.87980821597787",
+                                    "4.31304030927606",
+                                    "4.74627240257425",
+                                    "5.17950449587244",
+                                    "5.95220889510973",
+                                    "6.66420115708720",
+                                    "7.37619341906468",
+                                    "8.08818568104215",
+                                    "8.80017794301962",
+                                    "9.51217020499709",
+                                    "10.3836285435771",
+                                    "11.2550868821570",
+                                    "12.1265452207370",
+                                    "12.9980035593170",
+                                    "13.8694618978969",
+                                    "15.3788735104786",
+                                    "16.8882851230602",
+                                    "18.3976967356418",
+                                    "19.9071083482234",
+                                    "21.4165199608050",
+                                    "23.4391335804210",
+                                    "25.4617472000370",
+                                    "27.4843608196530",
+                                    "29.5069744392689",
+                                    "31.5295880588849",
+                                    "34.7743806270871",
+                                    "38.0191731952892",
+                                    "41.2639657634913",
+                                    "44.5087583316935",
+                                    "47.7535508998956",
+                                    "52.6927388756477",
+                                    "57.6319268513998",
+                                    "62.5711148271519",
+                                    "67.5103028029040",
+                                    "72.4494907786561",
+                                    "82.5978414320862",
+                                    "92.7461920855164",
+                                    "102.894542738947",
+                                    "113.042893392377",
+                                    "123.191244045807",
+                                    "141.850314113963",
+                                    "160.509384182120",
+                                    "179.168454250276",
+                                    "197.827524318433",
+                                    "216.486594386589",
+                                    "244.677915726418",
+                                    "272.869237066246",
+                                    "301.060558406075",
+                                    "329.251879745903",
+                                    "357.443201085732",
+                                    "407.511949992745",
+                                    "457.580698899758",
+                                    "507.649447806771",
+                                    "557.718196713784",
+                                    "607.786945620797",
+                                    "823.131001206546",
+                                    "1000"
+                                ],
+                                "line": {
+                                    "color": "rgb(11, 55, 251)",
+                                    "width": 2
+                                },
+                                "type": "scatter",
+                                "fill": "none"
+                            },
+                            {
+                                "name": "TALE/LacI",
+                                "ysrc": "YvonniXesfyngi:85:7d08b0",
+                                "xsrc": "YvonniXesfyngi:85:25d456",
+                                "mode": "lines",
+                                "y": [
+                                    "0",
+                                    "2.20999609993885e-11",
+                                    "7.07543477943023e-11",
+                                    "1.48266462905140e-10",
+                                    "6.01496017860317e-10",
+                                    "1.47365619670390e-09",
+                                    "2.94237038808863e-09",
+                                    "4.62126859455150e-09",
+                                    "6.93589385778519e-09",
+                                    "1.00522804116111e-08",
+                                    "1.41607797698097e-08",
+                                    "2.17625602329256e-08",
+                                    "3.22254406992723e-08",
+                                    "4.62721651498426e-08",
+                                    "6.47118400670086e-08",
+                                    "8.84360946480153e-08",
+                                    "1.58493372176945e-07",
+                                    "2.65170672666354e-07",
+                                    "4.19844176455216e-07",
+                                    "6.35473162226181e-07",
+                                    "9.26590414253958e-07",
+                                    "1.30929838216144e-06",
+                                    "4.08526476077313e-06",
+                                    "9.93009640721810e-06",
+                                    "2.05542687089024e-05",
+                                    "3.80442354666517e-05",
+                                    "6.48589553792055e-05",
+                                    "0.000103826551458168",
+                                    "0.000219100671798994",
+                                    "0.000410726005002518",
+                                    "0.000706405987975434",
+                                    "0.00113794586243442",
+                                    "0.00174117568354319",
+                                    "0.00255587505181131",
+                                    "0.00579263409890165",
+                                    "0.0113910227773170",
+                                    "0.0202618539881386",
+                                    "0.0334460497899240",
+                                    "0.0521067899755535",
+                                    "0.0775219715071587",
+                                    "0.175409592511413",
+                                    "0.342825742009012",
+                                    "0.604336757005442",
+                                    "0.986687192691344",
+                                    "1.51824075956906",
+                                    "2.22846362745048",
+                                    "3.14745305112799",
+                                    "6.18074888535954",
+                                    "10.8051471946144",
+                                    "17.3495791177691",
+                                    "26.1088774796939",
+                                    "37.3372971488819",
+                                    "51.2456656973958",
+                                    "68.0010484559420",
+                                    "105.324001090060",
+                                    "148.423864930851",
+                                    "199.953567729334",
+                                    "259.808295812986",
+                                    "327.737932293620",
+                                    "403.383665205286",
+                                    "505.831909277853",
+                                    "618.313469750326",
+                                    "739.899951919316",
+                                    "869.649398104930",
+                                    "1006.63887393071",
+                                    "1258.50719642678",
+                                    "1525.26838864548",
+                                    "1803.18369190268",
+                                    "2089.05405540719",
+                                    "2380.19297763174",
+                                    "2774.82803918746",
+                                    "3170.65520718730",
+                                    "3564.37003474620",
+                                    "3953.52630755319",
+                                    "4336.31855351243",
+                                    "4934.12922377656",
+                                    "5508.61805993090",
+                                    "6057.80428683372",
+                                    "6580.93578159039",
+                                    "7077.95870023449",
+                                    "7785.38170218098",
+                                    "8435.47658691306",
+                                    "9031.39888553501",
+                                    "9576.74106964838",
+                                    "10075.1584916928",
+                                    "10966.6510911861",
+                                    "11703.4447369371",
+                                    "12311.1379403915",
+                                    "12811.6084262522",
+                                    "13223.1756003815",
+                                    "13794.8142305796",
+                                    "14190.2311513722",
+                                    "14463.0486981153",
+                                    "14649.6248385711",
+                                    "14775.1101887281",
+                                    "14885.2452428476",
+                                    "14937.9428745506",
+                                    "14957.9176771759",
+                                    "14958.3373713320",
+                                    "14946.7694206473",
+                                    "14909.3628472748",
+                                    "14864.1217509114",
+                                    "14816.7351438055",
+                                    "14768.2460417012",
+                                    "14719.0404356482",
+                                    "14509.5556939613",
+                                    "14340.8893837494"
+                                ],
+                                "x": [
+                                    "0",
+                                    "0.000630618253182895",
+                                    "0.00126123650636579",
+                                    "0.00189185475954868",
+                                    "0.00386912488024040",
+                                    "0.00584639500093212",
+                                    "0.00782366512162384",
+                                    "0.00935291483478927",
+                                    "0.0108821645479547",
+                                    "0.0124114142611201",
+                                    "0.0139406639742856",
+                                    "0.0160333569231402",
+                                    "0.0181260498719949",
+                                    "0.0202187428208496",
+                                    "0.0223114357697043",
+                                    "0.0244041287185590",
+                                    "0.0287285682531690",
+                                    "0.0330530077877790",
+                                    "0.0373774473223890",
+                                    "0.0417018868569990",
+                                    "0.0460263263916089",
+                                    "0.0503507659262189",
+                                    "0.0674487395005339",
+                                    "0.0845467130748489",
+                                    "0.101644686649164",
+                                    "0.118742660223479",
+                                    "0.135840633797794",
+                                    "0.152938607372109",
+                                    "0.184587748198484",
+                                    "0.216236889024859",
+                                    "0.247886029851234",
+                                    "0.279535170677609",
+                                    "0.311184311503984",
+                                    "0.342833452330359",
+                                    "0.421578060389330",
+                                    "0.500322668448301",
+                                    "0.579067276507272",
+                                    "0.657811884566243",
+                                    "0.736556492625213",
+                                    "0.815301100684184",
+                                    "1.00552663527003",
+                                    "1.19575216985588",
+                                    "1.38597770444173",
+                                    "1.57620323902757",
+                                    "1.76642877361342",
+                                    "1.95665430819927",
+                                    "2.14687984278512",
+                                    "2.58011193608331",
+                                    "3.01334402938149",
+                                    "3.44657612267968",
+                                    "3.87980821597787",
+                                    "4.31304030927606",
+                                    "4.74627240257425",
+                                    "5.17950449587244",
+                                    "5.95220889510973",
+                                    "6.66420115708720",
+                                    "7.37619341906468",
+                                    "8.08818568104215",
+                                    "8.80017794301962",
+                                    "9.51217020499709",
+                                    "10.3836285435771",
+                                    "11.2550868821570",
+                                    "12.1265452207370",
+                                    "12.9980035593170",
+                                    "13.8694618978969",
+                                    "15.3788735104786",
+                                    "16.8882851230602",
+                                    "18.3976967356418",
+                                    "19.9071083482234",
+                                    "21.4165199608050",
+                                    "23.4391335804210",
+                                    "25.4617472000370",
+                                    "27.4843608196530",
+                                    "29.5069744392689",
+                                    "31.5295880588849",
+                                    "34.7743806270871",
+                                    "38.0191731952892",
+                                    "41.2639657634913",
+                                    "44.5087583316935",
+                                    "47.7535508998956",
+                                    "52.6927388756477",
+                                    "57.6319268513998",
+                                    "62.5711148271519",
+                                    "67.5103028029040",
+                                    "72.4494907786561",
+                                    "82.5978414320862",
+                                    "92.7461920855164",
+                                    "102.894542738947",
+                                    "113.042893392377",
+                                    "123.191244045807",
+                                    "141.850314113963",
+                                    "160.509384182120",
+                                    "179.168454250276",
+                                    "197.827524318433",
+                                    "216.486594386589",
+                                    "244.677915726418",
+                                    "272.869237066246",
+                                    "301.060558406075",
+                                    "329.251879745903",
+                                    "357.443201085732",
+                                    "407.511949992745",
+                                    "457.580698899758",
+                                    "507.649447806771",
+                                    "557.718196713784",
+                                    "607.786945620797",
+                                    "823.131001206546",
+                                    "1000"
+                                ],
+                                "line": {
+                                    "color": "rgb(255, 0, 3)",
+                                    "width": 2
+                                },
+                                "type": "scatter",
+                                "fill": "none"
+                            }
+                        ]
+                    }
+                },
+            ]
+
+            let instances = []
+            let resizeDebounce = null
+
+            function resizePlots() {
+                instances.forEach((gd) => {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                })
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
+                }
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                initializeGraphs()
+            })
+
+            let equatations = [
+                {
+                    id: 'tale-kinetics-eq',
+                    eq: `
+                        \\begin{array}{lr}
+                        c \\xrightarrow{a_T} c + mTALE & (1) \\\\
+                        mTALE \\xrightarrow{d_{mT}} \\emptyset & (2) \\\\
+                        mTALE \\xrightarrow{b_{T}} mTALE + TALE & (3) \\\\
+                        TALE  \\xrightarrow{d_T}  \\emptyset & (4) \\\\
+                        nTALE + P \\xleftrightharpoons[k_{off}]{k_{on}} P  TALE_n & (5) \\\\
+                        P \\xrightarrow{a_G} P  + msfGFP & (6) \\\\
+                        msfGFP \\xrightarrow{d_{mG}} \\emptyset & (7) \\\\
+                        msfGFP \\xrightarrow{b_G} msfGFP + sfGFP & (8) \\\\
+                        sfGFP \\xrightarrow{d_G} \\emptyset & (9) \\\\
+                        \\end{array}
+                    `
+                },
+                {
+                    id: 'tale-ode-eq',
+                    eq: `
+                        \\begin{aligned}
+                            \\frac{dmTALE}{dt}  &= a_T \\cdot c-d_{mT} \\cdot mTALE
+                            \\\\
+                            \\frac{dTALE}{dt}  &= b_T \\cdot mTALE-d_T \\cdot TALE- n \\cdot k_{on} \\cdot TALE^n \\cdot P+ n\\cdot k_{off}  \\cdot  P  TALE_n
+                            \\\\
+                            \\frac{dP}{dt} &= n\\cdot k_{off} \\cdot  P TALE_n   -   n \\cdot k_{on} \\cdot TALE^n \\cdot P + n \\cdot   P  TALE_n
+                            \\\\
+                            \\frac{d  PTALE_n      }{dt}   &=   k_{on} \\cdot TALE^n \\cdot P  -  k_{off} \\cdot  P TALE_n  -          n \\cdot   P TALE_n
+                            \\\\
+                            \\frac{dmsfGFP}{dt} &= aG_{max} \\cdot P + aG_{min} \\cdot  P  TALE_n  - d_{mG} \\cdot msfGFP
+                            \\\\
+                            \\frac{dsfGFP}{dt}  &= b_G \\cdot msfGFP - d_G \\cdot sfGFP
+                        \\end{aligned}
+                    `
+                },
+                {
+                    id: 'propto',
+                    eq: `G \\propto c^{1-n}`
+                },
+                {
+                    id: 'system-eval',
+                    eq: `E =  \\frac{G \\mid _{c_{max}} - G \\mid _{c_{min}}}{G \\mid _{c_{min}}}`
+                },
+                {
+                    id: 'iptg-eq',
+                    eq: ` \\frac{dmsfGFP}{dt}= aGmax \\frac{ \\frac{[TALE]}{KT}     }{1 + \\frac{[TALE]}{KT} + \\frac{[LacI]}{KL} + \\frac{[TALE][LacI]}{kKTKL}}  - dmG \\cdot msfGFP`
+                }
+            ]
+
+            equatations.forEach((equatation) => {
+                let el = document.getElementById(equatation.id)
+                katex.render(equatation.eq, el, {})
+            })
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>

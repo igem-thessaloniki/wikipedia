@@ -42,4 +42,12 @@ router.get('/model', function(req, res, next) {
   res.render('model');
 })
 
+router.get('/model_tale', function(req, res, next) {
+  res.render('model_tale');
+})
+
+router.get('/model_dcas9', function(req, res, next) {
+  res.render('model_dcas9');
+})
+
 module.exports = router;

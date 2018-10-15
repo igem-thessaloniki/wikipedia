@@ -228,7 +228,8 @@ a:visited {
 
 .plotly-graph-div {
     margin: 0px;
-    height: 55vh;
-    width: 95vw;
+    height: 70vh;
+    max-width: 95vw;
+    width: auto;
     min-height: 300px;
 }
