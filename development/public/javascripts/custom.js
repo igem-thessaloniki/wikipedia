@@ -65,6 +65,14 @@ let iGEM = {
         })
         return `<div style="overflow-x:auto;"><table class="simple-table text-center">${headerHTML}${bodyHTML}</table></div>`
     },
+    parseLatex(items) {
+        let regAmp = new RegExp( String.fromCharCode(38) + 'amp;', 'g')
+
+        items.forEach((item) => {
+            let el = document.getElementById(item.id)
+            katex.render(item.eq.replace(regAmp, String.fromCharCode(38)), el, {})
+        })
+    },
     data: {}
 }
 

@@ -15010,10 +15010,7 @@
                 }
             ]
 
-            equatations.forEach((equatation) => {
-                let el = document.getElementById(equatation.id)
-                katex.render(equatation.eq, el, {})
-            })
+            iGEM.parseLatex(equatations)
         })
     </script>
     <%- include('templates/footer'); %>
