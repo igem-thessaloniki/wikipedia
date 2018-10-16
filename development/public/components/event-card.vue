@@ -25,7 +25,7 @@
         </q-card>
 
         <q-modal v-model="opened" :content-css="{minWidth: '90vw', minHeight: '80vh'}" minimized>
-            <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
+            <q-modal-layout :class="[nightMode ? 'night-bg' : 'day-bg']">
                 <q-toolbar slot="header">
                     <q-toolbar-title>
                         {{title}}
@@ -67,9 +67,9 @@
                     classes.push(`shadow-${Math.floor(this.shadow)}`)
                 }
                 if (this.nightMode) {
-                    classes.push('bg-purple-10 text-light')
+                    classes.push('night-bg text-light')
                 } else {
-                    classes.push('text-dark')
+                    classes.push('day-bg text-dark')
                 }
                 return classes
             },
