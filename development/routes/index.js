@@ -58,4 +58,8 @@ router.get('/human_practices', function(req, res, next) {
   res.render('human_practices');
 })
 
+router.get('/design', function(req, res, next) {
+  res.render('design');
+})
+
 module.exports = router;
