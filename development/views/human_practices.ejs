@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Human Practices</h1>
+                <h1>Human Practices</h1>
+            </q-parallax>
+            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h3>Introduction</h3>
+                    <p>
+                        This year our Human Practice efforts were divided into 4 different categories, each of them affecting our project and ourselves in a different way. We focused on:
+                        <ul>
+                            <li>taking into serious consideration ethical issues regarding our project</li>
+                            <li>reaching out to field experts</li>
+                            <li>interacting with people from the industry in order to investigate various possibilities and options for our project</li>
+                            <li>communicating science, synthetic biology and our project across people of different ages, scientific and cultural backgrounds</li>
+                        </ul>
+                    </p>
+                    <h3>BIOETHICS</h3>
+                    <p>
+                        One of top priorities during our project’s design and execution was that our project would not raise any ethical concerns. So, we visited the Hellenic National Bioethics Commission, where we discussed with Dr Vidalis. After a presentation of our project and its possible applications, we discussed about the emerging field of Synthetic Biology and the ethical issues that may arise during the process of integrating this new scientific field in statutory legislation. Dr Vidalis, evaluated our project and concluded that it doesn’t directly raise any bioethical questions nor does it pose any threat to individuals, society and the environment, but drew our attention on the rules that should be followed in possible applications. We agreed that many aspects of synthetic biology still need regulation, as products of biological and technological advancements must be utilised in a safe and risk avoiding way. Therefore, the existence of a universal, well-established legislation, is necessary for an emerging field like synthetic biology.
+                    </p>
+                    <h3>ACADEMIA</h3>
+                    <p>As we work upon a foundational advance project, providing a genetic toolbox that allows for increased control of gene expression, researchers will be the first to utilize it. Therefore, their feedback would prove of great importance to our project’s design and usage.
+                    </p>
+                    <p>
+                            For that reason, we contacted numerous field experts, informing them about our project.  In addition, we created a synthetic biology survey that investigates:
+                            <ul>
+                                <li>problems in research</li>
+                                <li>our project’s usefulness</li>
+                                <li>ethical issues that may arise</li>
+                                <li>lab safety</li>
+                            </ul>
+                    </p>
+
+                    <h3>Survey Results:</h3>
+                    <!-- TODO -->
+
+                    <h3>INDUSTRY</h3>
+                    <p>Since our project could be applied beyond the bounds of academic research we participated into events</p>
+
+                    <h3>Participation in the 83rd TIF</h3>
+                    <p>TIF is the most important exhibition event in our country, taking place, annually, in Thessaloniki. Entrepreneurship and innovation are celebrated in TIF, as many leading companies and promising startups display their innovative products and technological advancements. We had the opportunity to participate in this year’s TIF and present our work to decades of visitors every day.  In addition, we came in contact with numerous entrepreneurs, company representatives and people from the industry. This allowed to establish a dialog with stakeholders, investigating possible applications of our project beyond the lab.</p>
+
+                    <h3>EDUCATION AND PUBLIC ENGAGEMENT</h3>
+
+                    <p>
+                        We focused our Public Engagement activities on communicating science across different ages, scientific and cultural backgrounds through a plethora of activities. Within the framework of our multifaceted outreach efforts, we addressed students spanning from elementary school to university level. Additionally, we participated in the OUC-iGEM Team Collaboration, translating a synthetic biology comic book in our language, so that we could provide an accessible and comprehensive visualisation of the molecular mechanisms and engineering principles underlying synthetic biology. As the highlight of our engagement activities, we organized the “SynBalkans Tour”, a series of educational events in universities of 3 Balkan Peninsula countries (Serbia, Bosnia and Herzegovina, Croatia) about the basics of Synthetic Biology and the iGEM Competition, with a broader emphasis on approaching culturally different groups and establishing an intercultural dialogue. More information can be found in our <a href="http://2018.igem.org/Team:Thessaloniki/Public_Engagement">Public Engagement Page</a>
+                    </p>
+                </div>
+            </div>
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Integrated Human Practices</h1>
+                <h1>Integrated Human Practices</h1>
+            </q-parallax>
+            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h3>Introduction</h3>
+                    <p>Throughout our journey in the iGEM competition we gained valuable feedback on various aspects of our project. We seeked for guidance and feedback from experts of their field and stakeholders. Through their advice and contribution, we improved our project’s design and broadened its possible applications.</p>
+
+                    <h3>Project Design and Modeling</h3>
+                    <p>
+                        As we came into communication with many scientists to inform them about our project for this year’s iGEM Competition, we got some responses that shaped our final project design.
+                        We came in contact with Thomas H. Segall Shapiro (MIT), PhD. As our project builds upon  his work with stabilized promoters, we arranged a Video Call with him. We explained to him the systems we were currently designing and he gave us valuable feedback for the following:
+                        <ul>
+                            <li>
+                                <b>For our inducible system:</b> We discussed our concerns about the implementation of the LacI repressor in the TAL Effector system in order to achieve on-the-fly inducibility. Our concern was that there would be steric hindrance between the TAL Effector and the LacI repressor. For that reason, the system would not properly function. He confirmed our concerns and advised us on the use of another type of expression control. <b>So, we opted for the use of a riboswitch instead.</b>
+                            </li>
+                            <li>
+                                <b>For our CRISPRi stabilisation system:</b>
+                                <ul>
+                                    <li>
+                                        We shared with him our idea to use another type of repressor instead of the TAL
+                                        Effectors, to achieve promoter stabilization. We exhibited our idea to use CRISPRi
+                                        and displayed our <a href="http://2018.igem.org/Team:Thessaloniki/Design#dcas9-ttd">three Topology designs</a>
+                                        , regarding the positioning(expression site) of dCas9. He told us that this system could possibly work if dCas9 was not expressed from the same plasmid as the sgRNA.
+                                        <b>We followed his advice and, in order not to disturb the noncooperative repression, we chose to use <u>Topology C</u>.</b>
+                                    </li>
+                                    <li>
+                                        He, also, mentioned that we should take into consideration the toxicity that dCas9 could pose for the cell.
+                                        <b>That is why we investigated this issue and used pTet, an inducible promoter, to control dCas9 expression.</b>
+                                        In order to choose a level of expression adequate for our system’s function that does not significantly affect growth, we conducted a dCas9 toxicity measurement, monitoring the growth of E. coli in different Doxycycline concentrations at a given time point.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>For Fluorescence Measurements:</b>
+                                As we had not decided on whether we would measure fluorescence using a plate reader or a flow cytometer, we asked Thomas H. Segall Shapiro his opinion on that matter. He guided us towards the use of flow cytometry, as this method could provide us more accurate and detailed results, and recommended us a
+                                <a href="http://2018.igem.org/Team:Thessaloniki/Experiments#flow-measurements">protocol</a> he had worked on before.
+                            </li>
+                        </ul>
+                    </p>
+                    <p>
+                        Our <b>survey result</b> showed that there was not a clear preference between on the fly <b>inducibility</b> or <b>tuning</b>
+                        of stabilised promoters in order to achieve the required expression level. Both designs have their own uses and advantages.
+                        <br>
+                        <b>So, we decided to include both of these options into our toolbox.</b>
+                        For the tuning (of TAL effector) stabilised promoters, we included
+                        <b>different promoter-RBS combinations</b>.
+                        To achieve on the fly inducibility of the TAL Effector system we decided on the use of a <b>riboswitch</b>
+                        Therefore, in our contact with <b>Prof Howard M. Salis</b>, he ensured us that <b>a theophylline riboswitch with a high dynamic range would be an excellent choice</b>,
+                        as theophylline readily enters bacterial cells, it is not metabolized by E. coli, and it binds strongly to its RNA aptamer inside the riboswitch.
+                        <br>
+                        Regarding the <b>choice of fluorescent marker</b> he told us that both sfGFP and RFP would work fine, but since the AEB--Theo-27 riboswitch currently uses luciferase as the reporter gene of interest we couldn't simply replace the current coding sequence (CDS) with another one. He advised us to use luciferase as a reporter or create a fusion protein that consists of the first 99 nucleotides of the currently used CDS (luciferase), followed by our desired gene of interest without inserting a stop or start codon in the middle of the CDS fusion. So, as we could not measure luminescence levels we designed a
+                        <b>fusion luciferase-sfGFP protein</b>.
+                    </p>
+                    <p>
+                        We visited the <b>Institute of Applied Biosciences, CERTH (Centre of Research & Technology Hellas)</b>
+                        in Thessaloniki, Greece, where we discussed about our project with scientists from the biotechnology field. Dr Antonios Makris, who is working on metabolic engineering in Saccharomyces, informed us about copy number variations in yeast and how they might affect the functionality of an engineered system. Our conversation with him gave us the necessary information to further investigate the usage of our stabilized systems in yeast.
+                    </p>
+                    <p>
+                        We also visited <b>Dr Tefas</b>, Associate Professor, School of Informatics, AUTh, to ask about network optimization. After discussing about our work and defining the optimization problem, he described to us methods to find the optimal parameters for our systems. We ended up using robustness analysis over a gradient descent algorithm as he suggested, because computational cost was not a problem, as we didn't have many unknown parameters or big ranges for their values.
+                    </p>
+
+                    <h3>Project Applications - Interaction with Stakeholders</h3>
+                    <p>As we wanted to expand the purpose of our project and investigate its possible applications outside of the lab we had meetings and discussions with several stakeholders from our country.</p>
+
+                    <p>
+                        <b>Macedonian Thrace Brewery</b>  is one of the leading beer making companies in Greece that prioritizes research and innovation in order to grow their product library and constantly improve their products. As were interested in investigating the possible applications of our project in brewery we decided to came in contact with the company. After a tour in their facilities in Komotini where we experienced the brewing process, we had the opportunity to discuss with chief executive officer Christos Dimtsoudis and members of the R&D department, about the
+                        <b>implementation of our project in mass production</b>
+                        in order to decrease the concentration of byproducts in beer and improve its quality through gene control in yeast.
+                    </p>
+
+                    <p>
+                        <b>ELPEN</b> is a pharmaceutical company based in Greece with a strong focus on the development of novel pharmaceutical products. We visited their Headquarters and presented our project in front of Anna Maria Chronopoulou, Head of Corporate Communication & Corporate Social Responsibility and Georgia Papaioannou, Communication and Market Access Associate. After a fruitful conversation,
+                        <b>we investigated the utilization of our project for the stabilization of metabolic pathways in the development and production of pharmaceutical compounds</b>
+                        and, more specifically, its use over conventional methods, such as extraction or chemical synthesis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <small class="row">
+                        [1] Liu, Q., Schumacher, J., Wan, X., Lou, C., & Wang, B. (2018). Orthogonality and Burdens of Heterologous and Gate Gene Circuits in E. coli. ACS Synthetic Biology. <a href="https://doi.org/10.1021/acssynbio.7b00328">https://doi.org/10.1021/acssynbio.7b00328</a>
+                    </small>
+                </div>
+            </div>
+
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'human-practices')
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>

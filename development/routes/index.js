@@ -54,4 +54,8 @@ router.get('/model_nar', function(req, res, next) {
   res.render('model_nar');
 })
 
+router.get('/human_practices', function(req, res, next) {
+  res.render('human_practices');
+})
+
 module.exports = router;

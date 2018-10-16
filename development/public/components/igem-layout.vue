@@ -76,11 +76,7 @@
                     </q-collapsible>
                 </q-collapsible>
 
-                <q-collapsible icon="people" label="Human Practices" :opened="['synapsis', 'human-practices', 'public-engagement'].includes(page)">
-                    <route-item page="synapsis" link="http://2018.igem.org/Team:Thessaloniki/Synapsis" icon="settings_input_hdmi"
-                        label="Synapsis">
-                    </route-item>
-
+                <q-collapsible icon="people" label="Human Practices" :opened="['human-practices', 'public-engagement'].includes(page)">
                     <route-item page="human-practices" link="http://2018.igem.org/Team:Thessaloniki/Human_Practices" icon="people_outline"
                         label="Human Practices">
                     </route-item>
