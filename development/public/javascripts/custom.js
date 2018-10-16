@@ -78,6 +78,7 @@ iGEM.links = {
     NotebookDynamicTimeline: '/components/notebook-dynamic-timeline.vue',
     BalcansMap: '/components/balcans-map.vue',
     GaleneLogo: '/components/galene-logo.vue',
+    CircleContent: '/components/circle-content.vue',
 }
 
 // iGEM.links = {

@@ -17,7 +17,7 @@
         </q-card>
 
         <q-modal v-model="opened" :content-css="{minWidth, minHeight}" minimized>
-            <q-modal-layout :class="[nightMode ? 'bg-purple-10' : 'bg-white']">
+            <q-modal-layout :class="[nightMode ? 'night-bg' : 'day-bg']">
                 <q-toolbar slot="header">
                     <q-toolbar-title>
                         {{member.fullname}}

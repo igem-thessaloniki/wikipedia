@@ -38,4 +38,20 @@ router.get('/attributions', function(req, res, next) {
   res.render('attributions');
 })
 
+router.get('/model', function(req, res, next) {
+  res.render('model');
+})
+
+router.get('/model_tale', function(req, res, next) {
+  res.render('model_tale');
+})
+
+router.get('/model_dcas9', function(req, res, next) {
+  res.render('model_dcas9');
+})
+
+router.get('/model_nar', function(req, res, next) {
+  res.render('model_nar');
+})
+
 module.exports = router;

@@ -18,7 +18,7 @@
         <q-layout-drawer v-model="drawerState" behavior="mobile">
             <q-list no-border link inset-delimiter>
                 <q-list-header>
-                    <img class=" responsive-image" src="http://2018.igem.org/wiki/images/4/40/T--Thessaloniki--team-logo.png">
+                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
                 </q-list-header>
 
                 <route-item page="index" link="http://2018.igem.org/Team:Thessaloniki" icon="home" label="Home" sublabel="Our Project homepage">
@@ -63,9 +63,17 @@
                     </route-item>
                 </q-collapsible>
 
-                <q-collapsible icon="memory" label="Dry Lab" :opened="['model'].includes(page)">
+                <q-collapsible icon="memory" label="Dry Lab" :opened="['model', 'model-tale', 'model-nar', 'model-dcas9'].includes(page)">
                     <route-item page="model" link="http://2018.igem.org/Team:Thessaloniki/Model" icon="poll" label="Model">
                     </route-item>
+                    <q-collapsible icon="dashboard" label="Sub-Systems" :opened="['model-tale', 'model-nar', 'model-dcas9'].includes(page)">
+                        <route-item page="model-tale" link="http://2018.igem.org/Team:Thessaloniki/Model/Tale" label="TALE">
+                        </route-item>
+                        <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9">
+                        </route-item>
+                        <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/NAR" label="NAR">
+                        </route-item>
+                    </q-collapsible>
                 </q-collapsible>
 
                 <q-collapsible icon="people" label="Human Practices" :opened="['synapsis', 'human-practices', 'public-engagement'].includes(page)">
