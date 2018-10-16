@@ -26,7 +26,8 @@
             },
             icon: {
                 type: String,
-                required: true
+                default: '',
+                required: false
             },
             label: {
                 type: String,
