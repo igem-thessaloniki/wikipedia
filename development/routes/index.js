@@ -50,4 +50,8 @@ router.get('/model_dcas9', function(req, res, next) {
   res.render('model_dcas9');
 })
 
+router.get('/model_nar', function(req, res, next) {
+  res.render('model_nar');
+})
+
 module.exports = router;
