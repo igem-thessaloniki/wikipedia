@@ -651,7 +651,26 @@
                     </q-collapsible>
                     <q-collapsible label="dCas9 Toxicity Measurements" :dark="nightMode">
                         <div>
-                            Content
+                            <h3>dCas9 Toxicity Measurements</h3>
+                            <p>All measurements shown regarding Abs600 were taken using plate
+                                reader.</p>
+                            <h5 class="text-cyan">Day 1</h5>
+                            <p>
+                                Inoculate one single colony of DH5a E.coli cells containing the
+                                dcas9 cassette into 1 ml LB+Kanamycin in <p>2‐ml eppendorf tubes</p>
+                                and
+                                grown at 37 °C, <b>250 rpm</b> overnight in a MultitronPro shaker
+                                incubator.
+                            </p>
+                            <h5 class="text-cyan">Day 2</h5>
+                            <p>
+                                The overnight cultures were diluted <b>1:360</b> into 1ml LB+ kanamycin in
+                                <b>2‐ml eppendorf</b> tubes and doxycycline was added to the following
+                                final concentration: <b>0, 0.2, 0.4, 0.6, 0.8, 1.2, 4, 8</b>.The cultures
+                                were grown at 37 °C, <b>250 rpm</b> in a MultitronPro shaker incubator.
+                                <b>After 6 hours</b> measurements for Abs600 were performed using plate
+                                reader
+                            </p>
                         </div>
                     </q-collapsible>
                     <q-collapsible label="Flow Cytometry Sample Preparation" :dark="nightMode">
@@ -698,9 +717,896 @@
                 </q-list>
             </div>
             <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Primers</h1>
+                <h1>Primers</h1>
+            </q-parallax>
+            <div class="row justify-center">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md" :class="rM('text-dark', 'text-light')">
+                    <div style="overflow-x:auto;">
+                        <table class="simple-table text-center">
+                            <tr class="bg-light text-black">
+                                <td class="q-pa-md"><b>Primers Name</b></td>
+                                <td><b>Sequence</b></td>
+                                <td><b>Usage</b></td>
+                            </tr>
+                            <tr>
+                                <td>VR</td>
+                                <td style="text-transform: uppercase;">attaccgcctttgagtgagc</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of IDT gBlocks</li>
+                                        <li>Colony PCR</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>VF2</td>
+                                <td style="text-transform: uppercase;">tgccacctgacgtctaagaa</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of IDT gBlocks</li>
+                                        <li>Colony PCR</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E Vector</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Vector Amplification for insertion of  BsaI sites in the Prefix and Suffix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P Vector</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Vector Amplification for insertion of  BsaI sites in the Prefix and Suffix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E Primer</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Part Amplification for insertion of BsaI sites in the Prefix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P Primer</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Part Amplification for insertion of BsaI sites in the Suffix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>X Primer</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Part Amplification for insertion of BsaI sites in the Suffix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>S Primer</td>
+                                <td style="text-transform: uppercase;">belongs to the Metabrick Platform</td>
+                                <td>
+                                    <ul>
+                                        <li>Part Amplification for insertion of BsaI sites in the Prefix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P.Rem 1</td>
+                                <td style="text-transform: uppercase;">aGGTCTCcgcagcaccctgctgcccttg</td>
+                                <td>
+                                    <ul>
+                                        <li>Removal of PstI illegal Site from the Addgene Plasmids pTHSSe_59 & pTHSSe_60 (Insertion Point 50)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P.Rem 4</td>
+                                <td style="text-transform: uppercase;">aGGTCTCcgtgtctcgacataccaaattgagtcatgg</td>
+                                <td>
+                                    <ul>
+                                        <li>Removal of PstI illegal Site from the Addgene Plasmids pTHSSe_59 & pTHSSe_60 (Insertion Point 50)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P.Rem 2</td>
+                                <td style="text-transform: uppercase;">GGTCTCgctgcgataaggctacgatgtgg</td>
+                                <td>
+                                    <ul>
+                                        <li>Removal of PstI illegal Site from the Addgene Plasmids pTHSSe_59 & pTHSSe_60  (Insertion Point 802)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>P.Rem 3</td>
+                                <td style="text-transform: uppercase;">GGTCTCgacacggactgctgcaactctttcgtag</td>
+                                <td>
+                                    <ul>
+                                        <li>Removal of PstI illegal Site from the Addgene Plasmids pTHSSe_59 & pTHSSe_60 (Insertion Point 802)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>In 1</td>
+                                <td style="text-transform: uppercase;">AGGTCTCAGGAActtcagccaaaaaacttaagacc</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of Test Device 1 and Test Device 2 from pTHSSe_59 & pTHSSe_60, used for our Interlaboratory Study</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>In 2</td>
+                                <td style="text-transform: uppercase;">AGGTCTCAACTgacatagcgtataaacgcaga</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of Test Device 1 and Test Device 2 from pTHSSe_59 & pTHSSe_60, used for our Interlaboratory Study</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ri 1</td>
+                                <td style="text-transform: uppercase;">AGGTCTCATTCCTGGCTGAAACCTATTATGACG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 & pTHSSe_60 vectors for our TALEsp1 and TALEsp2 stabilised Riboswitch Constructs.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ri 2</td>
+                                <td style="text-transform: uppercase;">AGGTCTCACAGTCGCTATGTCTTCTACTAGTAGC</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 & pTHSSe_60 vectors for our TALEsp1 and TALEsp2 stabilised Riboswitch Constructs.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DC1</td>
+                                <td style="text-transform: uppercase;">AGGTCTCAGGAAgctttactccaccgttgg</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pAN-PTet-dCas9 plasmid to make the insert RFC10 compatible</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DC2</td>
+                                <td style="text-transform: uppercase;">AGGTCTCAACTGcctcagataaaatatttgctcatgagc</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pAN-PTet-dCas9 plasmid to make the insert RFC10 compatible</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Vi1</td>
+                                <td style="text-transform: uppercase;">AGGTCTCATTCCGCTCCGTGTCTTCCTC</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 & pTHSSe_60 vectors for insertion of a BsaI site in the prefix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AG1</td>
+                                <td style="text-transform: uppercase;">AGGTCTCAATGTCCAGATTAGATAAAAGTAAAGTG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of the ANDgate Plasmid to replace the J23114 Promoter with a Talesp1 psp1w1 promoter for the TetR expression</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AG2</td>
+                                <td style="text-transform: uppercase;">AGGTCTCATTCCGGCTGAACTCTAGAAGC</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of the ANDgate Plasmid to replace the J23114 Promoter with a Talesp1 psp1w1 promoter for the TetR expression</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>YG1</td>
+                                <td style="text-transform: uppercase;">aggtctcaggaaGAAGACACGGAGCTCG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 psp1w1  to replace the J23114 Promoter with a Talesp1 psp1w1 promoter for the TetR expression</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>YG2 (30)</td>
+                                <td style="text-transform: uppercase;">aggtctcaACATATGGTATTTCTCCTCtttAAtttaaaca</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 to replace the J23114 Promoter with a Talesp1 psp1w1 promoter for the TetR expression</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>YG2 (32)</td>
+                                <td style="text-transform: uppercase;">aggtctcaACATCTAGTACTTTCCTGTGTGA</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 to replace the J23114 Promoter with a Talesp1 psp1w1 promoter for the TetR expression</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IA1</td>
+                                <td style="text-transform: uppercase;">aggtctcactttTTAAACAAAATTATTTGTAGAGGCTGTTTCGtc</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 psp1w1 vector  for insertion of  BsaI sites in the Prefix</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IA2</td>
+                                <td style="text-transform: uppercase;">aggtctcaTACTAGAGCCAGGCATCAAATAAAACG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pTHSSe_59 psp1w1 vector  for insertion of  BsaI sites in the Suffix</li>
+                                        <li>Amplification of pSB1C3 and pTHSSe_59 for the Insertion of constitutively expressed sgRNA cassette.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IG1</td>
+                                <td style="text-transform: uppercase;">aggtctcatcaaGGCTGTAAGAATCCTATAGGTTGAG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pSB1C3 and pTHSSe_59 for the Insertion of constitutively expressed sgRNA cassette.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GG1</td>
+                                <td style="text-transform: uppercase;">aggtctcattgacagctagctcagtcctGTTTTAGAG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pRha sgRNA cassette in order to replace pRha with psp1w1</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GG2</td>
+                                <td style="text-transform: uppercase;">aggtctcaagtataTTATTTGTAGAGCTCATCCATGCCATG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of pRha sgRNA cassette in order to replace pRha with psp1w1</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GK1</td>
+                                <td style="text-transform: uppercase;">aggtctctaaagaggagaaatactagATGAGCAAAG</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of B0034-sfGFP for the incorporation of BsaI restriction sites.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GK2</td>
+                                <td style="text-transform: uppercase;">aggtctcaagtaTTATTTGTAGAGCTCATCCATGC</td>
+                                <td>
+                                    <ul>
+                                        <li>Amplification of B0034-sfGFP for the incorporation of BsaI restriction sites.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
                 <h1 slot="loading">Clonning Strategy</h1>
                 <h1>Cloning Strategy</h1>
             </q-parallax>
+            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h4>TALE stabilized Promoters</h4>
+                    <q-list separator striped highlight no-border>
+                        <q-collapsible label="TALEsp1 / TALEsp2 - Stabilized Promoters" :dark="nightMode"
+                            color="red">
+                            <div>
+                                <h4>TALEsp1 / TALEsp2 - Stabilized Promoters</h4>
+                                <p>
+                                    TALEsp1-Pupsp1 stabilized promoter /TALEsp2-Pupsp2 stabilized
+                                    promoter
+                                    <br>
+                                    TALEsp1 / TALEsp2 - Stabilized Promoters
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of psb1c3 vector with a set of
+                                        standardized primers.
+                                        <p>
+                                            These primers belong to the Metabrick Platform [1] and
+                                            incorporate <b>BsaI</b> restriction sites to the
+                                            biobrick
+                                            prefix and suffix.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of <b>pTHSSe_59</b> and <b>pTHSSe_60</b>
+                                        plasmid with E,P standardized primers.
+
+                                        <p>
+                                            These primers belong to the Metabrick platform and
+                                            incorporate <b>BsaI</b> restriction sites to the
+                                            plasmid’s
+                                            biobrick prefix and suffix.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Golden Gate assembly of the PCR amplified products.
+                                        <p>
+                                            The amplified products after restriction digestion with
+                                            bsaI restriction enzyme, acquire complementary sticky
+                                            ends
+                                            and can be ligated together forming the <b>TALEsp1-Pupsp1-pSB1C3</b>,
+                                            <b>TALEsp2-Pupsp2-pSB1C3</b> plasmids.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Restriction digestion with <b>EcoRI</b> and <b>PstI</b>,
+                                        enzymes that are unique to prefix and suffix.
+                                        <p>
+                                            Since the assembled <b>Talesp1-Pupsp1</b> / <b>Talesp2-Pupsp2</b>
+                                            constructs are <b>RFC[10] compatible</b>, they can be
+                                            easily assembled with other vectors. This can be
+                                            achieved
+                                            by cutting the <b>Talesp1-Pupsp1-pSB1C3</b> vector and
+                                            the
+                                            receiver vectors with two biobrick enzymes one of which
+                                            having it’s restriction site to prefix and the other to
+                                            suffix.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Ligation between the digested pieces.
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="Psp1w1 promoter characterization device" :dark="nightMode"
+                            color="red">
+                            <div>
+                                <h4>Psp1w1 promoter characterization device</h4>
+                                <p>
+                                    The Psp1w1 promoter characterization device emerged from the
+                                    assembly of three individual parts: <b>Psp1w1</b>, <b>sfGFP
+                                        (without
+                                        starting codon)</b> and <b>amplified pSB1C3</b> vector.
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>pSB1C3</b> vector with a set of
+                                        standardized primers.
+                                    </li>
+                                    <li>
+                                        Design and synthesis of the <b>Psp1w1</b> and <b>sfGFP
+                                            (without
+                                            starting codon)</b> with the appropriate flanking
+                                        regions.
+                                    </li>
+                                    <li>
+                                        Golden Gate assembly between <b>Psp1w1</b>, <b>sfGFP
+                                            (without starting codon)</b> and the <b>amplified
+                                            pSB1C3</b>
+                                        vector.
+                                        <br>
+                                        This reaction forms the final plasmid <b>Psp1w1-pSB1C3</b>
+                                        containing the Psp1w1 promoter characterization device.
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="Talesp1-Psp1w1 stabilized promoter" :dark="nightMode"
+                            color="red">
+                            <div>
+                                <h4>Talesp1-Psp1w1 stabilized promoter</h4>
+                                <p>The following procedure has been followed in order to replace
+                                    the Pupsp1 stabilized promoter with the Psp1w1 stabilized
+                                    promoter .The expression levels of the sfGFP driven by the
+                                    Psp1w1 promoter are lower than the sfGFP expression levels
+                                    driven by the Pupsp1 promoter.</p>
+
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>Psp1w1-pSB1C3</b> plasmid with <b>In1</b>,
+                                        <b>In2</b> primers.
+                                        <p>These primers amplify the Psp1w1 promoter
+                                            characterization device and incorporate <b>BsaI</b>
+                                            sites flanking the amplified device.</p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of <b>TALEsp1-pSB1C3</b> vector with <b>Ri1</b>,
+                                        <b>Ri2</b> primers.
+                                        <p>These primers amplify the TALEsp1 cassette together with
+                                            the plasmid backbone and incorporate BsaI restriction
+                                            sites at the external regions of the amplified
+                                            sequence.</p>
+                                        <p>Restriction digestion with BsaI restriction enzyme of
+                                            the previously amplified sequences creates sticky
+                                            complementary ends and thus they can be assembled
+                                            together.</p>
+                                    </li>
+                                    <li>
+                                        Restriction digestion with BsaI restriction enzyme of the
+                                        previously amplified sequences creates sticky complementary
+                                        ends and thus they can be assembled together.
+                                        <p>This reaction forms the final plasmid <b>TALEsp1-Psp1w1-pSB1C3</b>
+                                            plasmid containing the Psp1w1 TALE stabilized promoter.</p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="Riboswitches" :dark="nightMode" color="red">
+                            <div>
+                                <h4>Riboswitches</h4>
+                                <p>
+                                    The final plasmids for the characterization of the theophylline
+                                    riboswitches consist of three individual parts:
+                                    <b>A(Pupsp1 promoter fused with riboswitch), B(sfGFP marker)
+                                        and C.</b>
+                                    Each part’s sequence is flanked by BsaI recognition sites and
+                                    after digestion with BsaI restriction enzyme, part A has sticky
+                                    ends with part B and part C, while part B has sticky ends with
+                                    part A and part C.
+                                </p>
+
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>psb1c3 vector</b> with a set of
+                                        standardized primers.
+                                        <p>
+                                            These primers amplify the plasmid backbone without the
+                                            insert, incorporate BsaI sites at prefix and suffix,
+                                            forming the <b>amplified pSB1C3 vector (part C)</b>.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Design and synthesis of the <b>part A</b>, <b>part B</b>
+                                        fragments with the appropriate flanking regions.
+                                    </li>
+                                    <li>
+                                        Golden Gate assembly between <b>part A</b>, <b>part B</b>
+                                        and the
+                                        <b>amplified pSB1C3 Vector</b> (part C). This reaction
+                                        forms the
+                                        final plasmids <b>Ribo12.1-pSB1C3</b> and <b>RiboT27-pSB1C3</b>
+                                        containing the riboswitch characterization device.
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="TALEsp1 stabilized promoters with translational control"
+                            :dark="nightMode" color="red">
+                            <div>
+                                <h4>TALEsp1 stabilized promoters with translational control.</h4>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>RiboT27-pSB1C3</b> plasmid with <b>In1</b>,
+                                        <b>In2</b>
+                                        primers.
+                                        <p>
+                                            These primers amplify the riboswitch characterization
+                                            device and incorporate <b>BsaI</b> sites at the
+                                            external
+                                            regions of the amplified device.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of <b>pTHSSe_59</b> plasmid with <b>Ri1</b>,
+                                        <b>Ri2</b> primers.
+                                        <p>
+                                            These primers amplify the TALEsp1 cassette together
+                                            with the plasmid backbone and incorporate <b>BsaI</b>
+                                            restriction sites flanking the amplified sequence.
+                                        </p>
+                                        <p>
+                                            Restriction digestion with <b>BsaI</b> restriction
+                                            enzyme of the previously amplified sequences, creates
+                                            sticky complementary ends and thus they can be
+                                            assembled together.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Golden Gate assembly reaction between the amplified
+                                        products from step 1 and step 2.
+                                        <p>
+                                            This reaction forms the <b>TALEsp1-Pupsp1-RT27-pSB1C3</b>
+                                            plasmid containing the theophylline inducible TALE
+                                            stabilized promoter.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                    </q-list>
+
+                    <h4>CRISPRi system</h4>
+                    <p>Constructs used to test dcas9/sgrna repression.</p>
+                    <q-list separator striped highlight no-border>
+                        <q-collapsible label="pRha-sgRNA Cassette" :dark="nightMode" color="red">
+                            <div>
+                                <h4>pRha-sgRNA Cassette</h4>
+                                <p>
+                                    pRha-sgRNA Cassette test construct
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>pSB1C3</b> vector and <b>pTHSSe_59</b>
+                                        plasmid with a set of standardized primers.
+                                        <p>
+                                            These primers belong to the Metabrick
+                                            Platform,
+                                            amplify the plasmid backbones without the
+                                            insert and incorporate <b>BsaI</b> sites at prefix and
+                                            suffix,
+                                            forming the <b>amplified pSB1C3</b> and <b>amplified
+                                                pTHSSe_59</b>
+                                            vectors.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Design and synthesis of part 1 <b>(sgRNA construct)</b> and
+                                        part 2 <b>(sfGFP construct)</b>.
+                                        <p>
+                                            Each part’s sequence is flanked by BsaI recognition
+                                            sites and after digestion with BsaI restriction enzyme,
+                                            part 1 has sticky ends with part 2 and the <b>amplified
+                                                pSB1C3</b> or <b>amplified pTHSSe_59</b> vector,
+                                            while part 2 has
+                                            sticky ends with part 1 and the amplified vectors.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Golden gate Assembly between part 1, part2 and one of the
+                                        <b>amplified pSB1C3</b> or <b>amplified pTHSSe_59</b>
+                                        vector.
+                                        <p>
+
+                                            Depending on the amplified vector we chose, this
+                                            reaction leads to the formation of the
+                                            <b>sgRNA-sfGFP-pSB1C3</b> or the <b>sgRNA-sfGFP-pTHSSe_59</b>
+                                            plasmid.
+                                        </p>
+                                        <p>
+                                            We transformed DH5a E.coli competent cells with
+                                            <b>sgRNA-sfGFP-pTHSSe_59</b> vector along with <b>dCas9-pSB3K3</b>
+                                            vector in order to test the response function for the
+                                            repression of the <b>J23104</b> promoter by the
+                                            sgRNA/dCas9
+                                            complex. This procedure is thoroughly described at the
+                                            characterization page.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="CRISPRi stabilized promoter" :dark="nightMode" color="red">
+                            <div>
+                                <h4>CRISPRi stabilized promoter</h4>
+                                <p>
+                                    After testing the response function of the CRISPRi system we
+                                    replaced the rhamnose inducible promoter that is located
+                                    upstream of the sgRNA cassette with the constitutive Psp1w1
+                                    promoter.
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        Digestion with biobrick enzymes of the Psp1w1 promoter
+                                        characterization device and ligation with digested <b>pTHSSe_59</b>
+                                        vector.
+                                        <p>
+                                            Since the Psp1w1 promoter characterization device is
+                                            compatible with Biobrick <b>RFC[10]</b>, it can be
+                                            easily
+                                            assembled with other <b>RFC[10]</b> compatible vectors.
+                                            This
+                                            requires digestion of the characterization device and
+                                            the receiver vector with two enzymes having their
+                                            restriction sites on the prefix and suffix, followed by
+                                            ligation.
+                                        </p>
+                                        <p>
+                                            These reactions forms the final plasmid <b>psp1w1-pTHSSe_59</b>
+                                            containing the Psp1w1 promoter characterization device.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of the <b>psp1w1-pTHSSe_59</b> plasmid
+                                        with <b>IG1</b>, <b>IA2</b> primers.
+                                        <p>
+                                            These primers amplify the psp1w1 promoter sequence
+                                            together with the pTHSSe_59 plasmid backbone and
+                                            incorporate <b>BsaI</b> restriction sites flanking the
+                                            amplified sequence.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of the <b>sgRNA-sfGFP-1c3</b> plasmid
+                                        with <b>GG1</b>, <b>GG2</b> primers.
+                                        <p>
+                                            These primers amplify the sgrna cassette along with the
+                                            stabilized <b>J23104</b> promoter cassette and
+                                            incorporate
+                                            <b>BsaI</b> restriction sites at the external regions
+                                            of the
+                                            amplified sequence.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Golden gate assembly of the amplified products.
+                                        <p>
+                                            After digestion with <b>BsaI</b> restriction enzyme,the
+                                            amplified sequences acquire complementary sticky ends
+                                            and thus they can be assembled together forming the
+                                            <b>Psp1w1-CRISPRi-stabilized promoter-pTHSSe_59</b>
+                                            vector.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Restriction digestion with two enzymes that are unique to
+                                        prefix and suffix.
+                                        <p>
+                                            Since the assembled <b>CRISPRi-stabilized-Psp1w1</b>
+                                            construct
+                                            is compatible with Biobrick <b>RFC[10]</b>, it can be
+                                            easily
+                                            assembled with other vectors. This can be achieved by
+                                            cutting the <b>Psp1w1-sgRNA-stabilized
+                                                promoter-pTHSSe_59</b>
+                                            vector and the receiver vectors with two enzymes having
+                                            their restriction sites on the prefix and
+                                            suffix,followed by ligation.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                        <q-collapsible label="dCas9-tetR expression cassette" :dark="nightMode"
+                            color="red">
+                            <div>
+                                <h4>dCas9-tetR expression cassette</h4>
+                                <p>
+                                    The dcas9-tetR expression cassette is located at the
+                                    pAN-Ptet-dcas9 plasmid. This plasmid was obtained from Addgene
+                                    and is not compatible with <b>RFC[10]</b> biobrick standard,
+                                    since it
+                                    lacks prefix and suffix. Furthermore there is one recognition
+                                    site of the <b>EcoRI</b> enzyme in the coding sequence of the
+                                    dCas9.
+                                    Taking all the above into consideration, we decided to modify
+                                    this plasmid in order to make it compatible with the <b>RFC[10]</b>
+                                    biobrick standard.
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        PCR amplification of <b>TALEsp1-pSB1C3</b> plasmid with <b>Vi1</b>,
+                                        <b>Ri2</b> primers.
+                                        <p>
+                                            These primers amplify pSB1C3 along with prefix, suffix
+                                            and incorporate <b>BsaI</b> restriction sites and the
+                                            external regions of the amplified sequence.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of <b>pAN-Ptet-dCas9</b> plasmid with <b>DC1</b>,
+                                        <b>DC2</b> primers.
+                                        <p>
+                                            These primers amplify the <b>dCas9-tetR-lacI</b>
+                                            expression cassette and add <b>BsaI</b> restriction
+                                            sites flanking the amplified sequence.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Golden gate assembly of the amplified products.
+                                        <p>
+                                            After digestion with BsaI restriction enzyme,the
+                                            amplified sequences acquire complementary sticky ends
+                                            and thus they can be assemble together forming the
+                                            <b>pAN-Ptet-dCas9-prefsuf</b> plasmid.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of pAN-Ptet-dcas-prefsuf plasmid with <b>dcm1</b>
+                                        and <b>dcm2</b> primers and sequential Golden Gate
+                                        assembly.
+                                        <p>
+                                            These primers amplify the <b>dcas9-tetR-lacI</b>
+                                            expression
+                                            cassette along with the vector backbone and incorporate
+                                            <b>BsaI</b> sites at the amplified sequence. After
+                                            digestion
+                                            with <b>BsaI</b>, followed by ligation this sequence
+                                            can be
+                                            circularized forming the initial plasmid with a single
+                                            mutation at the EcorI recognition site.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+
+                    </q-list>
+
+                    <h4>AND GATE</h4>
+                    <q-list separator striped highlight no-border>
+                        <q-collapsible label="AND Gate-pSB4K5 & AND Gate-pSB3K3" :dark="nightMode"
+                            color="red">
+                            <div>
+                                <h4>AND Gate-pSB4K5 & AND Gate-pSB3K3</h4>
+                                <p>
+                                    The following procedure has been followed in order to
+                                    incorporate the AND Gate circuit at <b>pSB4K5</b> and <b>pSB3K3</b>
+                                    plasmids.
+                                    Then, we evaluated the circuit’s behaviour at these plasmids of
+                                    different copy number.
+                                </p>
+                                <h5>Steps</h5>
+                                <ol>
+                                    <li>
+                                        <p>Design and synthesis of the <b>part A</b>, <b>part B</b>
+                                            fragments with the appropriate flanking regions.</p>
+                                    </li>
+                                    <li>
+                                        PCR amplification of <b>pSB1C3</b> vector with a set of
+                                        standardized primers.
+                                        <p>
+                                            These primers belong to the Metabrick Platform and
+                                            incorporate <b>BsaI</b> restriction sites to the
+                                            biobrick prefix and suffix.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Golden Gate assembly reaction between <b>part A</b>,<b>part
+                                                B</b> and
+                                            the amplified <b>pSB1C3</b> vector. This reaction forms
+                                            the
+                                            final plasmids <b>AND Gate-pSB1C3</b> containing the
+                                            AND gate
+                                            circuit.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Restriction digestion with <b>EcoRI</b> and <b>SpeI</b>
+                                        (enzymes unique to prefix and suffix)
+                                        <p>
+                                            Since the assembled AND gate construct is compatible
+                                            with <b>Biobrick RFC[10]</b>, it can be easily
+                                            assembled with
+                                            other vectors. This can be achieved by cutting the <b>AND
+                                                Gate-pSB1C3</b> plasmid and the receiver vectors
+                                            with two
+                                            enzymes having their restriction sites on the prefix
+                                            and suffix. Following this approach we digested and
+                                            assembled the AND gate circuit with <b>pSB4K5</b> and
+                                            <b>pSB3K3</b>
+                                            vector, constructing the <b>AND Gate-pSB4K5</b> and <b>AND
+                                                Gate-pSB3K3 plasmids</b>.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </q-collapsible>
+                    </q-list>
+                </div>
+            </div>
+            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <small class="row">
+                        [1] Damalas, S. (2017, June 9). The MetaBrick platform for DNA manipulation
+                        and standardization. Bridging Synthetic Biology standards for optimized
+                        interoperability. <a href="https://doi.org/10.17605/OSF.IO/8DHMU">https://doi.org/10.17605/OSF.IO/8DHMU</a>
+                    </small>
+                </div>
+            </div>
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
