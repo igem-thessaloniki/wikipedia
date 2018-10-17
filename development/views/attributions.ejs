@@ -226,12 +226,14 @@
                     </p>
                 </div>
             </div>
+            <sponsors></sponsors>
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
             store.commit('setPage', 'attributions')
+            await iGEM.loadComponent(iGEM.links.Sponsors)
         })
     </script>
     <%- include('templates/footer'); %>

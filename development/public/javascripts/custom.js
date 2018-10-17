@@ -88,6 +88,7 @@ iGEM.links = {
     GaleneLogo: '/components/galene-logo.vue',
     CircleContent: '/components/circle-content.vue',
     IFFLMainOne: '/components/IFFLMainOne.vue',
+    Sponsors: '/components/sponsors.vue',
 }
 
 // iGEM.links = {
