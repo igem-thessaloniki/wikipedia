@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <q-list>
-                                <q-collapsible icon="poll" label="Results">
+                                <q-collapsible ref="poll" icon="poll" label="Results" opened>
                                     <div class="row justify-center">
                                         <div class="col-xs-12">
                                                 <div id="1-graph" class="plotly-graph-div"></div>
@@ -106,9 +106,6 @@
                     </p>
 
                     <h4>Industry</h4>
-                    <p>Since our project could be applied beyond the bounds of academic research we
-                        participated into events</p>
-
                     <h4>Participation in the 83rd TIF</h4>
                     <p>TIF is the most important exhibition event in our country, taking place,
                         annually, in Thessaloniki. Entrepreneurship and innovation are celebrated
@@ -325,7 +322,7 @@
                                 "autorange": true
                             },
                             "colorway": [
-                                "#fff7f3",
+                                "#DE77AE",
                                 "#fde0dd",
                                 "#fcc5c0",
                                 "#fa9fb5",
@@ -1832,18 +1829,30 @@
                         frames: graph.data.frames,
                         responsive: true
                     });
+                    self.$refs.poll.show()
                     setTimeout(resizePlots, 100)
                 })
             }
 
             initializeGraphs()
+            setTimeout(() => {
+                self.$refs.poll.hide()
+            }, 100)
+
 
             iGEM.registerHook('nightModeHook', ([mode]) => {
                 instances.forEach((gd) => {
                     Plotly.purge(gd)
                 })
                 instances = []
+                let open = self.$refs.opened
+                self.$refs.poll.show()
                 initializeGraphs()
+                setTimeout(() => {
+                    if (!open) {
+                        self.$refs.poll.hide()
+                    }
+                }, 100)
             })
         })
     </script>
