@@ -14,7 +14,7 @@
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
                     <q-timeline color="secondary" style="padding: 0 24px;" responsive>
-                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                        <igem-timeline-entry icon="waves" color="blue" side="left">
                             <div>
                                 Gene expression is unpredictable, noisy and prone to perturbations,
                                 thus posing a challenge towards designing reliable and functional
@@ -22,12 +22,9 @@
                                 functionality of synthetic biological systems is gene copy number
                                 variation, that gives rise to variability in gene expression.
                             </div>
-                            <template slot="side">
-                                Image of Graph
-                            </template>
                         </igem-timeline-entry>
 
-                        <igem-timeline-entry icon="colorize" color="blue" side="right">
+                        <igem-timeline-entry icon="waves" color="blue" side="right">
                             <div>
                                 We provide <b>Galene</b>, a genetic toolbox that enhances system
                                 stability by disassociating gene expression from copy number and
@@ -35,55 +32,58 @@
                             </div>
                         </igem-timeline-entry>
 
-                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                        <igem-timeline-entry icon="waves" color="blue" side="left">
                             <div>
-                                The former is achieved by implementing a type I incoherent
-                                feed-forward loop network motif that consists of a regulatory
-                                element which compensates for changes in copy number, thus
-                                stabilizing the promoter. Through <a href="http://2018.igem.org/Team:Thessaloniki/Design">model-driven
-                                    feedback</a>,
-                                we accomplish promoter stabilization by utilizing 3 distinct
-                                systems, each with its own advantages and appropriate uses.
+                                <p>
+                                    The former is achieved by implementing a type I incoherent
+                                    feed-forward loop network motif that consists of a regulatory
+                                    element which compensates for changes in copy number, thus
+                                    stabilizing the promoter. Through <a href="http://2018.igem.org/Team:Thessaloniki/Design">model-driven
+                                        feedback</a>,
+                                    stabilization by utilizing 2 distinct systems, each with its
+                                    own
+                                    advantages and appropriate uses. <b>CRISPR interference</b>, <b>TAL
+                                        Effectors</b>.
+                                </p>
+                                <p>
+                                    In addition, we <a href="http://2018.igem.org/Team:Thessaloniki/Design">designed</a>
+                                    and <a href="http://2018.igem.org/Team:Thessaloniki/Model">simulated</a>
+                                    a 3rd stabilization system, based on <b>transcriptional
+                                        attenuator-interacting sRNAs</b>
+                                </p>
                             </div>
-                            <template slot="side">
-                                Shape triforce
-                            </template>
                         </igem-timeline-entry>
 
 
                         <q-timeline-entry heading>
-                            CRISPR interference, TAL Effectors, transcriptional attenuator-interacting sRNAs
+                            <iffl-main-one></iffl-main-one>
                         </q-timeline-entry>
 
-                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                        <igem-timeline-entry icon="waves" color="blue" side="left">
                             <div>
-                                Going one step further, we implemented a theophylline aptamer that regulates translation and allows for the induction at the desired expression level.
-                            </div>
-                            <template slot="side">
-                                (animation ?)
-                            </template>
-                        </igem-timeline-entry>
-
-                        <igem-timeline-entry icon="colorize" color="blue" side="right">
-                            <div>
-                                As a proof of concept, we demonstrated the stabilization of a, previously inconsistent across different copy numbers, heterologous AND-gate system.
+                                Going one step further, we implemented a theophylline aptamer that
+                                regulates translation and allows for the induction at the desired
+                                expression level.
                             </div>
                         </igem-timeline-entry>
 
-                        <igem-timeline-entry icon="colorize" color="blue" side="left">
+                        <igem-timeline-entry icon="waves" color="blue" side="right">
                             <div>
-                                In order to understand current problems in synthetic biology and enhance our project design we went beyond the lab and contacted researchers and experts from numerous fields. We also created Synapsis, a guideline on how to communicate science to people of different cultural and scientific backgrounds.
+                                This year, our <a href="http://2018.igem.org/Team:Thessaloniki/Human_Practices">Human Practice</a> efforts were divided into 4 different
+                                categories, each of them affecting our project and ourselves in a
+                                different way. We focused on:
+                                taking into serious consideration ethical issues regarding our
+                                project,
+                                reaching out to field experts,
+                                interacting with people from the industry in order to investigate
+                                various possibilities and options for our project,
+                                and <a href="http://2018.igem.org/Team:Thessaloniki/Public_Engagement">communicating science</a>, synthetic biology and our project across
+                                people of different ages, scientific and cultural backgrounds. As a
+                                highlight of our engagement activities, we organized a series of
+                                synthetic biology events in the Balkan Peninsula.
                             </div>
                             <template slot="side">
-                                Synapsis image
-                            </template>
-                        </igem-timeline-entry>
-
-                        <igem-timeline-entry icon="colorize" color="blue" side="right">
-                            <div>
-                                Following this guideline, we organized a Synthetic Biology tour in the Balkan Peninsula, where we visited 4 institutions in 3 countries, promoting Synthetic Biology and gaining valuable feedback.
-                            </div>
-                            <template slot="side">
+                                <h6>Synbalcans Map</h6>
                                 <balcans-map></balcans-map>
                             </template>
                         </igem-timeline-entry>
@@ -104,6 +104,7 @@
             await iGEM.loadComponent(iGEM.links.TimelineEntry)
             await iGEM.loadComponent(iGEM.links.GaleneLogo)
             await iGEM.loadComponent(iGEM.links.BalcansMap)
+            await iGEM.loadComponent(iGEM.links.IFFLMainOne)
         })
         iGEM.registerHook('loadedHook', function ([self]) {
             self.$refs.logo.start()
