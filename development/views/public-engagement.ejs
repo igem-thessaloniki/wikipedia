@@ -10,213 +10,379 @@
                 <h1 slot="loading">Public Engament</h1>
                 <h1>Public Engament</h1>
             </q-parallax>
-            <div class="flex flex-center q-mb-md q-mt-md">
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 round-border-10 q-pa-md">
-                    <div class="row">
-                        <p class="q-title" :class="rM('text-dark', 'text-light')">Our best Public Engament and Educational Projects</p>
-                    </div>
-                    <q-carousel class="text-teal-9" color="white" autoplay quick-nav infinite height="400px">
-                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/0/01/T--Thessaloniki--lab--photo-1.png">
-                            <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                <div class="q-display-1">Synapsis</div>
-                                <div class="q-headline">Our inovative communication protocol for ...</div>
-                            </div>
-                        </q-carousel-slide>
-                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/a/a7/T--Thessaloniki--lab--photo-2.png">
-                            <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                <div class="q-display-1">Synbalcans</div>
-                                <div class="q-headline">Our awesome action to build iGEM teams at the area of Balcans</div>
-                            </div>
-                        </q-carousel-slide>
-                        <q-carousel-slide img-src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
-                            <div class="absolute-bottom q-pl-lg q-pb-xl">
-                                <div class="q-display-1">Other Actions</div>
-                                <div class="q-headline">The rest of our actions</div>
-                            </div>
-                        </q-carousel-slide>
-                    </q-carousel>
+                    <p>
+                        As a project competing in the foundational advance track, we faced
+                        difficulties in our efforts to properly communicate our work. We contacted
+                        Asterios Arampatzis, Team Leader of iGEM Greece 2017, in order to gain some
+                        insight about the problems they may have met and dealt with, regarding the
+                        communication of Synthetic Biology and their project to the world. He
+                        shared with us his experience, stating that synthetic biology is nearly
+                        absent from our country, as the public has not been properly informed and
+                        there are not many researchers in the field.
+                    </p>
+
+                    <p>
+                        This year, we wanted to make sure that the iGEM Foundation, and synthetic
+                        biology in general, would come in attention of a larger audience. We aimed
+                        to inform people of various ages, scientific backgrounds and nationalities
+                        about this new and exciting, yet relatively unknown in our country,
+                        scientific field, raise awareness about genetic engineering, discuss about
+                        the important ethical issues that come up with synthetic biology’s constant
+                        growth and receive valuable feedback for our project’s application and
+                        importance to the world.
+                    </p>
+
+                    <p>
+                        We organized numerous activities, differentiating our approach depending on
+                        the audience. In order to familiarize them with synthetic biology we
+                        presented several iGEM projects from previous years that we believed,
+                        demonstrate that synthetic biology can prove beneficial in real world
+                        problems. We, also, wanted to communicate our project, so wee could gain
+                        some feedback and understand the public’s reception of it.
+                    </p>
+
+                    <p>
+                        Finally, taking into consideration public’s feedback, we wanted to address
+                        the issue of science communication to the public. So, the <b>highlight of
+                            our
+                            activities</b> this year was the organization of the <b>“SynBalkans
+                            Tour”</b>, an
+                        educational effort in order to broaden the knowledge about synthetic
+                        biology in the Balkan Region, considering the different cultural and
+                        scientific background of the audience.
+                    </p>
                 </div>
             </div>
             <div class="flex flex-center q-mb-md">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
                     <q-list separator no-border :dark="nightMode">
-                        <q-collapsible icon="power" label="Synapsis">
-                            <div :class="rM('text-dark', 'text-light')">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
-                            </div>
-                        </q-collapsible>
-
                         <q-collapsible icon="airport_shuttle" label="Synbalcans">
                             <div :class="rM('text-dark', 'text-light')">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo temporibus in quibusdam illo delectus pariatur ducimus velit maxime sed eveniet et fuga sunt reiciendis officiis consequatur, libero odit? Doloribus!
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo
+                                temporibus in quibusdam illo delectus pariatur ducimus velit maxime
+                                sed eveniet et fuga sunt reiciendis officiis consequatur, libero
+                                odit? Doloribus!
                             </div>
                         </q-collapsible>
 
-                        <q-collapsible icon="cake" label="Other">
+                        <q-collapsible icon="cake" label="Rest">
                             <div class="row q-caption justify-center q-mb-md" :class="rM('text-dark', 'text-light')">
                                 (Click cards to read more)
                             </div>
                             <div class="row gutter-md">
-                                <event-card class="col-lg-4 col-md-6" title="Symbio Workshop">
+
+                                <event-card class="col-lg-4 col-md-6" title="SynBio Workshop - The Principles of Engineering Life">
                                     <template slot="media">
-                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/b5/T--Thessaloniki--synbio-workshop-2.jpg/800px-T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop image">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/b5/T--Thessaloniki--synbio-workshop-2.jpg/800px-T--Thessaloniki--synbio-workshop-2.jpg"
+                                            alt="synbio workshop image">
                                     </template>
                                     <template slot="content">
                                         Athens - 4/6/2018
                                     </template>
                                     <template slot="modal-content">
                                         <div class="row justify-center">
-                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white"
+                                                autoplay quick-nav infinite>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/cb/T--Thessaloniki--synbio-workshop-1.jpg" alt="synbio workshop event image 1">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/cb/T--Thessaloniki--synbio-workshop-1.jpg"
+                                                        alt="synbio workshop event image 1">
                                                 </q-carousel-slide>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/b/b5/T--Thessaloniki--synbio-workshop-2.jpg" alt="synbio workshop event image 2">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/b/b5/T--Thessaloniki--synbio-workshop-2.jpg"
+                                                        alt="synbio workshop event image 2">
                                                 </q-carousel-slide>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--synbio-workshop-4.jpg" alt="synbio workshop event image 4">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/9/99/T--Thessaloniki--synbio-workshop-4.jpg"
+                                                        alt="synbio workshop event image 4">
                                                 </q-carousel-slide>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/3/31/T--Thessaloniki--synbio-workshop-5.jpg" alt="synbio workshop event image 5">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/3/31/T--Thessaloniki--synbio-workshop-5.jpg"
+                                                        alt="synbio workshop event image 5">
                                                 </q-carousel-slide>
                                             </q-carousel>
                                             <div class="col-md-6 col-sm-12 q-pa-md">
                                                 <p>
-                                                    The Symbio Workshop took place at the event hall of National
-                                                    Technical University of Athens. The event was organised by
-                                                    iGEM Athens 2018 and 𝗂GEM Thessaloniki teams, with the purpose
-                                                    of introducing university students to the new and promising
-                                                    field of Synthetic Biology. After presentations and brainstorming
-                                                    sessions, with the help of iGEM team members, the participants
-                                                    came up with creative solutions to problems from fields such
-                                                    as industry environment and health, leaving with an educational
-                                                    and motivating experience to remember.
+                                                    We believe that workshops is a great way to
+                                                    introduce someone to a specific scientific
+                                                    branch. An interactive approach gives the
+                                                    individual the opportunity to to be more
+                                                    involved in the learning process, promoting not
+                                                    only knowledge, but creativity as well. So,in
+                                                    collaboration with iGEM Athens and Dr.
+                                                    Konstantinos Vavitsas, from the Australian
+                                                    Institute for Bioengineering and
+                                                    Nanotechnology, University of Queensland, we
+                                                    organised the first Synthetic Biology workshop
+                                                    (SymBio) in Greece. The SynBio Workshop took
+                                                    place at the event hall of National Technical
+                                                    University of Athens. The participants had very
+                                                    different scientific backgrounds, from medicine
+                                                    to chemical engineering.
                                                 </p>
                                                 <p>
-                                                    Many thanks to the participants, professors and everyone involved in the event.
+                                                    After speeches from Dr K. Vavitsas (An
+                                                    Introduction to Synthetic Biology) and
+                                                    Professor Emeritus Fr. Kolisis (Systems and
+                                                    Synthetic Biotechnology), iGEM Thessaloniki,
+                                                    iGEM Athens and iGEM Greece (2017) presented
+                                                    their projects to the audience. When the
+                                                    presentations were over, Yvoni (iGEM
+                                                    Thessaloniki) and Giannis (iGEM Athens) spoke
+                                                    about the applications of engineering
+                                                    principles in synthetic biology and explained
+                                                    the use of some basic synthetic biology tools
+                                                    (e.g. toggle switch, oscillator, riboswitch) in
+                                                    order for the participants to be able to use
+                                                    them in their brainstorming sessions. Leda
+                                                    (iGEM Athens) talked about the safety
+                                                    precautions and evaluation process that a
+                                                    project should pass in order to be considered
+                                                    safe.
+                                                </p>
+                                                <p>
+                                                    The students were then divided into subgroups
+                                                    and participated in a brainstorming session in
+                                                    order to solve real world problems using
+                                                    synthetic biology circuits, with help from
+                                                    members of iGEM teams. Finally, they managed to
+                                                    come up with innovative ways to tackle problems
+                                                    such as wound healing, forest restoration and
+                                                    infant food allergies. In the end, the
+                                                    participants presented the ideas they had come
+                                                    up with and before leaving they were asked to
+                                                    fill in a short questionnaire regarding their
+                                                    experience in the workshop.
                                                 </p>
                                             </div>
                                         </div>
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" title="Visit @ Hellenic National Bioethics Commission">
+                                <event-card class="col-lg-4 col-md-6" title="Pharmacology Club">
                                     <template slot="media">
-                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/f/ff/T--Thessaloniki--bioethics-1.jpg/800px-T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image">
-                                    </template>
-                                    <template slot="content">
-                                        Athens - 3/6/2018
-                                    </template>
-                                    <template slot="modal-content">
-                                        <div class="row justify-center">
-                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/f/ff/T--Thessaloniki--bioethics-1.jpg" alt="bioethics visit image 1">
-                                                </q-carousel-slide>
-                                            </q-carousel>
-                                            <div class="col-md-6 col-sm-12 q-pa-md">
-                                                <p>
-                                                    Our team visited the <a href="http://www.bioethics.gr/index.php/en">Hellenic National Bioethics Commission</a>
-                                                    and discussed with Dr Vidalis about the emerging field of Synthetic
-                                                    Biology and the ethical issues that may arise during the process of
-                                                    integrating this new scientific field in statutory legislation. Our
-                                                    discussion about the european legislation regarding the subject and
-                                                    bioethics in general, gave us valuable feedback. We firmly believe that
-                                                    many aspects of synthetic biology still need regulation, as products of
-                                                    biological and technological advancements must be utilised in a safe and
-                                                    risk avoiding way.
-                                                </p>
-                                                <p>
-                                                    Finally, we agreed that the existence of a universal, well-established
-                                                    legislation, is necessary for an emerging field like synthetic biology.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </template>
-                                </event-card>
-
-                                <event-card class="col-lg-4 col-md-6" title="Speak to the Pharmacology Club of our university">
-                                    <template slot="media">
-                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/41/T--Thessaloniki--pharmacology-club-1.jpg/800px-T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/4/41/T--Thessaloniki--pharmacology-club-1.jpg/800px-T--Thessaloniki--pharmacology-club-1.jpg"
+                                            alt="pharmacology club visit image">
                                     </template>
                                     <template slot="content">
                                         Thessaloniki - 26/5/2018
                                     </template>
                                     <template slot="modal-content">
                                         <div class="row justify-center">
-                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white"
+                                                autoplay quick-nav infinite>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/41/T--Thessaloniki--pharmacology-club-1.jpg" alt="pharmacology club visit image">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/4/41/T--Thessaloniki--pharmacology-club-1.jpg"
+                                                        alt="pharmacology club visit image">
                                                 </q-carousel-slide>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a9/T--Thessaloniki--pharmacology-club-2.jpg" alt="pharmacology club visit image">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/a/a9/T--Thessaloniki--pharmacology-club-2.jpg"
+                                                        alt="pharmacology club visit image">
                                                 </q-carousel-slide>
                                             </q-carousel>
                                             <div class="col-md-6 col-sm-12 q-pa-md">
                                                 <p>
-                                                    Last month, we were invited to speak to the <a href="http://pharmclub.pharm.auth.gr">Pharmacology Club</a> of
-                                                    <a href="http://auth.gr/">Aristotle University of Thessaloniki</a>, a club organised by pharmacy
-                                                    students who are eager to expand their scientific knowledge beyond the
-                                                    classroom. In order to introduce them to the world of synthetic biology,
-                                                    we gave them some examples about how synthetic biology circuits could
-                                                    benefit the field of pharmacology.
+                                                    Students of the faculty of Pharmacy, AUTH,
+                                                    invited us to the Pharmacology Club where we
+                                                    gave a speech about Synthetic Biology and its
+                                                    contribution in Health Sciences and
+                                                    Pharmacology. We spoke to them about the
+                                                    production of artemisinin, an antimalarial
+                                                    pharmaceutical compound, from yeast and
+                                                    explained the advantages of this method of
+                                                    production compared to the traditional
+                                                    isolation of artemisinin from the
+                                                    pharmaceutical plant. We, also, gave them
+                                                    examples of iGEM Projects in the diagnostics
+                                                    and therapeutics tracks. Specifically, we
+                                                    presented the pANDORA (iGEM Greece 2017,
+                                                    therapeutics), CATE (ETH Zurich 2017,
+                                                    therapeutics) and Gotta Detect’ Em All
+                                                    (INSA-Lyon 2016, diagnostics) projects and
+                                                    after that we had an in depth conversation with
+                                                    the students about the synthetic biology
+                                                    circuits used in the aforementioned projects,
+                                                    as well as the safety concerns they took into
+                                                    consideration. We enjoyed interacting with
+                                                    students that are eager to learn about science
+                                                    beyond the classroom, gaining insight in the
+                                                    measures that have to be taken for the
+                                                    appropriate management of the safety risks of
+                                                    drugs during their development phase and
+                                                    post-marketing phase.
                                                 </p>
                                             </div>
                                         </div>
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" title="Talk @ Student Run Biology Workshop">
+                                <event-card class="col-lg-4 col-md-6" title="Zarifeios Akadimia">
                                     <template slot="media">
-                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/2/2c/T--Thessaloniki--srbw-1.jpg/800px-T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/a/ad/T--Thessaloniki--zarifios-visit.jpg/800px-T--Thessaloniki--zarifios-visit.jpg"
+                                            alt="visit at Zarifios Akadimia image">
+                                    </template>
+                                    <template slot="content">
+                                        Alexandroupoli
+                                    </template>
+                                    <template slot="modal-content">
+                                        <div class="row justify-center">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white"
+                                                autoplay quick-nav infinite>
+                                                <q-carousel-slide>
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/a/ad/T--Thessaloniki--zarifios-visit.jpg/800px-T--Thessaloniki--zarifios-visit.jpg"
+                                                        alt="visit at Zarifios Akadimia image">
+                                                </q-carousel-slide>
+                                            </q-carousel>
+                                            <div class="col-md-6 col-sm-12 q-pa-md">
+                                                <p>
+                                                    We visited Zarifeios Akadimia, a primary school
+                                                    in Alexandroupoli, in order to spark the
+                                                    students’ interest for science and introduce
+                                                    them to the concept of synthetic biology. As we
+                                                    wanted to actively include them in our
+                                                    activity, we used candy as an example of DNA’s
+                                                    structure and characteristics to construct an
+                                                    edible DNA helix. Different color candy standed
+                                                    for different nitrogenous bases, representing
+                                                    how complementarity works in the DNA. Each
+                                                    student built a different “DNA sequence” by
+                                                    selecting different colored candy. This is how
+                                                    we managed to explain that, in synthetic
+                                                    biology, scientists can design their own DNA
+                                                    sequences in order to achieve the desired
+                                                    result. In addition, the students, with our
+                                                    assistance, isolated DNA from bananas. This
+                                                    way, we displayed that the DNA is not an
+                                                    abstract concept, but it is a molecule of vital
+                                                    importance that exists in every living
+                                                    organism.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </event-card>
+
+
+                                <event-card class="col-lg-4 col-md-6" title="3rd Student-Run Biology Workshop (SRBW)">
+                                    <template slot="media">
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/2/2c/T--Thessaloniki--srbw-1.jpg/800px-T--Thessaloniki--srbw-1.jpg"
+                                            alt="talk at student run biology workshop image">
                                     </template>
                                     <template slot="content">
                                         Alexandroupoli - 3/3/2018
                                     </template>
                                     <template slot="modal-content">
                                         <div class="row justify-center">
-                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white"
+                                                autoplay quick-nav infinite>
                                                 <q-carousel-slide>
-                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/2/2c/T--Thessaloniki--srbw-1.jpg" alt="talk at student run biology workshop image">
+                                                    <img class="responsive-image" src="http://2018.igem.org/wiki/images/2/2c/T--Thessaloniki--srbw-1.jpg"
+                                                        alt="talk at student run biology workshop image">
                                                 </q-carousel-slide>
                                             </q-carousel>
                                             <div class="col-md-6 col-sm-12 q-pa-md">
                                                 <p>
-                                                    <a href="https://www.facebook.com/biologicalworkshop/">Student-Run Biology Workshop</a>
-                                                    offers one of the most unique experiences for all students in the field of biology.
-                                                </p>
-                                                <p>
-                                                    Thank you for giving us a chance to introduce Synthetic Biology to a
-                                                    crowd full of young and future scientists.
+                                                    Student-Run Biology Workshop (SRBW) is a
+                                                    congress organized by students of the
+                                                    Department of Molecular Biology and Genetics
+                                                    from the Democritus University of Thrace,
+                                                    taking place in Alexandroupoli. The goal of the
+                                                    congress is to bring students from all over the
+                                                    country together, so that they can meet with
+                                                    colleagues from different universities, get
+                                                    hands-on experience and create presentations
+                                                    and talks about interesting scientific topics.
+                                                    So, we thought that the 3rd SRBW was an
+                                                    excellent chance for us to introduce Synthetic
+                                                    Biology to a crowd full of future scientists.
+                                                    We gave a speech about Synthetic Biology, its
+                                                    origins, tools and its vast number of
+                                                    applications.
                                                 </p>
                                             </div>
                                         </div>
                                     </template>
                                 </event-card>
 
-                                <event-card class="col-lg-4 col-md-6" title="Visits @ Larisa Private Schools">
+                                <event-card class="col-lg-4 col-md-6" title="Presentation at High School Students">
                                     <template slot="media">
-                                        <img class="responsive-image"
-                                            src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
-                                            alt="visit at Larisa image"
-                                        >
+                                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/b/bd/T--Thessaloniki--larisa-visit-1.jpg/800px-T--Thessaloniki--larisa-visit-1.jpg"
+                                            alt="Presentation at High School Students image">
                                     </template>
                                     <template slot="content">
                                         Larisa - 3/3/2018
                                     </template>
                                     <template slot="modal-content">
                                         <div class="row justify-center">
-                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white" autoplay quick-nav infinite>
-                                                <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']" :key="image">
-                                                    <img class="responsive-image" :src="image" alt="visit at Larisa image">
+                                            <q-carousel class="col-md-6 col-sm-12 text-white" color="white"
+                                                autoplay quick-nav infinite>
+                                                <q-carousel-slide v-for="image in ['http://2018.igem.org/wiki/images/b/bd/T--Thessaloniki--larisa-visit-1.jpg', 'http://2018.igem.org/wiki/images/3/3c/T--Thessaloniki--larisa-visit-2.jpg', 'http://2018.igem.org/wiki/images/3/3f/T--Thessaloniki--larisa-visit-3.jpg']"
+                                                    :key="image">
+                                                    <img class="responsive-image" :src="image" alt="Presentation at High School Students image">
                                                 </q-carousel-slide>
                                             </q-carousel>
                                             <div class="col-md-6 col-sm-12 q-pa-md">
                                                 <p>
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-                                                    voluptatibus nobis ipsam cumque sunt reprehenderit, delectus nemo, ut
-                                                    debitis fugit sequi accusamus est repudiandae ab saepe earum architecto
-                                                    dicta molestias.
+                                                    At the high school level, we came in contact
+                                                    with two major educational institutions,
+                                                    “Eniaio Ekpaideutiko Kentron” and “Frontistirio
+                                                    Agrafiotis”. The owners and professors showed
+                                                    interest in our project and we wanted to make
+                                                    sure that the students could learn about an
+                                                    interdisciplinary branch of science, synthetic
+                                                    biology, as well as understand our project.
+                                                    Even though we came in with high hopes, we
+                                                    could not have imagined the amount of questions
+                                                    and excitement that the students shown. During
+                                                    our presentation, we explained them the basics
+                                                    of synthetic biology by showing them exemplary
+                                                    projects as well as the project we were
+                                                    designing.
+                                                </p>
+                                                <p>
+                                                    In our country, the final years of high school
+                                                    tend to be very stressful and taxing for
+                                                    students [1]. The PanHellenic exams are very
+                                                    competitive and, on top of that, students
+                                                    confront the difficult task of deciding their
+                                                    school of preference/ preferred field of study/
+                                                    career orientation in such a young age. We, as
+                                                    an iGEM Team, are characterised by
+                                                    interdisciplinarity and many of us could not
+                                                    ever imagine that we would be involved in the
+                                                    design of a biological system in an
+                                                    undergraduate level. So, we made an effort to
+                                                    highlight that interdisciplinarity [2] is one
+                                                    of the main characteristics of modern academia
+                                                    and industry, as well as that there are a lot
+                                                    of opportunities to evolve and get into novel
+                                                    scientific branches, such as Synthetic Biology.
+                                                    Therefore, we believe that our interaction with
+                                                    the students gave them the chance to learn
+                                                    about contemporary science beyond school books.
+                                                    In addition, we gave them examples proving that
+                                                    their chosen field of study is not confining
+                                                    and, through interdisciplinarity, they can
+                                                    pursue their goals and get involved in exciting
+                                                    projects and activities. We were thankful to
+                                                    have the chance to promote science in such an
+                                                    interactive way, and have made plans to further
+                                                    extend our outreach after the competition.
+                                                </p>
+                                                <p>
+                                                    <small>[1] Zaralidis, Vasileios. (2015). Stress
+                                                        and Burnout in Senior High School Students
+                                                        in a Greek High School..
+                                                        10.13140/RG.2.1.3345.2000.</small>
+                                                </p>
+                                                <p>
+                                                    <small>[2] Bridle, H., Vrieling, A., Cardillo,
+                                                        M., Araya, Y., & Hinojosa, L. (2013).
+                                                        Preparing for an interdisciplinary future:
+                                                        A perspective from early-career
+                                                        researchers. Futures, 53, 22–32.
+                                                        <a href="https://doi.org/10.1016/J.FUTURES.2013.09.003">https://doi.org/10.1016/J.FUTURES.2013.09.003</a></small>
                                                 </p>
                                             </div>
                                         </div>
