@@ -177,11 +177,11 @@
                 <path d="M 1182.82 165.06 L 1187.32 174.06 L 1182.82 171.81 L 1178.32 174.06 Z"
                     fill="#333333" stroke="#333333" stroke-width="3" stroke-miterlimit="10"
                     pointer-events="none" />
-                <rect id="copy-number-bar" x="1257" y="245.5" width="64" height="390" fill="#4d4d4d"
+                <rect id="copy-number-bar" x="1257" :y="cpY" width="64" height="390" fill="#4d4d4d"
                     stroke="#333333" pointer-events="none" />
-                <rect id="represor-bar" x="1426.76" y="247.91" width="63.64" height="387.93" fill="#cc99ff"
+                <rect id="represor-bar" x="1426.76" :y="repY" width="63.64" height="387.93" fill="#cc99ff"
                     stroke="#333333" pointer-events="none" />
-                <rect id="gfp-bar" x="1596" y="525.5" width="64" height="110" fill="url(#mx-gradient-3dff51-1-acffa3-1-s-0)"
+                <rect id="gfp-bar" x="1596" :y="gfpY" width="64" height="110" fill="url(#mx-gradient-3dff51-1-acffa3-1-s-0)"
                     stroke="#333333" pointer-events="none" />
                 <path d="M 1458.5 650.5 L 1458.4 635.84" fill="none" stroke="#333333" stroke-width="3"
                     stroke-miterlimit="10" pointer-events="none" />
@@ -303,9 +303,14 @@
                 }
             },
             data() {
+                let flag = Quasar.plugins.Platform.is.mozilla
+
                 return {
                     stable: false,
-                    timeline: false
+                    timeline: false,
+                    cpY: flag ? 245.5 : 520.5,
+                    repY: flag ? 247.91 : 634.5,
+                    gfpY: flag ? 525.5 : 613.5,
                 }
             },
             watch: {
@@ -342,15 +347,15 @@
                     })
                     timeline.set('#gfp-bar', {
                         scaleY: 0.2,
-                        transformOrigin: 'bottom'
+                        transformOrigin: '0% 100%'
                     })
                     timeline.set('#represor-bar', {
                         scaleY: 0.3,
-                        transformOrigin: 'bottom'
+                        transformOrigin: '0% 100%'
                     })
                     timeline.set('#copy-number-bar', {
                         scaleY: 0.3,
-                        transformOrigin: 'bottom'
+                        transformOrigin: '0% 100%'
                     })
                     timeline.set('#plasmid-1', {
                         opacity: 1
@@ -408,22 +413,22 @@
                     if (this.stable) {
                         timeline.to('#represor-bar', 5, {
                             scaleY: 1,
-                            transformOrigin: 'bottom'
+                            transformOrigin: '0% 100%'
                         }, '0')
                     } else {
                         timeline.set('#represor-bar', {
                             scaleY: 0,
-                            transformOrigin: 'bottom'
+                            transformOrigin: '0% 100%'
                         })
                     }
 
                     timeline.to('#copy-number-bar', 5, {
                         scaleY: 1,
-                        transformOrigin: 'bottom'
+                        transformOrigin: '0% 100%'
                     }, '0')
                     timeline.to('#gfp-bar', 5, {
                         scaleY: !this.stable ? 2.3 : 0.4,
-                        transformOrigin: 'bottom'
+                        transformOrigin: '0% 100%'
                     }, '0')
                     timeline.to('#plasmid-3', 0.5, {
                         opacity: 1
