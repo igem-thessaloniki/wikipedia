@@ -5,107 +5,220 @@
     <%- include('templates/header'); %>
     <%- include('templates/layout-header'); %>
     <igem-layout>
-        <q-page padding class="text-justify">
-            <div class="row justify-center">
-                    <div class="col-md-6 col-lg-4">
-                            <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
-                            <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/e5/T--Thessaloniki--logo-light.svg">
-                    </div>
-            </div>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Project Description</h1>
+                <h1>Project Description</h1>
+            </q-parallax>
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                    <div class="row">
-                        <div class="col-12 q-pa-md">
-                            <h4 class="q-mt-xs">What is the problem ?</h4>
-                            <p>Biological systems are unpredictable, noisy and difficult to maintain stable, even under
-                                standardized conditions, thus making the controlled production of a substance a difficult
-                                task. Combined with the fickleness and stochasticity associated with gene expression
-                                even at the single cell level, fluctuations of the production rate of a desired protein
-                                are usually inevitable. </p>
-                        </div>
-                        <div class="col-12 q-pa-md q-mt-md">
-                            <h4 class="q-mt-xs">How are we going to solve it ?</h4>
-                            <p>Our aim is to design a synthetic biology circuit which guarantees a constant protein expression
-                                pattern and can also be tuned to meet the desired expression levels. We apply control
-                                theory to design promoters which maintain constant levels of expression at any copy number.
-                                Furthermore, to make our system a dynamic and versatile tool with broader manufacturing
-                                and therapeutic application capabilities for future research projects, we introduce an
-                                element that makes our system tunable. We hope to provide a foundational advance tool
-                                that enables fine tuning of complex metabolic pathways, limits the fluctuation of protein
-                                expression and decouples it from the plasmid/gene copy number. Specifically, as shown
-                                in Figure 1, the expression of the Gene of Interest (GOI) is under the negative control
-                                of a repressor. If the repression is perfectly non-cooperative, GOI expression is decoupled
-                                from the plasmid copy number.
-                            </p>
-                        </div>
-                        <div class="col-12 q-pa-md q-mt-md">
-                            <div class="flex flex-center">
-                                <img class="responsive-image" style="width: 50%" src="http://2018.igem.org/wiki/images/6/6c/T--Thessaloniki--description--figure-1.png"
-                                    alt="model image">
-                            </div>
-                            <p class="q-mt-sm">
-                                <b>Fig. 1</b> Representation of the incoherent feed-forward loop where both the repressor
-                                and the GOI (GFP in this case) expression rates are dependent on the copy number of their
-                                plasmid backbone. The repressor negatively regulates the expression of the GOI, resulting
-                                in its stable concentration independent of copy number.
-                            </p>
-                        </div>
-                    </div>
+                    <h4>1.Motivation</h4>
+                    <p>
+                        Since the very first days of our brainstorming, our primary objective was
+                        to create something that could have an immediate impact on the scientific
+                        community. Among other things, the unpredictability that characterizes
+                        biological systems immediately drew our attention. Even though Synthetic
+                        Biology has come a long way in designing orthogonal and predictable
+                        systems, there are still many interfering factors, obstructing consistency
+                        and functionality.
+                        One such factor is gene/plasmid copy number. For that reason we decided to
+                        create a tool that enhances stability and robustness of synthetic
+                        biological systems. We achieve that by engineering stabilized promoters
+                        which produce the same output regardless of their biological context in
+                        order to render synthetic biological systems more predictable and reliable.
+
+                    </p>
                 </div>
             </div>
             <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                    <div class="q-pa-md">
-                        <h4 class="q-mt-xs">What is the significance of this synthetic biology circuit?</h4>
-                        <p>
-                            DNA copy number is a great source of uncertainty in genetic systems. By decoupling gene expression from plasmid copy number,
-                            a system more robust and stable can be created. We are planning on creating a library of
-                            well characterized promoters, available for every scientist to use in order to achieve stable
-                            and tunable protein expression and diminish interlaboratory variations so as that the experimental
-                            results from different laboratories can be easily comparable. The system will also have an
-                            impact on metabolic engineering, because the use of stabilized promoters enables a metabolic
-                            pathway to be integrated into the genome with no need for re-tuning. On an industrial level,
-                            this synthetic biology circuit will present a new way to increase quality and efficiency
-                            in protein production. Another element that makes our system unique is the fact that fine
-                            tuning can be achieved so us we can externally determine the rate of gene expression. This
-                            gives us the opportunity to not only stabilize the production of the protein of interest,
-                            but also to choose the specific amount of expression that is required. Last but not least,
-                            the system can find a very useful application in lowering the burden that is generated in
-                            bacteria because of the biotechnologically produced proteins. Μaintenance and expression
-                            of synthetic constructs add an unnatural load to host cells, typically known as burden. Although
-                            some burden stems from the specific roles of the proteins encoded by the constructs, most
-                            burden placed on cells arises simply from the consumption of finite cellular resources during
-                            the expression of construct genes. With our system we could lower the amount of burden for
-                            the bacteria with precision genetic engineering. For example, by minimizing the antibiotic
-                            resistance cassette expression we can significantly bypass some of the resource sharing required.
-                            As it confers robustness, even in changed environmental conditions, it offers an interesting
-                            way to maintain growth and expression in the dynamic and heterogeneous conditions typically
-                            seen in scaled-up bioproduction.
-                        </p>
-                    </div>
+                    <h4>2.Why is Copy Number independence useful?</h4>
+                    <p>
+                        Despite the fact that copy number is, usually, regarded as being constant,
+                        many factors related with the internal and external environment of the cell
+                        contribute to copy number variation both over time and between different
+                        cells. [2]
+                    </p>
+                    <p>
+                        Factors
+                        <ul>
+                            <li>Strain used </li>
+                            <li>Plasmid Origin of replication and its mechanism of regulation</li>
+                            <li>Insert size</li>
+                            <li>Growth phase</li>
+                            <li>Growth conditions (Growth medium consistency, Temperature, Scale of
+                                production)</li>
+                            <li>Genome integration site</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Gene Expression is characterised by a positive correlation with the plasmid
+                        copy number.
+                        Thus, variations in copy number lead to variations in gene expression,
+                        affecting the function of the system. Particularly, in complex systems that
+                        require high precision, such as metabolic pathways and multi-input logic
+                        gates, accumulation of perturbations caused by variations in their
+                        individual parts greatly affect the functionality of said system.
+                    </p>
+                    <p>
+                        Regulating the expression strength is usually achieved via the replacement
+                        of regulatory elements such as RBSs and Promoters. Still, this does not
+                        ensure a predictable behaviour over different genetic contexts, therefore
+                        re-tuning is mandatory to maintain the system’s proper function.
+                    </p>
                 </div>
             </div>
             <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                    <div class="q-pa-md">
-                        <h4 class="q-mt-xs">Summary</h4>
-                        <p>
-                            We aim to create a robust, dynamic, controllable system that will be used as a synthetic biology tool for a significant amount
-                            of applications and projects to come.
-                        </p>
-                    </div>
+                    <h4>3.GALENE</h4>
+                    <p>
+                        This year we built upon the work of Shapiro et. al., [1] implementing an
+                        incoherent FeedForward Loop network motif that consists of a regulatory
+                        element which compensates for changes in copy number, thus stabilizing the
+                        promoter. We provide Galene to the iGEM Community, a genetic toolbox that
+                        enhances the stability of biological systems by disassociating
+                        transcription from gene copy number and provides translational control of
+                        protein production.
+                    </p>
+                    <p>
+                        <b>Stabilized promoters</b> are promoter sequences that achieve expression
+                        independent of gene/plasmid copy number. They possess great potential for
+                        usage as a synthetic biology tool with many applications, ranging from part
+                        characterization to metabolic pathway and genetic circuitry fine-tuning [].
+                        Balancing gene expression in synthetic biological systems is a key
+                        parameter for their proper function. By achieving gene/plasmid copy number
+                        independence, such systems become more robust, predictable and less prone
+                        to perturbations arising from both their internal and external environment.
+                    </p>
+                    <p>
+                        Through <a href="">model driven feedback</a>, we accomplish promoter
+                        stabilization
+                        using 2 distinct systems, each with its own advantages: <b><u>TAL Effectors</u>
+                            and
+                            <u>CRISPR interference</u></b>.
+                        We have, also, <u>designed</u> and <u>simulated</u> a 3rd stabilization
+                        system using
+                        <b>Attenuator-interacting sRNA regulators</b>.
+                    </p>
+                    <p>
+                        Wanting to expand on the stabilized promoters system, we designed a
+                        theophylline Riboswitch that would allow, on top of the stabilization of a
+                        promoter, its induction and activation to the desired expression level.
+                        <ul>
+                            <li>inducibility</li>
+                            <li>
+                                <!-- TODO IMAGE -->
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>4.Possible Applications of Stabilized Promoters</h4>
+                    <h5>Genome Insertion</h5>
+                    <p>
+                        The output of genetic circuits inserted into the genome is affected both by
+                        the number of inserted copies and their distance from the Origin of
+                        Replication (ORI). [3] Stabilized promoter systems can be transferred to
+                        genome, maintaining the circuit’s level of expression, independent of the
+                        position of the inserted gene relative with the origin of replication.
+                    </p>
+                    <h5>Medicine</h5>
+                    <p>
+                        Precise control of genetic systems is of utmost importance when they are
+                        applied for therapeutic purposes. [4] Stabilized promoters can be used to
+                        introduce predictability and increase specificity in contemporary
+                        therapeutic methods, such as gene and cancer therapies, which are based
+                        upon the implementation of sophisticated synthetic biological circuits.
+                    </p>
+                    <h5>Toxic Protein Production</h5>
+                    <p>
+                        Production of highly toxicity proteins requires tight control of gene
+                        expression, so that sufficient expression can be achieved before host cells
+                        become dysfunctional. [5] Stabilized promoters can be used for sufficient
+                        expression before toxicity in the host cells comes into play.
+                    </p>
+
+                    <h5>Metabolic Engineering</h5>
+                    <p>
+                        The enzymes participating in metabolic pathways must be expressed in
+                        certain stoichiometric ratios, as variability in their expression could
+                        disrupt the system’s proper function. [6] Stabilized promoters can be
+                        utilized as regulatory tools for the expression of genes participating in
+                        metabolic pathways, increasing the system’s robustness and performance.
+                    </p>
+
+                    <h5>Large Scale Production</h5>
+                    <p>
+                        Genetic Systems used for industrial production require high fidelity to
+                        cope with the varying conditions inside a bioreactor [7] that might
+                        influence plasmid’s copy number. On those lines, stabilizing the expression
+                        of genes crucial in the production process, has the potential to increase
+                        the yield. Copy Number variation can influence the expression of
+                        <b>fermentation</b>-related genes in organisms used for industrial
+                        production,
+                        such as Saccharomyces cerevisiae. [8] Stabilized promoters can be a
+                        valuable tool for the control of genes related the process of fermentation
+                        and, therefore, improve the quality of the final product.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+
                 </div>
             </div>
             <div class="row justify-center" :class="rM('text-dark', 'text-light')">
                 <div class="col-md-9">
-                    <h5 class="q-mb-xs">References</h5>
-                    <ol>
-                        <li>Ceroni, F. et al. Burden-driven feedback control of gene expression. Nat. Methods 15, 387–393
-                            (2018)
-                        </li>
-                        <li>Zucca, S., Pasotti, L., Mazzini, G., Cusella De Angelis, M. G. & Magni, P. Characterization of
-                            an inducible promoter in different DNA copy number conditions. BMC Bioinformatics 13, (2012)</li>
-                    </ol>
+                    <h6>REFERENCES</h6>
+
+                    <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                        <small class="row q-mb-sm">
+                            [1] Segall-Shapiro, T. H., Sontag, E. D., & Voigt, C. A. (2018).
+                            Engineered promoters enable constant gene expression at any copy number
+                            in bacteria. Nature Biotechnology. <a href="https://doi.org/10.1038/nbt.4111">https://doi.org/10.1038/nbt.4111</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [2] Wong Ng, J., Chatenay, D., Robert, J., & Poirier, M. G. (2010).
+                            Plasmid copy number noise in monoclonal populations of bacteria.
+                            Physical Review E - Statistical, Nonlinear, and Soft Matter Physics.
+                            <a href="https://doi.org/10.1103/PhysRevE.81.011909">https://doi.org/10.1103/PhysRevE.81.011909</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [3] Block, D. H. S., Hussein, R., Liang, L. W., & Lim, H. N. (2012).
+                            Regulatory consequences of gene translocation in bacteria. Nucleic
+                            Acids Research. <a href="https://doi.org/10.1093/nar/gks694">https://doi.org/10.1093/nar/gks694</a>
+                            <a href="https://www.sciencedirect.com/science/article/pii/S221112471300315X?via%3Dihub">sciencedirect</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [4] Arkin, A. P. (2013). A wise consistency: Engineering biology for
+                            conformity, reliability, predictability. Current Opinion in Chemical
+                            Biology. <a href="https://doi.org/10.1016/j.cbpa.2013.09.012">https://doi.org/10.1016/j.cbpa.2013.09.012</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [5] Saida, F., Uzan, M., Odaert, B., & Bontems, F. (2006). Expression
+                            of Highly Toxic Genes in E. coli: Special Strategies and Genetic Tools.
+                            Current Protein and Peptide Science.
+                            <a href="https://doi.org/10.2174/138920306775474095">https://doi.org/10.2174/138920306775474095</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [6] Keasling, J. D. (2012). Synthetic biology and the development of
+                            tools for metabolic engineering. Metabolic Engineering.
+                            <a href="https://doi.org/10.1016/j.ymben.2012.01.004">https://doi.org/10.1016/j.ymben.2012.01.004</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [7] Moser, F., Broers, N. J., Hartmans, S., Tamsir, A., Kerkman, R.,
+                            Roubos, J. A., … Voigt, C. A. (2012). Genetic circuit performance under
+                            conditions relevant for industrial bioreactors. ACS Synthetic Biology.
+                            <a href="https://doi.org/10.1021/sb3000832">https://doi.org/10.1021/sb3000832</a>
+                        </small>
+                        <small class="row q-mb-sm">
+                            [8] Steenwyk, J., & Rokas, A. (2017). Extensive Copy Number Variation
+                            in Fermentation-Related Genes Among Saccharomyces cerevisiae Wine
+                            Strains. G3 (Bethesda, Md.). <a href="https://doi.org/10.1534/g3.117.040105">https://doi.org/10.1534/g3.117.040105</a>
+                        </small>
+                    </div>
                 </div>
             </div>
         </q-page>
