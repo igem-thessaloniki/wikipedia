@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Part Improvement</h1>
+                <h1>Part Improvement</h1>
+            </q-parallax>
+            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <p>
+                        We submitted <a href="http://parts.igem.org/Part:BBa_K2839017">BBa_K2839017</a>
+                        as an improvement over <a href="http://parts.igem.org/Part:BBa_K784005">BBa_K784005</a>,
+                        a theophylline riboswitch designed by
+                        iGEM12_Technion Team.
+                    </p>
+                    <p>
+                        Theophylline Riboswitches can be used for the conditional control of gene
+                        expression. In the absence of theophylline, the RNA transcript coding for
+                        the fluorescent marker forms a stem loop that limits the access of
+                        ribosomes to the ribosome binding site (RBS), thus inhibiting translation
+                        initiation. With the addition of theophylline this loop undergoes a
+                        conformational change, allowing the binding of the ribosome at the RBS and
+                        permitting translation initiation.
+                        As, the main focus of our project is the precise control of gene
+                        expression, we implemented a <a href="http://parts.igem.org/Part:BBa_K2839017">Theophylline
+                            Riboswitch</a> in the TAL Effector
+                        stabilization system, granting inducibility. Therefore, we achieve
+                        theophylline-dependent gene expression , decoupled from copy number.
+                    </p>
+                    <p>
+                        According to the experimental data submitted by <b>iGEM12_Technion</b>
+                        Team, the
+                        theophylline riboswitch they used did not respond to changes in
+                        theophylline concentration. We concluded that the lack of functionality
+                        possibly stemmed from a disturbance in the riboswitch’s conformation. We
+                        wanted to investigate whether mCherry coding sequence, which was the
+                        reporter that Team Technion used, affected the riboswitch’s secondary
+                        structure. Therefore, in order to restore it’s function, we initially
+                        replaced the mCherry fluorescent marker with sfGFP. From the flow cytometry
+                        measurements,we observed no fluorescence and thus no functionality. As a
+                        second approach, we used sfGFP protein fused with the first 99 nucleotides
+                        of luciferase, as we believed it i not interact with the aptamer sequence.
+                    </p>
+                    <h4>Results</h4>
+                    <p>
+                        Fluorescence intensity measurements were conducted in DH5a E.coli cells,
+                        following this <a href="#">flow cytometry protocol</a>.
+                    </p>
+
+                    <p>
+                        The <a href="http://parts.igem.org/Part:BBa_K2839017">BBa_K2839017</a> <b>(12.1
+                            Theophylline Riboswitch +sfGFP-luciferase fusion
+                            protein)</b> and <a href="http://parts.igem.org/Part:BBa_K784005">BBa_K784005</a>
+                        expressing sfGFP were inserted in pSB1C3 backbone,
+                        in order to determine their functionality. To examine whether activation of
+                        sfGFP expression was dose-dependent, cells were treated with 4 different
+                        Theophylline Concentrations: 0.5 mM, 1 mM, 2mM and 8mM.
+                        The results indicated that higher doses of Theophylline lead to higher
+                        fluorescence levels in the <a href="http://parts.igem.org/Part:BBa_K2839017">BBa_K2839017</a>
+                        riboswitch, which uses
+                        sfGFP-luciferase fusion protein as a reporter. On the contrary, <a href="http://parts.igem.org/Part:BBa_K784005">BBa_K784005</a>
+                        did not exhibit any fluorescence in the Theophylline concentrations tested.
+                    </p>
+                    <p class="text-center">
+                        <div id="theo-graph" class="plotly-graph-div"></div>
+                        <small>
+                                Performance of 12.1 riboswitches when different theophylline concentrations were added.
+                        </small>
+                    </p>
+                    <p>
+                        We restored <a href="ttp://parts.igem.org/Part:BBa_K784005">BBa_K784005</a>
+                        functionality using N-terminal Fusion sfGFP with
+                        the first 99 nucleotides of luciferase. The 99 nucleotides of luciferase
+                        can be fused with proteins that remain functional upon N-terminal
+                        addition,ensuring the riboswitch’s proper function.
+                    </p>
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/plotly.js&action=raw&ctype=text/javascript"></script>
+
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'improve')
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [{
+                name: 'theo-graph',
+                id: 'theo-graph',
+                data: {
+                    "frames": [],
+                    "layout": {
+                        "autosize": true,
+                        "yaxis": {
+                            "domain": [
+                                0,
+                                1
+                            ],
+                            "title": "Raw sfGFP expression (a.u.)",
+                            "ticks": "inside",
+                            "gridwidth": 1,
+                            "range": [
+                                0.8792871116687719,
+                                2.1436270016549455
+                            ],
+                            "showline": true,
+                            "type": "log",
+                            "autorange": true
+                        },
+                        "showlegend": true,
+                        "xaxis": {
+                            "domain": [
+                                0.25,
+                                0.75
+                            ],
+                            "title": "Thoephylline Concentration (μM)",
+                            "ticks": "inside",
+                            "range": [
+                                -1.087317876532601,
+                                0.3926692459792247
+                            ],
+                            "showline": true,
+                            "type": "log",
+                            "autorange": true
+                        },
+                        "hovermode": "closest",
+                        "legend": {
+                            "y": 0.65,
+                            "x": 0.7
+                        }
+                    },
+                    "data": [{
+                            "uid": "f073cd",
+                            "name": "12.1 Riboswitch + sfGFP",
+                            "ysrc": "grgrus:1:56eea4",
+                            "xsrc": "grgrus:1:ee5481",
+                            "marker": {
+                                "line": {
+                                    "width": 1
+                                },
+                                "symbol": "diamond",
+                                "size": 8
+                            },
+                            "mode": "markers",
+                            "y": [
+                                "9.39",
+                                "10.21",
+                                "9.69",
+                                "9.96",
+                                "9.44",
+                                "9.74",
+                                "9.93"
+                            ],
+                            "x": [
+                                "0.101",
+                                "0.3",
+                                "0.5",
+                                "0.8",
+                                "1.2",
+                                "1.6",
+                                "2"
+                            ],
+                            "type": "scatter",
+                            "error_y": {
+                                "arraysrc": "grgrus:1:147945",
+                                "thickness": 1,
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "0.42",
+                                    "0.42",
+                                    "0.93",
+                                    "1.01",
+                                    "0.07\r",
+                                    "0.31",
+                                    "0.32",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r"
+                                ],
+                                "type": "data"
+                            }
+                        },
+                        {
+                            "uid": "66e9e6",
+                            "name": "12.1 Riboswitch + sfGFP - luciferate protein",
+                            "ysrc": "grgrus:1:107cd3",
+                            "xsrc": "grgrus:1:ee5481",
+                            "marker": {
+                                "line": {
+                                    "width": 1
+                                },
+                                "symbol": "diamond",
+                                "size": 8
+                            },
+                            "mode": "markers",
+                            "y": [
+                                "24.37",
+                                "37.97",
+                                "55.47",
+                                "59.2\r",
+                                "72.27",
+                                "103.47",
+                                "110.67"
+                            ],
+                            "x": [
+                                "0.101",
+                                "0.3",
+                                "0.5",
+                                "0.8",
+                                "1.2",
+                                "1.6",
+                                "2"
+                            ],
+                            "type": "scatter",
+                            "error_y": {
+                                "arraysrc": "grgrus:1:fcebb9",
+                                "thickness": 1,
+                                "symmetric": true,
+                                "visible": true,
+                                "array": [
+                                    "0.97",
+                                    "8.33",
+                                    "4.17",
+                                    "0.73",
+                                    "2.16",
+                                    "4.67",
+                                    "9.67",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r",
+                                    "",
+                                    "\r",
+                                    "\r"
+                                ],
+                                "type": "data"
+                            }
+                        },
+                        {
+                            "uid": "d7e5ad",
+                            "transforms": [{
+                                "regressand": "y",
+                                "rms": "",
+                                "parameters": [{
+                                        "hold": false,
+                                        "name": "m",
+                                        "value": 0.03707929871403841,
+                                        "error": 0.18617582997377705
+                                    },
+                                    {
+                                        "hold": false,
+                                        "name": "b",
+                                        "value": 9.73127821129429,
+                                        "error": 0.21098859466453737
+                                    }
+                                ],
+                                "outputxrange": [],
+                                "regressor": "x",
+                                "inputUid": "f073cd",
+                                "correlation": "",
+                                "inputxrange": [],
+                                "type": "fit",
+                                "fitfunction": "m*x + b",
+                                "interpolation": 50
+                            }]
+                        },
+                        {
+                            "uid": "6a5941",
+                            "transforms": [{
+                                "regressand": "y",
+                                "rms": "",
+                                "parameters": [{
+                                        "hold": false,
+                                        "name": "m",
+                                        "value": 44.766401917980744,
+                                        "error": 3.6541840199192506
+                                    },
+                                    {
+                                        "hold": false,
+                                        "name": "b",
+                                        "value": 24.62766016160098,
+                                        "error": 4.141198946812659
+                                    }
+                                ],
+                                "outputxrange": [],
+                                "regressor": "x",
+                                "inputUid": "66e9e6",
+                                "correlation": "",
+                                "inputxrange": [],
+                                "type": "fit",
+                                "fitfunction": "m*x + b",
+                                "interpolation": 50
+                            }]
+                        }
+                    ]
+                }
+            }]
+            let instances = []
+            let resizeDebounce = null
+
+            function resizePlots() {
+                instances.forEach((gd) => {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                })
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
+                }
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                initializeGraphs()
+            })
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
