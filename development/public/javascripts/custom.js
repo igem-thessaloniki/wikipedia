@@ -88,6 +88,7 @@ iGEM.links = {
     GaleneLogo: '/components/galene-logo.vue',
     CircleContent: '/components/circle-content.vue',
     IFFLMainOne: '/components/IFFLMainOne.vue',
+    Sponsors: '/components/sponsors.vue',
 }
 
 // iGEM.links = {
@@ -101,4 +102,6 @@ iGEM.links = {
 //     BalcansMap: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/balcans-map.vue&action=raw&ctype=text/javascript',
 //     GaleneLogo: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/galene-logo.vue&action=raw&ctype=text/javascript',
 //     CircleContent: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/circle-content.vue&action=raw&ctype=text/javascript',
+//     IFFLMainOne: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/IFFLMainOne.vue&action=raw&ctype=text/javascript',
+//     Sponsors: 'http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/sponsors.vue&action=raw&ctype=text/javascript',
 // }

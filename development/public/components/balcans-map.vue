@@ -21,8 +21,51 @@
                 setTimeout(() => {
                     mymap.invalidateSize()
                 }, 1000)
-                let marker = L.marker([40.636993, 22.953876]).addTo(mymap)
-                marker.bindPopup("<b>Thessaloniki</b><br>People: 60<br>Date: 1/5/2018")
+
+                let start = L.marker([40.636993, 22.953876]).addTo(mymap)
+                start.bindPopup(`
+                    <b>Start:</b> Thessaloniki <br>
+                    <b>Date:</b> October 8, 2018
+                `)
+
+                let markers = [
+                    {
+                        cords: [44.818601, 20.457149],
+                        name: 'University of Belgrade',
+                        date: 'October 9, 2018',
+                        country: 'Serbia'
+                    },
+                    {
+                        date: 'October 10, 2018',
+                        name: 'University of Novi Sad',
+                        country: 'Serbia',
+                        cords: [45.25, 19.85]
+                    },
+                    {
+                        date: 'October 11, 2018',
+                        name: 'University of Sarajevo',
+                        country: 'Bosnia and Herzegovina',
+                        cords: [43.857101, 18.417516]
+                    },
+                    {
+                        date: 'October 12, 2018',
+                        name: 'University of Split',
+                        country: 'Croatia',
+                        cords: [43.512783, 16.442397]
+                    }
+                ]
+
+                markers.forEach((item) => {
+                    let marker = L.marker(item.cords).addTo(mymap)
+                    marker.bindPopup(`
+                        <b>${item.name}</b>
+                        <br>
+                        <b>Date:</b> ${item.date}
+                        <br>
+                        <b>Country:</b> ${item.country}
+                        <br>
+                    `)
+                })
             }
         })
     })(Vue, template)
