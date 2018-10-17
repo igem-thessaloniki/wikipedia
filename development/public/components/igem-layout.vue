@@ -69,7 +69,7 @@
                     <q-collapsible icon="dashboard" label="Sub-Systems" :opened="['model-tale', 'model-nar', 'model-dcas9'].includes(page)">
                         <route-item page="model-tale" link="http://2018.igem.org/Team:Thessaloniki/Model/Tale" label="TALE">
                         </route-item>
-                        <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9">
+                        <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9 and sgRNA">
                         </route-item>
                         <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/NAR" label="NAR">
                         </route-item>
