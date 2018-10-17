@@ -87,6 +87,7 @@ iGEM.links = {
     BalcansMap: '/components/balcans-map.vue',
     GaleneLogo: '/components/galene-logo.vue',
     CircleContent: '/components/circle-content.vue',
+    IFFLMainOne: '/components/IFFLMainOne.vue',
 }
 
 // iGEM.links = {

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Parts Collection</h1>
+                <h1>Parts Collection</h1>
+            </q-parallax>
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <div style="overflow-x:auto;">
+                        <table class="simple-table text-center">
+                            <tr>
+                                <td>
+                                    <b>BioBrick ID</b>
+                                </td>
+                                <td>
+                                    <b>Description</b>
+                                </td>
+                                <td>
+                                    <b>USE</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839012</td>
+                                <td>TALEsp1 Pupsp1 promoter with translational control</td>
+                                <td>TALE Promoter Stabilization Inducible Expression</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839017</td>
+                                <td>12.1 Theophylline Riboswitch +sfGFP-luciferase fusion protein</td>
+                                <td>Inducible Expression</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839006</td>
+                                <td>Theo27 theophylline riboswitch controlling fused sfGFP expression</td>
+                                <td>Inducible Expression</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839000</td>
+                                <td>TALEsp1-Pupsp1 stabilized promoter</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839004</td>
+                                <td>Talesp1-Psp1w1 stabilized promoter (B0030)</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839005</td>
+                                <td>Talesp1-Psp1w1 stabilized promoter (B0032)</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839014</td>
+                                <td>TALEsp2-Pupsp2 stabilized promoter</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839008</td>
+                                <td>Insulated Psp1w1 promoter (B0030 RBS)</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839007</td>
+                                <td>Insulated Psp1w1 promoter (B0032 rbs)</td>
+                                <td>TALE Promoter Stabilization</td>
+                            </tr>
+                            <tr>
+                                <td>BBa_K2839016</td>
+                                <td>CRISPRi stabilized J23104 promoter</td>
+                                <td>CRISPRi Promoter Stabilization </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'collection')
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>

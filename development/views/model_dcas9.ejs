@@ -19,11 +19,11 @@
                         <h3>dcas9 - sgRNA Model</h3>
                     </div>
 
-                    <p class="text-center">
-                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/c/c8/T--Thessaloniki--model-dcas9.png"
+                    <div class="text-center">
+                        <img class="responsive-image bg-pink-1 q-pa-sm" src="http://2018.igem.org/wiki/images/c/c8/T--Thessaloniki--model-dcas9.png"
                             alt="dcas9 model analysis">
                         <span class="text-grey-5">Figure 1: Schematic representation of the system</span>
-                    </p>
+                    </div>
                     <p>
                         After the study of TALE system we moved on to the study of the model, which
                         uses as repressor the complex dcas9-sgRNA, whose schematic representation
@@ -242,13 +242,13 @@
                         applied to these parameters.
                     </p>
 
-                    <p>
+                    <div class="text-center">
                         <div id="f277c0d0-0807-472f-b45e-2bfbb7ef8cfc" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 2: Sensitivity analysis on uncertain model parameters. Sample
                             from each parameter: 20.000. Parameter sets: 120.000
                         </small>
-                    </p>
+                    </div>
                     <p>
                         As can be seen in Figure 2, the kon2 between tetR and DNA shows
                         approximately 0.6 first order index and taking into account also higher
@@ -265,13 +265,13 @@
                         different sets. The values of the kinetics ranged from 0.001 to 10.
                     </p>
 
-                    <p>
+                    <div class="text-center">
                         <div id="e3eef783-bdbf-4f1e-9e56-7a43d94f05ac" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 3: Scatter plot from the analysis under different parameter
                             settings.
                         </small>
-                    </p>
+                    </div>
 
                     <p>
                         The data from the analysis (Figure 3), indicate that the mean value of
@@ -292,13 +292,13 @@
                         results.
                     </p>
 
-                    <p>
+                    <div class="text-center">
                         <div id="59697626-7cb5-4947-88de-52700778bf25" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 4: dcas concentration over time. Effects of tetR repression for
                             different kd.
                         </small>
-                    </p>
+                    </div>
                     <p>
                         After we shared this result with Wet lab, combined with the fact that the
                         kd for which our system works, disagrees with those found in bibliography
@@ -355,8 +355,9 @@
                                 <u>RhaS dimer and binding rate to operator site of PrhaBAD</u>:Like
                                 in tetR, we assume that Rhas is produced as a dimer because of it’s
                                 fast dimer binding. Because of its fast binding with L-Rhamnose we
-                                also assume, one to one stoichiometry. Σε παρουσία της L-rhamnose,
-                                της οποίας η ποσότητα είναι μέχρι 0.02 g/ml δηλαδη 1.2 mM,
+                                also assume, one to one stoichiometry. In the presence of
+                                L-rhamnose,
+                                its concentration is 0.02 g/ml or 1.2 mM,
                                 Expression from the rhaBAD promoter is log linear with n=1 [7] with
                                 respect to inducer concentration.
                             </li>
@@ -490,13 +491,13 @@
                         parameter is clearly the binding rate to Pbad promoter.
                     </p>
 
-                    <p>
+                    <div class="text-center">
                         <div id="139c6c5e-7d2e-462e-bf0e-06613a181a65" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 5: Sensitivity analysis on uncertain model parameters. Sample
                             from each parameter: 20.000. Parameter sets: 120.000.
                         </small>
-                    </p>
+                    </div>
 
                     <p>
                         Binding and unbinding rates of RhaS to Rhamnose do not have any effect at
@@ -516,16 +517,16 @@
                         sets the linearity of the system cannot be ruined.
                     </p>
 
-                    <p>
+                    <div class="text-center">
                         <div id="7b6bdda3-b829-46c8-b2ef-aad6a5d34850" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 6: Robustness analysis for the sgRNA concentration for copy
                             number variations. The blue line is the mean sgRNA concentration of all
                             parametric sets calculated for different copy number. The error bars
                             represent the standard deviation of the mean, that is how much the
                             sgRNA concentration can vary.
                         </small>
-                    </p>
+                    </div>
 
                     <h4>Main system</h4>
 
@@ -647,14 +648,14 @@
 
                     <p>
                         <div id="0b4464df-1b35-4b63-919e-8f9177714399" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 7: First and Total order Sensitivity indices for Main system’s
                             association and dissociation constants
                         </small>
                     </p>
                     <p>
                         <div id="2cece0cc-8e03-40f3-b1d2-d0379a869c4e" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 8: Heatmap Representation of Second order Sensitivity indices.
                             The bar in the right showcases the color-value match.
                         </small>
@@ -712,10 +713,107 @@
                         statement.
                     </p>
 
+                    <q-list>
+                        <q-collapsible icon="notes" label="Proof">
+                            <div>
+                                <p>
+                                    Our goal is minimize the error, between sfGFP expression for
+                                    low (cmin) and high (cmax) copy numbers, find the conditions
+                                    under which, the system is stabilized and to prove that this
+                                    cannot be achieved with a constant repressor concentration over
+                                    increasing copy number. For gene of interest and the repressor
+                                    we use the annotatuon G and R respectively.
+                                </p>
+
+                                <p>
+                                    In our case, the gene expression of hill equation, has
+                                    cooperativity equal to one and the ratio of unbinding and
+                                    binding rate is equal to kD (dissociation constant) expressed
+                                    as
+                                </p>
+
+                                <p>
+                                    <span id="eq-a"></span> (1) with <span id="eq-b"></span> ,
+                                    where
+                                    <span id="eq-c"></span>
+                                    is the maximum trascription rate, <span id="eq-d"></span> is
+                                    the translation rate and <span id="eq-e"></span>
+                                    the degradation rate of G and also <span id="eq-f"></span> is
+                                    the degradation rate of mG.
+                                </p>
+
+                                <p>
+                                    kD is the concentration of the repressor, in which half
+                                    repression of G is achieved and we can assume, that in the
+                                    steady state for every copy number,
+                                    <span id="eq-g"></span> , thus (1) becomes <span id="eq-h"></span>
+                                </p>
+
+                                <p>
+                                    For simplification purposes let's consider that we have
+                                    constitutive promoters for the expression of dcas9 and sgRNA.
+                                    Dcas9 is expressed constantly by a medium value copy number,
+                                    cn, and sgRNA's copy number increases in the interval [cmin,
+                                    cmax], as it is located on the same plasmid as sfGFP is. Then,
+                                    the analytical solution on the steady state for sgRNA and dcas9
+                                    concentration is
+                                </p>
+
+                                <p>
+                                    <span id="eq-i"></span>
+                                    <span id="eq-ii"></span>
+                                    with cn = constant and
+                                    <span id="eq-iii"></span>
+                                </p>
+
+                                <p>
+                                    The dcas9 and sgRNA binding has one-to-one stoichiometry , then
+                                    for each copy number when the reversible reaction reaches in
+                                    equilibrium,the relationship between the reactants and the
+                                    product R is
+                                </p>
+
+                                <p><span id="eq-j"></span> (2)</p>
+
+                                <p>
+                                    If <span id="eq-k"></span> for <span id="eq-l"></span> then
+                                    dcas9 acts as the limiting reagent for the formation of the
+                                    complex R, which by extension has a maximum concentration of
+                                    acn. Specifically its concentration is given below
+                                </p>
+
+                                <p>
+                                    <span id="eq-m"></span> with <span id="eq-n"></span> Notice
+                                    that R is independent of the copy number c.
+                                </p>
+
+                                <p>
+                                    We can now replace R in (2) and get <span id="eq-o"></span>
+                                </p>
+
+                                <p>
+                                    Likewise if sgRNA is the limiting reagent, that is
+                                    <span id="eq-p"></span> for <span id="eq-q"></span>
+                                    Replacing the corresponding R to (2) we end up with the
+                                    following relationship
+                                </p>
+
+                                <div id="eq-r"></div>
+
+                                <p>
+                                    proving that for R, which is scaling proportionally to copy
+                                    number increments, expression of G is independent of the copy
+                                    number variation.
+                                </p>
+
+                            </div>
+                        </q-collapsible>
+                    </q-list>
+
                     <p>
-                        <div id="50665774-46b0-472c-b7b5-74de6a2e2750" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
-                            Figure 9: On the y axis the concentrations of dcas9, sgRNA and by
+                        <div id="368b6c06-cf72-4fbb-b8d0-1f8482a9dfb0" class="plotly-graph-div"></div>
+                        <small class="text-grey-6">
+                            Figure 10: On the y axis the concentrations of dcas9, sgRNA and by
                             extension, the repressor’s are presented. On the x axis we have copy
                             number variation. The concentration concerns the steady state of the
                             system for every copy number.
@@ -750,9 +848,9 @@
                     </p>
 
                     <p>
-                        <div id="368b6c06-cf72-4fbb-b8d0-1f8482a9dfb0" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
-                            Figure 10: Changing the binding affinity of the Rhamnose:RhaS complex
+                        <div id="50665774-46b0-472c-b7b5-74de6a2e2750" class="plotly-graph-div"></div>
+                        <small class="text-grey-6">
+                            Figure 9: Changing the binding affinity of the Rhamnose:RhaS complex
                             with the promoter of sgRNA.
                         </small>
                     </p>
@@ -787,13 +885,13 @@
 
                     <p>
                         <div id="3f8ca558-697e-4898-8633-9666871d9016" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                         </small>
                     </p>
 
                     <p>
                         <div id="20c76c5f-19b8-4395-9d7c-e8d564bfbabb" class="plotly-graph-div"></div>
-                        <small class="text-center text-grey-5">
+                        <small class="text-grey-6">
                             Figure 12: For all three options: A) sfGFP concentration with different
                             copy numbers, B) Dcas9 Concentration with different copy numbers
                         </small>
@@ -855,6 +953,22 @@
                         has been fixed, because it did not create much variance to sgRNA
                         expression, as shown in Fig. 5. The fixated value was small based on other
                         protein degradation rates.
+                    </p>
+
+                    <p>
+                        Discussion
+                        Our analysis aims at giving a better understanding of the system behaviour.
+                        We achieved that by building the subsystems of the model and combining
+                        them, in an effort to characterize the model as best as possible. Methods
+                        such as sensitivity and robustness analysis helped us to analyze and see
+                        connections between parameters and focus on the more important aspects of
+                        the system. By using those, we were also able to detect problems that the
+                        system had.
+                        Finally, we gave feedback for the system design by providing the better
+                        option regarding the dcas9 expression site. Also, by making the system
+                        sgRNA optimized, after the analysis of the repressor that we made, we
+                        provided helpful insights regarding the relative concentrations of sgRNA
+                        and dcas9 that made the system work properly.
                     </p>
 
                     <div class="flex flex-center q-mt-md">
@@ -1471,7 +1585,7 @@
     </igem-layout>
     <%- include('templates/layout-footer'); %>
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
-    <script src="/javascripts/plotly.js"></script>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/plotly.js&action=raw&ctype=text/javascript"></script>
     <script src="/javascripts/katex.js"></script>
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
@@ -15283,7 +15397,7 @@
                                 "autorange": false
                             },
                             "yaxis": {
-                                "title": "Concentration",
+                                "title": "Concentration (nM)",
                                 "ticks": "inside",
                                 "gridwidth": 0,
                                 "showgrid": true,
@@ -15602,7 +15716,7 @@
                             },
                             "yaxis": {
                                 "automargin": false,
-                                "title": "Concentration",
+                                "title": "Concentration (nM)",
                                 "ticks": "inside",
                                 "side": "left",
                                 "range": [
@@ -16406,6 +16520,86 @@
                 {
                     id: 'ten8-2',
                     eq: `10^8`
+                },
+                {
+                    id: 'eq-a',
+                    eq: `G =  \\frac{K'c}{kD + R}`
+                },
+                {
+                    id: 'eq-b',
+                    eq: ` K'= \\frac{aG_{max}b_GkD}{d_{mGdG}}`
+                },
+                {
+                    id: 'eq-c',
+                    eq: `aG_{max}`
+                },
+                {
+                    id: 'eq-d',
+                    eq: `b_G`
+                },
+                {
+                    id: 'eq-e',
+                    eq: `d_G`
+                },
+                {
+                    id: 'eq-f',
+                    eq: `d_{mG}`
+                },
+                {
+                    id: 'eq-g',
+                    eq: `R>>kD`
+                },
+                {
+                    id: 'eq-h',
+                    eq: `G = \\frac{K'c}{[R]}`
+                },
+                {
+                    id: 'eq-i',
+                    eq: `dcas9 = \\frac{cna_d b_d}{d_{md} d_d} =acn`
+                },
+                {
+                    id: 'eq-ii',
+                    eq: `sgRNA= \\frac{c a_s}{d_s} = bc`
+                },
+                {
+                    id: 'eq-iii',
+                    eq: `c \\in [cmin,cmax]`
+                },
+                {
+                    id: 'eq-j',
+                    eq: `K = \\frac{ k_{ds} }{ ( k_{ds}^- + d_d ) }`
+                },
+                {
+                    id: 'eq-k',
+                    eq: `acn<ac`
+                },
+                {
+                    id: 'eq-l',
+                    eq: `c \\in [cmin,cmax]`
+                },
+                {
+                    id: 'eq-m',
+                    eq: `R = K[acn]`
+                },
+                {
+                    id: 'eq-n',
+                    eq: `K = \\frac{k_{ds}}{(k_{ds}^-+ d_d)}`
+                },
+                {
+                    id: 'eq-o',
+                    eq: `G = \\frac{K'c}{K[acn]} `
+                },
+                {
+                    id: 'eq-p',
+                    eq: `acn>ac`
+                },
+                {
+                    id: 'eq-q',
+                    eq: `c \\in [cmin,cmax]`
+                },
+                {
+                    id: 'eq-r',
+                    eq: `G = \\frac{K'c}{K[ac]}   = \\frac{K'}{Ka}`
                 }
             ]
 

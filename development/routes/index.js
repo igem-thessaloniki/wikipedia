@@ -62,4 +62,16 @@ router.get('/design', function(req, res, next) {
   res.render('design');
 })
 
+router.get('/collabs', function(req, res, next) {
+  res.render('collabs');
+})
+
+router.get('/improvement', function(req, res, next) {
+  res.render('improvement');
+})
+
+router.get('/parts_collection', function(req, res, next) {
+  res.render('parts_collection');
+})
+
 module.exports = router;

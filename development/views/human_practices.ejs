@@ -12,7 +12,7 @@
             </q-parallax>
             <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                    <h3>Introduction</h3>
+                    <h4>Introduction</h4>
                     <p>
                         This year our Human Practice efforts were divided into 4 different
                         categories, each of them affecting our project and ourselves in a different
@@ -27,7 +27,7 @@
                                 people of different ages, scientific and cultural backgrounds</li>
                         </ul>
                     </p>
-                    <h3>BIOETHICS</h3>
+                    <h4>Bioethics</h4>
                     <p>
                         One of top priorities during our project’s design and execution was that
                         our project would not raise any ethical concerns. So, we visited the
@@ -45,7 +45,12 @@
                         universal, well-established legislation, is necessary for an emerging field
                         like synthetic biology.
                     </p>
-                    <h3>ACADEMIA</h3>
+                    <div class="row justify-center">
+                        <div class="col-xs-12 col-sm-11 col-md-8 col-lg-6 q-pa-md">
+                            <img class="responsive-image" src="http://2018.igem.org/wiki/images/f/ff/T--Thessaloniki--bioethics-1.jpg" alt="Bioethics meeting photo">
+                        </div>
+                    </div>
+                    <h4>Academia</h4>
                     <p>As we work upon a foundational advance project, providing a genetic toolbox
                         that allows for increased control of gene expression, researchers will be
                         the first to utilize it. Therefore, their feedback would prove of great
@@ -63,14 +68,45 @@
                         </ul>
                     </p>
 
-                    <h3>Survey Results:</h3>
-                    <!-- TODO -->
+                    <h4>Survey Results</h4>
 
-                    <h3>INDUSTRY</h3>
-                    <p>Since our project could be applied beyond the bounds of academic research we
-                        participated into events</p>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <q-list>
+                                <q-collapsible ref="poll" icon="poll" label="Results" opened>
+                                    <div class="row justify-center">
+                                        <div class="col-xs-12">
+                                                <div id="1-graph" class="plotly-graph-div"></div>
+                                                <div id="2-graph" class="plotly-graph-div"></div>
+                                                <div id="3-graph" class="plotly-graph-div"></div>
+                                                <div id="4-graph" class="plotly-graph-div"></div>
+                                                <div id="5-graph" class="plotly-graph-div"></div>
+                                                <div id="6-graph" class="plotly-graph-div"></div>
+                                                <div id="7-graph" class="plotly-graph-div"></div>
+                                                <div id="8-graph" class="plotly-graph-div"></div>
+                                                <div id="9-graph" class="plotly-graph-div"></div>
+                                                <div id="10-graph" class="plotly-graph-div"></div>
+                                                <div id="11-graph" class="plotly-graph-div"></div>
+                                                <div id="12-graph" class="plotly-graph-div"></div>
+                                                <div id="13-graph" class="plotly-graph-div"></div>
+                                                <div id="14-graph" class="plotly-graph-div"></div>
+                                        </div>
+                                    </div>
+                                </q-collapsible>
+                            </q-list>
+                        </div>
+                    </div>
 
-                    <h3>Participation in the 83rd TIF</h3>
+                    <p>
+                        From the survey result it can be deduced that, apart from funding, lack of
+                        reproducibility and interlaboratory variations stand as significant
+                        obstacles in research. On another note, researchers use plasmids with
+                        different copy numbers for different purposes, which shows that control
+                        over the expression level of the gene of interest can be useful.
+                    </p>
+
+                    <h4>Industry</h4>
+                    <h4>Participation in the 83rd TIF</h4>
                     <p>TIF is the most important exhibition event in our country, taking place,
                         annually, in Thessaloniki. Entrepreneurship and innovation are celebrated
                         in TIF, as many leading companies and promising startups display their
@@ -81,7 +117,7 @@
                         allowed to establish a dialog with stakeholders, investigating possible
                         applications of our project beyond the lab.</p>
 
-                    <h3>EDUCATION AND PUBLIC ENGAGEMENT</h3>
+                    <h4>Education And Public Engagement</h4>
 
                     <p>
                         We focused our Public Engagement activities on communicating science across
@@ -108,14 +144,14 @@
             </q-parallax>
             <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                    <h3>Introduction</h3>
+                    <h4>Introduction</h4>
                     <p>Throughout our journey in the iGEM competition we gained valuable feedback
                         on various aspects of our project. We seeked for guidance and feedback from
                         experts of their field and stakeholders. Through their advice and
                         contribution, we improved our project’s design and broadened its possible
                         applications.</p>
 
-                    <h3>Project Design and Modeling</h3>
+                    <h4>Project Design and Modeling</h4>
                     <p>
                         As we came into communication with many scientists to inform them about our
                         project for this year’s iGEM Competition, we got some responses that shaped
@@ -226,7 +262,7 @@
                         unknown parameters or big ranges for their values.
                     </p>
 
-                    <h3>Project Applications - Interaction with Stakeholders</h3>
+                    <h4>Project Applications - Interaction with Stakeholders</h4>
                     <p>As we wanted to expand the purpose of our project and investigate its
                         possible applications outside of the lab we had meetings and discussions
                         with several stakeholders from our country.</p>
@@ -260,23 +296,1564 @@
                     </p>
                 </div>
             </div>
-
-            <div class="row justify-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
-                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                    <small class="row">
-                        [1] Liu, Q., Schumacher, J., Wan, X., Lou, C., & Wang, B. (2018).
-                        Orthogonality and Burdens of Heterologous and Gate Gene Circuits in E.
-                        coli. ACS Synthetic Biology. <a href="https://doi.org/10.1021/acssynbio.7b00328">https://doi.org/10.1021/acssynbio.7b00328</a>
-                    </small>
-                </div>
-            </div>
-
         </q-page>
     </igem-layout>
     <%- include('templates/layout-footer'); %>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/plotly.js&action=raw&ctype=text/javascript"></script>
     <script>
         iGEM.registerHook('loadHook', function ([Vue, store]) {
             store.commit('setPage', 'human-practices')
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [{
+                    id: '1-graph',
+                    name: '1-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Are you familiar with the iGEM foundation?",
+                            "paper_bgcolor": "rgb(255, 255, 255)",
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#DE77AE",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "extendpiecolors": true,
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "sort": false,
+                            "labelssrc": "ygiannou:4:275db9",
+                            "labels": [
+                                "Yes",
+                                "No"
+                            ],
+                            "values": [
+                                "100",
+                                "0"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": []
+                            },
+                            "type": "pie",
+                            "valuessrc": "ygiannou:4:ea28b7"
+                        }]
+                    }
+                },
+                {
+                    id: '2-graph',
+                    name: '2-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "title": "What organisms do you primarily use in your research?",
+                            "autosize": true,
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "piecolorway": [
+                                "#f3cec9",
+                                "#e7a4b6",
+                                "#cd7eaf",
+                                "#a262a9",
+                                "#6f4d96",
+                                "#3d3b72",
+                                "#182844"
+                            ]
+                        },
+                        "data": [{
+                            "labelssrc": "ygiannou:0:b3cd6a",
+                            "labels": [
+                                "E. coli",
+                                "S. cerevisiae",
+                                "C. elegans",
+                                "D. melanogaster",
+                                "M. musculus",
+                                "H. sapiens cell lines",
+                                "Bifidobacterium sp.",
+                                "Ganoderma",
+                                "S. elongatus",
+                                "Chlamydomonas reinhardtii",
+                                "Morganella psychrotolerans",
+                                "HEK-293 cells",
+                                "C. necator",
+                                "P. pastoris",
+                                "Dye yielding plants",
+                                "Synechococcus elongatus PCC 7942"
+                            ],
+                            "values": [
+                                "73.5",
+                                "14.7",
+                                "2.9",
+                                "2.9",
+                                "14.7",
+                                "17.6",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9",
+                                "2.9"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": []
+                            },
+                            "textinfo": "percent",
+                            "type": "pie",
+                            "valuessrc": "ygiannou:0:c18d36"
+                        }]
+                    }
+                },
+                {
+                    id: '3-graph',
+                    name: '3-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How much do the following affect your research?",
+                            "colorway": [
+                                "#8e0152",
+                                "#c51b7d",
+                                "#de77ae",
+                                "#f1b6da",
+                                "#fde0ef",
+                                "#f7f7f7",
+                                "#e6f5d0",
+                                "#b8e186",
+                                "#7fbc41",
+                                "#4d9221",
+                                "#276419"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    3.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    46.43157894736842
+                                ],
+                                "type": "linear",
+                                "autorange": true
+                            }
+                        },
+                        "data": [{
+                                "name": "1 (no effect)",
+                                "ysrc": "ygiannou:6:58043c",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "3.94",
+                                    "5.88",
+                                    "11.76",
+                                    "23.52"
+                                ],
+                                "x": [
+                                    "Funding",
+                                    "Reproducibility",
+                                    "Interlaboratory Variations",
+                                    "Ethical restrictions"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "2",
+                                "ysrc": "ygiannou:6:0bedb7",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "8.82",
+                                    "0",
+                                    "17.64",
+                                    "23.52"
+                                ],
+                                "x": [
+                                    "Funding",
+                                    "Reproducibility",
+                                    "Interlaboratory Variations",
+                                    "Ethical restrictions"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "3",
+                                "ysrc": "ygiannou:6:ac95ba",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "11.76",
+                                    "35.29",
+                                    "23.52",
+                                    "23.52"
+                                ],
+                                "x": [
+                                    "Funding",
+                                    "Reproducibility",
+                                    "Interlaboratory Variations",
+                                    "Ethical restrictions"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "4",
+                                "ysrc": "ygiannou:6:a781c1",
+                                "xsrc": "ygiannou:6:95676b",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "32.35",
+                                    "38.23",
+                                    "32.35",
+                                    "14.7"
+                                ],
+                                "x": [
+                                    "Funding",
+                                    "Reproducibility",
+                                    "Interlaboratory Variations",
+                                    "Ethical restrictions"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "5 (greatly)",
+                                "ysrc": "ygiannou:6:e8b083",
+                                "xsrc": "ygiannou:6:95676b",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "44.11",
+                                    "20.58",
+                                    "14.7",
+                                    "14.7"
+                                ],
+                                "x": [
+                                    "Funding",
+                                    "Reproducibility",
+                                    "Interlaboratory Variations",
+                                    "Ethical restrictions"
+                                ],
+                                "type": "bar",
+                                "marker": {
+                                    "color": "rgb(148, 134, 143)"
+                                },
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '4-graph',
+                    name: '4-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How much do you think the following affect interlaboratrory variations?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    46.43157894736842
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% response"
+                            },
+                            "colorway": [
+                                "#8e0152",
+                                "#c51b7d",
+                                "#de77ae",
+                                "#f1b6da",
+                                "#fde0ef",
+                                "#f7f7f7",
+                                "#e6f5d0",
+                                "#b8e186",
+                                "#7fbc41",
+                                "#4d9221",
+                                "#276419"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    3.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "piecolorway": [
+                                "#f3cec9",
+                                "#e7a4b6",
+                                "#cd7eaf",
+                                "#a262a9",
+                                "#6f4d96",
+                                "#3d3b72",
+                                "#182844"
+                            ]
+                        },
+                        "data": [{
+                                "name": "1 (no effect)",
+                                "ysrc": "ygiannou:0:b3cd6a",
+                                "xsrc": "ygiannou:0:250c9f",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "2.94",
+                                    "8.82",
+                                    "5.88",
+                                    "2.94"
+                                ],
+                                "x": [
+                                    "Instrument callibration",
+                                    "Lab technique",
+                                    "Randomness",
+                                    "Protocol standarization"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "2",
+                                "ysrc": "ygiannou:0:c18d36",
+                                "xsrc": "ygiannou:0:250c9f",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "17.64",
+                                    "14.7",
+                                    "17.64",
+                                    "8.82"
+                                ],
+                                "x": [
+                                    "Instrument callibration",
+                                    "Lab technique",
+                                    "Randomness",
+                                    "Protocol standarization"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "3",
+                                "ysrc": "ygiannou:0:71cd8a",
+                                "xsrc": "ygiannou:0:250c9f",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "17.64",
+                                    "14.7",
+                                    "44.11",
+                                    "14.7"
+                                ],
+                                "x": [
+                                    "Instrument callibration",
+                                    "Lab technique",
+                                    "Randomness",
+                                    "Protocol standarization"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "4",
+                                "ysrc": "ygiannou:0:da0ba2",
+                                "xsrc": "ygiannou:0:250c9f",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "38.23",
+                                    "38.23",
+                                    "20.58",
+                                    "35.29"
+                                ],
+                                "x": [
+                                    "Instrument callibration",
+                                    "Lab technique",
+                                    "Randomness",
+                                    "Protocol standarization"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "5 (greatly)",
+                                "ysrc": "ygiannou:0:911985",
+                                "xsrc": "ygiannou:0:250c9f",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "23.52",
+                                    "23.52",
+                                    "11.76",
+                                    "38.29"
+                                ],
+                                "x": [
+                                    "Instrument callibration",
+                                    "Lab technique",
+                                    "Randomness",
+                                    "Protocol standarization"
+                                ],
+                                "type": "bar",
+                                "marker": {
+                                    "color": "rgb(148, 133, 140)"
+                                },
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '5-graph',
+                    name: '5-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Which of the following parts do you take into consideration when choosing the appropriate plasmid backbone?",
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "labelssrc": "ygiannou:4:275db9",
+                            "labels": [
+                                "Origin of replication",
+                                "Size",
+                                "Copy number",
+                                "Antibiotic resistance gene",
+                                "Restriction enzyme recognition sites",
+                                "Interspecific compatibility",
+                                "Property rights restrictions",
+                                "Golden Gate compatible",
+                                "strength of ppromoter"
+                            ],
+                            "values": [
+                                "50",
+                                "50",
+                                "70.6",
+                                "82.4",
+                                "73.5",
+                                "41.2",
+                                "2.9",
+                                "2.9",
+                                "2.9"
+                            ],
+                            "mode": "markers",
+                            "marker": {
+                                "colors": []
+                            },
+                            "type": "pie",
+                            "valuessrc": "ygiannou:4:ea28b7"
+                        }]
+                    }
+                },
+                {
+                    id: '6-graph',
+                    name: '6-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "What Copy Numbers do you usually use for the following procedures?",
+                            "colorway": [
+                                "#8e0152",
+                                "#c51b7d",
+                                "#de77ae",
+                                "#f1b6da",
+                                "#fde0ef",
+                                "#f7f7f7",
+                                "#e6f5d0",
+                                "#b8e186",
+                                "#7fbc41",
+                                "#4d9221",
+                                "#276419"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    5.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    34.05263157894737
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% responses"
+                            }
+                        },
+                        "data": [{
+                                "name": "1-5",
+                                "ysrc": "ygiannou:6:58043c",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "11.76",
+                                    "14.7",
+                                    "8.82",
+                                    "17.64",
+                                    "29.41",
+                                    "20.58"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "5-10",
+                                "ysrc": "ygiannou:6:0bedb7",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "8.82",
+                                    "23.52",
+                                    "0",
+                                    "5.88",
+                                    "17.64",
+                                    "17.64"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "11-29",
+                                "ysrc": "ygiannou:6:ac95ba",
+                                "xsrc": "ygiannou:6:95676b",
+                                "mode": "markers",
+                                "y": [
+                                    "14.7",
+                                    "20.58",
+                                    "11.76",
+                                    "32.35",
+                                    "17.64",
+                                    "17.64"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "30-100",
+                                "ysrc": "ygiannou:6:a781c1",
+                                "xsrc": "ygiannou:6:95676b",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "29.41",
+                                    "20.58",
+                                    "32.35",
+                                    "17.64",
+                                    "23.52",
+                                    "20.58"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "101-300",
+                                "ysrc": "ygiannou:6:e8b083",
+                                "xsrc": "ygiannou:6:95676b",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "14.7",
+                                    "11.76",
+                                    "14.7",
+                                    "17.64",
+                                    "8.82",
+                                    "8.82"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "marker": {
+                                    "color": "rgb(148, 134, 143)"
+                                },
+                                "orientation": "v"
+                            },
+                            {
+                                "name": ">300",
+                                "ysrc": "ygiannou:6:69ea03",
+                                "xsrc": "ygiannou:6:95676b",
+                                "marker": {
+                                    "color": "rgb(180, 164, 214)"
+                                },
+                                "mode": "markers",
+                                "y": [
+                                    "20.58",
+                                    "8.82",
+                                    "32.35",
+                                    "8.82",
+                                    "2.94",
+                                    "14.7"
+                                ],
+                                "x": [
+                                    "Protein expression",
+                                    "Circuit implementation",
+                                    "Transformation",
+                                    "Metabolic Pathway Introduction",
+                                    "Conjugation",
+                                    "Transfection"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '7-graph',
+                    name: '7-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Would you consider stable protein expression independent of gene copy number useful?",
+                            "paper_bgcolor": "rgb(255, 255, 255)",
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "extendpiecolors": true,
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "sort": false,
+                            "labelssrc": "ygiannou:4:275db9",
+                            "labels": [
+                                "Yes",
+                                "No",
+                                "N/A"
+                            ],
+                            "values": [
+                                "50",
+                                "20.6",
+                                "29.4"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": []
+                            },
+                            "type": "pie",
+                            "valuessrc": "ygiannou:4:ea28b7"
+                        }]
+                    }
+                },
+                {
+                    id: '8-graph',
+                    name: '8-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": false,
+                            "font": {
+                                "family": "Droid Sans, sans-serif"
+                            },
+                            "title": "Do you prefer fine tuning or ''on the fly'' inducibility of gene expression?",
+                            "colorway": [
+                                "#40004b",
+                                "#762a83",
+                                "#9970ab",
+                                "#c2a5cf",
+                                "#e7d4e8",
+                                "#f7f7f7",
+                                "#d9f0d3",
+                                "#a6dba0",
+                                "#5aae61",
+                                "#1b7837",
+                                "#00441b"
+                            ],
+                            "height": 500,
+                            "width": 545,
+                            "titlefont": {
+                                "family": "Droid Serif, serif",
+                                "size": 20
+                            },
+                            "showlegend": false,
+                            "annotations": [{
+                                "y": -0.2,
+                                "x": 1.05,
+                                "ay": 0,
+                                "ax": 0,
+                                "text": "Source: <a href=\"http://www.1010data.com\">1010Data</a>"
+                            }]
+                        },
+                        "data": [{
+                            "labelssrc": "ygiannou:10:cdc89b",
+                            "textposition": "outside",
+                            "domain": {
+                                "y": [
+                                    0,
+                                    1
+                                ],
+                                "x": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            "uid": "0610f3",
+                            "labels": [
+                                "Tuning",
+                                "Inducibility",
+                                "It Depends",
+                                "Others"
+                            ],
+                            "textfont": {
+                                "size": 14
+                            },
+                            "values": [
+                                "17.6",
+                                "23.5",
+                                "58.8",
+                                "0"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": [
+                                    "#fff5f0",
+                                    "#fee0d2",
+                                    "#fcbba1",
+                                    "#fc9272",
+                                    "#fb6a4a",
+                                    "#ef3b2c",
+                                    "#cb181d",
+                                    "#a50f15",
+                                    "#67000d"
+                                ]
+                            },
+                            "textinfo": "label+percent",
+                            "type": "pie",
+                            "valuessrc": "ygiannou:10:cfa65e",
+                            "name": "Market share"
+                        }]
+                    }
+                },
+                {
+                    id: '9-graph',
+                    name: '9-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How safe do you consider conventional GMOs to be to the following groups?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    86.68421052631578
+                                ],
+                                "type": "linear",
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    2.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                                "name": "Safe",
+                                "ysrc": "ygiannou:8:e49209",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "marker": {
+                                    "color": "rgb(222, 119, 174)"
+                                },
+                                "mode": "markers",
+                                "y": [
+                                    "82.35",
+                                    "55.8",
+                                    "79.41"
+                                ],
+                                "x": [
+                                    "Humans for consumption",
+                                    "The environment",
+                                    "Society"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Alarming",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "11.76",
+                                    "35.29",
+                                    "8.82"
+                                ],
+                                "x": [
+                                    "Humans for consumption",
+                                    "The environment",
+                                    "Society"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Dangerous",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "11.76",
+                                    "35.29",
+                                    "8.82"
+                                ],
+                                "x": [
+                                    "Humans for consumption",
+                                    "The environment",
+                                    "Society"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "N/A",
+                                "ysrc": "ygiannou:8:7a9ed0",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "2.94",
+                                    "0",
+                                    "8.82"
+                                ],
+                                "x": [
+                                    "Humans for consumption",
+                                    "The environment",
+                                    "Society"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '10-graph',
+                    name: '10-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How dangerous do you consider the introduction of synthetic genetic circuits to each of the following organisms for research medical and industrial purposes?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    92.87368421052632
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% Response"
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    10.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                                "name": "Safe",
+                                "ysrc": "ygiannou:8:e49209",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "marker": {
+                                    "color": "rgb(222, 119, 174)"
+                                },
+                                "mode": "markers",
+                                "y": [
+                                    "88.23",
+                                    "14.7",
+                                    "82.35",
+                                    "76.47",
+                                    "64.7",
+                                    "50",
+                                    "44.11",
+                                    "50",
+                                    "55.88",
+                                    "17.64",
+                                    "29.41"
+                                ],
+                                "x": [
+                                    "Non-pathogenic bacteria",
+                                    "Pathogenic bacteria",
+                                    "Yeast",
+                                    "Non edible plants",
+                                    "Edible plants",
+                                    "Invertebrates",
+                                    "Vertebrates excluding mammals",
+                                    "Mammals exluding humans",
+                                    "Human cell lines",
+                                    "Human embryos",
+                                    "Adult humans"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Alarming",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "0",
+                                    "44.11",
+                                    "5.88",
+                                    "8.82",
+                                    "20.58",
+                                    "23.52",
+                                    "29.41",
+                                    "26.47",
+                                    "23.52",
+                                    "29.41",
+                                    "17.64"
+                                ],
+                                "x": [
+                                    "Non-pathogenic bacteria",
+                                    "Pathogenic bacteria",
+                                    "Yeast",
+                                    "Non edible plants",
+                                    "Edible plants",
+                                    "Invertebrates",
+                                    "Vertebrates excluding mammals",
+                                    "Mammals exluding humans",
+                                    "Human cell lines",
+                                    "Human embryos",
+                                    "Adult humans"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Dangerous",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "0",
+                                    "44.11",
+                                    "5.88",
+                                    "8.82",
+                                    "20.58",
+                                    "23.52",
+                                    "29.41",
+                                    "26.47",
+                                    "23.52",
+                                    "29.41",
+                                    "17.64"
+                                ],
+                                "x": [
+                                    "Non-pathogenic bacteria",
+                                    "Pathogenic bacteria",
+                                    "Yeast",
+                                    "Non edible plants",
+                                    "Edible plants",
+                                    "Invertebrates",
+                                    "Vertebrates excluding mammals",
+                                    "Mammals exluding humans",
+                                    "Human cell lines",
+                                    "Human embryos",
+                                    "Adult humans"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "N/A",
+                                "ysrc": "ygiannou:8:7a9ed0",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "8.82",
+                                    "8.82",
+                                    "8.82",
+                                    "11.76",
+                                    "8.82",
+                                    "14.7",
+                                    "14.7",
+                                    "11.76",
+                                    "11.76",
+                                    "20.58",
+                                    "20.58"
+                                ],
+                                "x": [
+                                    "Non-pathogenic bacteria",
+                                    "Pathogenic bacteria",
+                                    "Yeast",
+                                    "Non edible plants",
+                                    "Edible plants",
+                                    "Invertebrates",
+                                    "Vertebrates excluding mammals",
+                                    "Mammals exluding humans",
+                                    "Human cell lines",
+                                    "Human embryos",
+                                    "Adult humans"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '11-graph',
+                    name: '11-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How dangerous do you consider each of the following activities of a standard lab?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    55.72631578947368
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% Response"
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    4.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                                "name": "Safe",
+                                "ysrc": "ygiannou:8:e49209",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "marker": {
+                                    "color": "rgb(222, 119, 174)"
+                                },
+                                "mode": "markers",
+                                "y": [
+                                    "20.58",
+                                    "50",
+                                    "29.41",
+                                    "52.94",
+                                    "2.94"
+                                ],
+                                "x": [
+                                    "Usage of potential carcinogens",
+                                    "Work with antibiotic resistant bacterial\nstrains",
+                                    "Usage of environmental\nhazards",
+                                    "GMO crop experimentation",
+                                    "Handling of highly pathogenic organisms"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Alarming",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "41.17",
+                                    "35.29",
+                                    "38.23",
+                                    "41.17",
+                                    "32.35"
+                                ],
+                                "x": [
+                                    "Usage of potential carcinogens",
+                                    "Work with antibiotic resistant bacterial\nstrains",
+                                    "Usage of environmental\nhazards",
+                                    "GMO crop experimentation",
+                                    "Handling of highly pathogenic organisms"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "Dangerous",
+                                "ysrc": "ygiannou:8:df27a1",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "mode": "markers",
+                                "y": [
+                                    "41.17",
+                                    "35.29",
+                                    "38.23",
+                                    "41.17",
+                                    "32.35"
+                                ],
+                                "x": [
+                                    "Usage of potential carcinogens",
+                                    "Work with antibiotic resistant bacterial\nstrains",
+                                    "Usage of environmental\nhazards",
+                                    "GMO crop experimentation",
+                                    "Handling of highly pathogenic organisms"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            },
+                            {
+                                "name": "N/A",
+                                "ysrc": "ygiannou:8:7a9ed0",
+                                "xsrc": "ygiannou:8:ba9584",
+                                "visible": true,
+                                "mode": "markers",
+                                "y": [
+                                    "2.94",
+                                    "2.94",
+                                    "5.88",
+                                    "2.94",
+                                    "2.94"
+                                ],
+                                "x": [
+                                    "Usage of potential carcinogens",
+                                    "Work with antibiotic resistant bacterial\nstrains",
+                                    "Usage of environmental\nhazards",
+                                    "GMO crop experimentation",
+                                    "Handling of highly pathogenic organisms"
+                                ],
+                                "type": "bar",
+                                "orientation": "v"
+                            }
+                        ]
+                    }
+                },
+                {
+                    id: '12-graph',
+                    name: '12-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How would you rate the current legislation regarding animal rights in laboratories in your country?         ",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    40.21052631578948
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% Response"
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    4.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "name": "Safe",
+                            "ysrc": "ygiannou:8:e49209",
+                            "xsrc": "ygiannou:8:ba9584",
+                            "marker": {
+                                "color": "rgb(222, 119, 174)"
+                            },
+                            "mode": "markers",
+                            "y": [
+                                "2.9",
+                                "14.7",
+                                "38.2",
+                                "26.5",
+                                "17.6"
+                            ],
+                            "x": [
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5"
+                            ],
+                            "type": "bar",
+                            "orientation": "v"
+                        }]
+                    }
+                },
+                {
+                    id: '13-graph',
+                    name: '13-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How protective of animal rights do you consider the legislation regarding animal experimentation in your country to be?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    43.36842105263158
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% Response"
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    4.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "name": "Safe",
+                            "ysrc": "ygiannou:8:e49209",
+                            "xsrc": "ygiannou:8:ba9584",
+                            "marker": {
+                                "color": "rgb(222, 119, 174)"
+                            },
+                            "mode": "markers",
+                            "hoverinfo": "x+y",
+                            "y": [
+                                "0",
+                                "20.6",
+                                "41.2",
+                                "20.6",
+                                "17.6"
+                            ],
+                            "x": [
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5"
+                            ],
+                            "type": "bar",
+                            "orientation": "v"
+                        }]
+                    }
+                },
+                {
+                    id: '14-graph',
+                    name: '14-graph',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "How would you describe the effects of animal experimentation legislation on scientific progress in your country?",
+                            "yaxis": {
+                                "range": [
+                                    0,
+                                    65.05263157894737
+                                ],
+                                "type": "linear",
+                                "autorange": true,
+                                "title": "% Response"
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "xaxis": {
+                                "range": [
+                                    -0.5,
+                                    4.5
+                                ],
+                                "type": "category",
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "name": "Safe",
+                            "ysrc": "ygiannou:8:e49209",
+                            "xsrc": "ygiannou:8:ba9584",
+                            "marker": {
+                                "color": "rgb(222, 119, 174)"
+                            },
+                            "mode": "markers",
+                            "hoverinfo": "x+y",
+                            "y": [
+                                "5.9",
+                                "11.8",
+                                "61.8",
+                                "17.6",
+                                "2.9"
+                            ],
+                            "x": [
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5"
+                            ],
+                            "type": "bar",
+                            "orientation": "v"
+                        }]
+                    }
+                },
+            ]
+
+            let instances = []
+            let resizeDebounce = null
+
+            function resizePlots() {
+                instances.forEach((gd) => {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                })
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
+                }
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    self.$refs.poll.show()
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+            setTimeout(() => {
+                self.$refs.poll.hide()
+            }, 100)
+
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                let open = self.$refs.opened
+                self.$refs.poll.show()
+                initializeGraphs()
+                setTimeout(() => {
+                    if (!open) {
+                        self.$refs.poll.hide()
+                    }
+                }, 100)
+            })
         })
     </script>
     <%- include('templates/footer'); %>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
+                <h1 slot="loading">Collaborations</h1>
+                <h1>Collaborations</h1>
+            </q-parallax>
+            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>Interlaboratory Measurement Collaboration</h4>
+                    <p>
+                        In light of this year’s Interlab study, we wanted to further assist this
+                        initiative by conducting an Interlab study of our own by measuring the
+                        constructs we have designed. We wanted to investigate whether stabilized
+                        promoters would reduce variability in interlaboratory fluorescence
+                        measurements exhibited by engineered genetic constructs across different
+                        laboratories. (Jake et al.)
+                    </p>
+                    <p>
+                        Fluctuations observed in plasmid copy number are caused by small changes in
+                        the cell’s environment as well as the cell itself. For example, differences
+                        in growth temperature and growth medium composition affect the copy number
+                        of plasmids. Such variations may be more apparent between labs (e.g.
+                        differences in lab equipment, handling), becoming a major hindrance in
+                        scientific research.
+                    </p>
+                    <p>
+                        The measurement protocol was the same as the one performed for the plate
+                        reader measurements in this years interlab study. There were 4 Test
+                        Devices:
+                        <ul>
+                            <li>TD1 and TD2 contained pupsp1 and pupsp2, two constitutive promoters
+                                .</li>
+                            <li>TD3 and TD4 contained TALEsp1 stabilized pupsp1 and TALEsp2
+                                stabilized pupsp2 promoters.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Due to the fact that the teams that took part in our Interlaboratory
+                        Measurement had, also, participated in the iGEM Interlaboratory
+                        Measurement, so they provided us with the interlab negative control and
+                        calibration data.
+                    </p>
+                    <p class="text-center">
+                        <img class="responsive-image bg-pink-1 q-pa-sm" src="http://2018.igem.org/wiki/images/9/98/T--Thessaloniki--collab-constructs.jpg" alt="The Test Devices  of our Interlaboratory Collaboration">
+                        <small>The Test Devices  of our Interlaboratory Collaboration</small>
+                    </p>
+                    <h5>Participating Teams:</h5>
+                    <p>
+                        <ul>
+                            <li>iGEM Imperial</li>
+                            <li>iGEM Marburg</li>
+                            <li>iGEM Rice</li>
+                            <li>iGEM GIfu</li>
+                        </ul>
+                    </p>
+                    <h5>Results:</h5>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center gutter-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>iGEM Marburg Collaboration</h4>
+                    <p>
+                        We participated in the Interlaboratory Measurement organized by
+                        <a href="http://2018.igem.org/Team:Marburg/Collaborations">
+                            iGEM Marburg
+                        </a>. We measured OD600 of Vibrio natriegens culture, grown at 37
+                        degrees, at various time points. The growth curve was used to examine the
+                        growth of V. natriegens.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>OUC-China</h4>
+                    <p>
+                        We participated in the <a href="http://2018.igem.org/Team:OUC-China/Collaborations">OUC-China</a>
+                        Team Collaboration by translating the
+                        comic book they created in our language in order to use this as an
+                        education material for our Public Engagement Efforts.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>iGEM Athens</h4>
+                    <p>
+                        In collaboration with <a href="http://2018.igem.org/Team:Athens/Collaborations">iGEM
+                            Athens</a>, we organized the first Synthetic Biology
+                        workshop in Greece. The “SynBio Workshop” took place in Athens, in the 5th
+                        of July. Students from various backgrounds, such as medicine, engineering
+                        and mathematics, had the opportunity to participate in a hands-on workshop,
+                        designing creative solutions to real life problems using synthetic biology
+                        principles, with the help of iGEM Thessaloniki and iGEM Athens members. For
+                        more details visit our <a href="">public engagement page</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-center q-mt-lg" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                    <h4>We filled in surveys from</h4>
+                    <p>
+                        <ul>
+                            <li>iGEM Uppsala</li>
+                            <li>iGEM San Diego</li>
+                            <li>iGEM Bordeaux</li>
+                            <li>iGEM Bulgaria</li>
+                            <li>iGEM Imperial</li>
+                        </ul>
+                    </p>
+                    <p>
+                        From our side, we would like to thank all the iGEM Teams who forwarded our
+                        Synthetic Biology Survey to their instructors, advisors and PIs.
+                    </p>
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'collaborations')
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
