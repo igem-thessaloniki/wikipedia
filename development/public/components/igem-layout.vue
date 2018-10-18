@@ -56,8 +56,6 @@
                     <route-item page="collection" link="http://2018.igem.org/Team:Thessaloniki/Part_Collection" icon="collections"
                         label="Part Collection">
                     </route-item>
-                    <route-item page="basic" link="http://2018.igem.org/Team:Thessaloniki/Basic_Part" icon="apps" label="Basic Parts">
-                    </route-item>
                     <route-item page="composite" link="http://2018.igem.org/Team:Thessaloniki/Composite_Part" icon="grid_on"
                         label="Composite Parts">
                     </route-item>
