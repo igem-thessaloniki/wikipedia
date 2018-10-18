@@ -74,4 +74,8 @@ router.get('/parts_collection', function(req, res, next) {
   res.render('parts_collection');
 })
 
+router.get('/results', function(req, res, next) {
+  res.render('results');
+})
+
 module.exports = router;

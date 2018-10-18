@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <%- include('templates/header'); %>
+    <%- include('templates/layout-header'); %>
+    <igem-layout>
+        <q-page class="text-justify">
+            <q-parallax src="http://2018.igem.org/wiki/images/7/79/T--Thessaloniki--parts-vector.jpg">
+                <h1 slot="loading">Result</h1>
+                <h1>Result</h1>
+            </q-parallax>
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h3>Overview </h3>
+                    <p>This year, we aimed to create a toolbox of stabilized promoter systems that
+                        allows for constant gene expression, independent of gene/plasmid copy
+                        number. In order to achieve that, we designed two different stabilization
+                        systems, utilizing TAL Effectors and CRISPR interference. To allow for
+                        control over gene expression, we introduced a theophylline riboswitch that,
+                        when induced with different concentrations of theophylline, achieves
+                        further control over stabilized gene expression at the desired level. This
+                        page contains all the results we obtained, the conclusions we arrived at,
+                        the debugging we performed, as well as our future plans.</p>
+
+                    <p>All measurements were performed in biological replicates (n=3), as a chassis
+                        we used DH5a E. coli cells, maintained at mid-log phase and as reporter, we
+                        measured sfGFP fluorescence intensity (ex. 488nm).</p>
+
+                    <p>
+                        All relevant protocols can be found at <a href="http://2018.igem.org/Team:Thessaloniki/Experiments">our
+                            protocols page</a>
+                    </p>
+
+                    <p>
+                        In order to investigate the function of <b>TALEsp1-Pupsp1 stabilized
+                            promoter</b>
+                        (<a href="http://parts.igem.org/Part:BBa_K2839000">BBa_K2839000</a>) and <b>TALEsp2-Pupsp2
+                            stabilized promoter</b> (
+                        <a href="http://parts.igem.org/Part:BBa_K2839014">BBa_K2839014</a>
+                        ) we
+                        measured their fluorescence, as well as the fluorescence of a <b>constitutive
+                            promoter</b> across 3 plasmids with different Origins of Replication
+                        (psc101,
+                        p15A, pUC19-derived pMB1). For the sfGFP fluorescence intensity
+                        measurements, flow cytometry was our primary measuring method, while a
+                        plate reader was also used.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-1"></div>
+                        <small class="text-grey-5">Figure 1. TALE1sp1 Pupsp1, TALEsp2 Pupsp2, non
+                            stabilized constitutive pT7A1w1 promoter flow cytometry fluorescence
+                            measurements at three different copy numbers. Error bars represent
+                            standard deviation from three biological replicates.</small>
+                    </div>
+
+                    <div class="text-center">
+                        <div id="g-2"></div>
+                        <small class="text-grey-5">Figure 2. TALE1sp1 Pupsp1, TALEsp2 Pupsp2, non
+                            stabilized constitutive pT7A1w1 promoter Plate Reader fluorescence
+                            measurements at three different copy numbers. Error bars represent
+                            standard deviation from three biological replicates.</small>
+                    </div>
+
+                    <p>
+                        The results demonstrate that sfGFP expression level, under the control of
+                        <b>TALEsp1-Pupsp1 stabilized promoter</b> (<a href="http://parts.igem.org/Part:BBa_K2839000"
+                            BBa_K2839000></a>) and <b>TALEsp2-Pupsp2
+                            stabilized promoter</b> (<a href="http://parts.igem.org/Part:BBa_K2839014">BBa_K2839014</a>),
+                        remains stable when expressed from
+                        vectors with different copy number. Whereas, sfGFP expression driven from a
+                        non stabilized constitutive promoter changes when different copy number
+                        plasmids are used for its expression.
+                        Flow cytometry and plate reader data both point towards the decoupling of
+                        sfGFP expression from the plasmid copy number.
+                        Unexpected behaviour was seemingly observed by the constitutive promoter in
+                        the flow cytometry assay. A possible cause might be cross-sample
+                        contamination.
+                    </p>
+
+                    <h3>CRISPRi stabilized promoter</h3>
+                    <p>
+                        In order to investigate the function of the CRISPRi stabilized promoter
+                        (BBa_K2839016), we measured its fluorescence outut, as well as a
+                        constitutive promoter’s fluorescence across 2 plasmids with different
+                        Origins of Replication (psc101, pUC19-derived pMB1). dCas9 driven by the
+                        PTet promoter (BBa_R0040), is expressed from a pSB3K3 vector (p15A ori),
+                        co-transformed in the cells measured.
+                    </p>
+
+                    <p>
+                        In order to prevent any growth rate reduction effects due to the
+                        over-expression of dCas9 and ensure that it is expressed at a high enough
+                        level so as to allow a wide range of copy number independence, the Optical
+                        Density at 600nm of cells expressing dCas9 at different inducer
+                        (doxycycline) concentrations was plotted over the concentration used 6
+                        hours after induction (Figure 3). The desired level of expression was
+                        determined to be achieved between 0.8 and 1.2 ng/ml of inducer. These 2
+                        concentrations are later used to induce the expression of dCas9 in all
+                        experiments.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-3"></div>
+                        <small class="text-grey-5">Figure 3. Cell growth inhibition caused by
+                            different expression levels of dCas9, induced by different
+                            concentrations of doxycycline.</small>
+                    </div>
+
+                    <p>From figure 3, it is clear that cells viability start to significantly
+                        decline after adding doxycycline to a final concentration of 1.2 ng/ml.</p>
+
+                    <h3>Different Copy number Measurements.</h3>
+
+                    <p>
+                        <b>
+                            The dcas9 cassette is located on a standard pSB3K3 vector (p15A ori)
+                            and
+                            it’s expression, driven by tet repressible promoter, is remained
+                            constant
+                            upon the addition of two different concentrations of doxycycline (0.8
+                            ng/ml, 1.2 ng/ml).
+                        </b>
+                        We inserted <b>CRISPRi stabilized J23104 promoter</b> (<a href="http://parts.igem.org/Part:BBa_K2839016">BBa_K2839016</a>)
+                        into plasmids
+                        with different Origins of Replication (psc101, pUC19-derived pMB1). In
+                        order to investigate their stabilization effect on sfGFP expression across
+                        different copy numbers we measured fluorescence, using sfGFP as a marker.
+                        For the sfGFP fluorescence intensity measurements, we conducted flow
+                        cytometry analysis.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-4"></div>
+                        <small class="text-grey-5">
+                            Figure 4. <b>CRISPRi stabilized promoter</b> and non stabilized
+                            constitutive pT7A1w1 promoter flow cytometry fluorescence measurements
+                            at two different copy numbers. Error bars represent standard deviation
+                            from three biological replicates.
+                        </small>
+                    </div>
+
+                    <p>
+                        Stabilization of the <a href="http://parts.igem.org/Part:BBa_J23104">BBa_J23104</a>
+                        Anderson promoter was successful, as seen in Figures 5 and 6.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-5"></div>
+                        <small class="text-grey-5">
+                            Figure 5. Time assays of CRISPRi stabilized promoter at different dCas9
+                            induction levels and copy numbers. Flow cytometry measurements were
+                            performed at 1.5, 3.5 and 7.5 hours post-induction with doxycycline.
+                        </small>
+                    </div>
+
+                    <p>
+                        From figure 4 it is clear that sfGFP expression level, under the control of
+                        <b>CRISPRi stabilized J23104 promoter</b> (<a href="http://parts.igem.org/Part:BBa_K2839016">BBa_K2839016</a>)
+                        with dCas9 levels induced
+                        by 0.8 or 1.2 ng/ml doxycycline, remains stable when expressed from
+                        different vectors, whereas, without dCas9 expression, sfGFP expression
+                        level changes when different copy number plasmids are used for its
+                        expression.
+                    </p>
+
+                    <p>
+                        Higher induction level of dCas9 results in lower stabilization Error and
+                        lower expression. This shows that dCas9 expression partially determines the
+                        repression strength, even at seemingly not saturated levels of expression.
+                        Stabilization Error (E) for 0.8ng/ml Doxycycline induction was calculated
+                        to be approximately 0.275 and for 1.2ng/ml, approximately 0.106.
+                        Stabilization Error was calculated as the relative change in GOI expression
+                        as the copy number increases from a minimum copy number (Cmin) to infinity
+                        (approximately equal to the expression level at the copy number of
+                        pUC19-derived pMB1. This may point towards the ability of CRISPR stabilized
+                        promoters to be tuned to the desired stabilization error-relative strength
+                        level by changing the expression level of dCas9.
+                        Lower expression levels at higher dCas9 expression levels may be explained
+                        as a result of growth rate reduction and cell morphology changes from dCas9
+                        overexpression.
+                    </p>
+
+                    <h3>Riboswitches</h3>
+                    <p>
+                        Aiming to incorporate translational control to our promoters we introduced
+                        two Theophylline responsive Riboswitches which we thoroughly characterized.
+                        As a reporter, we chose sfGFP fused with the first 99 nucleotides of
+                        luciferase to avoid possible changes in the secondary structure of the
+                        aptamer caused by sfGFP.
+                        The riboswitches’ characterization devices, <a href="http://parts.igem.org/Part:BBa_K2839002">BBa_K2839002</a>,
+                        <a href="http://parts.igem.org/Part:BBa_K2839006">BBa_K2839006</a>,
+                        were inserted into pSB1C3 vector. For the sfGFP fluorescence intensity
+                        measurements we used flow cytometry.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-6"></div>
+                        <small class="text-grey-5">
+                            Figure 6. Theo27 response to differential induction by theophylline.
+                            Fluorescence was measured 7 hours after initial induction with
+                            theophylline.
+                        </small>
+                    </div>
+
+                    <p>
+                        The results prove that both riboswitches reacted to theophylline,
+                        facilitating inducible expression of sfGFP. Specifically, sfGFP activity
+                        increased in direct proportion to the concentration of the ligand.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-7"></div>
+                        <small class="text-grey-5">
+                            Figure 7. Behaviour of 12.1 Theophylline riboswitch driving the
+                            expression of the same marker with different N-terminus amino-acid
+                            sequences.
+                        </small>
+                    </div>
+
+                    <p>
+                        12.1 Riboswitch does not respond to theophylline when driving sfGFP
+                        expression, but retains functionality upon fusion of the sfGFP with the
+                        first 99 nucleotides of the luciferase protein, after the start codon.
+                    </p>
+
+                    <div class="text-center">
+                        <div id="g-8"></div>
+                        <small class="text-grey-5">
+                            FIgure 8. TALE stabilized promoter with translational control.
+                            Induction of the TALE stabilized promoter driving sfGFP expression
+                            under the regulation of the 12.1 theophylline riboswitch. (n=3).
+                        </small>
+                    </div>
+
+                    <p>
+                        The proper function of the 12.1 riboswitch under TALE promoter
+                        stabilization proves that the two systems, are, as expected (link design),
+                        orthogonal to each other. The drop in expression at 8mM theophylline, can
+                        be credited to the negative effects on growth that high theophylline
+                        concentrations (>5mM) exhibit.
+                    </p>
+
+                    <p>
+                        From figures 7 and 8, it is evident that the 12.1 theophylline riboswitch
+                        driving sfGFP fusion protein, displays better activation ratio than Theo27
+                        theophylline responsive riboswitch. Therefore, we incorporated it
+                        downstream of the <b>TALEsp1-Pupsp1 stabilized promoter, achieving on the fly
+                            inducibility</b>.
+                    </p>
+
+                    <h3>Conclusions</h3>
+
+                    <p>
+                        <ul>
+                            <li>
+                                <b>We characterized two TALE stabilized promoter variants, and proved their expected function.</b>
+                            </li>
+                            <li>
+                                <b>We designed and successfully implemented a CRISPRi stabilized promoter and confirmed that CRISPRi has the potential to stabilize promoters over a wide range of plasmid copy numbers for different dCas9 expression levels.</b>
+                            </li>
+                            <li>
+                                <b>Stabilized promoters do not interfere with the function of downstream riboswitches.</b>
+                            </li>
+                            <li>
+                                <b>Successfully controlled stabilized gene expression with theophylline responsive aptamer.</b>
+                            </li>
+                            <li>
+                                <b>Restoration of functionality of a non functional part when driving a common reporter (sfGFP), by fusing it with the 99 nucleotides of a different one.</b>
+                            </li>
+                            <li>
+                                <b>We characterized 3 riboswitches.</b>
+                            </li>
+                        </ul>
+                    </p>
+
+                    <h3>What we unfortunately did not achieve</h3>
+
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Even though we successfully cloned a heterologous AND gate and its stabilized variant into different plasmid backbones, we didn’t manage to properly characterize their functionality and behaviour over a range of different copy numbers.</b>
+                            </li>
+                            <li>
+                                <b>We didn’t succeed in plotting a CRISPRisp response function to determine the cooperativity of repression and gain further insight into the behaviour of this system.</b>
+                            </li>
+                            <li>
+                                <b>We did not manage to characterize a RNA-based iFFL stabilized promoter utilizing a transcriptional attenuator, due to time constraints.</b>
+                            </li>
+                        </ul>
+                    </p>
+
+                    <h3>Future Experiments</h3>
+
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Properly stabilize and prove the improvement of the heterologous AND-gate.</b>
+                            </li>
+                            <li>
+                                <b>Better characterize CRISPRi stabilized promoters over more copy numbers and in different E. coli strains.</b>
+                            </li>
+                            <li>
+                                <b>Achieve promoter stabilization via the use of a transcriptional attenuator.</b>
+                            </li>
+                        </ul>
+                    </p>
+
+                </div>
+            </div>
+        </q-page>
+    </igem-layout>
+    <%- include('templates/layout-footer'); %>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/plotly.js&action=raw&ctype=text/javascript"></script>
+    <script>
+        iGEM.registerHook('loadHook', function ([Vue, store]) {
+            store.commit('setPage', 'collection')
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [
+                {
+                    name: '1',
+                    id: 'g-1',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "title": "TALE stabilized Promoters",
+        "colorway": [
+            "#c6def3",
+            "#bfc2f2",
+            "#c3a4e4",
+            "#c986c3",
+            "#c46f8d",
+            "#a86354",
+            "#7a5f2a",
+            "#435718",
+            "#1c4819",
+            "#0b361c"
+        ],
+        "xaxis": {
+            "tickfont": {
+                "size": 12
+            },
+            "automargin": false,
+            "showticklabels": true,
+            "showgrid": false,
+            "range": [
+                -0.5,
+                2.5
+            ],
+            "mirror": false,
+            "showline": true,
+            "type": "category",
+            "autorange": true,
+            "side": "bottom"
+        },
+        "yaxis": {
+            "tickmode": "auto",
+            "title": "Raw sfGFP expression (A.U.)",
+            "tick0": 0,
+            "ticks": "",
+            "dtick": 0,
+            "showgrid": true,
+            "range": [
+                0.7847021554863,
+                2.6685651524606095
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": false
+        }
+    },
+    "data": [
+        {
+            "error_x": {
+                "visible": false,
+                "color": "#444",
+                "value": 10,
+                "thickness": 2,
+                "symmetric": true,
+                "width": 4,
+                "type": "percent"
+            },
+            "name": "psc101",
+            "orientation": "v",
+            "ysrc": "ygiannou:12:f382e2",
+            "xsrc": "ygiannou:12:edc510",
+            "visible": true,
+            "mode": "markers",
+            "y": [
+                "340.19",
+                "35.10",
+                "36.53"
+            ],
+            "x": [
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive PT7A1w1 promoter"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "1.19",
+                    "2.08",
+                    "2.84"
+                ],
+                "arraysrc": "ygiannou:12:39565b",
+                "type": "data"
+            }
+        },
+        {
+            "name": "p15A",
+            "orientation": "v",
+            "ysrc": "ygiannou:12:46985e",
+            "xsrc": "ygiannou:12:edc510",
+            "mode": "markers",
+            "y": [
+                "302.33",
+                "34.10",
+                "236.67"
+            ],
+            "x": [
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive PT7A1w1 promoter"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "69.92",
+                    "1.35",
+                    "36.5"
+                ],
+                "arraysrc": "ygiannou:12:92ec1b",
+                "type": "data"
+            }
+        },
+        {
+            "name": "pUC19-derived pMB1",
+            "orientation": "v",
+            "ysrc": "ygiannou:12:8c8bc5",
+            "xsrc": "ygiannou:12:edc510",
+            "mode": "markers",
+            "y": [
+                "395.67",
+                "54.43",
+                "188.67"
+            ],
+            "x": [
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive PT7A1w1 promoter"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "9.71",
+                    "2.19",
+                    "3.21"
+                ],
+                "arraysrc": "ygiannou:12:8d23c6",
+                "type": "data"
+            }
+        }
+    ]
+}
+                },
+                {
+                    name: '2',
+                    id: 'g-2',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "title": "",
+        "yaxis": {
+            "domain": [
+                0,
+                1
+            ],
+            "title": "uM Fluorescein/OD",
+            "range": [
+                -1.1850034957121058,
+                -0.2184763790608688
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": false
+        },
+        "colorway": [
+            "#c4dff1",
+            "#aab8ea",
+            "#a08fd7",
+            "#9966b3",
+            "#8a437d",
+            "#6b2a47",
+            "#43191e"
+        ],
+        "xaxis": {
+            "showline": true,
+            "range": [
+                -0.5,
+                3.5
+            ],
+            "type": "category",
+            "domain": [
+                0,
+                1
+            ],
+            "autorange": true
+        },
+        "hovermode": "closest"
+    },
+    "data": [
+        {
+            "name": "psc101",
+            "orientation": "v",
+            "ysrc": "ygiannou:14:90efd8",
+            "xsrc": "ygiannou:14:2c950e",
+            "mode": "markers",
+            "y": [
+                "",
+                "0.405",
+                "0.084",
+                "0.112"
+            ],
+            "x": [
+                "",
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive pT7A1w1"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    null,
+                    "0.017",
+                    "0.004",
+                    "0.011"
+                ],
+                "arraysrc": "ygiannou:14:17f4e8",
+                "type": "data"
+            }
+        },
+        {
+            "name": "p15A",
+            "orientation": "v",
+            "ysrc": "ygiannou:14:2d8c88",
+            "xsrc": "ygiannou:14:2c950e",
+            "mode": "markers",
+            "y": [
+                "",
+                "0.519",
+                "0.110",
+                "0.162"
+            ],
+            "x": [
+                "",
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive pT7A1w1"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    null,
+                    "0.022",
+                    "0.006",
+                    "0.007"
+                ],
+                "arraysrc": "ygiannou:14:f7bda8",
+                "type": "data"
+            }
+        },
+        {
+            "name": "pUC19-derived pMB1",
+            "orientation": "v",
+            "ysrc": "ygiannou:14:d0df46",
+            "xsrc": "ygiannou:14:2c950e",
+            "visible": true,
+            "mode": "markers",
+            "y": [
+                "",
+                "0.405",
+                "0.078",
+                "0.484"
+            ],
+            "x": [
+                "",
+                "TALEsp1 Pupsp1",
+                "TALEsp2 Pupsp2",
+                "non stabilized constitutive pT7A1w1"
+            ],
+            "type": "bar",
+            "error_y": {
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    null,
+                    "0.012",
+                    "0.005",
+                    "0.022"
+                ],
+                "arraysrc": "ygiannou:14:440737",
+                "type": "data"
+            }
+        }
+    ]
+}
+                },
+                {
+                    name: '3',
+                    id: 'g-3',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "xaxis": {
+            "showline": false,
+            "range": [
+                -0.8034038733962326,
+                1.0075238560521573
+            ],
+            "type": "log",
+            "autorange": true,
+            "title": "Doxycycline concentration (ng/ml)"
+        },
+        "yaxis": {
+            "showline": true,
+            "range": [
+                -0.005366029055555556,
+                0.19121719205555557
+            ],
+            "type": "linear",
+            "autorange": true,
+            "title": "Cell growth (OD600)"
+        }
+    },
+    "data": [
+        {
+            "uid": "f4a9ab",
+            "ysrc": "alexgia:2:d51390",
+            "xsrc": "alexgia:2:525988",
+            "marker": {
+                "color": "rgb(196, 221, 241)"
+            },
+            "mode": "markers",
+            "y": [
+                "0.158",
+                "0.158666667",
+                "0.119666667",
+                "0.072333333",
+                "0.097333333",
+                "0.077666667",
+                "0.054666667",
+                "0.017666667"
+            ],
+            "x": [
+                "0\r",
+                "0.2",
+                "0.4",
+                "0.6",
+                "0.8",
+                "1.2",
+                "4\r",
+                "8\r"
+            ],
+            "type": "scatter",
+            "error_y": {
+                "arraysrc": "alexgia:2:eac384",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "0.023388031",
+                    "0.015631165",
+                    "0.026633312",
+                    "0.020428738",
+                    "0.011015141",
+                    "0.013576941",
+                    "0.023459184",
+                    "0.013203535"
+                ],
+                "type": "data"
+            }
+        },
+        {
+            "uid": "6c1a75",
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": "",
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "m",
+                            "value": -0.01455233130766426,
+                            "error": 0.004192998616107069
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 0.1221494296095621,
+                            "error": 0.013476430621163476
+                        }
+                    ],
+                    "outputxrange": [],
+                    "regressor": "x",
+                    "inputUid": "f4a9ab",
+                    "correlation": "",
+                    "inputxrange": [],
+                    "type": "fit",
+                    "fitfunction": "m*x + b",
+                    "interpolation": 50
+                }
+            ]
+        }
+    ]
+}
+                },
+                {
+                    name: '4',
+                    id: 'g-4',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "title": "Click to enter Plot title",
+        "plot_bgcolor": "rgb(255, 255, 255)",
+        "yaxis": {
+            "showspikes": false,
+            "range": [
+                0,
+                79.47368421052632
+            ],
+            "type": "linear",
+            "autorange": true,
+            "title": "Raw sfGFP expression(A.U.)"
+        },
+        "colorway": [
+            "#c4dff1",
+            "#aab8ea",
+            "#a08fd7",
+            "#9966b3",
+            "#8a437d",
+            "#6b2a47",
+            "#43191e"
+        ],
+        "xaxis": {
+            "showspikes": false,
+            "range": [
+                -0.5,
+                1.5
+            ],
+            "type": "category",
+            "autorange": true,
+            "title": "Click to enter X axis title"
+        }
+    },
+    "data": [
+        {
+            "name": "control",
+            "ysrc": "alexgia:0:096d90",
+            "xsrc": "alexgia:0:e9cd67",
+            "colorbar": {
+                "y": 0.3533333333333333,
+                "x": 1.02
+            },
+            "visible": true,
+            "mode": "markers",
+            "y": [
+                "42.1",
+                "75.5"
+            ],
+            "x": [
+                "psc101 ori",
+                "pUC19-derived pMB1 ori"
+            ],
+            "type": "bar",
+            "marker": {
+                "autocolorscale": false,
+                "cmin": 1,
+                "colorscale": [
+                    [
+                        0,
+                        "#f1cae9"
+                    ],
+                    [
+                        0.1111111111111111,
+                        "#d5b3ea"
+                    ],
+                    [
+                        0.2222222222222222,
+                        "#a5a5e3"
+                    ],
+                    [
+                        0.3333333333333333,
+                        "#689dbe"
+                    ],
+                    [
+                        0.4444444444444444,
+                        "#3d9080"
+                    ],
+                    [
+                        0.5555555555555556,
+                        "#307d4d"
+                    ],
+                    [
+                        0.6666666666666666,
+                        "#2f682c"
+                    ],
+                    [
+                        0.7777777777777778,
+                        "#315317"
+                    ],
+                    [
+                        0.8888888888888888,
+                        "#323d0c"
+                    ],
+                    [
+                        1,
+                        "#2f2807"
+                    ]
+                ],
+                "reversescale": false,
+                "cauto": false,
+                "cmax": 7
+            },
+            "orientation": "v"
+        },
+        {
+            "name": "0.8 ng/ml dox",
+            "ysrc": "alexgia:0:4659ee",
+            "xsrc": "alexgia:0:4c85cf",
+            "visible": true,
+            "mode": "markers",
+            "y": [
+                "15.6",
+                "24.1"
+            ],
+            "x": [
+                "psc101 ori",
+                "pUC19-derived pMB1 ori"
+            ],
+            "type": "bar",
+            "marker": {
+                "color": "rgb(170, 184, 234)"
+            },
+            "orientation": "v"
+        },
+        {
+            "name": "1.2 ng/ml dox",
+            "ysrc": "alexgia:0:3bcea1",
+            "xsrc": "alexgia:0:162384",
+            "visible": true,
+            "mode": "markers",
+            "y": [
+                "14.1",
+                "56"
+            ],
+            "x": [
+                "psc101 ori",
+                "pUC19-derived pMB1 ori"
+            ],
+            "type": "bar",
+            "marker": {
+                "colorscale": []
+            },
+            "orientation": "v"
+        }
+    ]
+}
+                },
+                {
+                    name: '5',
+                    id: 'g-5',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "yaxis": {
+            "domain": [
+                0,
+                1
+            ],
+            "title": "Raw sfGFP expression (a.u.)",
+            "ticks": "inside",
+            "gridwidth": 1,
+            "range": [
+                1.188588685415698,
+                1.3984615410146877
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": true
+        },
+        "showlegend": false,
+        "xaxis": {
+            "domain": [
+                0.25,
+                0.75
+            ],
+            "title": "Thoephylline Concentration (μM)",
+            "ticks": "inside",
+            "range": [
+                -1.0969100130080565,
+                0.7142021572961424
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": true
+        },
+        "hovermode": "closest",
+        "legend": {
+            "y": 0.43999999999999995,
+            "x": 0.56
+        }
+    },
+    "data": [
+        {
+            "uid": "66e9e6",
+            "ysrc": "grgrus:1:56eea4",
+            "xsrc": "grgrus:1:ee5481",
+            "marker": {
+                "line": {
+                    "width": 1
+                },
+                "symbol": "diamond",
+                "size": 8
+            },
+            "mode": "markers",
+            "y": [
+                "26.3",
+                "27.4",
+                "42.1",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "\r"
+            ],
+            "x": [
+                "1.5",
+                "3.5",
+                "7.5"
+            ],
+            "type": "scatter",
+            "error_y": {
+                "arraysrc": "grgrus:1:107cd3",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "52.8",
+                    "38.9",
+                    "75.5",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "\r"
+                ],
+                "type": "data"
+            }
+        },
+        {
+            "uid": "6a5941",
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": "",
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "m",
+                            "value": 1.643106457765617,
+                            "error": 0.441265808838678
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 15.972294937404582,
+                            "error": 0.7797430298637972
+                        }
+                    ],
+                    "outputxrange": [],
+                    "regressor": "x",
+                    "inputUid": "66e9e6",
+                    "correlation": "",
+                    "inputxrange": [],
+                    "type": "fit",
+                    "fitfunction": "m*x + b",
+                    "interpolation": 50
+                }
+            ]
+        }
+    ]
+}
+                },
+                {
+                    name: '6',
+                    id: 'g-6',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "yaxis": {
+            "domain": [
+                0,
+                1
+            ],
+            "title": "Raw sfGFP expression (a.u.)",
+            "ticks": "inside",
+            "gridwidth": 1,
+            "range": [
+                1.188588685415698,
+                1.3984615410146877
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": true
+        },
+        "showlegend": false,
+        "xaxis": {
+            "domain": [
+                0.25,
+                0.75
+            ],
+            "title": "Thoephylline Concentration (μM)",
+            "ticks": "inside",
+            "range": [
+                -1.0969100130080565,
+                0.7142021572961424
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": true
+        },
+        "hovermode": "closest",
+        "legend": {
+            "y": 0.43999999999999995,
+            "x": 0.56
+        }
+    },
+    "data": [
+        {
+            "uid": "66e9e6",
+            "ysrc": "grgrus:1:56eea4",
+            "xsrc": "grgrus:1:ee5481",
+            "marker": {
+                "line": {
+                    "width": 1
+                },
+                "symbol": "diamond",
+                "size": 8
+            },
+            "mode": "markers",
+            "y": [
+                "17.03333333\r",
+                "16.06666667\r",
+                "16.16666667\r",
+                "18.93333333\r",
+                "18.73333333\r",
+                "16.93333333\r",
+                "17.23333333\r",
+                "23.76666667\r",
+                "\r",
+                "\r"
+            ],
+            "x": [
+                "0",
+                "0.3",
+                "0.5",
+                "0.8",
+                "1.2",
+                "1.6",
+                "2",
+                "4"
+            ],
+            "type": "scatter",
+            "error_y": {
+                "arraysrc": "grgrus:1:107cd3",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "0.73711148\r",
+                    "0.115470054\r",
+                    "0.351188458\r",
+                    "3.043572462\r",
+                    "0.305505046\r",
+                    "0.351188458\r",
+                    "0.472581563\r",
+                    "0.665832812\r",
+                    "\r",
+                    "\r"
+                ],
+                "type": "data"
+            }
+        },
+        {
+            "uid": "6a5941",
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": "",
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "m",
+                            "value": 1.6431064577660925,
+                            "error": 0.4412658088385961
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 15.97229493740407,
+                            "error": 0.7797430298635258
+                        }
+                    ],
+                    "outputxrange": [],
+                    "regressor": "x",
+                    "inputUid": "66e9e6",
+                    "correlation": "",
+                    "inputxrange": [],
+                    "type": "fit",
+                    "fitfunction": "m*x + b",
+                    "interpolation": 50
+                }
+            ]
+        }
+    ]
+}
+                },
+                {
+                    name: '7',
+                    id: 'g-7',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "yaxis": {
+            "domain": [
+                0,
+                1
+            ],
+            "title": "Raw gene expression (a.u.)",
+            "range": [
+                0.8788984011541707,
+                2.1436439605475406
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": true
+        },
+        "colorway": [
+            "#ccdaf6",
+            "#bdc0f1",
+            "#b5a4e5",
+            "#b188d2",
+            "#ab6db5",
+            "#a15591",
+            "#90416a",
+            "#783246",
+            "#5d272a",
+            "#401c15"
+        ],
+        "xaxis": {
+            "tickfont": {
+                "size": 13
+            },
+            "domain": [
+                0.25,
+                0.75
+            ],
+            "title": "Theophylline concentration (mM)",
+            "range": [
+                -0.694000867203745,
+                0.4074375274408365
+            ],
+            "showline": true,
+            "type": "log",
+            "autorange": false
+        },
+        "legend": {
+            "y": 0.689795918367347,
+            "x": 0.6305303420978038
+        }
+    },
+    "data": [
+        {
+            "name": "12.1 + sfGFP",
+            "ysrc": "grgrus:8:5d70a3",
+            "error_y": {
+                "arraysrc": "grgrus:8:cb62e5",
+                "color": "rgb(172, 40, 111)",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "0.419046537\r",
+                    "0.418688428\r",
+                    "0.934094927\r",
+                    "1.007290094\r",
+                    "0.07\r",
+                    "0.30892286\r",
+                    "0.317700068\r",
+                    "\r",
+                    "\r"
+                ],
+                "type": "data"
+            },
+            "xsrc": "grgrus:8:85d9fa",
+            "marker": {
+                "color": "rgb(172, 40, 111)",
+                "line": {
+                    "width": 1
+                },
+                "symbol": "diamond",
+                "size": 8
+            },
+            "mode": "markers",
+            "y": [
+                "9.39",
+                "10.21",
+                "9.686666667",
+                "9.956666667",
+                "9.44",
+                "9.743333333",
+                "9.933333333"
+            ],
+            "x": [
+                "0",
+                "0.3",
+                "0.5",
+                "0.8",
+                "1.2",
+                "1.6",
+                "2"
+            ],
+            "type": "scatter",
+            "uid": "48f8d6"
+        },
+        {
+            "name": "12.1 + fusion sfGFP&nbsp;",
+            "ysrc": "grgrus:8:10257c",
+            "error_y": {
+                "arraysrc": "grgrus:8:578a2d",
+                "color": "rgb(113, 121, 230)",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "0.967241209\r",
+                    "8.330799615\r",
+                    "4.169998668\r",
+                    "0.725718035\r",
+                    "2.163844316\r",
+                    "4.665714189\r",
+                    "9.672412086\r",
+                    "\r",
+                    "\r"
+                ],
+                "type": "data"
+            },
+            "xsrc": "grgrus:8:85d9fa",
+            "marker": {
+                "color": "rgb(113, 121, 230)",
+                "line": {
+                    "width": 1
+                },
+                "symbol": "diamond",
+                "size": 8
+            },
+            "mode": "markers",
+            "y": [
+                "24.36666667\r",
+                "37.96666667\r",
+                "55.46666667\r",
+                "59.2\r",
+                "72.26666667\r",
+                "103.4666667\r",
+                "110.6666667\r"
+            ],
+            "x": [
+                "0",
+                "0.3",
+                "0.5",
+                "0.8",
+                "1.2",
+                "1.6",
+                "2"
+            ],
+            "type": "scatter",
+            "uid": "dba544"
+        },
+        {
+            "showlegend": false,
+            "uid": "32f270",
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": "",
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "m",
+                            "value": 0.04957382014830143,
+                            "error": 0.1802541027476715
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 9.720389650150125,
+                            "error": 0.2041617157283842
+                        }
+                    ],
+                    "outputxrange": [],
+                    "regressor": "x",
+                    "inputUid": "48f8d6",
+                    "correlation": "",
+                    "inputxrange": [],
+                    "type": "fit",
+                    "fitfunction": "m*x + b",
+                    "interpolation": 50
+                }
+            ]
+        },
+        {
+            "uid": "343d44",
+            "showlegend": false,
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": "",
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "m",
+                            "value": 43.59923898210047,
+                            "error": 3.2689992454368935
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 26.337838656365278,
+                            "error": 3.702575888654045
+                        }
+                    ],
+                    "outputxrange": [],
+                    "regressor": "x",
+                    "inputUid": "dba544",
+                    "correlation": "",
+                    "inputxrange": [],
+                    "type": "fit",
+                    "fitfunction": "m*x + b",
+                    "interpolation": 50
+                }
+            ],
+            "name": "<br>"
+        }
+    ]
+}
+                },
+                {
+                    name: '8',
+                    id: 'g-8',
+                    data: {
+    "frames": [],
+    "layout": {
+        "autosize": true,
+        "hoverlabel": {
+            "font": {
+                "size": 13
+            }
+        },
+        "showlegend": false,
+        "xaxis": {
+            "tickfont": {
+                "size": 13
+            },
+            "automargin": false,
+            "domain": [
+                0.2,
+                0.8
+            ],
+            "ticks": "inside",
+            "tickwidth": 1,
+            "tickmode": "auto",
+            "title": "Theophylline Concentration (mM)",
+            "tick0": 0,
+            "ticklen": 5,
+            "gridwidth": 1,
+            "showgrid": true,
+            "range": [
+                -0.5001,
+                1.0207437527440837
+            ],
+            "titlefont": {
+                "size": 15
+            },
+            "mirror": false,
+            "showline": true,
+            "nticks": 0,
+            "linewidth": 1,
+            "type": "log",
+            "autorange": false
+        },
+        "yaxis": {
+            "automargin": false,
+            "domain": [
+                0,
+                1
+            ],
+            "ticks": "inside",
+            "tickwidth": 1,
+            "tickmode": "auto",
+            "title": "Raw sfGFP expression (a.u.)",
+            "tick0": 0,
+            "ticklen": 5,
+            "gridwidth": 1,
+            "dtick": 0,
+            "showgrid": true,
+            "range": [
+                0.6143214360066725,
+                1.3028969698336086
+            ],
+            "titlefont": {
+                "size": 15
+            },
+            "mirror": false,
+            "showline": true,
+            "nticks": 0,
+            "type": "log",
+            "autorange": true,
+            "side": "left"
+        }
+    },
+    "data": [
+        {
+            "name": "<br>",
+            "ysrc": "grgrus:2:a517ba",
+            "error_y": {
+                "arraysrc": "grgrus:2:03cf6c",
+                "color": "rgb(25, 92, 251)",
+                "thickness": 1,
+                "symmetric": true,
+                "visible": true,
+                "array": [
+                    "0.386\r",
+                    "0.087\r",
+                    "0.313\r",
+                    "0.529\r",
+                    "0.503\r"
+                ],
+                "type": "data"
+            },
+            "xsrc": "grgrus:2:660a92",
+            "marker": {
+                "color": "rgb(25, 92, 251)",
+                "opacity": 1,
+                "line": {
+                    "width": 1
+                },
+                "symbol": "diamond",
+                "size": 8
+            },
+            "mode": "markers",
+            "y": [
+                "4.84\r",
+                "6.48\r",
+                "8.39\r",
+                "16.50\r",
+                "6.90\r"
+            ],
+            "x": [
+                "0",
+                "0.5\r",
+                "1\r",
+                "2\r",
+                "8\r"
+            ],
+            "type": "scatter",
+            "uid": "90ebde"
+        },
+        {
+            "uid": "6f0557",
+            "line": {
+                "width": 3
+            },
+            "transforms": [
+                {
+                    "regressand": "y",
+                    "rms": 0.33180498105746525,
+                    "parameters": [
+                        {
+                            "hold": false,
+                            "name": "a",
+                            "value": 2.1218181818181843,
+                            "error": 0.37432650263855816
+                        },
+                        {
+                            "hold": false,
+                            "name": "b",
+                            "value": 1.5230909090909053,
+                            "error": 0.8071923792922666
+                        },
+                        {
+                            "hold": false,
+                            "name": "c",
+                            "value": 4.934909090909091,
+                            "error": 0.31794151964992895
+                        }
+                    ],
+                    "outputxrange": [
+                        null,
+                        2.2
+                    ],
+                    "regressor": "x",
+                    "ymid": 11.993636363636128,
+                    "xmid": 1.500000000000001,
+                    "inputUid": "90ebde",
+                    "correlation": 0.9993139632728382,
+                    "inputxrange": [
+                        null,
+                        2.2
+                    ],
+                    "type": "fit",
+                    "fitfunction": "a*x^2 + b*x + c",
+                    "interpolation": 100
+                }
+            ],
+            "name": "<br>"
+        }
+    ]
+}
+                },
+            ]
+            let instances = []
+            let resizeDebounce = null
+
+            function resizePlots() {
+                instances.forEach((gd) => {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                })
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
+                }
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                initializeGraphs()
+            })
+        })
+    </script>
+    <%- include('templates/footer'); %>
+</body>
+
+</html>
