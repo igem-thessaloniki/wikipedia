@@ -71,7 +71,7 @@
                         </route-item>
                         <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9 - sgRNA">
                         </route-item>
-                        <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/NAR" label="Attenuation iFFL">
+                        <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/iffl" label="Attenuation iFFL">
                         </route-item>
                     </q-collapsible>
                 </q-collapsible>
