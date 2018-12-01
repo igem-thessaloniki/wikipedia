@@ -7,8 +7,8 @@
     <igem-layout>
         <q-page class="text-justify">
             <q-parallax src="http://2018.igem.org/wiki/images/thumb/e/eb/T--Thessaloniki--lab--photo-3.jpeg/800px-T--Thessaloniki--lab--photo-3.jpeg">
-                <h1 slot="loading">Public Engament</h1>
-                <h1>Public Engament</h1>
+                <h1 slot="loading">Public Engagement</h1>
+                <h1>Public Engagement</h1>
             </q-parallax>
             <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 round-border-10 q-pa-md">
@@ -58,12 +58,208 @@
             <div class="flex flex-center q-mb-md">
                 <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
                     <q-list separator no-border :dark="nightMode">
-                        <q-collapsible icon="airport_shuttle" label="Synbalcans">
-                            <div :class="rM('text-dark', 'text-light')">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quo
-                                temporibus in quibusdam illo delectus pariatur ducimus velit maxime
-                                sed eveniet et fuga sunt reiciendis officiis consequatur, libero
-                                odit? Doloribus!
+                        <q-collapsible ref="colaps" icon="airport_shuttle" label="SynBalkans Tour" opened>
+                            <div class="row justify-center" :class="rM('text-dark', 'text-light')">
+                                <div class="col-xs-12 col-sm-11 col-md-10">
+
+
+                                    <img class="responsive-image" style="height: 300px" src="http://2018.igem.org/wiki/images/6/62/T--Thessaloniki--synbalcans-logo.svg"
+                                        alt="SynBalkans Logo Tour">
+                                    <h4>Motivation</h4>
+
+                                    <p>
+                                        The highlight of our public engagement efforts was the
+                                        organization of the <b>“SynBalkans Tour”</b>, a series of
+                                        events
+                                        dedicated to science communication across the Balkan
+                                        region.
+                                        Through this tour, our goal was to form <b>a lasting
+                                            scientific</b>
+                                        cooperation between institutes in the Balkan Peninsula and
+                                        provide students with the opportunity to get acquainted
+                                        with a
+                                        novel scientific branch, synthetic biology.
+                                    </p>
+
+                                    <h4>Before the event</h4>
+
+                                    <p>
+                                        Before going on tour, we wanted to make sure that we would
+                                        be
+                                        able to engage people with different cultural and
+                                        scientific
+                                        backgrounds. We came in contact with professors and
+                                        students
+                                        from the <b>Department of Balkan Slavic and Oriental
+                                            Studies,
+                                            University of Macedonia</b>. We learned about the <b>cultural
+                                            differences</b> between Balkan countries, so that we
+                                        could
+                                        differentiate our approach in each country, always taking
+                                        into
+                                        consideration their respective cultural and religious
+                                        beliefs.
+                                    </p>
+
+                                    <p>
+                                        Apart from cultural differences we, also, had to take into
+                                        account the <b>different scientific</b> background of the
+                                        people going
+                                        to attend our event, as synthetic biology is characterized
+                                        by
+                                        interdisciplinarity. For this reason, we chose to
+                                        differentiate
+                                        the content of our presentation, discussing about synthetic
+                                        biology applications that are closer to the participants’
+                                        academic interests.
+                                    </p>
+
+                                    <p>
+                                        Along with our project, we used exemples from last year’s
+                                        iGEM
+                                        Competition in order to give a good example of synthetic
+                                        biological
+                                        circuit utilization. Acknowledgments to iGEM teams <b>Exeter
+                                            2017,
+                                            TUDelft 2017, ETH Zurich 2017, IONIS PARIS 2017</b>,
+                                        for
+                                        their
+                                        inspiring work.
+                                    </p>
+
+                                    <h4>Our Events:</h4>
+
+                                    <p>
+                                        In 5 days, we visited 4 universities in 3 different
+                                        countries:
+                                        <b>University of Belgrade</b> and <b>University of Novi Sad</b>
+                                        (Serbia),
+                                        <b>University of Sarajevo</b> (Bosnia and Herzegovina), <b>University
+                                            of
+                                            Split</b> (Croatia).
+                                    </p>
+
+                                    <p>
+                                        Students with an academic background in agriculture were
+                                        especially eager to know how genetically engineered
+                                        organisms
+                                        can be used for environmental purposes without posing
+                                        serious
+                                        threats to ecosystems. We discussed about the
+                                        implementation of
+                                        kill switches in genetically modified organisms and the
+                                        safety
+                                        checkpoints that such engineered systems should feature.
+                                    </p>
+
+                                    <p>
+                                        <h6>University of Belgrade - Faculty of Biology</h6>
+                                        <q-carousel style="height: 460px" infinite autoplay
+                                            quick-nav>
+                                            <q-carousel-slide v-for="(image, index) in ['http://2018.igem.org/wiki/images/0/02/T--Thessaloniki--synbalcans-beograd-1.jpg', 'http://2018.igem.org/wiki/images/a/a9/T--Thessaloniki--synbalcans-beograd-2.jpg', 'http://2018.igem.org/wiki/images/e/e5/T--Thessaloniki--synbalcans-beograd-3.jpg']"
+                                                :key="index">
+                                                <div class="q-pa-md">
+                                                    <img class="responsive-image" :src="image" :alt="'Belgrade-' + index">
+                                                </div>
+                                            </q-carousel-slide>
+                                        </q-carousel>
+
+                                        <h6>University of Novi Sad - School of Agriculture</h6>
+                                        <q-carousel style="height: 460px" infinite autoplay
+                                            quick-nav>
+                                            <q-carousel-slide v-for="(image, index) in ['http://2018.igem.org/wiki/images/8/85/T--Thessaloniki--synbalcans-novi-sad-1.jpg', 'http://2018.igem.org/wiki/images/5/5d/T--Thessaloniki--synbalcans-novi-sad-2.jpg']"
+                                                :key="index">
+                                                <div class="q-pa-md">
+                                                    <img class="responsive-image" :src="image" :alt="'Novi Sad - ' + index">
+                                                </div>
+                                            </q-carousel-slide>
+                                        </q-carousel>
+
+                                        <h6>University of Sarajevo - Faculty of Agriculture and
+                                            Food
+                                            Sciences</h6>
+                                        <q-carousel style="height: 460px" infinite autoplay
+                                            quick-nav>
+                                            <q-carousel-slide v-for="(image, index) in ['http://2018.igem.org/wiki/images/8/88/T--Thessaloniki--synbalcans-sar-1.jpg', 'http://2018.igem.org/wiki/images/e/e2/T--Thessaloniki--synbalcans-sar-2.jpg', 'http://2018.igem.org/wiki/images/f/f3/T--Thessaloniki--synbalcans-sar-3.jpg']"
+                                                :key="index">
+                                                <div class="q-pa-md">
+                                                    <img class="responsive-image" :src="image" :alt="'Belgrade-' + index">
+                                                </div>
+                                            </q-carousel-slide>
+                                        </q-carousel>
+
+                                        <h6>University of Split - School of Biology and Chemistry</h6>
+                                        <q-carousel style="height: 460px" infinite autoplay
+                                            quick-nav>
+                                            <q-carousel-slide v-for="(image, index) in ['http://2018.igem.org/wiki/images/2/2f/T--Thessaloniki--synbalcans-sil-1.jpg', 'http://2018.igem.org/wiki/images/0/0e/T--Thessaloniki--synbalcans-sil-3.jpg']"
+                                                :key="index">
+                                                <div class="q-pa-md">
+                                                    <img class="responsive-image" :src="image" :alt="'Belgrade-' + index">
+                                                </div>
+                                            </q-carousel-slide>
+                                        </q-carousel>
+                                    </p>
+                                    <p>
+                                        We prepared a short presentation that introduced the
+                                        audience in the principles and basic tools of Synthetic
+                                        Biology. First, we <b>introduced our team</b> to the
+                                        audience.
+                                        Next, we explained the <b>principles of synthetic biology</b>
+                                        and
+                                        mentioned some of its <b>applications</b> (i.e. quorum
+                                        sensing,
+                                        metabolic engineering, biosensors). Then, we presented our
+                                        project, <b>Galene</b>, as well as projects of previous
+                                        years’
+                                        iGEM Teams to demonstrate the use of synthetic biology. The
+                                        projects used in each presentation were selected depending
+                                        on the participants <b>field of study</b>. Since <b>bioethics</b>
+                                        and
+                                        <b>security</b> have to be seriously considered during a
+                                        project’s
+                                        design and execution, we highlighted the efforts of the
+                                        aforementioned projects to address these issues.
+                                    </p>
+                                    <p>
+                                        After we wrapped up our presentation, we discussed with
+                                        students and professors about synthetic biology and the
+                                        iGEM Competition. Students showed interest in learning more
+                                        about the engineering principles of synthetic biology. We
+                                        were happy to elaborate on the use of logic gates and
+                                        explain them terms such as orthogonality and robustness.
+                                    </p>
+                                    <h4>Survey</h4>
+                                    <p>
+                                        Finally, students were asked to complete a short
+                                        questionnaire. Here are the results:
+                                        <div id="sb-1-g" class="plotly-graph-div"></div>
+                                        <div id="sb-2-g" class="plotly-graph-div"></div>
+                                    </p>
+
+                                    <h4>Reception</h4>
+                                    <p>
+                                            All professors welcomed the idea of organizing a second visit in the balkan region, where we would have the opportunity to interact with students through synthetic biology workshops.
+                                    </p>
+                                    <p>
+                                            Dr Jasna Puizina, University of Split, told us that she was impressed that undergraduate students were involved in such a contemporary branch of science. She wanted to learn more about the iGEM Competition and shared with us her interest about the formation of an interbalkan iGEM team. She concluded that she will initiate discussions so that synthetic biology courses will be added in the faculty’s curriculum.
+                                    </p>
+                                    <p>
+                                            We also had a discussion with Dr Alen Mujcinovic, University of Sarajevo, as he was interested in the entrepreneurship side of iGEM and synthetic biology’s applications in agriculture. He thought that involvement in the iGEM Competition would be a great opportunity for students of the faculty.
+                                    </p>
+
+                                    <h4>Conclusion</h4>
+
+                                    <p>
+                                            As this was our first time presenting in front of such a large audience in English, we believe that this experience will prove very useful to us. We managed to communicate our work to people of other nationalities and interacted with numerous researchers in the Balkan region receiving their comments about our work.
+                                    </p>
+                                    <p>
+                                            Students participating in our event got to know a lot about Synthetic Biology and, through examples & discussion, understood how synthetic biological circuits can be used in real-world applications.
+                                    </p>
+                                    <p>
+                                            We have already made plans to continue our activities in the Balkan region, with the organization of interactive workshops and presentations.
+                                    </p>
+
+                                </div>
                             </div>
                         </q-collapsible>
 
@@ -397,10 +593,188 @@
     </igem-layout>
     <%- include('templates/layout-footer'); %>
     <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/tweenlite.js&action=raw&ctype=text/javascript"></script>
+    <script src="http://2018.igem.org/wiki/index.php?title=Template:Thessaloniki/plotly.js&action=raw&ctype=text/javascript"></script>
     <script>
         iGEM.registerHook('loadHook', async function ([Vue, store]) {
             store.commit('setPage', 'public-engagement')
             await iGEM.loadComponent(iGEM.links.EventCard)
+        })
+        iGEM.registerHook('loadedHook', function ([self]) {
+            let graphs = [{
+                    name: '???',
+                    id: 'sb-1-g',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Have you ever heard about Synthetic Biology before our presentation?",
+                            "paper_bgcolor": "rgb(255, 255, 255)",
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "extendpiecolors": true,
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "sort": false,
+                            "labelssrc": "ygiannou:4:275db9",
+                            "labels": [
+                                "Yes",
+                                "No"
+                            ],
+                            "values": [
+                                "21",
+                                "79"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": []
+                            },
+                            "type": "pie",
+                            "valuessrc": "ygiannou:4:ea28b7"
+                        }]
+                    }
+                },
+                {
+                    name: '!!!',
+                    id: 'sb-2-g',
+                    data: {
+                        "frames": [],
+                        "layout": {
+                            "autosize": true,
+                            "title": "Would you be interested in participating in a future iGEM Team?",
+                            "paper_bgcolor": "rgb(255, 255, 255)",
+                            "yaxis": {
+                                "range": [
+                                    -1,
+                                    4
+                                ],
+                                "autorange": true
+                            },
+                            "colorway": [
+                                "#fff7f3",
+                                "#fde0dd",
+                                "#fcc5c0",
+                                "#fa9fb5",
+                                "#f768a1",
+                                "#dd3497",
+                                "#ae017e",
+                                "#7a0177",
+                                "#49006a"
+                            ],
+                            "extendpiecolors": true,
+                            "xaxis": {
+                                "range": [
+                                    -1,
+                                    6
+                                ],
+                                "autorange": true
+                            },
+                            "hovermode": "closest"
+                        },
+                        "data": [{
+                            "sort": false,
+                            "labelssrc": "ygiannou:4:275db9",
+                            "labels": [
+                                "Yes",
+                                "No",
+                                "N/A"
+                            ],
+                            "values": [
+                                "57",
+                                "11",
+                                "32"
+                            ],
+                            "mode": "markers",
+                            "hoverinfo": "label+percent",
+                            "marker": {
+                                "colors": []
+                            },
+                            "type": "pie",
+                            "valuessrc": "ygiannou:4:ea28b7"
+                        }]
+                    }
+                }
+            ]
+            let instances = []
+            let resizeDebounce = null
+
+            function resizePlots() {
+                instances.forEach((gd) => {
+                    let bb = gd.getBoundingClientRect()
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    })
+                })
+            }
+
+            window.addEventListener('resize', function () {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce)
+                }
+                resizeDebounce = window.setTimeout(resizePlots, 100)
+            })
+
+            function initializeGraphs() {
+                graphs.forEach((graph) => {
+                    let gd = document.getElementById(graph.id)
+                    instances.push(gd)
+                    let color = "#fff"
+                    if (self.nightMode) {
+                        color = '#171617'
+                    }
+                    Plotly.plot(gd, {
+                        data: graph.data.data,
+                        layout: {
+                            ...graph.data.layout,
+                            autosize: true,
+                            paper_bgcolor: color,
+                            plot_bgcolor: color
+                        },
+                        frames: graph.data.frames,
+                        responsive: true
+                    });
+                    setTimeout(resizePlots, 100)
+                })
+            }
+
+            initializeGraphs()
+            setTimeout(() => {
+                self.$refs.colaps.hide()
+            }, 100)
+
+            iGEM.registerHook('nightModeHook', ([mode]) => {
+                instances.forEach((gd) => {
+                    Plotly.purge(gd)
+                })
+                instances = []
+                initializeGraphs()
+            })
+
         })
     </script>
     <%- include('templates/footer'); %>

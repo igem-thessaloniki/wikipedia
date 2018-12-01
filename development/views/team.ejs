@@ -24,8 +24,8 @@
         <q-page padding>
             <div class="row justify-center">
                 <div class="col-md-6 col-lg-4">
-                        <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
-                        <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/e5/T--Thessaloniki--logo-light.svg">
+                    <img v-if="!nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/1/1e/T--Thessaloniki--logo-dark.svg">
+                    <img v-if="nightMode" class="responsive-image" src="http://2018.igem.org/wiki/images/e/e5/T--Thessaloniki--logo-light.svg">
                 </div>
             </div>
             <div class="row justify-center">
@@ -37,15 +37,7 @@
                         <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/1/1c/T--Thessaloniki--team-photo-1.jpeg/800px-T--Thessaloniki--team-photo-1.jpeg"
                             alt="team photo">
                     </q-carousel-slide>
-                    <q-carousel-slide>
-                        <img class="responsive-image" src="http://2018.igem.org/wiki/images/thumb/1/1c/T--Thessaloniki--team-photo-1.jpeg/800px-T--Thessaloniki--team-photo-1.jpeg"
-                            alt="team photo">
-                    </q-carousel-slide>
                 </q-carousel>
-            </div>
-            <div class="row justify-center">
-                <p class="col-md-6 text-center" :class="rM('text-dark', 'text-white')">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, facilis. Aut vitae minus, nisi ipsum non
-                    libero, eveniet quaerat delectus tempore magni sapiente ex obcaecati tenetur eligendi et beatae odit.</p>
             </div>
             <div class="row justify-center">
                 <h4 :class="rM('text-dark', 'text-light')">Team Members</h4>
@@ -58,8 +50,47 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-center">
-                <h4 :class="rM('text-dark', 'text-light')">Instructors & Advisors</h4>
+            <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
+                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
+                    <h3>Primary Investigators</h3>
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Professor George Mosialos</b> (Department of Genetics,
+                                Development and Molecular Biology, School of Biology, AUTh)
+                            </li>
+                            <li>
+                                <b>Associate Professor Ioannis Vizirianakis</b> (Department of
+                                Pharmacognosy/Pharmacology, School of Pharmacy, AUTh) for giving us
+                                permission to work in their laboratory and for their valuable
+                                advice on project related issues.
+                            </li>
+                        </ul>
+                    </p>
+                    <h3>Advisors</h3>
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Androulla Miliotou</b>, (AUTh), for teaching us some basic
+                                laboratory techniques (e.g. agarose gel electrophoresis, PCR
+                                reaction, plating). She also provided us with the INVαF’ and C43
+                                (DE3) E. Coli strains.
+                            </li>
+                            <li>
+                                <b>Stefanos Tsiftsoglou</b>, PhD, for his advice on our
+                                presentation and wiki structure.
+                            </li>
+                            <li>
+                                <b>Maxim Gavriilidis</b>, (AUTh) for his advice on laboratory
+                                procedures.
+                            </li>
+                            <li>
+                                <b>Ilias Dimitriadis</b>, for his help on the sensitivity analysis
+                                of our models.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
             </div>
         </q-page>
     </igem-layout>
@@ -79,7 +110,7 @@
                     role: 'Team Leader and Wet Lab',
                     quote: '',
                     department: 'Department of Pharmacy - AUTH',
-                    body: '1',
+                    body: 'Team Leader and Wet Lab - Department of Pharmacy - AUTH',
                 },
                 {
                     fullname: 'Yvonni Xesfiggi',
@@ -87,7 +118,7 @@
                     role: 'Dry Lab and Human Practices',
                     quote: '',
                     department: 'Department of Chemical Engineers - AUTH',
-                    body: '2',
+                    body: 'Dry Lab and Human Practices - Department of Chemical Engineers - AUTH',
                 },
                 {
                     fullname: 'Pantelis Kiriakidis',
@@ -95,7 +126,7 @@
                     role: 'Dry Lab and Social Media',
                     quote: '',
                     department: 'Department of Computer Science - AUTH',
-                    body: '3',
+                    body: 'Dry Lab and Social Media - Department of Computer Science - AUTH',
                 },
                 {
                     fullname: 'Panagiotis Karatakis',
@@ -103,7 +134,7 @@
                     role: 'Dry Lab and Web Developer',
                     quote: '',
                     department: 'Department of Computer Science - AUTH',
-                    body: '4',
+                    body: 'Dry Lab and Web Developer - Department of Computer Science - AUTH',
                 },
                 {
                     fullname: 'Alexandros Giannopoulos Dimitriou',
@@ -111,7 +142,7 @@
                     role: 'Wet Lab',
                     quote: '',
                     department: 'Department of Pharmacy - AUTH',
-                    body: '5',
+                    body: 'Wet Lab - Department of Pharmacy - AUTH',
                 },
                 {
                     fullname: 'Grigorios Kyrpizidis',
@@ -119,7 +150,7 @@
                     role: 'Wet Lab',
                     quote: '',
                     department: 'Department of Biology - AUTH',
-                    body: '6',
+                    body: 'Wet Lab - Department of Biology - AUTH',
                 },
                 {
                     fullname: 'Ioannis Alexopoulos',
@@ -127,7 +158,7 @@
                     role: 'Wet Lab',
                     quote: '',
                     department: 'Department of Biology - AUTH',
-                    body: '7',
+                    body: 'Wet Lab - Department of Biology - AUTH',
                 }
             ]
         }

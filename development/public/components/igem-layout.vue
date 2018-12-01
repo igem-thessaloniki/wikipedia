@@ -56,8 +56,6 @@
                     <route-item page="collection" link="http://2018.igem.org/Team:Thessaloniki/Part_Collection" icon="collections"
                         label="Part Collection">
                     </route-item>
-                    <route-item page="basic" link="http://2018.igem.org/Team:Thessaloniki/Basic_Part" icon="apps" label="Basic Parts">
-                    </route-item>
                     <route-item page="composite" link="http://2018.igem.org/Team:Thessaloniki/Composite_Part" icon="grid_on"
                         label="Composite Parts">
                     </route-item>
@@ -66,12 +64,12 @@
                 <q-collapsible icon="memory" label="Dry Lab" :opened="['model', 'model-tale', 'model-nar', 'model-dcas9'].includes(page)">
                     <route-item page="model" link="http://2018.igem.org/Team:Thessaloniki/Model" icon="poll" label="Model">
                     </route-item>
-                    <q-collapsible icon="dashboard" label="Sub-Systems" :opened="['model-tale', 'model-nar', 'model-dcas9'].includes(page)">
+                    <q-collapsible icon="dashboard" label="Systems" :opened="['model-tale', 'model-nar', 'model-dcas9'].includes(page)">
                         <route-item page="model-tale" link="http://2018.igem.org/Team:Thessaloniki/Model/Tale" label="TALE">
                         </route-item>
-                        <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9 and sgRNA">
+                        <route-item page="model-dcas9" link="http://2018.igem.org/Team:Thessaloniki/Model/dCas9" label="dCas9 - sgRNA">
                         </route-item>
-                        <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/NAR" label="NAR">
+                        <route-item page="model-nar" link="http://2018.igem.org/Team:Thessaloniki/Model/iffl" label="Attenuation iFFL">
                         </route-item>
                     </q-collapsible>
                 </q-collapsible>
@@ -87,16 +85,6 @@
                 </q-collapsible>
 
                 <q-collapsible icon="star" label="Awards" :opened="['applied', 'hardware', 'entrepreneurship', 'measurement', 'model', 'plant', 'software'].includes(page)">
-                    <route-item page="Applied_Design" link="http://2018.igem.org/Team:Thessaloniki/Applied_Design" icon="settings_applications"
-                        label="Applied Design">
-                    </route-item>
-
-                    <route-item page="Entrepreneurship" link="http://2018.igem.org/Team:Thessaloniki/Entrepreneurship" icon="monetization_on"
-                        label="Entrepreneurship">
-                    </route-item>
-
-                    <route-item page="Hardware" link="http://2018.igem.org/Team:Thessaloniki/Hardware" icon="memory" label="Hardware">
-                    </route-item>
 
                     <route-item page="Measurement" link="http://2018.igem.org/Team:Thessaloniki/Measurement" icon="bar_chart"
                         label="Measurement">
@@ -105,11 +93,6 @@
                     <route-item page="model" link="http://2018.igem.org/Team:Thessaloniki/Model" icon="poll" label="Model">
                     </route-item>
 
-                    <route-item page="Plant" link="http://2018.igem.org/Team:Thessaloniki/Plant" icon="edit" label="Plant">
-                    </route-item>
-
-                    <route-item page="Software" link="http://2018.igem.org/Team:Thessaloniki/Software" icon="code" label="Software">
-                    </route-item>
                 </q-collapsible>
 
                 <q-collapsible icon="people_outline" label="Team" :opened="['team', 'collaborations', 'attributions'].includes(page)">

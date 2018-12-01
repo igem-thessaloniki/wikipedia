@@ -2,37 +2,39 @@
     <div>
         <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
             <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                <q-carousel style="height: 360px" infinite autoplay quick-nav>
-                    <q-carousel-slide>
+                <h3>Our Golden Sponsors</h3>
+                <div class="row gutter-xs">
+                    <div class="col">
                         <a href="https://www.auth.gr/en">
                             <div class="row justify-center">
                                 <img class="responsive-image bg-white" src="http://2018.igem.org/wiki/images/e/e1/T--Thessaloniki--sponsos-auth.png"
                                     alt="Aristotle University Of Thessaloniki">
                             </div>
                         </a>
-                    </q-carousel-slide>
-                    <q-carousel-slide v-for="sponsor in goldSponsors" :key="sponsor.name">
+                    </div>
+                    <div class="col" v-for="sponsor in goldSponsors" :key="sponsor.name">
                         <a :href="sponsor.site">
                             <div class="row justify-center">
                                 <img class="responsive-image" :src="sponsor.img" :alt="sponsor.name">
                             </div>
                         </a>
-                    </q-carousel-slide>
-                </q-carousel>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-center q-mb-md q-mt-md" :class="rM('text-dark', 'text-light')">
             <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8 q-pa-md">
-                <q-carousel style="height: 250px" infinite autoplay quick-nav>
-                    <q-carousel-slide v-for="sponsor in sponsors" :key="sponsor.name">
+                <h4>Our Silver Sponsors</h4>
+                <div class="row gutter-xs">
+                    <div class="col" v-for="sponsor in sponsors" :key="sponsor.name">
                         <a :href="sponsor.site">
                             <div class="row justify-center">
                                 <img class="responsive-image" :src="sponsor.img" :alt="sponsor.name">
                             </div>
                         </a>
-                    </q-carousel-slide>
-                </q-carousel>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
