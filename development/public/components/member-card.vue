@@ -39,8 +39,8 @@
                             <img class="member-card-modal-image round-borders" :src="member.photo" :alt="member.fullname + ' personal photo'">
                         </div>
                     </div>
-                    <div class="col-md-7 q-pl-md q-pr-md">
-                        <h4 class="q-mt-sm q-mb-md">{{member.fullname}}</h4>
+                    <div class="col-md-7 q-pl-md q-pr-md" :class="[nightMode ? 'text-white' : 'text-dark']">
+                        <h4 class="q-mt-sm q-mb-md" :class="[nightMode ? 'text-white' : 'text-dark']">{{member.fullname}}</h4>
                         <!-- TODO <q-scroll-area> -->
                         <div v-html="member.body">
                         </div>
